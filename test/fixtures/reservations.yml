@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  cafe: one
+  reservation_date: 2024-07-08 19:38:56
+  status: MyString
+
+two:
+  user: two
+  cafe: two
+  reservation_date: 2024-07-08 19:38:56
+  status: MyString
