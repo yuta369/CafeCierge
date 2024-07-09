@@ -8,7 +8,8 @@ Devise supports i18n in controllers, models, and in other areas, but it does not
 
 ## Installation
 
-Add `devise-i18n` your Gemfile *after* `devise`:
+Add `devise-i18n` your Gemfile _after_ `devise`:
+
 ```ruby
 gem 'devise'
 gem 'devise-i18n'
@@ -42,6 +43,7 @@ class LocaleMiddleware
   end
 end
 ```
+
 ```ruby
 config.middleware.use ::LocaleMiddleware
 ```
@@ -50,17 +52,19 @@ config.middleware.use ::LocaleMiddleware
 
 The `devise:i18n:views` generator will copy all devise-i18n's views to your application so that you can modify the files as you wish.
 
-``` sh
+```sh
 rails g devise:i18n:views
 ```
+
 You should only do this if you really need to, though, because doing this will make it so that you won't get the updated views should they change in a future version of devise-i18n. To "uncustomize" the views, just delete them, and your app will go back to grabbing devise-i18n's default views.
 
-If you have ```simple_form``` in your Gemfile, this command will generate the corresponding views using the simple_form form builder.
+If you have `simple_form` in your Gemfile, this command will generate the corresponding views using the simple_form form builder.
 
 ## Scoped views
 
 If you need to use scoped views (for example, if you have different ones for users and admins), you can include the scope in this command.
-``` sh
+
+```sh
 rails g devise:i18n:views user
 ```
 
@@ -68,13 +72,13 @@ You will additionally need to generate the translations into your app per the fo
 
 ## Customizing translations
 
-If, for whatever reason, you want to change devise-i18n's translations, you can generate the locale file into your project with 
-``` sh
+If, for whatever reason, you want to change devise-i18n's translations, you can generate the locale file into your project with
+
+```sh
 rails g devise:i18n:locale it
 ```
 
 which will generate `config/locales/devise.views.it.yml`. If you're doing this to add a missing translation or to improve an existing one, it'd be nice if you could share your suggestions with us!
-
 
 ## Contributing translations to devise-i18n
 

@@ -17,6 +17,7 @@ def index
   @people = @q.result(distinct: true)
 end
 ```
+
 or without `distinct: true`, for sorting on an associated table's columns (in
 this example, with preloading each Person's Articles and pagination):
 
@@ -90,7 +91,7 @@ Ransack's `search_form_for` helper replaces `form_for` for creating the view sea
 ```
 
 The argument of `f.search_field` has to be in this form:
- `attribute_name[_or_attribute_name]..._predicate`
+`attribute_name[_or_attribute_name]..._predicate`
 
 where `[_or_another_attribute_name]...` means any repetition of `_or_` plus the name of the attribute.
 
@@ -112,6 +113,7 @@ Ransack's `sort_link` helper creates table headers that are sortable links
 ```erb
 <%= sort_link(@q, :name) %>
 ```
+
 Additional options can be passed after the column parameter, like a different
 column title or a default sort order.
 

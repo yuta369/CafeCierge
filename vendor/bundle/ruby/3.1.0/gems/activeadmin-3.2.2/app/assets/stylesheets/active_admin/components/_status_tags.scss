@@ -6,7 +6,10 @@
   padding: 3px 5px 2px 5px;
   font-size: 0.8em;
 
-  &.yes { background: #6090DB }
-  &.no  { background: grey }
-
+  &.yes {
+    background: #6090db;
+  }
+  &.no {
+    background: grey;
+  }
 }

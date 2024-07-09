@@ -1,4 +1,4 @@
-'no':
+"no":
   activerecord:
     attributes:
       user:
@@ -37,10 +37,10 @@
     failure:
       already_authenticated: Du er allerede logget inn.
       inactive: Din konto er ikke aktivert enda.
-      invalid: 
+      invalid:
       last_attempt: Du har et forsøk til før din konto blir låst.
       locked: Din konto er låst.
-      not_found_in_database: 
+      not_found_in_database:
       timeout: Din sesjon er utløpt. Logg inn igjen for å kunne fortsette.
       unauthenticated: Du må logge inn eller registrere deg for å kunne fortsette.
       unconfirmed: Du må bekrefte kontoen din for å kunne fortsette.
@@ -48,13 +48,13 @@
       confirmation_instructions:
         action: Bekreft min konto
         greeting: Velkommen %{recipient}!
-        instruction: 'Du kan bekrefte kontoen din gjennom linken nedenfor:'
+        instruction: "Du kan bekrefte kontoen din gjennom linken nedenfor:"
         subject: Bekreftelsesinstruksjoner
       email_changed:
         greeting: Hei %{recipient}!
-        message: 
-        message_unconfirmed: 
-        subject: 
+        message:
+        message_unconfirmed:
+        subject:
       password_change:
         greeting: Hallo %{recipient}!
         message: Vi kontakter deg for å meddele at ditt passord har blitt endret.
@@ -69,7 +69,7 @@
       unlock_instructions:
         action: Lås opp konto
         greeting: Hallo %{recipient}!
-        instruction: 'Klikk på linken nedenfor for å låse opp kontoen din:'
+        instruction: "Klikk på linken nedenfor for å låse opp kontoen din:"
         message: Kontoen din har blitt låst på grunn av alt for mange mislykkede påloggingsforsøk.
         subject: Gjenåpning av konto
     omniauth_callbacks:
@@ -94,7 +94,7 @@
       edit:
         are_you_sure: Er du sikker?
         cancel_my_account: Deaktiver konto
-        currently_waiting_confirmation_for_email: 'Venter på bekreftelse for: %{email}'
+        currently_waiting_confirmation_for_email: "Venter på bekreftelse for: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: la stå tomt dersom du ikke vil endre det
         title: Rediger %{resource}
         unhappy: Misfornøyd?
@@ -108,7 +108,7 @@
       signed_up_but_unconfirmed: En epost med en aktiveringslink er sent til din epostadresse.  Vennligst klikk på linken for å aktivere din konto.
       update_needs_confirmation: Din profil er oppdatert, men vi trenger å bekrefte din nye epost-adresse. Vennligst sjekk din innboks og klikk på lenken inneholdt i eposten for å bekrefte endring av din epost-adresse.
       updated: Din profil er oppdatert.
-      updated_but_not_signed_in: 
+      updated_but_not_signed_in:
     sessions:
       already_signed_out: Logget ut
       new:
@@ -124,7 +124,7 @@
         sign_in: Logg inn
         sign_in_with_provider: Logg inn med %{provider}
         sign_up: Opprett konto
-      minimum_password_length: 
+      minimum_password_length:
     unlocks:
       new:
         resend_unlock_instructions: Send nye aktiveringsinstruksjoner
@@ -139,5 +139,5 @@
       not_found: ikke funnet
       not_locked: var ikke låst
       not_saved:
-        one: 'Én feil gjorde at %{resource} ikke kunne lagres:'
+        one: "Én feil gjorde at %{resource} ikke kunne lagres:"
         other: "%{count} feil gjorde at %{resource} ikke kunne lagres:"

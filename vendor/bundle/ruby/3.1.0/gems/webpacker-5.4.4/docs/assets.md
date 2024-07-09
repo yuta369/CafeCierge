@@ -1,10 +1,8 @@
 # Assets
 
-
 Static assets like images and fonts support is enabled out-of-box
 and you can link them into your JavaScript app code and have them
 compiled automatically.
-
 
 ## Import from node modules
 
@@ -23,7 +21,7 @@ Please note that your styles will always be extracted into `[pack_name].css`:
 // Your main app pack
 // app/javascript/packs/app.js
 
-import '../styles'
+import "../styles";
 ```
 
 ```erb
@@ -32,7 +30,6 @@ import '../styles'
 <%= javascript_pack_tag 'app' %>
 <%= stylesheet_pack_tag 'app' %>
 ```
-
 
 ## Import from Sprockets using helpers
 
@@ -47,7 +44,6 @@ const railsImagePath = "<%= helpers.image_path('rails.png') %>"
 
 This is enabled by the `rails-erb-loader` loader rule in `config/webpack/loaders/erb.js`.
 
-
 ## Using babel module resolver
 
 You can also use [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver) to reference assets directly from `app/assets/**`
@@ -61,13 +57,16 @@ Specify the plugin in your `babel.config.js` with the custom root or alias. Here
 ```js
 {
   plugins: [
-    [require("babel-plugin-module-resolver").default, {
-      "root": ["./app"],
-      "alias": {
-        "assets": "./assets"
-      }
-    }]
-  ]
+    [
+      require("babel-plugin-module-resolver").default,
+      {
+        root: ["./app"],
+        alias: {
+          assets: "./assets",
+        },
+      },
+    ],
+  ];
 }
 ```
 
@@ -76,10 +75,9 @@ And then within your javascript app code:
 ```js
 // Note: we don't have to do any ../../ jazz
 
-import FooImage from 'assets/images/foo-image.png'
-import 'assets/stylesheets/bar'
+import FooImage from "assets/images/foo-image.png";
+import "assets/stylesheets/bar";
 ```
-
 
 ## Link in your Rails views
 
@@ -99,7 +97,7 @@ app/javascript:
 // app/javascript/packs/app.js (or any of your packs)
 
 // import all image files in a folder:
-require.context('../images', true)
+require.context("../images", true);
 ```
 
 ```erb

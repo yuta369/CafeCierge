@@ -1,10 +1,12 @@
 <html>
-    <head>
-        <title><%= name %> (<%= duration %> ms) - Profiling Results</title>
-        <script type='text/javascript'> var profiler = <%= json %>; </script>
-        <%= includes %>
-    </head>
-    <body>
-        <div class='profiler-result-full'></div>
-    </body>
+  <head>
+    <title><%= name %> (<%= duration %> ms) - Profiling Results</title>
+    <script type="text/javascript">
+      var profiler = <%= json %>;
+    </script>
+    <%= includes %>
+  </head>
+  <body>
+    <div class="profiler-result-full"></div>
+  </body>
 </html>

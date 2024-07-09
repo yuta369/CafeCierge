@@ -24,7 +24,9 @@ Person.joins(shared_context.join_sources)
   .where(shared_conditions.reduce(&:or))
   .to_sql
 ```
+
 Produces:
+
 ```sql
 SELECT "people".*
 FROM "people"

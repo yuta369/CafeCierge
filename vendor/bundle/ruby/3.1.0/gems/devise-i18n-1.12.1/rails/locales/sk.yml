@@ -48,12 +48,12 @@ sk:
       confirmation_instructions:
         action: Potvrdiť môj účet
         greeting: Vitaj %{recipient}!
-        instruction: 'Môžete potvrdiť emailovú adresu vášho účtu pomocou odkazu nižšie:'
+        instruction: "Môžete potvrdiť emailovú adresu vášho účtu pomocou odkazu nižšie:"
         subject: Potvrdzovacie inštrukcie
       email_changed:
         greeting: Ahoj %{recipient}!
         message: Kontaktujeme Vás aby sme Vám oznámili, že Váš e-mail bol zmenený na %{email}.
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: Email bol zmenený
       password_change:
         greeting: Ahoj %{recipient}!
@@ -69,7 +69,7 @@ sk:
       unlock_instructions:
         action: Odomknúť môj účet
         greeting: Ahoj %{recipient}!
-        instruction: 'Pre odomknutie vášho účtu kliknite na odkaz nižšie:'
+        instruction: "Pre odomknutie vášho účtu kliknite na odkaz nižšie:"
         message: Vaše konto bolo zamknuté kvôli nadmernému počtu neúspešných prihlásení.
         subject: Inštrukcie na odomknutie účtu
     omniauth_callbacks:
@@ -94,7 +94,7 @@ sk:
       edit:
         are_you_sure: Ste si istý?
         cancel_my_account: Zrušiť môj účet
-        currently_waiting_confirmation_for_email: 'Momentálne sa čaká na potvrdenie pre: %{email}'
+        currently_waiting_confirmation_for_email: "Momentálne sa čaká na potvrdenie pre: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: nechajte prázdne ak to nechcete zmeniť
         title: Upraviť %{resource}
         unhappy: Nešťastný
@@ -108,7 +108,7 @@ sk:
       signed_up_but_unconfirmed: Správa s potvrdzovacím odkazom bola odoslaná na vašu emailovú adresu. Aby ste aktivovali váš účet, prosím otvorte odkaz..
       update_needs_confirmation: Váš účet bol úspešne aktualizovaný ale potrebujeme overiť vašu novú emailovú adresu. Prosím skontrolujte si email a kliknite na potvrdzovací odkaz, aby ste potvrdili novú emailovú adresu.
       updated: Úspešne ste aktualizovali váš účet.
-      updated_but_not_signed_in: 
+      updated_but_not_signed_in:
     sessions:
       already_signed_out: Úspešne odhlásený.
       new:

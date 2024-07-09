@@ -48,12 +48,12 @@ de-CH:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:'
+        instruction: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu bestätigen:"
         subject: Anleitung zur Bestätigung Ihres Accounts
       email_changed:
         greeting: Hallo %{recipient}!
         message: Wir schreiben Ihnen, um Sie darüber zu informieren, dass Ihre E-Mail-Adresse zu %{email} geändert wurde.
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: E-Mail-Adresse geändert
       password_change:
         greeting: Hallo %{recipient}!
@@ -69,7 +69,7 @@ de-CH:
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
-        instruction: 'Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:'
+        instruction: "Folgen Sie dem untenstehenden Link, um Ihr Konto zu entsperren:"
         message: Ihr Konto wurde aufgrund einer grossen Anzahl von fehlgeschlagenen Anmeldeversuchen gesperrt.
         subject: Anleitung für die Account-Freischaltung
     omniauth_callbacks:

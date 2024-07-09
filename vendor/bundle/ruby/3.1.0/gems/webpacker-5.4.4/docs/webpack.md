@@ -1,6 +1,5 @@
 # webpack
 
-
 ## Configuration
 
 Webpacker gives you a default set of configuration files for test, development and
@@ -19,41 +18,41 @@ Here is how you can modify webpack configuration:
 module.exports = {
   resolve: {
     alias: {
-      jquery: 'jquery/src/jquery',
-      vue: 'vue/dist/vue.js',
-      React: 'react',
-      ReactDOM: 'react-dom',
-      vue_resource: 'vue-resource/dist/vue-resource',
-    }
-  }
-}
+      jquery: "jquery/src/jquery",
+      vue: "vue/dist/vue.js",
+      React: "react",
+      ReactDOM: "react-dom",
+      vue_resource: "vue-resource/dist/vue-resource",
+    },
+  },
+};
 
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
-const customConfig = require('./custom')
+const { environment } = require("@rails/webpacker");
+const customConfig = require("./custom");
 
 // Set nested object prop using path notation
-environment.config.set('resolve.extensions', ['.foo', '.bar'])
-environment.config.set('output.filename', '[name].js')
+environment.config.set("resolve.extensions", [".foo", ".bar"]);
+environment.config.set("output.filename", "[name].js");
 
 // Merge custom config
-environment.config.merge(customConfig)
-environment.config.merge({ devtool: 'none' })
+environment.config.merge(customConfig);
+environment.config.merge({ devtool: "none" });
 
 // Delete a property
-environment.config.delete('output.chunkFilename')
+environment.config.delete("output.chunkFilename");
 
-module.exports = environment
+module.exports = environment;
 ```
 
 If you need access to configs within Webpacker's configuration,
 you can import them like so:
 
 ```js
-const { config } = require('@rails/webpacker')
+const { config } = require("@rails/webpacker");
 
-console.log(config.output_path)
-console.log(config.source_path)
+console.log(config.output_path);
+console.log(config.source_path);
 ```
 
 ## Loaders
@@ -67,24 +66,24 @@ yarn add json-loader
 
 ```js
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
 const jsonLoader = {
   test: /\.json$/,
-  use: 'json-loader'
-}
+  use: "json-loader",
+};
 
 // Insert json loader at the end of list
-environment.loaders.append('json', jsonLoader)
+environment.loaders.append("json", jsonLoader);
 
 // Insert json loader at the top of list
-environment.loaders.prepend('json', jsonLoader)
+environment.loaders.prepend("json", jsonLoader);
 
 // Insert json loader after/before a given loader
-environment.loaders.insert('json', jsonLoader, { after: 'style'} )
-environment.loaders.insert('json', jsonLoader, { before: 'babel'} )
+environment.loaders.insert("json", jsonLoader, { after: "style" });
+environment.loaders.insert("json", jsonLoader, { before: "babel" });
 
-module.exports = environment
+module.exports = environment;
 ```
 
 Finally add `.json` to the list of extensions in `config/webpacker.yml`. Now if you `import()` any `.json` files inside your JavaScript
@@ -95,12 +94,12 @@ the `babel` loader as an example:
 
 ```js
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
-const babelLoader = environment.loaders.get('babel')
-babelLoader.options.cacheDirectory = false
+const babelLoader = environment.loaders.get("babel");
+babelLoader.options.cacheDirectory = false;
 
-module.exports = environment
+module.exports = environment;
 ```
 
 ### Coffeescript 2
@@ -114,17 +113,17 @@ yarn add coffeescript@2.0.1
 
 ```js
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
-const babelLoader = environment.loaders.get('babel')
+const babelLoader = environment.loaders.get("babel");
 
 // Replace existing coffee loader with CS2 version
-environment.loaders.insert('coffee', {
+environment.loaders.insert("coffee", {
   test: /\.coffee(\.erb)?$/,
-  use:  babelLoader.use.concat(['coffee-loader'])
-})
+  use: babelLoader.use.concat(["coffee-loader"]),
+});
 
-module.exports = environment
+module.exports = environment;
 ```
 
 ### React SVG loader
@@ -132,26 +131,29 @@ module.exports = environment
 To use react svg loader, you should append svg loader before file loader:
 
 ```js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
-const babelLoader = environment.loaders.get('babel')
+const babelLoader = environment.loaders.get("babel");
 
-environment.loaders.insert('svg', {
-  test: /\.svg$/,
-  use: babelLoader.use.concat([
-    {
-      loader: 'react-svg-loader',
-      options: {
-        jsx: true // true outputs JSX tags
-      }
-    }
-  ])
-}, { before: 'file' })
+environment.loaders.insert(
+  "svg",
+  {
+    test: /\.svg$/,
+    use: babelLoader.use.concat([
+      {
+        loader: "react-svg-loader",
+        options: {
+          jsx: true, // true outputs JSX tags
+        },
+      },
+    ]),
+  },
+  { before: "file" }
+);
 
-const fileLoader = environment.loaders.get('file')
-fileLoader.exclude = /\.(svg)$/i
+const fileLoader = environment.loaders.get("file");
+fileLoader.exclude = /\.(svg)$/i;
 ```
-
 
 ### Url Loader
 
@@ -160,24 +162,26 @@ fileLoader.exclude = /\.(svg)$/i
 
 module.exports = {
   test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-  use: [{
-    loader: 'url-loader',
-    options: {
-      limit: 10000,
-      name: '[name]-[hash].[ext]'
-    }
-  }]
-}
+  use: [
+    {
+      loader: "url-loader",
+      options: {
+        limit: 10000,
+        name: "[name]-[hash].[ext]",
+      },
+    },
+  ],
+};
 
 // config/webpack/environment.js
 
-const { environment } = require('@rails/webpacker')
-const url = require('./loaders/url')
+const { environment } = require("@rails/webpacker");
+const url = require("./loaders/url");
 
-environment.loaders.prepend('url', url)
+environment.loaders.prepend("url", url);
 
 // avoid using both file and url loaders
-environment.loaders.get('file').test = /\.(tiff|ico|svg|eot|otf|ttf|woff|woff2)$/i
+environment.loaders.get("file").test = /\.(tiff|ico|svg|eot|otf|ttf|woff|woff2)$/i;
 ```
 
 ### Overriding Loader Options in webpack 3+ (for CSS Modules etc.)
@@ -185,21 +189,21 @@ environment.loaders.get('file').test = /\.(tiff|ico|svg|eot|otf|ttf|woff|woff2)$
 In webpack 3+, if you'd like to specify additional or different options for a loader, edit `config/webpack/environment.js` and provide an options object to override. This is similar to the technique shown above, but the following example shows specifically how to apply CSS Modules, which is what you may be looking for:
 
 ```javascript
-const { environment } = require('@rails/webpacker')
-const merge = require('webpack-merge')
+const { environment } = require("@rails/webpacker");
+const merge = require("webpack-merge");
 
 const myCssLoaderOptions = {
   modules: {
-    localIdentName: '[name]__[local]___[hash:base64:5]'
+    localIdentName: "[name]__[local]___[hash:base64:5]",
   },
   sourceMap: true,
-}
+};
 
-const CSSLoader = environment.loaders.get('sass').use.find(el => el.loader === 'css-loader')
+const CSSLoader = environment.loaders.get("sass").use.find((el) => el.loader === "css-loader");
 
-CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions)
+CSSLoader.options = merge(CSSLoader.options, myCssLoaderOptions);
 
-module.exports = environment
+module.exports = environment;
 ```
 
 See [issue #756](https://github.com/rails/webpacker/issues/756#issuecomment-327148547) for additional discussion of this.
@@ -217,37 +221,39 @@ for loaders above:
 
 ```js
 // config/webpack/environment.js
-const { environment } = require('@rails/webpacker')
-const webpack = require('webpack')
+const { environment } = require("@rails/webpacker");
+const webpack = require("webpack");
 
 // Get a pre-configured plugin
-const manifestPlugin = environment.plugins.get('Manifest')
-manifestPlugin.options.writeToFileEmit = false
+const manifestPlugin = environment.plugins.get("Manifest");
+manifestPlugin.options.writeToFileEmit = false;
 
 // Add an additional plugin of your choosing : ProvidePlugin
 environment.plugins.prepend(
-  'Provide',
+  "Provide",
   new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery',
-    jquery: 'jquery',
-    'window.Tether': 'tether',
-    Popper: ['popper.js', 'default'],
-    ActionCable: 'actioncable',
-    Vue: 'vue',
-    VueResource: 'vue-resource',
+    $: "jquery",
+    jQuery: "jquery",
+    jquery: "jquery",
+    "window.Tether": "tether",
+    Popper: ["popper.js", "default"],
+    ActionCable: "actioncable",
+    Vue: "vue",
+    VueResource: "vue-resource",
   })
-)
+);
 
 // Insert before a given plugin
-environment.plugins.insert('CommonChunkVendor',
+environment.plugins.insert(
+  "CommonChunkVendor",
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor', // Vendor code
-    minChunks: (module) => module.context && module.context.indexOf('node_modules') !== -1
-  })
-, { before: 'manifest' })
+    name: "vendor", // Vendor code
+    minChunks: (module) => module.context && module.context.indexOf("node_modules") !== -1,
+  }),
+  { before: "manifest" }
+);
 
-module.exports = environment
+module.exports = environment;
 ```
 
 ## Resolved modules
@@ -255,13 +261,14 @@ module.exports = environment
 To add new paths to `resolve.modules`, the API is same as loaders and plugins:
 
 ```js
-const { environment } = require('@rails/webpacker')
+const { environment } = require("@rails/webpacker");
 
 // Resolved modules list API - prepend, append, insert
-environment.resolvedModules.append('vendor', 'vendor')
+environment.resolvedModules.append("vendor", "vendor");
 ```
 
 ### Add SplitChunks (Webpack V4)
+
 Originally, chunks (and modules imported inside them) were connected by a parent-child relationship in the internal webpack graph. The CommonsChunkPlugin was used to avoid duplicated dependencies across them, but further optimizations were not possible.
 
 Since webpack v4, the CommonsChunkPlugin was removed in favor of optimization.splitChunks.
@@ -272,10 +279,10 @@ For the full configuration options of SplitChunks, see the [Webpack documentatio
 // config/webpack/environment.js
 
 // Enable the default config
-environment.splitChunks()
+environment.splitChunks();
 
 // or using custom config
-environment.splitChunks((config) => Object.assign({}, config, { optimization: { splitChunks: false }}))
+environment.splitChunks((config) => Object.assign({}, config, { optimization: { splitChunks: false } }));
 ```
 
 Then use the `javascript_packs_with_chunks_tag` and `stylesheet_packs_with_chunks_tag` helpers to include all the transpiled
@@ -326,26 +333,26 @@ The CommonsChunkPlugin is an opt-in feature that creates a separate file (known 
 Add the plugins in `config/webpack/environment.js`:
 
 ```js
-const webpack = require('webpack')
+const webpack = require("webpack");
 
 environment.plugins.append(
-  'CommonsChunkVendor',
+  "CommonsChunkVendor",
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'vendor',
+    name: "vendor",
     minChunks: (module) => {
       // this assumes your vendor imports exist in the node_modules directory
-      return module.context && module.context.indexOf('node_modules') !== -1
-    }
+      return module.context && module.context.indexOf("node_modules") !== -1;
+    },
   })
-)
+);
 
 environment.plugins.append(
-  'CommonsChunkManifest',
+  "CommonsChunkManifest",
   new webpack.optimize.CommonsChunkPlugin({
-    name: 'manifest',
-    minChunks: Infinity
+    name: "manifest",
+    minChunks: Infinity,
   })
-)
+);
 ```
 
 Now, add these files to your `layouts/application.html.erb`:

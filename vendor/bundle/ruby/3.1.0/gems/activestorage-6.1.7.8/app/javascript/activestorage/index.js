@@ -1,11 +1,11 @@
-import { start } from "./ujs"
-import { DirectUpload } from "./direct_upload"
-export { start, DirectUpload }
+import { start } from "./ujs";
+import { DirectUpload } from "./direct_upload";
+export { start, DirectUpload };
 
 function autostart() {
   if (window.ActiveStorage) {
-    start()
+    start();
   }
 }
 
-setTimeout(autostart, 1)
+setTimeout(autostart, 1);

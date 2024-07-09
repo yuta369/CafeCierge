@@ -14,7 +14,7 @@ an application or instance-specific name.
 Note that this uses the systemd preferred "simple" type where the start command
 remains running in the foreground (does not fork and exit).
 
-~~~~ ini
+```ini
 [Unit]
 Description=Puma HTTP Server
 After=network.target
@@ -61,7 +61,7 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target
-~~~~
+```
 
 See
 [systemd.exec](https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
@@ -89,7 +89,7 @@ to use socket activation. Also, uncomment the associated `Requires` directive
 for the socket unit in the service file (see above.) Here is a sample
 puma.socket, matching the ports used in the above puma.service:
 
-~~~~ ini
+```ini
 [Unit]
 Description=Puma HTTP Server Accept Sockets
 
@@ -108,7 +108,7 @@ Backlog=1024
 
 [Install]
 WantedBy=sockets.target
-~~~~
+```
 
 See
 [systemd.socket](https://www.freedesktop.org/software/systemd/man/systemd.socket.html)
@@ -147,7 +147,7 @@ binds that's not socket activated.
 Without socket activation, use `systemctl` as root (i.e., via `sudo`) as with
 other system services:
 
-~~~~ sh
+```sh
 # After installing or making changes to puma.service
 systemctl daemon-reload
 
@@ -163,12 +163,12 @@ systemctl status puma.service
 # A normal restart. Warning: listener's sockets will be closed
 # while a new puma process initializes.
 systemctl restart puma.service
-~~~~
+```
 
 With socket activation, several but not all of these commands should be run for
 both socket and service:
 
-~~~~ sh
+```sh
 # After installing or making changes to either puma.socket or
 # puma.service.
 systemctl daemon-reload
@@ -193,12 +193,12 @@ systemctl restart puma.service
 # puma.socket, such as changing the ListenStream ports. Note
 # daemon-reload (above) should be run first.
 systemctl restart puma.socket puma.service
-~~~~
+```
 
 Here is sample output from `systemctl status` with both service and socket
 running:
 
-~~~~
+```
 ● puma.socket - Puma HTTP Server Accept Sockets
    Loaded: loaded (/etc/systemd/system/puma.socket; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2016-04-07 08:40:19 PDT; 1h 2min ago
@@ -225,7 +225,7 @@ Apr 07 08:40:19 hx puma[28320]: * Phased restart available
 Apr 07 08:40:19 hx puma[28320]: * Activated tcp://0.0.0.0:9233
 Apr 07 08:40:19 hx puma[28320]: * Activated ssl://0.0.0.0:9234?key=key.pem&cert=cert.pem
 Apr 07 08:40:19 hx puma[28320]: Use Ctrl-C to stop
-~~~~
+```
 
 ### capistrano3-puma
 
@@ -236,11 +236,11 @@ following `cap` commands in dry-run mode, and update from the above forking
 service configuration accordingly. Note also that the configured `User` should
 likely be the same as the capistrano3-puma `:puma_user` option.
 
-~~~~ sh
+```sh
 stage=production # or different stage, as needed
 cap $stage puma:start --dry-run
 cap $stage puma:stop  --dry-run
-~~~~
+```
 
 [Restart]: https://www.freedesktop.org/software/systemd/man/systemd.service.html#Restart=
 [#1367]: https://github.com/puma/puma/issues/1367

@@ -5,9 +5,9 @@ operations.
 
 There are two canonical plugins to aid in the development of new plugins:
 
-* [tmp\_restart](https://github.com/puma/puma/blob/master/lib/puma/plugin/tmp_restart.rb):
+- [tmp_restart](https://github.com/puma/puma/blob/master/lib/puma/plugin/tmp_restart.rb):
   Restarts the server if the file `tmp/restart.txt` is touched
-* [heroku](https://github.com/puma/puma-heroku/blob/master/lib/puma/plugin/heroku.rb):
+- [heroku](https://github.com/puma/puma-heroku/blob/master/lib/puma/plugin/heroku.rb):
   Packages up the default configuration used by Puma on Heroku (being sunset
   with the release of Puma 5.0)
 

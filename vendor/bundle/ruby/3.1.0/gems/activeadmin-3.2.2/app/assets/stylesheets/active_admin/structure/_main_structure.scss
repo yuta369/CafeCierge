@@ -14,12 +14,14 @@
     float: left;
     width: 100%;
 
-    #main_content{
+    #main_content {
       margin-right: $sidebar-width + ($section-padding * 2);
     }
   }
 
-  &.without_sidebar #main_content_wrapper #main_content{ margin-right: 0; }
+  &.without_sidebar #main_content_wrapper #main_content {
+    margin-right: 0;
+  }
 
   #sidebar {
     float: left;

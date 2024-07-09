@@ -28,17 +28,17 @@
 
     a {
       @include light-button;
-      @include gradient(#FFFFFF, #F0F0F0);
+      @include gradient(#ffffff, #f0f0f0);
       @include border-colors(#d9d9d9, #d0d0d0, #c5c5c5);
       text-decoration: none;
       border-radius: 0;
-      border-width: 1px .5px 1px .5px;
+      border-width: 1px 0.5px 1px 0.5px;
       margin-right: 0;
       padding: 4px 14px 4px;
 
       &:not(.disabled) {
         &:hover {
-          @include gradient(#FFFFFF, #F6F6F6);
+          @include gradient(#ffffff, #f6f6f6);
         }
       }
     }
@@ -46,11 +46,11 @@
     &.ui-tabs-active {
       a {
         cursor: default;
-        @include gradient(#F0F0F0, #FDFDFD);
-        box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1) inset;
+        @include gradient(#f0f0f0, #fdfdfd);
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1) inset;
 
         a:hover {
-          @include gradient(#F0F0F0, #FDFDFD);
+          @include gradient(#f0f0f0, #fdfdfd);
         }
       }
     }
@@ -58,7 +58,7 @@
 }
 
 .tab-content {
-  border: 1px solid #D3D3D3;
+  border: 1px solid #d3d3d3;
   padding: 15px;
   padding-top: 30px;
   text-align: left;

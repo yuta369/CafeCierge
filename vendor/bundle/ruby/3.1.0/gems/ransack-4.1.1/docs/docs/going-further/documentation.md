@@ -19,7 +19,6 @@ Install docusaurus and other dependencies
 yarn install
 ```
 
-
 Start a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
 
 ```

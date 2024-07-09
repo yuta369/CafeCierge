@@ -48,7 +48,7 @@ ar:
       confirmation_instructions:
         action: تأكيد حسابي
         greeting: مرحباً %{recipient}
-        instruction: 'يُمكنك تأكيد بريدك الإلكتروني من خلال الرابط أدناه:'
+        instruction: "يُمكنك تأكيد بريدك الإلكتروني من خلال الرابط أدناه:"
         subject: تعليمات التأكيد
       email_changed:
         greeting: أهلا %{recipient} !
@@ -69,7 +69,7 @@ ar:
       unlock_instructions:
         action: إلغاء قفل حسابي
         greeting: مرحباً %{recipient}
-        instruction: 'انقر فوق الرابط أدناه لإلغاء قفل حسابك:'
+        instruction: "انقر فوق الرابط أدناه لإلغاء قفل حسابك:"
         message: تم غلق حسابك بسس العدد الكبير من محاولات تسجيل الدخول غير الناجحة.
         subject: تعليمات إلغاء القفل
     omniauth_callbacks:
@@ -94,7 +94,7 @@ ar:
       edit:
         are_you_sure: هل أنت متأكد؟
         cancel_my_account: إلغاء حسابي
-        currently_waiting_confirmation_for_email: 'قيد انتظار التأكيد حالياً لـ: %{email}'
+        currently_waiting_confirmation_for_email: "قيد انتظار التأكيد حالياً لـ: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: اتركه فارغاً إذا كنت لا ترغب في تغييره
         title: تحرير %{resource}
         unhappy: غير سعيد؟
@@ -124,7 +124,7 @@ ar:
         sign_in: تسجيل الدخول
         sign_in_with_provider: تسجيل الدخول باستخدام %{provider}
         sign_up: التسجيل
-      minimum_password_length: 
+      minimum_password_length:
     unlocks:
       new:
         resend_unlock_instructions: إعادة إرسال تعليمات إلغاء القفل
@@ -141,7 +141,7 @@ ar:
       not_saved:
         few: "%{count} أخطاء منع %{resource} هذا من أن يتم حفظه:"
         many: "%{count} أخطاء منع %{resource} هذا من أن يتم حفظه:"
-        one: '1 خطأ منع %{resource} هذا من أن يتم حفظه:'
+        one: "1 خطأ منع %{resource} هذا من أن يتم حفظه:"
         other: "%{count} أخطاء منع %{resource} هذا من أن يتم حفظه:"
         two: "%{count} أخطاء منع %{resource} هذا من أن يتم حفظه:"
         zero: "%{count} أخطاء منع %{resource} هذا من أن يتم حفظه:"

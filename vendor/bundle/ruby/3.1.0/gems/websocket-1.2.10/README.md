@@ -31,7 +31,7 @@ gem "websocket"
 
 ## Server handshake
 
-``` ruby
+```ruby
 @handshake = WebSocket::Handshake::Server.new
 
 # Parse client request
@@ -61,7 +61,7 @@ EOF
 
 ## Client handshake
 
-``` ruby
+```ruby
 @handshake = WebSocket::Handshake::Client.new(url: 'ws://example.com', headers: { 'Cookie' => 'SESSIONID=1234' })
 
 # Create request
@@ -92,7 +92,7 @@ EOF
 
 ## Parsing and constructing frames
 
-``` ruby
+```ruby
 # Prepare frame for sending
 frame = WebSocket::Frame::Outgoing::Server.new(version: @handshake.version, data: "Hello", type: :text)
 frame.to_s # "\x81\x05\x48\x65\x6c\x6c\x6f"

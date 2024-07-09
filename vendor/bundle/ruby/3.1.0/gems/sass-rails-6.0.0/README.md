@@ -32,6 +32,7 @@ can be found on the Sass Website with the following caveats:
 - `:line` - This is provided by the template handler.
 
 ### Example
+
 ```ruby
 MyProject::Application.configure do
   config.sass.preferred_syntax = :sass
@@ -54,8 +55,8 @@ primitive and do not work well with Sass files. Instead, use Sass's native `@imp
 When in Rails, there is a special import syntax that allows you to
 glob imports relative to the folder of the stylesheet that is doing the importing.
 
-* `@import "mixins/*"` will import all the files in the mixins folder
-* `@import "mixins/**/*"` will import all the files in the mixins tree
+- `@import "mixins/*"` will import all the files in the mixins folder
+- `@import "mixins/**/*"` will import all the files in the mixins tree
 
 Any valid ruby glob may be used. The imports are sorted alphabetically.
 
@@ -64,31 +65,35 @@ files (containing mixins and variables) because it is difficult to control the
 cascade ordering for imports that contain styles using this approach.
 
 ### Asset Helpers
+
 When using the asset pipeline, paths to assets must be rewritten.
 When referencing assets use the following asset helpers (underscored in Ruby, hyphenated
 in Sass):
 
 #### `asset-path($relative-asset-path)`
+
 Returns a string to the asset.
 
-* `asset-path("rails.png")` returns `"/assets/rails.png"`
+- `asset-path("rails.png")` returns `"/assets/rails.png"`
 
 #### `asset-url($relative-asset-path)`
+
 Returns a url reference to the asset.
 
-* `asset-url("rails.png")` returns `url(/assets/rails.png)`
+- `asset-url("rails.png")` returns `url(/assets/rails.png)`
 
 As a convenience, for each of the following asset classes there are
 corresponding `-path` and `-url` helpers:
 image, font, video, audio, javascript, stylesheet.
 
-* `image-path("rails.png")` returns `"/assets/rails.png"`
-* `image-url("rails.png")` returns `url(/assets/rails.png)`
+- `image-path("rails.png")` returns `"/assets/rails.png"`
+- `image-url("rails.png")` returns `url(/assets/rails.png)`
 
 #### `asset-data-url($relative-asset-path)`
+
 Returns a url reference to the Base64-encoded asset at the specified path.
 
-* `asset-data-url("rails.png")` returns `url(data:image/png;base64,iVBORw0K...)`
+- `asset-data-url("rails.png")` returns `url(data:image/png;base64,iVBORw0K...)`
 
 ## Running Tests
 
@@ -99,5 +104,5 @@ If you need to test against local gems, use Bundler's gem :path option in the Ge
 
 ## Code Status
 
-* [![Travis CI](https://api.travis-ci.org/rails/sass-rails.svg)](http://travis-ci.org/rails/sass-rails)
-* [![Gem Version](https://badge.fury.io/rb/sass-rails.svg)](http://badge.fury.io/rb/sass-rails)
+- [![Travis CI](https://api.travis-ci.org/rails/sass-rails.svg)](http://travis-ci.org/rails/sass-rails)
+- [![Gem Version](https://badge.fury.io/rb/sass-rails.svg)](http://badge.fury.io/rb/sass-rails)

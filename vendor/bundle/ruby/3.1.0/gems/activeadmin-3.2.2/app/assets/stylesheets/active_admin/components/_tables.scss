@@ -24,7 +24,9 @@ table.index_table {
     padding-left: $cell-horizontal-padding;
     padding-right: $cell-horizontal-padding;
 
-    a, a:link, a:visited {
+    a,
+    a:link,
+    a:visited {
       color: $section-header-text-color;
       text-decoration: none;
       display: block;
@@ -32,23 +34,30 @@ table.index_table {
     }
 
     &.sortable a {
-      background: url($orderable-icon-url) no-repeat 0 4px; padding-left: 13px;
+      background: url($orderable-icon-url) no-repeat 0 4px;
+      padding-left: 13px;
     }
 
-    &.sorted-asc a { background-position: 0 -27px; }
-    &.sorted-desc a {  background-position: 0 -56px;}
+    &.sorted-asc a {
+      background-position: 0 -27px;
+    }
+    &.sorted-desc a {
+      background-position: 0 -56px;
+    }
 
-    &.sorted-asc, &.sorted-desc {
+    &.sorted-asc,
+    &.sorted-desc {
       @include gradient(darken($secondary-gradient-start, 5%), darken($secondary-gradient-stop, 5%));
     }
 
     &:last-child {
       border-right: solid 1px #d4d4d4;
     }
-
   }
 
-  tr.even td { background: $table-stripe-color; }
+  tr.even td {
+    background: $table-stripe-color;
+  }
 
   tr.selected td {
     background: $table-selected-color;
@@ -74,17 +83,28 @@ table.index_table {
     text-transform: uppercase;
     border-bottom: 1px solid #ccc;
   }
-  tr.odd td { background: darken($table-stripe-color, 3%); }
-  tr.even td { background: $table-stripe-color; }
+  tr.odd td {
+    background: darken($table-stripe-color, 3%);
+  }
+  tr.even td {
+    background: $table-stripe-color;
+  }
 }
 
 // -------------------------------------- Resource Attributes Table
-.attributes_table { overflow: hidden; }
+.attributes_table {
+  overflow: hidden;
+}
 
 .attributes_table table {
-  col.even { background: $table-stripe-color; }
-  col.odd  { background: darken($table-stripe-color, 3%); }
-  th, td {
+  col.even {
+    background: $table-stripe-color;
+  }
+  col.odd {
+    background: darken($table-stripe-color, 3%);
+  }
+  th,
+  td {
     padding: 8px $cell-horizontal-padding 6px $cell-horizontal-padding;
     vertical-align: top;
     border-bottom: 1px solid #e8e8e8;
@@ -109,4 +129,6 @@ table.index_table {
   }
 }
 
-.sidebar_section .attributes_table th { width: 50px; }
+.sidebar_section .attributes_table th {
+  width: 50px;
+}

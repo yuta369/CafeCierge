@@ -1,11 +1,9 @@
-import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from '../lib/utils';
+import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from "../lib/utils";
 
 class Filters {
-
   static _clearForm(event) {
     const regex = /^(q\[|q%5B|q%5b|page|utf8|commit)/;
-    const params = queryStringToParams()
-      .filter(({name}) => !name.match(regex));
+    const params = queryStringToParams().filter(({ name }) => !name.match(regex));
 
     event.preventDefault();
 
@@ -18,8 +16,8 @@ class Filters {
 
   static _disableEmptyInputFields(event) {
     const params = $(this)
-      .find(':input')
-      .filter((i, input) => input.value === '')
+      .find(":input")
+      .filter((i, input) => input.value === "")
       .prop({ disabled: true })
       .end()
       .serializeArray();
@@ -31,9 +29,10 @@ class Filters {
   }
 
   static _setSearchType() {
-    $(this).siblings('input').prop({name: `q[${this.value}]`});
+    $(this)
+      .siblings("input")
+      .prop({ name: `q[${this.value}]` });
   }
-
 }
 
 export default Filters;

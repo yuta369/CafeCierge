@@ -9,16 +9,16 @@ boot it every time you run a test, rake task or migration.
 
 ## Features
 
-* Totally automatic; no need to explicitly start and stop the background process
-* Reloads your application code on each run
-* Restarts your application when configs / initializers / gem
+- Totally automatic; no need to explicitly start and stop the background process
+- Reloads your application code on each run
+- Restarts your application when configs / initializers / gem
   dependencies are changed
 
 ## Compatibility
 
-* Ruby versions: MRI 2.7, MRI 3.0, MRI 3.1, MRI 3.2
-* Rails versions: 6.0, 6.1, 7.0
-* Bundler v2.1+
+- Ruby versions: MRI 2.7, MRI 3.0, MRI 3.1, MRI 3.2
+- Rails versions: 6.0, 6.1, 7.0
+- Bundler v2.1+
 
 Spring makes extensive use of `Process.fork`, so won't be able to
 provide a speed up on platforms which don't support forking (Windows, JRuby).
@@ -29,11 +29,11 @@ provide a speed up on platforms which don't support forking (Windows, JRuby).
 
 Add Spring to your Gemfile:
 
-``` ruby
+```ruby
 gem "spring", group: :development
 ```
 
-(Note: using `gem "spring", git: "..."` *won't* work and is not a
+(Note: using `gem "spring", git: "..."` _won't_ work and is not a
 supported way of using Spring.)
 
 It's recommended to 'springify' the executables in your `bin/`
@@ -47,7 +47,7 @@ $ bundle exec spring binstub --all
 This generates a `bin/spring` executable, and inserts a small snippet of
 code into relevant existing executables. The snippet looks like this:
 
-``` ruby
+```ruby
 begin
   load File.expand_path('../spring', __FILE__)
 rescue LoadError => e
@@ -196,8 +196,8 @@ From within your code, you can check whether Spring is active with `if defined?(
 
 To remove Spring:
 
-* 'Unspring' your bin/ executables: `bin/spring binstub --remove --all`
-* Remove spring from your Gemfile
+- 'Unspring' your bin/ executables: `bin/spring binstub --remove --all`
+- Remove spring from your Gemfile
 
 ### Deployment
 
@@ -222,7 +222,7 @@ environment variable. The environment is also configurable with the
 defaults, but if you need to match a specific task to a specific
 environment, you'd do it like this:
 
-``` ruby
+```ruby
 Spring::Commands::Rake.environment_matchers["perf_test"] = "test"
 Spring::Commands::Rake.environment_matchers[/^perf/]     = "test"
 
@@ -241,19 +241,19 @@ speed-up).
 
 You can add these to your Gemfile for additional commands:
 
-* [spring-commands-rspec](https://github.com/jonleighton/spring-commands-rspec)
-* [spring-commands-cucumber](https://github.com/jonleighton/spring-commands-cucumber)
-* [spring-commands-spinach](https://github.com/jvanbaarsen/spring-commands-spinach)
-* [spring-commands-testunit](https://github.com/jonleighton/spring-commands-testunit) - useful for
+- [spring-commands-rspec](https://github.com/jonleighton/spring-commands-rspec)
+- [spring-commands-cucumber](https://github.com/jonleighton/spring-commands-cucumber)
+- [spring-commands-spinach](https://github.com/jvanbaarsen/spring-commands-spinach)
+- [spring-commands-testunit](https://github.com/jonleighton/spring-commands-testunit) - useful for
   running `Test::Unit` tests on Rails 3, since only Rails 4 allows you
   to use `rake test path/to/test` to run a particular test/directory.
-* [spring-commands-parallel-tests](https://github.com/DocSpring/spring-commands-parallel-tests) - Adds the `parallel_*` commands from [`parallel_tests`](https://github.com/grosser/parallel_tests).
-* [spring-commands-teaspoon](https://github.com/alejandrobabio/spring-commands-teaspoon.git)
-* [spring-commands-m](https://github.com/gabrieljoelc/spring-commands-m.git)
-* [spring-commands-rubocop](https://github.com/p0deje/spring-commands-rubocop)
-* [spring-commands-rackup](https://github.com/wintersolutions/spring-commands-rackup)
-* [spring-commands-rack-console](https://github.com/wintersolutions/spring-commands-rack-console)
-* [spring-commands-standard](https://github.com/lakim/spring-commands-standard)
+- [spring-commands-parallel-tests](https://github.com/DocSpring/spring-commands-parallel-tests) - Adds the `parallel_*` commands from [`parallel_tests`](https://github.com/grosser/parallel_tests).
+- [spring-commands-teaspoon](https://github.com/alejandrobabio/spring-commands-teaspoon.git)
+- [spring-commands-m](https://github.com/gabrieljoelc/spring-commands-m.git)
+- [spring-commands-rubocop](https://github.com/p0deje/spring-commands-rubocop)
+- [spring-commands-rackup](https://github.com/wintersolutions/spring-commands-rackup)
+- [spring-commands-rack-console](https://github.com/wintersolutions/spring-commands-rack-console)
+- [spring-commands-standard](https://github.com/lakim/spring-commands-standard)
 
 ## Use without adding to bundle
 
@@ -279,7 +279,7 @@ during development when you refresh the page. However, you may never have used
 this mechanism with your `test` environment before, and this can cause problems.
 
 It's important to realise that code reloading means that the constants
-in your application are *different objects* after files have changed:
+in your application are _different objects_ after files have changed:
 
 ```
 $ bin/rails runner 'puts User.object_id'
@@ -292,11 +292,11 @@ $ bin/rails runner 'puts User.object_id'
 Suppose you have an initializer `config/initializers/save_user_class.rb`
 like so:
 
-``` ruby
+```ruby
 USER_CLASS = User
 ```
 
-This saves off the *first* version of the `User` class, which will not
+This saves off the _first_ version of the `User` class, which will not
 be the same object as `User` after the code has been reloaded:
 
 ```
@@ -320,8 +320,8 @@ information about how to do it with [Docker](https://www.docker.com/).
 ## Configuration
 
 Spring will read `~/.spring.rb` and `config/spring.rb` for custom
-settings. Note that `~/.spring.rb` is loaded *before* bundler, but
-`config/spring.rb` is loaded *after* bundler. So if you have any
+settings. Note that `~/.spring.rb` is loaded _before_ bundler, but
+`config/spring.rb` is loaded _after_ bundler. So if you have any
 `spring-commands-*` gems installed that you want to be available in all
 projects without having to be added to the project's Gemfile, require
 them in your `~/.spring.rb`.
@@ -388,7 +388,7 @@ gem.
 To disable the "Running via Spring preloader" message which is shown each time
 a command runs:
 
-``` ruby
+```ruby
 Spring.quiet = true
 ```
 
@@ -402,31 +402,31 @@ via the `Spring.quiet` option in `~/.spring.rb` or the app's `config/spring.rb`.
 
 The following environment variables are used by Spring:
 
-* `DISABLE_SPRING` - If set, Spring will be bypassed, and your
+- `DISABLE_SPRING` - If set, Spring will be bypassed, and your
   application will boot in a foreground process
-* `SPRING_LOG` - The path to a file which Spring will write log messages
+- `SPRING_LOG` - The path to a file which Spring will write log messages
   to.
-* `SPRING_TMP_PATH` - The directory where Spring should write its temporary
+- `SPRING_TMP_PATH` - The directory where Spring should write its temporary
   files (a pidfile and a socket). By default, we use the
   `XDG_RUNTIME_DIR` environment variable, or else `Dir.tmpdir`, and then
   create a directory in that named `spring-$UID`. We don't use your
   Rails application's `tmp/` directory because that may be on a
   filesystem which doesn't support UNIX sockets.
-* `SPRING_APPLICATION_ID` - Used to identify distinct Rails
+- `SPRING_APPLICATION_ID` - Used to identify distinct Rails
   applications. By default, it is an MD5 hash of the current
   `RUBY_VERSION`, and the path to your Rails project root.
-* `SPRING_SOCKET` - The path which should be used for the UNIX socket
+- `SPRING_SOCKET` - The path which should be used for the UNIX socket
   which Spring uses to communicate with the long-running Spring server
   process. By default, this is `SPRING_TMP_PATH/SPRING_APPLICATION_ID`.
-* `SPRING_PIDFILE` - The path which should be used to store the pid of
+- `SPRING_PIDFILE` - The path which should be used to store the pid of
   the long-running Spring server process. By default, this is related to
   the socket path; if the socket path is `/foo/bar/spring.sock` the
   pidfile will be `/foo/bar/spring.pid`.
-* `SPRING_QUIET` - If set, the initial state of the `Spring.quiet`
+- `SPRING_QUIET` - If set, the initial state of the `Spring.quiet`
   configuration option will default to `true`.
-* `SPRING_SERVER_COMMAND` - The command to run to start up the Spring
+- `SPRING_SERVER_COMMAND` - The command to run to start up the Spring
   server when it is not already running. Defaults to `spring _[version]_
-  server --background`.
+server --background`.
 
 ## Troubleshooting
 

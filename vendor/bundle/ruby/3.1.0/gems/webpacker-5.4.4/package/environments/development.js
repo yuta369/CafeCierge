@@ -1,27 +1,26 @@
-const webpack = require('webpack')
-const Base = require('./base')
-const devServer = require('../dev_server')
-const { outputPath: contentBase, publicPath } = require('../config')
+const webpack = require("webpack");
+const Base = require("./base");
+const devServer = require("../dev_server");
+const { outputPath: contentBase, publicPath } = require("../config");
 
 module.exports = class extends Base {
   constructor() {
-    super()
+    super();
 
     this.config.merge({
-      mode: 'development',
-      devtool: 'cheap-module-source-map'
-    })
+      mode: "development",
+      devtool: "cheap-module-source-map",
+    });
 
-    if (process.env.WEBPACK_DEV_SERVER
-        && process.env.WEBPACK_DEV_SERVER !== 'undefined') {
+    if (process.env.WEBPACK_DEV_SERVER && process.env.WEBPACK_DEV_SERVER !== "undefined") {
       if (devServer.hmr) {
-        this.plugins.append('HotModuleReplacement', new webpack.HotModuleReplacementPlugin())
-        this.config.output.filename = '[name]-[hash].js'
+        this.plugins.append("HotModuleReplacement", new webpack.HotModuleReplacementPlugin());
+        this.config.output.filename = "[name]-[hash].js";
       }
 
       this.config.merge({
         devServer: {
-          clientLogLevel: 'none',
+          clientLogLevel: "none",
           compress: devServer.compress,
           quiet: devServer.quiet,
           disableHostCheck: devServer.disable_host_check,
@@ -35,7 +34,7 @@ module.exports = class extends Base {
           public: devServer.public,
           publicPath,
           historyApiFallback: {
-            disableDotRule: true
+            disableDotRule: true,
           },
           headers: devServer.headers,
           overlay: devServer.overlay,
@@ -43,11 +42,11 @@ module.exports = class extends Base {
             entrypoints: false,
             errorDetails: true,
             modules: false,
-            moduleTrace: false
+            moduleTrace: false,
           },
-          watchOptions: devServer.watch_options
-        }
-      })
+          watchOptions: devServer.watch_options,
+        },
+      });
     }
   }
-}
+};

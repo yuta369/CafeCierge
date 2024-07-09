@@ -115,8 +115,8 @@ mk:
         resend_confirmation_instructions: "Повторно испрати инструкции за потврдување на профил"
     unsupported_browser:
       headline: "Ве замолуваме, имајте во предвид дека ActiveAdmin не нуди поддршка за Internet Explorer 8 верзијата или претходни верзии."
-      recommendation: "Ви порачуваме да го <a href=\"http://browsehappy.com/\"> ажурирате Вашиот пребарувач</a> за да си го подобрите пребарувањето."
-      turn_off_compatibility_view: "Доколку користите IE 9 или понова верзија, Ве замолуваме <a href=\"https://support.microsoft.com/en-us/help/17471\">да исклучите \"Compatibility View\"</a>."
+      recommendation: 'Ви порачуваме да го <a href="http://browsehappy.com/"> ажурирате Вашиот пребарувач</a> за да си го подобрите пребарувањето.'
+      turn_off_compatibility_view: 'Доколку користите IE 9 или понова верзија, Ве замолуваме <a href="https://support.microsoft.com/en-us/help/17471">да исклучите "Compatibility View"</a>.'
     access_denied:
       message: "Немате овластување да ја извршите оваа активност."
     index_list:

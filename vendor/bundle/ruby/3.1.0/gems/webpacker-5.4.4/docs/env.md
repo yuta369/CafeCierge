@@ -1,8 +1,8 @@
 # Environment variables
 
-
 Environment variables are supported out of the box in Webpacker. For example if
 you run the webpack dev server like so:
+
 ```
 FOO=hello BAR=world ./bin/webpack-dev-server
 ```
@@ -11,7 +11,7 @@ You can then reference these variables in your JavaScript app code with
 `process.env`:
 
 ```js
-console.log(process.env.FOO) // Compiles to console.log("hello")
+console.log(process.env.FOO); // Compiles to console.log("hello")
 ```
 
 You may want to store configuration in environment variables via `.env` files,

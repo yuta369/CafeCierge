@@ -1,5 +1,4 @@
-method_source
-=============
+# method_source
 
 [![Circle Build Status](https://circleci.com/gh/banister/method_source.svg?style=shield)](https://circleci.com/gh/banister/method_source)
 
@@ -7,8 +6,8 @@ method_source
 
 _retrieve the sourcecode for a method_
 
-*NOTE:* This simply utilizes `Method#source_location`; it
- does not access the live AST.
+_NOTE:_ This simply utilizes `Method#source_location`; it
+does not access the live AST.
 
 `method_source` is a utility to return a method's sourcecode as a
 Ruby string. Also returns `Proc` and `Lambda` sourcecode.
@@ -17,18 +16,17 @@ Method comments can also be extracted using the `comment` method.
 
 It is written in pure Ruby (no C).
 
-* Some Ruby 1.8 support now available.
-* Support for MRI, RBX, JRuby, REE
+- Some Ruby 1.8 support now available.
+- Support for MRI, RBX, JRuby, REE
 
 `method_source` provides the `source` and `comment` methods to the `Method` and
 `UnboundMethod` and `Proc` classes.
 
-* Install the [gem](https://rubygems.org/gems/method_source): `gem install method_source`
-* Read the [documentation](https://www.rubydoc.info/github/banister/method_source/master)
-* See the [source code](http://github.com/banister/method_source)
+- Install the [gem](https://rubygems.org/gems/method_source): `gem install method_source`
+- Read the [documentation](https://www.rubydoc.info/github/banister/method_source/master)
+- See the [source code](http://github.com/banister/method_source)
 
-Example: display method source
-------------------------------
+## Example: display method source
 
     Set.instance_method(:merge).source.display
     # =>
@@ -42,31 +40,27 @@ Example: display method source
       self
     end
 
-Example: display method comments
---------------------------------
+## Example: display method comments
 
     Set.instance_method(:merge).comment.display
     # =>
     # Merges the elements of the given enumerable object to the set and
     # returns self.
 
-Example: display module/class comments
---------------------------------------
+## Example: display module/class comments
 
     MethodSource::MethodExtensions.method(:included).module_comment
     # =>
     # This module is to be included by `Method` and `UnboundMethod` and
     # provides the `#source` functionality
 
-Limitations:
-------------
+## Limitations:
 
-* Occasional strange behaviour in Ruby 1.8
-* Cannot return source for C methods.
-* Cannot return source for dynamically defined methods.
+- Occasional strange behaviour in Ruby 1.8
+- Cannot return source for C methods.
+- Cannot return source for dynamically defined methods.
 
-Special Thanks
---------------
+## Special Thanks
 
 [Adam Sanderson](https://github.com/adamsanderson) for `comment` functionality.
 
@@ -74,8 +68,7 @@ Special Thanks
 
 [Samuel Kadolph](https://github.com/samuelkadolph) for the JRuby 1.8 `source_location`.
 
-License
--------
+## License
 
 (The MIT License)
 

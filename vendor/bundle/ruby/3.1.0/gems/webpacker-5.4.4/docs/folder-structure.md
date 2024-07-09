@@ -1,17 +1,14 @@
 # Folder Structure
 
-
 ## Packs a.k.a webpack entries
 
 "Packs" is a special directory made only for webpack entry files so don't put anything
 here that you don't want to link in your views.
 
-
 ## Source
 
 You can put your app source under `app/javascript` folder or whatever you have configured
 in `config/webpacker.yml`.
-
 
 ## Example
 
@@ -20,7 +17,7 @@ Let's say you're building a calendar app. Your JS app structure could look like 
 ```js
 // app/javascript/packs/calendar.js
 
-import 'calendar'
+import "calendar";
 ```
 
 ```
@@ -38,7 +35,6 @@ app/javascript/calendar/models/month.js
 ```
 
 But it could also look a million other ways.
-
 
 ## Namespacing
 

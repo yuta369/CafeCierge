@@ -4,7 +4,7 @@
 
   .blank_slate {
     @include rounded;
-    border:  $blank-slate-border;
+    border: $blank-slate-border;
     color: $blank-slate-primary-color;
     display: inline-block;
     font-size: 1.2em;

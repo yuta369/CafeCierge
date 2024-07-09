@@ -8,7 +8,7 @@
 [![Actions non MRI](https://github.com/puma/puma/workflows/non_MRI/badge.svg?branch=master)](https://github.com/puma/puma/actions?query=workflow%3Anon_MRI)
 [![Code Climate](https://codeclimate.com/github/puma/puma.svg)](https://codeclimate.com/github/puma/puma)
 [![SemVer](https://api.dependabot.com/badges/compatibility_score?dependency-name=puma&package-manager=bundler&version-scheme=semver)](https://dependabot.com/compatibility-score.html?dependency-name=puma&package-manager=bundler&version-scheme=semver)
-[![StackOverflow](https://img.shields.io/badge/stackoverflow-Puma-blue.svg)]( https://stackoverflow.com/questions/tagged/puma )
+[![StackOverflow](https://img.shields.io/badge/stackoverflow-Puma-blue.svg)](https://stackoverflow.com/questions/tagged/puma)
 
 Puma is a **simple, fast, multi-threaded, and highly parallel HTTP 1.1 server for Ruby/Rack applications**.
 
@@ -110,7 +110,7 @@ $ puma -t 8:32 -w 3
 
 Note that threads are still used in clustered mode, and the `-t` thread flag setting is per worker, so `-w 2 -t 16:16` will spawn 32 threads in total, with 16 in each worker process.
 
-In clustered mode, Puma can "preload" your application. This loads all the application code *prior* to forking. Preloading reduces total memory usage of your application via an operating system feature called [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write) (Ruby 2.0+ only). Use the `--preload` flag from the command line:
+In clustered mode, Puma can "preload" your application. This loads all the application code _prior_ to forking. Preloading reduces total memory usage of your application via an operating system feature called [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write) (Ruby 2.0+ only). Use the `--preload` flag from the command line:
 
 ```
 $ puma -w 3 --preload
@@ -192,15 +192,16 @@ Need a bit of security? Use SSL sockets:
 ```
 $ puma -b 'ssl://127.0.0.1:9292?key=path_to_key&cert=path_to_cert'
 ```
-#### Self-signed SSL certificates (via the [`localhost`] gem, for development use): 
 
-Puma supports the [`localhost`] gem for self-signed certificates. This is particularly useful if you want to use Puma with SSL locally, and self-signed certificates will work for your use-case. Currently, the integration can only be used in MRI. 
+#### Self-signed SSL certificates (via the [`localhost`] gem, for development use):
+
+Puma supports the [`localhost`] gem for self-signed certificates. This is particularly useful if you want to use Puma with SSL locally, and self-signed certificates will work for your use-case. Currently, the integration can only be used in MRI.
 
 Puma automatically configures SSL when the [`localhost`] gem is loaded in a `development` environment:
 
 ```ruby
 # Add the gem to your Gemfile
-group(:development) do 
+group(:development) do
   gem 'localhost'
 end
 
@@ -310,7 +311,7 @@ Check out `Puma::DSL` or [dsl.rb](https://github.com/puma/puma/blob/master/lib/p
 
 ## Restart
 
-Puma includes the ability to restart itself. When available (MRI, Rubinius, JRuby), Puma performs a "hot restart". This is the same functionality available in *Unicorn* and *NGINX* which keep the server sockets open between restarts. This makes sure that no pending requests are dropped while the restart is taking place.
+Puma includes the ability to restart itself. When available (MRI, Rubinius, JRuby), Puma performs a "hot restart". This is the same functionality available in _Unicorn_ and _NGINX_ which keep the server sockets open between restarts. This makes sure that no pending requests are dropped while the restart is taking place.
 
 For more, see the [Restart documentation](docs/restart.md).
 
@@ -322,13 +323,13 @@ Puma responds to several signals. A detailed guide to using UNIX signals with Pu
 
 Some platforms do not support all Puma features.
 
-  * **JRuby**, **Windows**: server sockets are not seamless on restart, they must be closed and reopened. These platforms have no way to pass descriptors into a new process that is exposed to Ruby. Also, cluster mode is not supported due to a lack of fork(2).
-  * **Windows**: Cluster mode is not supported due to a lack of fork(2).
-  * **Kubernetes**: The way Kubernetes handles pod shutdowns interacts poorly with server processes implementing graceful shutdown, like Puma. See the [kubernetes section of the documentation](docs/kubernetes.md) for more details.
+- **JRuby**, **Windows**: server sockets are not seamless on restart, they must be closed and reopened. These platforms have no way to pass descriptors into a new process that is exposed to Ruby. Also, cluster mode is not supported due to a lack of fork(2).
+- **Windows**: Cluster mode is not supported due to a lack of fork(2).
+- **Kubernetes**: The way Kubernetes handles pod shutdowns interacts poorly with server processes implementing graceful shutdown, like Puma. See the [kubernetes section of the documentation](docs/kubernetes.md) for more details.
 
 ## Known Bugs
 
-For MRI versions 2.2.7, 2.2.8, 2.2.9, 2.2.10, 2.3.4 and 2.4.1, you may see ```stream closed in another thread (IOError)```. It may be caused by a [Ruby bug](https://bugs.ruby-lang.org/issues/13632). It can be fixed with the gem https://rubygems.org/gems/stopgap_13632:
+For MRI versions 2.2.7, 2.2.8, 2.2.9, 2.2.10, 2.3.4 and 2.4.1, you may see `stream closed in another thread (IOError)`. It may be caused by a [Ruby bug](https://bugs.ruby-lang.org/issues/13632). It can be fixed with the gem https://rubygems.org/gems/stopgap_13632:
 
 ```ruby
 if %w(2.2.7 2.2.8 2.2.9 2.2.10 2.3.4 2.4.1).include? RUBY_VERSION
@@ -347,24 +348,24 @@ It is common to use process monitors with Puma. Modern process monitors like sys
 provide continuous monitoring and restarts for increased
 reliability in production environments:
 
-* [rc.d](docs/jungle/rc.d/README.md)
-* [systemd](docs/systemd.md)
+- [rc.d](docs/jungle/rc.d/README.md)
+- [systemd](docs/systemd.md)
 
-Community guides: 
+Community guides:
 
-* [Deploying Puma on OpenBSD using relayd and httpd](https://gist.github.com/anon987654321/4532cf8d6c59c1f43ec8973faa031103)
+- [Deploying Puma on OpenBSD using relayd and httpd](https://gist.github.com/anon987654321/4532cf8d6c59c1f43ec8973faa031103)
 
 ## Community Extensions
 
 ### Plugins
 
-* [puma-metrics](https://github.com/harmjanblok/puma-metrics) — export Puma metrics to Prometheus
-* [puma-plugin-statsd](https://github.com/yob/puma-plugin-statsd) — send Puma metrics to statsd
-* [puma-plugin-systemd](https://github.com/sj26/puma-plugin-systemd) — deeper integration with systemd for notify, status and watchdog
+- [puma-metrics](https://github.com/harmjanblok/puma-metrics) — export Puma metrics to Prometheus
+- [puma-plugin-statsd](https://github.com/yob/puma-plugin-statsd) — send Puma metrics to statsd
+- [puma-plugin-systemd](https://github.com/sj26/puma-plugin-systemd) — deeper integration with systemd for notify, status and watchdog
 
 ### Monitoring
 
-* [puma-status](https://github.com/ylecuyer/puma-status) — Monitor CPU/Mem/Load of running puma instances from the CLI
+- [puma-status](https://github.com/ylecuyer/puma-status) — Monitor CPU/Mem/Load of running puma instances from the CLI
 
 ## Contributing
 

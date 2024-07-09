@@ -14,7 +14,6 @@ Do you want to have a blog post or other content on Ransack highlighted? Please 
 - [Railscast 370 - Ransack](http://railscasts.com/episodes/370-ransack)
 - [Search And Sort Ransack Associations With The Rails Ransack Gem | Ruby On Rails 6 Ransack Tutorial](https://www.youtube.com/watch?v=rtg-5EXwpbg)
 
-
 # Gems
 
 - [ActiveAdmin](https://activeadmin.info/) The Administration Framework for Rails **_uses Ransack internally_**
@@ -54,4 +53,4 @@ Do you want to have a blog post or other content on Ransack highlighted? Please 
 ## In Vietnamese
 
 - [Ransack - công cụ tuyệt vời giúp tìm kiếm và sắp xếp dữ liệu đơn giản hơn
-](https://nddblog.com/posts/ransack-cong-cu-tuyet-voi-giup-tim-kiem-va-sap-xep-du-lieu-don-gian-hon)
+  ](https://nddblog.com/posts/ransack-cong-cu-tuyet-voi-giup-tim-kiem-va-sap-xep-du-lieu-don-gian-hon)

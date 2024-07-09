@@ -29,6 +29,7 @@ Ransack.configure do |config|
     case_insensitive: true
 end
 ```
+
 You can check all Arel predicates [here](https://github.com/rails/rails/blob/main/activerecord/lib/arel/predications.rb).
 
 If Arel does not have the predicate you are looking for, consider monkey patching it:

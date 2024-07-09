@@ -22,9 +22,9 @@ thread:
 
 trace:
   messages:
-    success: "Tracing global variable \"{var}\"."
+    success: 'Tracing global variable "{var}".'
     on_change: "traced global variable '{name}' has value '{value}'"
-    undo: "Not tracing global variable \"{var}\" anymore."
+    undo: 'Not tracing global variable "{var}" anymore.'
   errors:
     var_is_not_global: "'{name}' is not a global variable."
     needs_global_variable: "tracevar needs a global variable name"

@@ -1,7 +1,5 @@
 class ConfirmationsController < ApplicationController
-  def destroy
-  end
+  def destroy; end
 
-  def confirm
-  end
+  def confirm; end
 end

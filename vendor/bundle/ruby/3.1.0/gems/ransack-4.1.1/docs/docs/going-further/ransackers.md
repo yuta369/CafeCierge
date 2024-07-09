@@ -13,9 +13,9 @@ A `ransacker` method can **return any Arel node that allows the usual predicate 
 
 Here are some resources for more information about Arel:
 
-* [Using Arel to Compose SQL Queries](https://robots.thoughtbot.com/using-arel-to-compose-sql-queries)
-* [The definitive guide to Arel, the SQL manager for Ruby](http://jpospisil.com/2014/06/16/the-definitive-guide-to-arel-the-sql-manager-for-ruby.html)
-* [Creating Advanced Active Record DB Queries with Arel](https://www.cloudbees.com/blog/creating-advanced-active-record-db-queries-arel)
+- [Using Arel to Compose SQL Queries](https://robots.thoughtbot.com/using-arel-to-compose-sql-queries)
+- [The definitive guide to Arel, the SQL manager for Ruby](http://jpospisil.com/2014/06/16/the-definitive-guide-to-arel-the-sql-manager-for-ruby.html)
+- [Creating Advanced Active Record DB Queries with Arel](https://www.cloudbees.com/blog/creating-advanced-active-record-db-queries-arel)
 
 Ransacker methods enable search customization and are placed in the model. Arguments may be passed to a ransacker method via `ransacker_args` (see Example #6 below).
 
@@ -26,12 +26,14 @@ Ransackers, like scopes, are not a cure-all. Many use cases can be better solved
 ### Search on field
 
 _Search on the `name` field reversed:_
+
 ```ruby
 # in the model:
 ransacker :reversed_name, formatter: proc { |v| v.reverse } do |parent|
   parent.table[:name]
 end
 ```
+
 ### Search using Datetime
 
 _Convert a user `string` input and a database `datetime` field to the same `date` format to find all records with a `datetime` field (`created_at` in this example) equal to that date :_
@@ -42,6 +44,7 @@ ransacker :created_at do
   Arel.sql('date(created_at)')
 end
 ```
+
 ```erb
 in the view:
 <%= f.search_field(
@@ -63,6 +66,7 @@ end
 ```
 
 #### 2.1
+
 It seems to be enough to change the model only, but don't forget to define the type that will returned as well.
 
 ```ruby
@@ -76,12 +80,12 @@ end
 
 If you're using different time zones for Rails and Postgresql you should expect to have some problems using the above solution.
 Example:
+
 - Rails at GMT -03:00
 - Postgresql at GMT -00:00 (UTC)
 
 A timestamp like `2019-07-18 01:21:29.826484` will be truncated to `2019-07-18`.
 But for your Rails application `2019-07-18 01:21:29.826484` is `2019-07-17 22:21:29.826484` at your time zone (GMT -03:00). So it should be truncated to `2019-07-17` instead.
-
 
 So, you should convert the timestamp to your current Rails time zone before extracting the date.
 
@@ -101,18 +105,23 @@ _Search on a fixed key in a jsonb / hstore column:_
 In this example, we are searching a table with a column called `properties` for records containing a key called `link_type`.
 
 For anything up to and including Rails 4.1, add this to your model
+
 ```ruby
-ransacker :link_type do |parent|    
+ransacker :link_type do |parent|
   Arel::Nodes::InfixOperation.new('->>', parent.table[:properties], 'link_type')
 end
 ```
+
 When using Rails 4.2+ (Arel 6.0+), wrap the value in a `build_quoted` call
+
 ```ruby
-ransacker :link_type do |parent|    
+ransacker :link_type do |parent|
   Arel::Nodes::InfixOperation.new('->>', parent.table[:properties], Arel::Nodes.build_quoted('link_type'))
 end
 ```
+
 In the view, with a search on `link_type_eq` using a collection select (for example with options like 'twitter', 'facebook', etc.), if the user selects 'twitter', Ransack will run a query like:
+
 ```
 SELECT * FROM "foos" WHERE "foos"."properties" ->> 'link_type' = 'twitter';
 ```
@@ -124,19 +133,24 @@ To use the JSONB contains operator @> see here: [[PostgreSQL JSONB searches]].
 _Convert an `integer` database field to a `string` in order to be able to use a `cont` predicate (instead of the usual `eq` which works out of the box with integers) to find all records where an integer field (`id` in this example) **contains** an input string:_
 
 Simple version, using PostgreSQL:
+
 ```ruby
 # in the model:
 ransacker :id do
   Arel.sql("to_char(id, '9999999')")
 end
 ```
+
 and the same, using MySQL:
+
 ```ruby
 ransacker :id do
   Arel.sql("CONVERT(#{table_name}.id, CHAR(8))")
 end
 ```
+
 A more complete version (using PostgreSQL) that adds the table name to avoid ambiguity and strips spaces from the input:
+
 ```ruby
 ransacker :id do
   Arel.sql(
@@ -145,7 +159,9 @@ ransacker :id do
   )
 end
 ```
+
 In the view, for all 3 versions:
+
 ```erb
 <%= f.search_field :id_cont, placeholder: 'Id' %>
 ...
@@ -155,6 +171,7 @@ In the view, for all 3 versions:
 ### Concatenated fields
 
 _Search on a concatenated full name from `first_name` and `last_name` (several examples):_
+
 ```ruby
 # in the model:
 ransacker :full_name do |parent|
@@ -200,6 +217,7 @@ end
 
 _Passing arguments to a ransacker:_
 Arguments may be passed to a ransacker method via `ransacker_args`:
+
 ```ruby
 
 class Person
@@ -278,6 +296,7 @@ end
 ```
 
 In the view
+
 ```haml
   %td= f.select :price_exists_true, [["Any", 2], ["No", 0], ["Yes", 1]]
 ```
@@ -304,6 +323,7 @@ class SalesAccount < ActiveRecord::Base
 ```
 
 In the view:
+
 ```erb
 <%= f.search_field :sales_rep_name_start %>
 ```
@@ -317,7 +337,7 @@ _Note: There is also a gem, [Mobility Ransack](https://github.com/shioyama/mobil
 This will work with any `jsonb` data type. In this case I have a column translated with [Mobility](https://github.com/shioyama/mobility) called `name` with the value `{'en': "Hello", 'es': "Hola"}`.
 
 ```ruby
-ransacker :name do |parent|    
+ransacker :name do |parent|
   Arel::Nodes::InfixOperation.new('->>', parent.table[:name], Arel::Nodes.build_quoted(Mobility.locale))
 end
 ```
@@ -326,6 +346,6 @@ _If using Rails 4.1 or under, remove the `build_quoted` call._
 
 You can then search for `name_eq` or `name_cont` and it will do the proper SQL.
 
-***
+---
 
 Please feel free to contribute further code examples!

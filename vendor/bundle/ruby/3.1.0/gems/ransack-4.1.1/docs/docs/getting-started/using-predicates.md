@@ -2,7 +2,7 @@
 title: Using Predicates
 ---
 
-The primary method of searching in Ransack is by using what is known as *predicates*.
+The primary method of searching in Ransack is by using what is known as _predicates_.
 
 Predicates are used within Ransack search queries to determine what information to
 match. For instance, the `cont` predicate will check to see if an attribute called
@@ -14,6 +14,7 @@ match. For instance, the `cont` predicate will check to see if an attribute call
 ```
 
 You can also combine predicates for OR queries:
+
 ```ruby
 >> User.ransack(first_name_or_last_name_cont: 'Rya').result.to_sql
 => SELECT "users".* FROM "users"  WHERE ("users"."first_name" LIKE '%Rya%'
@@ -34,7 +35,7 @@ If you want to add your own, please
 see the [[Custom-Predicates|Custom Predicates]] page.
 
 **Please note:** any attempt to use a predicate for an attribute that does not exist will
-*silently fail*. For instance, this will not work when there is no `name` attribute:
+_silently fail_. For instance, this will not work when there is no `name` attribute:
 
 ```ruby
 >> User.ransack(name_cont: 'Rya').result.to_sql
@@ -43,7 +44,7 @@ see the [[Custom-Predicates|Custom Predicates]] page.
 
 ## eq (equals)
 
-The `eq` predicate returns all records where a field is *exactly* equal to a given value:
+The `eq` predicate returns all records where a field is _exactly_ equal to a given value:
 
 ```ruby
 >> User.ransack(first_name_eq: 'Ryan').result.to_sql
@@ -65,8 +66,8 @@ On Postgres, the case-insensitive ILIKE will be used.
 
 **Opposite: `does_not_match`**
 
-*Note: If you want to do wildcard matching, you may be looking for the `cont`/`not_cont`
-predicates instead.*
+_Note: If you want to do wildcard matching, you may be looking for the `cont`/`not_cont`
+predicates instead._
 
 ## lt (less than)
 
@@ -81,7 +82,7 @@ The `lt` predicate returns all records where a field is less than a given value:
 
 ## lteq (less than or equal to)
 
-The `lteq` predicate returns all records where a field is less than *or equal to* a given value:
+The `lteq` predicate returns all records where a field is less than _or equal to_ a given value:
 
 ```ruby
 >> User.ransack(age_lteq: 25).result.to_sql
@@ -130,7 +131,6 @@ The `cont_any` predicate returns all records where a field contains any of the g
 
 **Opposite: `not_cont_any`**
 
-
 ## cont_all (contains all)
 
 The `cont_all` predicate returns all records where a field contains all of the given values:
@@ -141,7 +141,6 @@ The `cont_all` predicate returns all records where a field contains all of the g
 ```
 
 **Opposite: `not_cont_all`**
-
 
 ## i_cont
 
@@ -164,7 +163,6 @@ The `i_cont_any` case-insensitive predicate returns all records where a field co
 ```
 
 **Opposite: `not_i_cont_any`**
-
 
 ## i_cont_all
 
@@ -210,8 +208,8 @@ values are 'true', 'TRUE', 't' or 'T'.
 => SELECT "users".* FROM "users"  WHERE ("users"."awesome" = 't')
 ```
 
-*Note: different database systems use different values to represent truth. In the above
-example, we are using SQLite3.*
+_Note: different database systems use different values to represent truth. In the above
+example, we are using SQLite3._
 
 **Opposite: `not_true`**
 
@@ -226,7 +224,7 @@ The `false` predicate returns all records where a field is false.
 
 **Opposite: `not_false`**
 
-*Note: the `false` predicate may be considered the opposite of the `true` predicate if the field does not contain `null` values. Otherwise, use `not_false`.*
+_Note: the `false` predicate may be considered the opposite of the `true` predicate if the field does not contain `null` values. Otherwise, use `not_false`._
 
 ## present
 
@@ -253,7 +251,7 @@ The `null` predicate returns all records where a field is null:
 
 # URL parameter structure
 
-The search parameters are passed to ransack as a hash. The URL representation of this hash uses the bracket notation: ```hash_name[key]=value```. The hash_name is the parameter which is defined in the controller, for instance ```q```. The key is the attribute and search predicate compound, for instance ```first_name_cont```, the value is the search parameter. When searching without using the search form helpers this URL structure needs to be created manually.
+The search parameters are passed to ransack as a hash. The URL representation of this hash uses the bracket notation: `hash_name[key]=value`. The hash_name is the parameter which is defined in the controller, for instance `q`. The key is the attribute and search predicate compound, for instance `first_name_cont`, the value is the search parameter. When searching without using the search form helpers this URL structure needs to be created manually.
 
 For example, the URL layout for searching and sorting users could looks like this:
 
@@ -261,7 +259,7 @@ For example, the URL layout for searching and sorting users could looks like thi
 /users.json?q[first_name_cont]=pete&q[last_name_cont]=jack&q[s]=created_at+desc
 ```
 
-_Note that the sorting parameter ```s``` is nested within the ```q``` hash._
+_Note that the sorting parameter `s` is nested within the `q` hash._
 
 When using JavaScript to create such a URL, a matching jQuery request could look like this:
 
@@ -272,11 +270,11 @@ $.ajax({
     q: {
       first_name_cont: "pete",
       last_name_cont: "jack",
-      s: "created_at desc"
-    }
+      s: "created_at desc",
+    },
   },
-  success: function (data){
+  success: function (data) {
     console.log(data);
-  }
+  },
 });
 ```

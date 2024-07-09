@@ -50,12 +50,12 @@ it:
       confirmation_instructions:
         action: Conferma il mio account
         greeting: Benvenuto %{recipient}!
-        instruction: 'Puoi confermare il tuo account cliccando sul link qui sotto:'
+        instruction: "Puoi confermare il tuo account cliccando sul link qui sotto:"
         subject: Istruzioni per la conferma
       email_changed:
         greeting: Ciao %{recipient}!
         message: Ti stiamo contattando per notificarti che la tua email è stata cambiata in %{email}.
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: Email modificata
       password_change:
         greeting: Ciao %{recipient}!
@@ -71,7 +71,7 @@ it:
       unlock_instructions:
         action: Sblocca il mio account
         greeting: Ciao %{recipient}!
-        instruction: 'Clicca sul link qui sotto per sbloccare il tuo account:'
+        instruction: "Clicca sul link qui sotto per sbloccare il tuo account:"
         message: Il tuo account è stato bloccato a seguito di un numero eccessivo di tentativi di accesso falliti.
         subject: Istruzioni per sbloccare l'account
     omniauth_callbacks:
@@ -96,7 +96,7 @@ it:
       edit:
         are_you_sure: Sei sicuro?
         cancel_my_account: Rimuovi il mio account
-        currently_waiting_confirmation_for_email: 'In attesa di conferma per: %{email}'
+        currently_waiting_confirmation_for_email: "In attesa di conferma per: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: lascia in bianco se non vuoi cambiarla
         title: Modifica %{resource}
         unhappy: Scontento
@@ -143,5 +143,5 @@ it:
       not_found: non trovato
       not_locked: non era bloccato
       not_saved:
-        one: 'Non posso salvare questo %{resource}: 1 errore'
-        other: 'Non posso salvare questo %{resource}: %{count} errori.'
+        one: "Non posso salvare questo %{resource}: 1 errore"
+        other: "Non posso salvare questo %{resource}: %{count} errori."

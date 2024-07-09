@@ -1,4 +1,5 @@
 - **2.4.0**
+
   - [Update libsass to 3.6.4](https://github.com/sass/sassc-ruby/pull/199)
   - [Use FFI::MemoryPointer instead of libc's malloc()](https://github.com/sass/sassc-ruby/pull/205)
   - [Test against Ruby 2.7.0](https://github.com/sass/sassc-ruby/pull/193)

@@ -6,7 +6,6 @@ You can do this by adding another Webpacker instance to your application.
 
 This guide describes how to do that using [Rails engines](https://guides.rubyonrails.org/engines.html).
 
-
 ## Step 1: create Rails engine.
 
 First, you create a Rails engine (say, `MyEngine`). See the official [Rails guide](https://guides.rubyonrails.org/engines.html).
@@ -14,10 +13,10 @@ First, you create a Rails engine (say, `MyEngine`). See the official [Rails guid
 ## Step 2: install Webpacker within the engine.
 
 There is no built-in tasks to install Webpacker within the engine, thus you have to add all the require files manually (you can copy them from the main app):
+
 - Add `config/webpacker.yml` and `config/webpack/*.js` files
 - Add `bin/webpack` and `bin/webpack-dev-server` files
 - Add `package.json` with required deps.
-
 
 ## Step 3: configure Webpacker instance.
 
@@ -196,6 +195,7 @@ config.middleware.use(
   urls: ["/my-engine-packs"], root: "my_engine/public"
 )
 ```
+
 or if you prefer to keep your engine-related configuration within the engine itself
 
 ```ruby

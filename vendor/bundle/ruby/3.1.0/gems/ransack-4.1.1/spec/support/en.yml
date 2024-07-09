@@ -1,6 +1,6 @@
 en:
   attributes:
-    id: 'id'
+    id: "id"
   ransack:
     attributes:
       person:

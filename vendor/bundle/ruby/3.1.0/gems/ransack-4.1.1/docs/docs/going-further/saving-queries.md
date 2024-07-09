@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
 end
 ```
 
-I decided to store the ransack search parameters, params[:q], in the session. To make the session parameter unique I used a key creed from the controllers name and “_search”.
+I decided to store the ransack search parameters, params[:q], in the session. To make the session parameter unique I used a key creed from the controllers name and “\_search”.
 
 ```ruby
 class ApplicationController < ActionController::Base

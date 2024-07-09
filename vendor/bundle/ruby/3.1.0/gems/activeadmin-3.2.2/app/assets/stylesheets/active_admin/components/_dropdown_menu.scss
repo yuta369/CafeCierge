@@ -8,19 +8,19 @@
     cursor: pointer;
 
     &:before {
-      content: ' ';
+      content: " ";
       position: absolute;
       width: 0;
       height: 0;
       border-width: 3px 3px 0;
       border-style: solid;
-      border-color: #FFF transparent;
+      border-color: #fff transparent;
       right: 12px;
       top: 45%;
     }
 
     &:after {
-      content: ' ';
+      content: " ";
       position: absolute;
       width: 0;
       height: 0;
@@ -33,7 +33,6 @@
   }
 
   .dropdown_menu_nipple {
-
     // The nipple's border
     content: "";
     position: absolute;
@@ -49,7 +48,7 @@
     // The nipple's inner shadow
 
     &:before {
-      content: ' ';
+      content: " ";
       position: absolute;
       width: 0;
       height: 0;
@@ -63,7 +62,7 @@
     // The nipple's background color
 
     &:after {
-      content: ' ';
+      content: " ";
       position: absolute;
       width: 0;
       height: 0;
@@ -80,7 +79,9 @@
     position: absolute;
     background-color: white;
     padding: 2px;
-    box-shadow: rgba(0,0,0,0.4) 0 1px 3px, lighten($primary-color, 15%) 0px 1px 0px 0px inset;
+    box-shadow:
+      rgba(0, 0, 0, 0.4) 0 1px 3px,
+      lighten($primary-color, 15%) 0px 1px 0px 0px inset;
     background-color: $primary-color;
     @include gradient(lighten($primary-color, 4%), darken($primary-color, 5%));
     border: solid 1px darken($primary-color, 10%);
@@ -92,7 +93,7 @@
 
     .dropdown_menu_list {
       display: block;
-      background-color: #FFF;
+      background-color: #fff;
       border: solid 1px darken($primary-color, 10%);
       box-shadow: lighten($primary-color, 5%) 0px 1px 0px 0px;
       border-radius: 3px;
@@ -120,14 +121,13 @@
           &:hover {
             @include highlight-gradient;
             @include text-shadow(#5a83aa);
-            color: #FFF;
+            color: #fff;
           }
 
           &:active {
             @include reverse-highlight-gradient;
-            color: #FFF;
+            color: #fff;
           }
-
         }
 
         &:first-child {
@@ -135,7 +135,6 @@
             border-top-left-radius: 2px;
             border-top-right-radius: 2px;
           }
-
         }
 
         &:last-child {

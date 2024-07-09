@@ -68,18 +68,21 @@ When you're writing a `Ransack` search form, you can choose any of the following
 ### Option A - Match keys exactly
 
 Option `A` will match keys exactly. This is the solution to choose if you want to distinguish 'Home' from 'Homework': searching for 'Home' will return just the `Task` with id 1. It also allows searching for more than one tag at once (comma separated):
+
 - `Home, Personal` will return task 1
 - `Home, Homework` will return task 1 and 2
 
 ### Option B - match key combinations
 
 Option `B` will match all keys exactly. This is the solution if you wanna search for specific combinations of tags:
+
 - `Home` will return nothing, as there is no Task with just the `Home` tag
 - `Home, Personal` will return task 1
 
 ### Option C - match substrings
 
 Option `C` is used to match substrings. This is useful when you don't care for the exact tag, but only for part of it:
+
 - `Home` will return task 1 and 2 (`/Home/` matches both `"Home"` and `"Homework"`)
 
 ### Option D - select from a list of tags
@@ -93,7 +96,7 @@ In Option `D` we allow the user to select a list of valid tags and then search a
 </div>
 ```
 
-## Multitenancy 
+## Multitenancy
 
 ActsAsTaggableOn allows scoping of tags based on another field on the model. Suppose we have a `language` field on the model, as an effective second level key. We would adjust our model to look like this:
 
@@ -111,4 +114,5 @@ The Ransack search is then filtered using the `for_tenant` method
   <%= f.label :projects_name, 'Project' %>
   <%= f.select :projects_name_in, ActsAsTaggableOn::Tag.for_tenant('fr').distinct.order(:name).pluck(:name) %>
 </div>
-      
+
+```

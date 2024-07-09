@@ -30,13 +30,11 @@ This library was originally extracted from the [Faye](http://faye.jcoglan.com)
 project but now aims to provide simple WebSocket support for any Ruby server or
 I/O system.
 
-
 ## Installation
 
 ```
 $ gem install websocket-driver
 ```
-
 
 ## Usage
 
@@ -51,19 +49,18 @@ Server-side sockets require one additional method:
 - `socket.env` - returns a Rack-style env hash that will contain some of the
   following fields. Their values are strings containing the value of the named
   header, unless stated otherwise.
-  * `HTTP_CONNECTION`
-  * `HTTP_HOST`
-  * `HTTP_ORIGIN`
-  * `HTTP_SEC_WEBSOCKET_EXTENSIONS`
-  * `HTTP_SEC_WEBSOCKET_KEY`
-  * `HTTP_SEC_WEBSOCKET_KEY1`
-  * `HTTP_SEC_WEBSOCKET_KEY2`
-  * `HTTP_SEC_WEBSOCKET_PROTOCOL`
-  * `HTTP_SEC_WEBSOCKET_VERSION`
-  * `HTTP_UPGRADE`
-  * `rack.input`, an `IO` object representing the request body
-  * `REQUEST_METHOD`, the request's HTTP verb
-
+  - `HTTP_CONNECTION`
+  - `HTTP_HOST`
+  - `HTTP_ORIGIN`
+  - `HTTP_SEC_WEBSOCKET_EXTENSIONS`
+  - `HTTP_SEC_WEBSOCKET_KEY`
+  - `HTTP_SEC_WEBSOCKET_KEY1`
+  - `HTTP_SEC_WEBSOCKET_KEY2`
+  - `HTTP_SEC_WEBSOCKET_PROTOCOL`
+  - `HTTP_SEC_WEBSOCKET_VERSION`
+  - `HTTP_UPGRADE`
+  - `rack.input`, an `IO` object representing the request body
+  - `REQUEST_METHOD`, the request's HTTP verb
 
 ### Server-side with Rack
 
@@ -112,12 +109,12 @@ end
 
 To explain what's going on here: the `WS` class implements the `env`, `url` and
 `write(string)` methods as required. When instantiated with a Rack environment,
-it stores the environment and infers the complete URL from it.  Having set up
+it stores the environment and infers the complete URL from it. Having set up
 the `env` and `url`, it asks `WebSocket::Driver` for a server-side driver for
 the socket. Then it uses the Rack hijack API to gain access to the TCP stream,
 and uses EventMachine to stream in incoming data from the client, handing
 incoming data off to the driver for parsing. Finally, we tell the driver to
-`start`, which will begin sending the handshake response.  This will invoke the
+`start`, which will begin sending the handshake response. This will invoke the
 `WS#write` method, which will send the response out over the TCP socket.
 
 Having defined this class we could use it like this when handling a request:
@@ -129,7 +126,6 @@ end
 ```
 
 The driver API is described in full below.
-
 
 ### Server-side with TCP
 
@@ -186,7 +182,6 @@ If the request has a body, it will be in the `@driver.env['rack.input']` stream,
 but only as much of the body as you have so far routed to it using the `parse`
 method.
 
-
 ### Client-side
 
 Similarly, to implement a WebSocket client you need an object with `url` and
@@ -204,7 +199,6 @@ sent back by the server:
 
 - `driver.status` - the integer value of the HTTP status code
 - `driver.headers` - a hash-like object containing the response headers
-
 
 ### HTTP Proxies
 
@@ -249,7 +243,6 @@ Before calling `proxy.start` you can set custom headers using
 proxy.set_header('User-Agent', 'ruby')
 proxy.start
 ```
-
 
 ### Driver API
 
@@ -332,7 +325,7 @@ the headers are serialized and sent.
 
 Initiates the protocol by sending the handshake - either the response for a
 server-side driver or the request for a client-side one. This should be the
-first method you invoke.  Returns `true` if and only if a handshake was sent.
+first method you invoke. Returns `true` if and only if a handshake was sent.
 
 #### `driver.parse(string)`
 

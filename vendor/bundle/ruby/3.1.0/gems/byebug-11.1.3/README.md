@@ -7,7 +7,6 @@
 [gem]: https://img.shields.io/gem/v/byebug.svg
 [tid]: https://tidelift.com/badges/package/rubygems/byebug
 [irc]: https://img.shields.io/badge/IRC%20(gitter)-devs%20%26%20users-brightgreen.svg
-
 [gem_url]: https://rubygems.org/gems/byebug
 [tid_url]: https://tidelift.com/subscription/pkg/rubygems-byebug?utm_source=rubygems-byebug&utm_medium=readme_badge
 [irc_url]: https://gitter.im/deivid-rodriguez/byebug
@@ -21,12 +20,12 @@ by a full test suite.
 The debugger permits the ability to understand what is going on _inside_ a Ruby program
 while it executes and offers many of the traditional debugging features such as:
 
-* Stepping: Running your program one line at a time.
-* Breaking: Pausing the program at some event or specified instruction, to
+- Stepping: Running your program one line at a time.
+- Breaking: Pausing the program at some event or specified instruction, to
   examine the current state.
-* Evaluating: Basic REPL functionality, although [pry] does a better job at
+- Evaluating: Basic REPL functionality, although [pry] does a better job at
   that.
-* Tracking: Keeping track of the different values of your variables or the
+- Tracking: Keeping track of the different values of your variables or the
   different lines executed by your program.
 
 ## For enterprise
@@ -41,8 +40,8 @@ more][Tidelift for enterprise].
 
 ## Requirements
 
-* _Required_: MRI 2.4.0 or higher.
-* _Recommended_: MRI 2.6.4 or higher (MRI 2.6.0 to 2.6.3 contain a regression
+- _Required_: MRI 2.4.0 or higher.
+- _Recommended_: MRI 2.6.4 or higher (MRI 2.6.0 to 2.6.3 contain a regression
   causing unbalanced call/return events in some cases, breaking the `next` command).
 
 ## Install
@@ -90,48 +89,48 @@ byebug myscript.rb
 
 ## Byebug's commands
 
-Command     | Aliases         | Subcommands
--------     | -------         | -----------
-`backtrace` | `bt` `w` `where`|
-`break`     | `b`             |
-`catch`     | `cat`           |
-`condition` | `cond`          |
-`continue`  | `c` `cont`      |
-`continue!` | `c!` `cont!`    |
-`debug`     |                 |
-`delete`    | `del`           |
-`disable`   | `dis`           | `breakpoints` `display`
-`display`   | `disp`          |
-`down`      |                 |
-`edit`      | `ed`            |
-`enable`    | `en`            | `breakpoints` `display`
-`finish`    | `fin`           |
-`frame`     | `f`             |
-`help`      | `h`             |
-`history`   | `hist`          |
-`info`      | `i`             | `args` `breakpoints` `catch` `display` `file` `line` `program`
-`interrupt` | `int`           |
-`irb`       |                 |
-`kill`      |                 |
-`list`      | `l`             |
-`method`    | `m`             | `instance`
-`next`      | `n`             |
-`pry`       |                 |
-`quit`      | `q`             |
-`quit!`     | `q!`            |
-`restart`   |                 |
-`save`      | `sa`            |
-`set`       |                 | `autoirb` `autolist` `autopry` `autosave` `basename` `callstyle` `fullpath` `histfile` `histsize` `linetrace` `listsize` `post_mortem` `savefile` `stack_on_error` `width`
-`show`      |                 | `autoirb` `autolist` `autopry` `autosave` `basename` `callstyle` `fullpath` `histfile` `histsize` `linetrace` `listsize` `post_mortem` `savefile` `stack_on_error` `width`
-`skip`      | `sk`            |
-`source`    | `so`            |
-`step`      | `s`             |
-`thread`    | `th`            | `current` `list` `resume` `stop` `switch`
-`tracevar`  | `tr`            |
-`undisplay` | `undisp`        |
-`untracevar`| `untr`          |
-`up`        |                 |
-`var`       | `v`             | `all` `constant` `global` `instance` `local`
+| Command      | Aliases          | Subcommands                                                                                                                                                                |
+| ------------ | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `backtrace`  | `bt` `w` `where` |
+| `break`      | `b`              |
+| `catch`      | `cat`            |
+| `condition`  | `cond`           |
+| `continue`   | `c` `cont`       |
+| `continue!`  | `c!` `cont!`     |
+| `debug`      |                  |
+| `delete`     | `del`            |
+| `disable`    | `dis`            | `breakpoints` `display`                                                                                                                                                    |
+| `display`    | `disp`           |
+| `down`       |                  |
+| `edit`       | `ed`             |
+| `enable`     | `en`             | `breakpoints` `display`                                                                                                                                                    |
+| `finish`     | `fin`            |
+| `frame`      | `f`              |
+| `help`       | `h`              |
+| `history`    | `hist`           |
+| `info`       | `i`              | `args` `breakpoints` `catch` `display` `file` `line` `program`                                                                                                             |
+| `interrupt`  | `int`            |
+| `irb`        |                  |
+| `kill`       |                  |
+| `list`       | `l`              |
+| `method`     | `m`              | `instance`                                                                                                                                                                 |
+| `next`       | `n`              |
+| `pry`        |                  |
+| `quit`       | `q`              |
+| `quit!`      | `q!`             |
+| `restart`    |                  |
+| `save`       | `sa`             |
+| `set`        |                  | `autoirb` `autolist` `autopry` `autosave` `basename` `callstyle` `fullpath` `histfile` `histsize` `linetrace` `listsize` `post_mortem` `savefile` `stack_on_error` `width` |
+| `show`       |                  | `autoirb` `autolist` `autopry` `autosave` `basename` `callstyle` `fullpath` `histfile` `histsize` `linetrace` `listsize` `post_mortem` `savefile` `stack_on_error` `width` |
+| `skip`       | `sk`             |
+| `source`     | `so`             |
+| `step`       | `s`              |
+| `thread`     | `th`             | `current` `list` `resume` `stop` `switch`                                                                                                                                  |
+| `tracevar`   | `tr`             |
+| `undisplay`  | `undisp`         |
+| `untracevar` | `untr`           |
+| `up`         |                  |
+| `var`        | `v`              | `all` `constant` `global` `instance` `local`                                                                                                                               |
 
 ## Semantic Versioning
 
@@ -148,13 +147,13 @@ started. Proper documentation will be eventually written.
 
 ## Related projects
 
-* [pry-byebug] adds `next`, `step`, `finish`, `continue` and `break` commands
+- [pry-byebug] adds `next`, `step`, `finish`, `continue` and `break` commands
   to `pry` using `byebug`.
-* [ruby-debug-passenger] adds a rake task that restarts Passenger with Byebug
+- [ruby-debug-passenger] adds a rake task that restarts Passenger with Byebug
   connected.
-* [minitest-byebug] starts a byebug session on minitest failures.
-* [sublime_debugger] provides a plugin for ruby debugging on Sublime Text.
-* [atom-byebug] provides integration with the Atom editor [EXPERIMENTAL].
+- [minitest-byebug] starts a byebug session on minitest failures.
+- [sublime_debugger] provides a plugin for ruby debugging on Sublime Text.
+- [atom-byebug] provides integration with the Atom editor [EXPERIMENTAL].
 
 ## Contribute
 
@@ -178,11 +177,11 @@ Tidelift will coordinate the fix and disclosure.
 Everybody who has ever contributed to this forked and reforked piece of
 software, especially:
 
-* @ko1, author of the awesome TracePoint API for Ruby.
-* @cldwalker, [debugger]'s maintainer.
-* @denofevil, author of [debase], the starting point of this.
-* @kevjames3 for testing, bug reports and the interest in the project.
-* @FooBarWidget for working and helping with remote debugging.
+- @ko1, author of the awesome TracePoint API for Ruby.
+- @cldwalker, [debugger]'s maintainer.
+- @denofevil, author of [debase], the starting point of this.
+- @kevjames3 for testing, bug reports and the interest in the project.
+- @FooBarWidget for working and helping with remote debugging.
 
 [debugger]: https://github.com/cldwalker/debugger
 [pry]: https://github.com/pry/pry

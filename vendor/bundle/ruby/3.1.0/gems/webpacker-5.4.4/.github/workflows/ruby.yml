@@ -11,16 +11,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        ruby: [
-          2.4,
-          2.5,
-          2.6,
-          2.7
-        ]
-        gemfile: [
-          "gemfiles/Gemfile-rails.5.2.x",
-          "gemfiles/Gemfile-rails.6.0.x"
-        ]
+        ruby: [2.4, 2.5, 2.6, 2.7]
+        gemfile: ["gemfiles/Gemfile-rails.5.2.x", "gemfiles/Gemfile-rails.6.0.x"]
         exclude:
           - ruby: "2.4"
             gemfile: gemfiles/Gemfile-rails.6.0.x

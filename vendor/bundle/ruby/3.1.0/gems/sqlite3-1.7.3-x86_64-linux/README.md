@@ -6,14 +6,13 @@ This library allows Ruby programs to use the SQLite3 database engine (http://www
 
 Note that this module is only compatible with SQLite 3.6.16 or newer.
 
-* Source code: https://github.com/sparklemotion/sqlite3-ruby
-* Mailing list: http://groups.google.com/group/sqlite3-ruby
-* Download: http://rubygems.org/gems/sqlite3
-* Documentation: http://www.rubydoc.info/gems/sqlite3
+- Source code: https://github.com/sparklemotion/sqlite3-ruby
+- Mailing list: http://groups.google.com/group/sqlite3-ruby
+- Download: http://rubygems.org/gems/sqlite3
+- Documentation: http://www.rubydoc.info/gems/sqlite3
 
 [![Unit tests](https://github.com/sparklemotion/sqlite3-ruby/actions/workflows/sqlite3-ruby.yml/badge.svg)](https://github.com/sparklemotion/sqlite3-ruby/actions/workflows/sqlite3-ruby.yml)
 [![Native packages](https://github.com/sparklemotion/sqlite3-ruby/actions/workflows/gem-install.yml/badge.svg)](https://github.com/sparklemotion/sqlite3-ruby/actions/workflows/gem-install.yml)
-
 
 ## Quick start
 
@@ -27,8 +26,7 @@ A few key classes whose APIs are often-used are:
 
 If you have any questions that you feel should be addressed in the FAQ, please send them to [the mailing list](http://groups.google.com/group/sqlite3-ruby) or open a [discussion thread](https://github.com/sparklemotion/sqlite3-ruby/discussions/categories/q-a).
 
-
-``` ruby
+```ruby
 require "sqlite3"
 
 # Open a database
@@ -87,23 +85,20 @@ If you're having trouble with installation, please first read [`INSTALLATION.md`
 
 You can ask for help or support:
 
-* by emailing the [sqlite3-ruby mailing list](http://groups.google.com/group/sqlite3-ruby)
-* by opening a [discussion thread](https://github.com/sparklemotion/sqlite3-ruby/discussions/categories/q-a) on Github
+- by emailing the [sqlite3-ruby mailing list](http://groups.google.com/group/sqlite3-ruby)
+- by opening a [discussion thread](https://github.com/sparklemotion/sqlite3-ruby/discussions/categories/q-a) on Github
 
 ### Bug reports
 
 You can file the bug at the [github issues page](https://github.com/sparklemotion/sqlite3-ruby/issues).
 
-
 ## Contributing
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 
-
 ## License
 
 This library is licensed under `BSD-3-Clause`, see [`LICENSE`](./LICENSE).
-
 
 ### Dependencies
 

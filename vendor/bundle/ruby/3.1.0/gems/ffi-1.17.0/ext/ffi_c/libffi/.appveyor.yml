@@ -61,7 +61,7 @@ install:
         } Else {
           $env:DEBUG_ARG="--disable-debug"
       }
-  - 'appveyor DownloadFile https://cygwin.com/setup-x86_64.exe -FileName setup.exe'
+  - "appveyor DownloadFile https://cygwin.com/setup-x86_64.exe -FileName setup.exe"
   - 'setup.exe -qgnNdO -R "%CYG_ROOT%" -s "%CYG_MIRROR%" -l "%CYG_CACHE%" -P dejagnu -P autoconf -P automake -P libtool'
   - '%CYG_ROOT%/bin/bash -lc "cygcheck -dc cygwin"'
   - echo call VsDevCmd to set VS150COMNTOOLS
@@ -78,7 +78,6 @@ build_script:
   - c:\cygwin64\bin\sh -lc "(cd $OLDPWD; cp $HOST/.libs/libffi.lib $HOST/testsuite/libffi-8.lib || true)"
   - c:\cygwin64\bin\sh -lc "(cd $OLDPWD; cp `find . -name 'libffi-?.dll'` $HOST/testsuite/ || true)"
   - c:\cygwin64\bin\sh -lc "(cd $OLDPWD; TERM=none make check RUNTESTFLAGS='-v -v -v -v --target '$HOST  DEJAGNU=$PWD/.appveyor/site.exp SITEDIR=$PWD/.appveyor)"
-
 
 on_finish:
   - c:\cygwin64\bin\sh -lc "(cd $OLDPWD; cat `find ./ -name libffi.log`)"

@@ -15,7 +15,7 @@
     display: table-cell;
     vertical-align: middle;
     white-space: nowrap;
-    color:  $page-header-text-color;
+    color: $page-header-text-color;
     margin-right: 20px;
     margin-bottom: 0px;
     padding: 3px $horizontal-page-margin 0 $horizontal-page-margin;
@@ -37,12 +37,15 @@
     }
   }
 
-  a, a:link { color: $page-header-text-color; }
+  a,
+  a:link {
+    color: $page-header-text-color;
+  }
 
   .header-item {
     top: 2px;
     position: relative;
-    height: 20px
+    height: 20px;
   }
 
   ul.tabs {
@@ -54,7 +57,9 @@
 
     li {
       /* Hover on li, display the ul */
-      &:hover > ul { display: block;}
+      &:hover > ul {
+        display: block;
+      }
     }
 
     & > li {
@@ -62,7 +67,7 @@
       margin-right: 4px;
       margin-top: 5px;
       margin-bottom: 5px;
-      font-size: 1.0em;
+      font-size: 1em;
       position: relative;
 
       a {
@@ -99,11 +104,10 @@
         z-index: 1020;
       }
 
-
       /* Drop down menus */
       ul {
         background: $hover-menu-item-background;
-        @include rounded-all(0,10px,10px,10px);
+        @include rounded-all(0, 10px, 10px, 10px);
         @include shadow(0, 1px, 3px, #444);
         position: absolute;
         width: 120%;
@@ -122,11 +126,16 @@
           a {
             background: none;
             display: block;
-            &:hover { color: #fff; background: none; }
+            &:hover {
+              color: #fff;
+              background: none;
+            }
           }
 
           &.current {
-            a { @include rounded(0) }
+            a {
+              @include rounded(0);
+            }
           }
 
           &.has_nested > a {
@@ -140,7 +149,7 @@
           }
 
           ul {
-            @include rounded-all(10px,10px,10px,10px);
+            @include rounded-all(10px, 10px, 10px, 10px);
             margin-top: 0;
             top: -3px;
             left: 100%;
@@ -177,12 +186,15 @@
     padding-right: 26px;
     text-align: right;
 
-    a { text-decoration: none; }
-    a:hover { color: #fff; }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      color: #fff;
+    }
 
     li {
-      display:inline;
+      display: inline;
     }
   }
-
 }

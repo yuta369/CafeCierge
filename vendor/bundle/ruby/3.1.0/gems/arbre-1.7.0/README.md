@@ -13,7 +13,7 @@ as possible. This allows OO Design to be used to implement the view layer.
 
 ## Getting started
 
-* Check out [the docs][docs].
+- Check out [the docs][docs].
 
 ## Need help?
 
@@ -37,7 +37,6 @@ Tidelift will coordinate the fix and disclosure.
 [actions]: https://github.com/activeadmin/arbre/actions
 [tidelift_badge]: https://tidelift.com/badges/github/activeadmin/arbre
 [tidelift]: https://tidelift.com/subscription/pkg/rubygems-arbre?utm_source=rubygems-arbre&utm_medium=referral&utm_campaign=readme
-
 [docs]: https://activeadmin.github.io/arbre/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/arbre
 [Tidelift security contact]: https://tidelift.com/security

@@ -48,7 +48,7 @@ pap-AW:
       confirmation_instructions:
         action: Konfirmá mi kuenta.
         greeting: Bonbiní %{recipient}!
-        instruction: 'Bo por konfirmá bo kuenta di e-mail via e lenk aki bou:'
+        instruction: "Bo por konfirmá bo kuenta di e-mail via e lenk aki bou:"
         subject: Instrukshon pa konfirmashon
       email_changed:
         greeting: Saludo %{recipient}!
@@ -68,7 +68,7 @@ pap-AW:
       unlock_instructions:
         action: Krea akseso na mi kuenta
         greeting: Saludo %{recipient}!
-        instruction: 'Klek riba e lenk abou pa haña akseso na bo kuenta:'
+        instruction: "Klek riba e lenk abou pa haña akseso na bo kuenta:"
         message: A eliminá akseso na bo kuenta pa motibu di un kantidat eksesivo di intento frakasá pa kuminsá un seshon.
         subject: Instrukshon pa re-establesé akseso.
     omniauth_callbacks:
@@ -93,7 +93,7 @@ pap-AW:
       edit:
         are_you_sure: Bo ta sigur?
         cancel_my_account: Kanselá mi kuenta.
-        currently_waiting_confirmation_for_email: 'Nos ta warda konfirmashon pa: %{email}'
+        currently_waiting_confirmation_for_email: "Nos ta warda konfirmashon pa: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: lag'é sin yena si bo no ke kambié
         title: Redaktá %{resource}
         unhappy: Bo no ta satisfecho?
@@ -139,5 +139,5 @@ pap-AW:
       not_found: no por a hañ'é
       not_locked: e no tabata inaksesibel
       not_saved:
-        one: '1 eror a anulá registrashon di e %{resource}:'
+        one: "1 eror a anulá registrashon di e %{resource}:"
         other: "%{count} eror a anulá registrashon di e %{resource}:"

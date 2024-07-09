@@ -1,7 +1,7 @@
 ## Notice
 
 Inherited Resources is no longer actively maintained by the original author and
-has been transferred to the ActiveAdmin organization for maintenance.  New feature
+has been transferred to the ActiveAdmin organization for maintenance. New feature
 requests are not encouraged.
 
 If you are not already using Inherited Resources we suggest instead using Rails'
@@ -21,8 +21,8 @@ In addition to making your controllers follow a pattern, it helps you to write b
 code by following fat models and skinny controllers convention. There are
 two screencasts available besides this README:
 
-* http://railscasts.com/episodes/230-inherited-resources
-* http://akitaonrails.com/2009/09/01/screencast-real-thin-restful-controllers-with-inherited-resources
+- http://railscasts.com/episodes/230-inherited-resources
+- http://akitaonrails.com/2009/09/01/screencast-real-thin-restful-controllers-with-inherited-resources
 
 ## Installation
 
@@ -532,7 +532,7 @@ Now we are going to add manager to projects. We say that `Manager` is a singleto
 resource because a `Project` has just one manager. You should declare it as
 `has_one` (or resource) in your routes.
 
-To declare an resource of current controller  as singleton, you just have to give the
+To declare an resource of current controller as singleton, you just have to give the
 `:singleton` option in defaults.
 
 ```ruby
@@ -645,7 +645,6 @@ check this Wiki page:
 
 https://github.com/activeadmin/inherited_resources/wiki/Views-Inheritance
 
-
 Notice that Rails 3.1 ships with view inheritance built-in.
 
 ## Some DSL
@@ -705,7 +704,6 @@ def build_resource_params
 end
 ```
 
-
 Instead you can stick to a standard Rails 4 notation (as rails scaffold generates) and write:
 
 ```ruby
@@ -743,5 +741,4 @@ Tidelift will coordinate the fix and disclosure.
 [actions]: https://github.com/activeadmin/inherited_resources/actions
 [tidelift_badge]: https://tidelift.com/badges/package/rubygems/inherited_resources?style=flat
 [tidelift]: https://tidelift.com/subscription/pkg/rubygems-inherited-resources?utm_source=rubygems-inherited-resources&utm_medium=referral&utm_campaign=readme
-
 [Tidelift security contact]: https://tidelift.com/security

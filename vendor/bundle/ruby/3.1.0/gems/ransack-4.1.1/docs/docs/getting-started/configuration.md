@@ -3,8 +3,6 @@ sidebar_position: 3
 title: Configuration
 ---
 
-
-
 Ransack may be easily configured. The best place to put configuration is in an initializer file at `config/initializers/ransack.rb`, containing code such as:
 
 ```ruby

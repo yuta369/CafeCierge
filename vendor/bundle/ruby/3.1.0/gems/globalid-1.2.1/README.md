@@ -2,7 +2,7 @@
 
 A Global ID is an app wide URI that uniquely identifies a model instance:
 
-  gid://YourApp/Some::Model/id
+gid://YourApp/Some::Model/id
 
 This is helpful when you need a single identifier to reference different
 classes of objects.
@@ -16,7 +16,6 @@ references a model.
 Another example is a drop-down list of options, consisting of both Users and Groups.
 Normally we'd need to come up with our own ad hoc scheme to reference them. With Global
 IDs, we have a universal identifier that works for objects of both classes.
-
 
 ## Usage
 
@@ -118,6 +117,7 @@ explicit_expiring_sgid = SecretAgentMessage.find(5).to_sgid(expires_at: Time.now
 GlobalID::Locator.locate_signed explicit_expiring_sgid.to_s
 # => nil
 ```
+
 Note that an explicit `:expires_at` takes precedence over a relative `:expires_in`.
 
 **Purpose**
@@ -165,17 +165,17 @@ Note the order is maintained in the returned results.
 
 Either `GlobalID::Locator.locate` or `GlobalID::Locator.locate_many` supports a hash of options as second parameter. The supported options are:
 
-* :includes - A Symbol, Array, Hash or combination of them
+- :includes - A Symbol, Array, Hash or combination of them
   The same structure you would pass into a `includes` method of Active Record.
   See [Active Record eager loading associations](https://guides.rubyonrails.org/active_record_querying.html#eager-loading-associations)
   If present, `locate` or `locate_many` will eager load all the relationships specified here.
   Note: It only works if all the gids models have that relationships.
-* :only - A class, module or Array of classes and/or modules that are
-  allowed to be located.  Passing one or more classes limits instances of returned
-  classes to those classes or their subclasses.  Passing one or more modules in limits
-  instances of returned classes to those including that module.  If no classes or
+- :only - A class, module or Array of classes and/or modules that are
+  allowed to be located. Passing one or more classes limits instances of returned
+  classes to those classes or their subclasses. Passing one or more modules in limits
+  instances of returned classes to those including that module. If no classes or
   modules match, +nil+ is returned.
-* :ignore_missing (Only for `locate_many`) - By default, `locate_many` will call `#find` on the model to locate the
+- :ignore_missing (Only for `locate_many`) - By default, `locate_many` will call `#find` on the model to locate the
   ids extracted from the GIDs. In Active Record (and other data stores following the same pattern),
   `#find` will raise an exception if a named ID can't be found. When you set this option to true,
   we will use `#where(id: ids)` instead, which does not raise on missing records.
@@ -218,4 +218,5 @@ features and discuss issues.
 See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
+
 GlobalID is released under the [MIT License](http://www.opensource.org/licenses/MIT).

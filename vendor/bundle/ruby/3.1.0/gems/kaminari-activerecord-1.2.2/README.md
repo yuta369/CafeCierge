@@ -2,7 +2,6 @@
 
 Kaminari Active Record adapter.
 
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -12,7 +11,6 @@ gem 'kaminari-activerecord'
 ```
 
 And bundle.
-
 
 ## Usage
 
@@ -25,7 +23,6 @@ See [Kaminari README (Other Framework/Library Support)](https://github.com/kamin
 ## Contributing
 
 Pull requests are welcome on GitHub at https://github.com/kaminari/kaminari.
-
 
 ## License
 

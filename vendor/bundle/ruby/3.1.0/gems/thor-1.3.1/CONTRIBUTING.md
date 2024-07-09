@@ -1,5 +1,5 @@
-Pull Requests
--------------
+## Pull Requests
+
 Here are some reasons why a pull request may not be merged:
 
 1. It hasn’t been reviewed.

@@ -15,37 +15,32 @@
 //>>docs: https://api.jqueryui.com/disableSelection/
 
 // This file is deprecated
-( function( factory ) {
-	"use strict";
+(function (factory) {
+  "use strict";
 
-	if ( typeof define === "function" && define.amd ) {
+  if (typeof define === "function" && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(["jquery", "./version"], factory);
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+})(function ($) {
+  "use strict";
 
-		// AMD. Register as an anonymous module.
-		define( [ "jquery", "./version" ], factory );
-	} else {
+  return $.fn.extend({
+    disableSelection: (function () {
+      var eventType = "onselectstart" in document.createElement("div") ? "selectstart" : "mousedown";
 
-		// Browser globals
-		factory( jQuery );
-	}
-} )( function( $ ) {
-"use strict";
+      return function () {
+        return this.on(eventType + ".ui-disableSelection", function (event) {
+          event.preventDefault();
+        });
+      };
+    })(),
 
-return $.fn.extend( {
-	disableSelection: ( function() {
-		var eventType = "onselectstart" in document.createElement( "div" ) ?
-			"selectstart" :
-			"mousedown";
-
-		return function() {
-			return this.on( eventType + ".ui-disableSelection", function( event ) {
-				event.preventDefault();
-			} );
-		};
-	} )(),
-
-	enableSelection: function() {
-		return this.off( ".ui-disableSelection" );
-	}
-} );
-
-} );
+    enableSelection: function () {
+      return this.off(".ui-disableSelection");
+    },
+  });
+});

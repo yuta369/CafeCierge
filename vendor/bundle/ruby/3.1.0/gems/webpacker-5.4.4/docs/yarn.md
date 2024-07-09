@@ -2,7 +2,6 @@
 
 Webpacker by default uses `yarn` as a package manager for `node_modules`
 
-
 ## Add a new npm module
 
 To add any new JS module you can use `yarn`:
@@ -12,6 +11,7 @@ yarn add bootstrap material-ui
 ```
 
 ## Add an npm module to `devDependencies`
+
 To add a new JS module that will only be available to local development:
 
 ```bash

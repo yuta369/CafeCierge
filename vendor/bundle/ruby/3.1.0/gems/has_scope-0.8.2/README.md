@@ -60,7 +60,7 @@ end
 
 Then for each request to the `index` action, _HasScope_ will automatically apply the scopes as follows:
 
-``` ruby
+```ruby
 # GET /graduations
 # No scopes applied
 #=> brings all graduations
@@ -108,7 +108,6 @@ current_scopes
 _HasScope_ can also be used in plain old Ruby objects (PORO). To implement the previous example using this approach, create a bare object and include `HasScope` to get access to its features:
 
 > Note: We'll create a simple version of a query object for this example as this type of object can have multiple different implementations.
-
 
 ```ruby
 class GraduationsSearchQuery
@@ -181,29 +180,29 @@ end
 
 `has_scope` supports several options:
 
-* `:type` - Checks the type of the parameter sent.
+- `:type` - Checks the type of the parameter sent.
   By default, it does not allow hashes or arrays to be given,
   except if type `:hash` or `:array` are set.
   Symbols are never permitted to prevent memory leaks, so ensure any routing
   constraints you have that add parameters use string values.
 
-* `:only` - In which actions the scope is applied.
+- `:only` - In which actions the scope is applied.
 
-* `:except` - In which actions the scope is not applied.
+- `:except` - In which actions the scope is not applied.
 
-* `:as` - The key in the params hash expected to find the scope. Defaults to the scope name.
+- `:as` - The key in the params hash expected to find the scope. Defaults to the scope name.
 
-* `:using` - The subkeys to be used as args when type is a hash.
+- `:using` - The subkeys to be used as args when type is a hash.
 
-* `:in` - A shortcut for combining the `:using` option with nested hashes.
+- `:in` - A shortcut for combining the `:using` option with nested hashes.
 
-* `:if` - Specifies a method or proc to call to determine if the scope should apply. Passing a string is deprecated and it will be removed in a future version.
+- `:if` - Specifies a method or proc to call to determine if the scope should apply. Passing a string is deprecated and it will be removed in a future version.
 
-* `:unless` - Specifies a method or proc to call to determine if the scope should NOT apply. Passing a string is deprecated and it will be removed in a future version.
+- `:unless` - Specifies a method or proc to call to determine if the scope should NOT apply. Passing a string is deprecated and it will be removed in a future version.
 
-* `:default` - Default value for the scope. Whenever supplied the scope is always called.
+- `:default` - Default value for the scope. Whenever supplied the scope is always called.
 
-* `:allow_blank` - Blank values are not sent to scopes by default. Set to true to overwrite.
+- `:allow_blank` - Blank values are not sent to scopes by default. Set to true to overwrite.
 
 ## Boolean usage
 
@@ -230,6 +229,7 @@ the param value must be set to one of the "true" values above, e.g. `?active=tru
 ## Block usage
 
 `has_scope` also accepts a block in case we need to manipulate the given value and/or call the scope in some custom way. Usually three arguments are passed to the block:
+
 - The instance of the controller or object where it's included
 - The current scope chain
 - The value of the scope to apply

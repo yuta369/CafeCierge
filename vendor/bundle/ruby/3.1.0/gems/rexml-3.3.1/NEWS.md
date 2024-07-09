@@ -4,424 +4,432 @@
 
 ### Improvements
 
-  * Added support for detecting malformed top-level comments.
-    * GH-145
-    * Patch by Hiroya Fujinami.
+- Added support for detecting malformed top-level comments.
 
-  * Improved `REXML::Element#attribute` performance.
-    * GH-146
-    * Patch by Hiroya Fujinami.
+  - GH-145
+  - Patch by Hiroya Fujinami.
 
-  * Added support for detecting malformed `<!-->` comments.
-    * GH-147
-    * Patch by Hiroya Fujinami.
+- Improved `REXML::Element#attribute` performance.
 
-  * Added support for detecting unclosed `DOCTYPE`.
-    * GH-152
-    * Patch by Hiroya Fujinami.
+  - GH-146
+  - Patch by Hiroya Fujinami.
 
-  * Added `changlog_uri` metadata to gemspec.
-    * GH-156
-    * Patch by fynsta.
+- Added support for detecting malformed `<!-->` comments.
 
-  * Improved parse performance.
-    * GH-157
-    * GH-158
-    * Patch by NAITOH Jun.
+  - GH-147
+  - Patch by Hiroya Fujinami.
+
+- Added support for detecting unclosed `DOCTYPE`.
+
+  - GH-152
+  - Patch by Hiroya Fujinami.
+
+- Added `changlog_uri` metadata to gemspec.
+
+  - GH-156
+  - Patch by fynsta.
+
+- Improved parse performance.
+  - GH-157
+  - GH-158
+  - Patch by NAITOH Jun.
 
 ### Fixes
 
-  * Fixed a bug that large XML can't be parsed.
-    * GH-154
-    * Patch by NAITOH Jun.
+- Fixed a bug that large XML can't be parsed.
 
-  * Fixed a bug that private constants are visible.
-    * GH-155
-    * Patch by NAITOH Jun.
+  - GH-154
+  - Patch by NAITOH Jun.
+
+- Fixed a bug that private constants are visible.
+  - GH-155
+  - Patch by NAITOH Jun.
 
 ### Thanks
 
-  * Hiroya Fujinami
+- Hiroya Fujinami
 
-  * NAITOH Jun
+- NAITOH Jun
 
-  * fynsta
+- fynsta
 
 ## 3.3.0 - 2024-06-11 {#version-3-3-0}
 
 ### Improvements
 
-  * Added support for strscan 0.7.0 installed with Ruby 2.6.
-    * GH-142
-    * Reported by Fernando Trigoso.
+- Added support for strscan 0.7.0 installed with Ruby 2.6.
+  - GH-142
+  - Reported by Fernando Trigoso.
 
 ### Thanks
 
-  * Fernando Trigoso
+- Fernando Trigoso
 
 ## 3.2.9 - 2024-06-09 {#version-3-2-9}
 
 ### Improvements
 
-  * Added support for old strscan.
-    * GH-132
-    * Reported by Adam.
+- Added support for old strscan.
 
-  * Improved attribute value parse performance.
-    * GH-135
-    * Patch by NAITOH Jun.
+  - GH-132
+  - Reported by Adam.
 
-  * Improved `REXML::Node#each_recursive` performance.
-    * GH-134
-    * GH-139
-    * Patch by Hiroya Fujinami.
+- Improved attribute value parse performance.
 
-  * Improved text parse performance.
-    * Reported by mprogrammer.
+  - GH-135
+  - Patch by NAITOH Jun.
+
+- Improved `REXML::Node#each_recursive` performance.
+
+  - GH-134
+  - GH-139
+  - Patch by Hiroya Fujinami.
+
+- Improved text parse performance.
+  - Reported by mprogrammer.
 
 ### Thanks
 
-  * Adam
-  * NAITOH Jun
-  * Hiroya Fujinami
-  * mprogrammer
+- Adam
+- NAITOH Jun
+- Hiroya Fujinami
+- mprogrammer
 
 ## 3.2.8 - 2024-05-16 {#version-3-2-8}
 
 ### Fixes
 
-  * Suppressed a warning
+- Suppressed a warning
 
 ## 3.2.7 - 2024-05-16 {#version-3-2-7}
 
 ### Improvements
 
-  * Improve parse performance by using `StringScanner`.
+- Improve parse performance by using `StringScanner`.
 
-    * GH-106
-    * GH-107
-    * GH-108
-    * GH-109
-    * GH-112
-    * GH-113
-    * GH-114
-    * GH-115
-    * GH-116
-    * GH-117
-    * GH-118
-    * GH-119
-    * GH-121
+  - GH-106
+  - GH-107
+  - GH-108
+  - GH-109
+  - GH-112
+  - GH-113
+  - GH-114
+  - GH-115
+  - GH-116
+  - GH-117
+  - GH-118
+  - GH-119
+  - GH-121
 
-    * Patch by NAITOH Jun.
+  - Patch by NAITOH Jun.
 
-  * Improved parse performance when an attribute has many `<`s.
+- Improved parse performance when an attribute has many `<`s.
 
-    * GH-126
+  - GH-126
 
 ### Fixes
 
-  * XPath: Fixed a bug of `normalize_space(array)`.
+- XPath: Fixed a bug of `normalize_space(array)`.
 
-    * GH-110
-    * GH-111
+  - GH-110
+  - GH-111
 
-    * Patch by flatisland.
+  - Patch by flatisland.
 
-  * XPath: Fixed a bug that wrong position is used with nested path.
+- XPath: Fixed a bug that wrong position is used with nested path.
 
-    * GH-110
-    * GH-122
+  - GH-110
+  - GH-122
 
-    * Reported by jcavalieri.
-    * Patch by NAITOH Jun.
+  - Reported by jcavalieri.
+  - Patch by NAITOH Jun.
 
-  * Fixed a bug that an exception message can't be generated for
-    invalid encoding XML.
+- Fixed a bug that an exception message can't be generated for
+  invalid encoding XML.
 
-    * GH-29
-    * GH-123
+  - GH-29
+  - GH-123
 
-    * Reported by DuKewu.
-    * Patch by NAITOH Jun.
+  - Reported by DuKewu.
+  - Patch by NAITOH Jun.
 
 ### Thanks
 
-  * NAITOH Jun
-  * flatisland
-  * jcavalieri
-  * DuKewu
+- NAITOH Jun
+- flatisland
+- jcavalieri
+- DuKewu
 
 ## 3.2.6 - 2023-07-27 {#version-3-2-6}
 
 ### Improvements
 
-  * Required Ruby 2.5 or later explicitly.
-    [GH-69][gh-69]
-    [Patch by Ivo Anjo]
+- Required Ruby 2.5 or later explicitly.
+  [GH-69][gh-69]
+  [Patch by Ivo Anjo]
 
-  * Added documentation for maintenance cycle.
-    [GH-71][gh-71]
-    [Patch by Ivo Anjo]
+- Added documentation for maintenance cycle.
+  [GH-71][gh-71]
+  [Patch by Ivo Anjo]
 
-  * Added tutorial.
-    [GH-77][gh-77]
-    [GH-78][gh-78]
-    [Patch by Burdette Lamar]
+- Added tutorial.
+  [GH-77][gh-77]
+  [GH-78][gh-78]
+  [Patch by Burdette Lamar]
 
-  * Improved performance and memory usage.
-    [GH-94][gh-94]
-    [Patch by fatkodima]
+- Improved performance and memory usage.
+  [GH-94][gh-94]
+  [Patch by fatkodima]
 
-  * `REXML::Parsers::XPathParser#abbreviate`: Added support for
-    function arguments.
-    [GH-95][gh-95]
-    [Reported by pulver]
+- `REXML::Parsers::XPathParser#abbreviate`: Added support for
+  function arguments.
+  [GH-95][gh-95]
+  [Reported by pulver]
 
-  * `REXML::Parsers::XPathParser#abbreviate`: Added support for string
-    literal that contains double-quote.
-    [GH-96][gh-96]
-    [Patch by pulver]
+- `REXML::Parsers::XPathParser#abbreviate`: Added support for string
+  literal that contains double-quote.
+  [GH-96][gh-96]
+  [Patch by pulver]
 
-  * `REXML::Parsers::XPathParser#abbreviate`: Added missing `/` to
-    `:descendant_or_self/:self/:parent`.
-    [GH-97][gh-97]
-    [Reported by pulver]
+- `REXML::Parsers::XPathParser#abbreviate`: Added missing `/` to
+  `:descendant_or_self/:self/:parent`.
+  [GH-97][gh-97]
+  [Reported by pulver]
 
-  * `REXML::Parsers::XPathParser#abbreviate`: Added support for more patterns.
-    [GH-97][gh-97]
-    [Reported by pulver]
+- `REXML::Parsers::XPathParser#abbreviate`: Added support for more patterns.
+  [GH-97][gh-97]
+  [Reported by pulver]
 
 ### Fixes
 
-  * Fixed a typo in NEWS.
-    [GH-72][gh-72]
-    [Patch by Spencer Goodman]
+- Fixed a typo in NEWS.
+  [GH-72][gh-72]
+  [Patch by Spencer Goodman]
 
-  * Fixed a typo in NEWS.
-    [GH-75][gh-75]
-    [Patch by Andrew Bromwich]
+- Fixed a typo in NEWS.
+  [GH-75][gh-75]
+  [Patch by Andrew Bromwich]
 
-  * Fixed documents.
-    [GH-87][gh-87]
-    [Patch by Alexander Ilyin]
+- Fixed documents.
+  [GH-87][gh-87]
+  [Patch by Alexander Ilyin]
 
-  * Fixed a bug that `Attriute` convert `'` and `&apos;` even when
-    `attribute_quote: :quote` is used.
-    [GH-92][gh-92]
-    [Reported by Edouard Brière]
+- Fixed a bug that `Attriute` convert `'` and `&apos;` even when
+  `attribute_quote: :quote` is used.
+  [GH-92][gh-92]
+  [Reported by Edouard Brière]
 
-  * Fixed links in tutorial.
-    [GH-99][gh-99]
-    [Patch by gemmaro]
-
+- Fixed links in tutorial.
+  [GH-99][gh-99]
+  [Patch by gemmaro]
 
 ### Thanks
 
-  * Ivo Anjo
+- Ivo Anjo
 
-  * Spencer Goodman
+- Spencer Goodman
 
-  * Andrew Bromwich
+- Andrew Bromwich
 
-  * Burdette Lamar
+- Burdette Lamar
 
-  * Alexander Ilyin
+- Alexander Ilyin
 
-  * Edouard Brière
+- Edouard Brière
 
-  * fatkodima
+- fatkodima
 
-  * pulver
+- pulver
 
-  * gemmaro
+- gemmaro
 
-[gh-69]:https://github.com/ruby/rexml/issues/69
-[gh-71]:https://github.com/ruby/rexml/issues/71
-[gh-72]:https://github.com/ruby/rexml/issues/72
-[gh-75]:https://github.com/ruby/rexml/issues/75
-[gh-77]:https://github.com/ruby/rexml/issues/77
-[gh-87]:https://github.com/ruby/rexml/issues/87
-[gh-92]:https://github.com/ruby/rexml/issues/92
-[gh-94]:https://github.com/ruby/rexml/issues/94
-[gh-95]:https://github.com/ruby/rexml/issues/95
-[gh-96]:https://github.com/ruby/rexml/issues/96
-[gh-97]:https://github.com/ruby/rexml/issues/97
-[gh-98]:https://github.com/ruby/rexml/issues/98
-[gh-99]:https://github.com/ruby/rexml/issues/99
+[gh-69]: https://github.com/ruby/rexml/issues/69
+[gh-71]: https://github.com/ruby/rexml/issues/71
+[gh-72]: https://github.com/ruby/rexml/issues/72
+[gh-75]: https://github.com/ruby/rexml/issues/75
+[gh-77]: https://github.com/ruby/rexml/issues/77
+[gh-87]: https://github.com/ruby/rexml/issues/87
+[gh-92]: https://github.com/ruby/rexml/issues/92
+[gh-94]: https://github.com/ruby/rexml/issues/94
+[gh-95]: https://github.com/ruby/rexml/issues/95
+[gh-96]: https://github.com/ruby/rexml/issues/96
+[gh-97]: https://github.com/ruby/rexml/issues/97
+[gh-98]: https://github.com/ruby/rexml/issues/98
+[gh-99]: https://github.com/ruby/rexml/issues/99
 
 ## 3.2.5 - 2021-04-05 {#version-3-2-5}
 
 ### Improvements
 
-  * Add more validations to XPath parser.
+- Add more validations to XPath parser.
 
-  * `require "rexml/document"` by default.
-    [GitHub#36][Patch by Koichi ITO]
+- `require "rexml/document"` by default.
+  [GitHub#36][Patch by Koichi ITO]
 
-  * Don't add `#dclone` method to core classes globally.
-    [GitHub#37][Patch by Akira Matsuda]
+- Don't add `#dclone` method to core classes globally.
+  [GitHub#37][Patch by Akira Matsuda]
 
-  * Add more documentations.
-    [Patch by Burdette Lamar]
+- Add more documentations.
+  [Patch by Burdette Lamar]
 
-  * Added `REXML::Elements#parent`.
-    [GitHub#52][Patch by Burdette Lamar]
+- Added `REXML::Elements#parent`.
+  [GitHub#52][Patch by Burdette Lamar]
 
 ### Fixes
 
-  * Fixed a bug that `REXML::DocType#clone` doesn't copy external ID
-    information.
+- Fixed a bug that `REXML::DocType#clone` doesn't copy external ID
+  information.
 
-  * Fixed round-trip vulnerability bugs.
-    See also: https://www.ruby-lang.org/en/news/2021/04/05/xml-round-trip-vulnerability-in-rexml-cve-2021-28965/
-    [HackerOne#1104077][CVE-2021-28965][Reported by Juho Nurminen]
+- Fixed round-trip vulnerability bugs.
+  See also: https://www.ruby-lang.org/en/news/2021/04/05/xml-round-trip-vulnerability-in-rexml-cve-2021-28965/
+  [HackerOne#1104077][CVE-2021-28965][Reported by Juho Nurminen]
 
 ### Thanks
 
-  * Koichi ITO
+- Koichi ITO
 
-  * Akira Matsuda
+- Akira Matsuda
 
-  * Burdette Lamar
+- Burdette Lamar
 
-  * Juho Nurminen
+- Juho Nurminen
 
 ## 3.2.4 - 2020-01-31 {#version-3-2-4}
 
 ### Improvements
 
-  * Don't use `taint` with Ruby 2.7 or later.
-    [GitHub#21][Patch by Jeremy Evans]
+- Don't use `taint` with Ruby 2.7 or later.
+  [GitHub#21][Patch by Jeremy Evans]
 
 ### Fixes
 
-  * Fixed a `elsif` typo.
-    [GitHub#22][Patch by Nobuyoshi Nakada]
+- Fixed a `elsif` typo.
+  [GitHub#22][Patch by Nobuyoshi Nakada]
 
 ### Thanks
 
-  * Jeremy Evans
+- Jeremy Evans
 
-  * Nobuyoshi Nakada
+- Nobuyoshi Nakada
 
 ## 3.2.3 - 2019-10-12 {#version-3-2-3}
 
 ### Fixes
 
-  * Fixed a bug that `REXML::XMLDecl#close` doesn't copy `@writethis`.
-    [GitHub#20][Patch by hirura]
+- Fixed a bug that `REXML::XMLDecl#close` doesn't copy `@writethis`.
+  [GitHub#20][Patch by hirura]
 
 ### Thanks
 
-  * hirura
+- hirura
 
 ## 3.2.2 - 2019-06-03 {#version-3-2-2}
 
 ### Fixes
 
-  * xpath: Fixed a bug for equality and relational expressions.
-    [GitHub#17][Reported by Mirko Budszuhn]
+- xpath: Fixed a bug for equality and relational expressions.
+  [GitHub#17][Reported by Mirko Budszuhn]
 
-  * xpath: Fixed `boolean()` implementation.
+- xpath: Fixed `boolean()` implementation.
 
-  * xpath: Fixed `local_name()` with nonexistent node.
+- xpath: Fixed `local_name()` with nonexistent node.
 
-  * xpath: Fixed `number()` implementation with node set.
-    [GitHub#18][Reported by Mirko Budszuhn]
+- xpath: Fixed `number()` implementation with node set.
+  [GitHub#18][Reported by Mirko Budszuhn]
 
 ### Thanks
 
-  * Mirko Budszuhn
+- Mirko Budszuhn
 
 ## 3.2.1 - 2019-05-04 {#version-3-2-1}
 
 ### Improvements
 
-  * Improved error message.
-    [GitHub#12][Patch by FUJI Goro]
+- Improved error message.
+  [GitHub#12][Patch by FUJI Goro]
 
-  * Improved error message.
-    [GitHub#16][Patch by ujihisa]
+- Improved error message.
+  [GitHub#16][Patch by ujihisa]
 
-  * Improved documentation markup.
-    [GitHub#14][Patch by Alyssa Ross]
+- Improved documentation markup.
+  [GitHub#14][Patch by Alyssa Ross]
 
 ### Fixes
 
-  * Fixed a bug that `nil` variable value raises an unexpected exception.
-    [GitHub#13][Patch by Alyssa Ross]
+- Fixed a bug that `nil` variable value raises an unexpected exception.
+  [GitHub#13][Patch by Alyssa Ross]
 
 ### Thanks
 
-  * FUJI Goro
+- FUJI Goro
 
-  * Alyssa Ross
+- Alyssa Ross
 
-  * ujihisa
+- ujihisa
 
 ## 3.2.0 - 2019-01-01 {#version-3-2-0}
 
 ### Fixes
 
-  * Fixed a bug that no namespace attribute isn't matched with prefix.
+- Fixed a bug that no namespace attribute isn't matched with prefix.
 
-    [ruby-list:50731][Reported by Yasuhiro KIMURA]
+  [ruby-list:50731][Reported by Yasuhiro KIMURA]
 
-  * Fixed a bug that the default namespace is applied to attribute names.
+- Fixed a bug that the default namespace is applied to attribute names.
 
-    NOTE: It's a backward incompatible change. If your program has any
-    problem with this change, please report it. We may revert this fix.
+  NOTE: It's a backward incompatible change. If your program has any
+  problem with this change, please report it. We may revert this fix.
 
-    * `REXML::Attribute#prefix` returns `""` for no namespace attribute.
+  - `REXML::Attribute#prefix` returns `""` for no namespace attribute.
 
-    * `REXML::Attribute#namespace` returns `""` for no namespace attribute.
+  - `REXML::Attribute#namespace` returns `""` for no namespace attribute.
 
 ### Thanks
 
-  * Yasuhiro KIMURA
+- Yasuhiro KIMURA
 
 ## 3.1.9 - 2018-12-20 {#version-3-1-9}
 
 ### Improvements
 
-  * Improved backward compatibility.
+- Improved backward compatibility.
 
-    Restored `REXML::Parsers::BaseParser::UNQME_STR` because it's used
-    by kramdown.
+  Restored `REXML::Parsers::BaseParser::UNQME_STR` because it's used
+  by kramdown.
 
 ## 3.1.8 - 2018-12-20 {#version-3-1-8}
 
 ### Improvements
 
-  * Added support for customizing quote character in prologue.
-    [GitHub#8][Bug #9367][Reported by Takashi Oguma]
+- Added support for customizing quote character in prologue.
+  [GitHub#8][Bug #9367][Reported by Takashi Oguma]
 
-    * You can use `"` as quote character by specifying `:quote` to
-      `REXML::Document#context[:prologue_quote]`.
+  - You can use `"` as quote character by specifying `:quote` to
+    `REXML::Document#context[:prologue_quote]`.
 
-    * You can use `'` as quote character by specifying `:apostrophe`
-      to `REXML::Document#context[:prologue_quote]`.
+  - You can use `'` as quote character by specifying `:apostrophe`
+    to `REXML::Document#context[:prologue_quote]`.
 
-  * Added processing instruction target check. The target must not nil.
-    [GitHub#7][Reported by Ariel Zelivansky]
+- Added processing instruction target check. The target must not nil.
+  [GitHub#7][Reported by Ariel Zelivansky]
 
-  * Added name check for element and attribute.
-    [GitHub#7][Reported by Ariel Zelivansky]
+- Added name check for element and attribute.
+  [GitHub#7][Reported by Ariel Zelivansky]
 
-  * Stopped to use `Exception`.
-    [GitHub#9][Patch by Jean Boussier]
+- Stopped to use `Exception`.
+  [GitHub#9][Patch by Jean Boussier]
 
 ### Fixes
 
-  * Fixed a bug that `REXML::Text#clone` escapes value twice.
-    [ruby-dev:50626][Bug #15058][Reported by Ryosuke Nanba]
+- Fixed a bug that `REXML::Text#clone` escapes value twice.
+  [ruby-dev:50626][Bug #15058][Reported by Ryosuke Nanba]
 
 ### Thanks
 
-  * Takashi Oguma
+- Takashi Oguma
 
-  * Ariel Zelivansky
+- Ariel Zelivansky
 
-  * Jean Boussier
+- Jean Boussier
 
-  * Ryosuke Nanba
+- Ryosuke Nanba

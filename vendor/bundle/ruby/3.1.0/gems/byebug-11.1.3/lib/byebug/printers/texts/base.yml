@@ -10,10 +10,10 @@ break:
     class: "Unknown class {klass}"
     far_line: "There are only {lines} lines in file {file}"
     source: "No file named {file}"
-    expression: "Incorrect expression \"{expr}\"; breakpoint disabled"
-    no_breakpoint: "Invalid breakpoint id. Use \"info breakpoint\" to find out the correct id"
+    expression: 'Incorrect expression "{expr}"; breakpoint disabled'
+    no_breakpoint: 'Invalid breakpoint id. Use "info breakpoint" to find out the correct id'
     no_breakpoint_delete: "No breakpoint number {pos}"
-    not_changed: "Incorrect expression \"{expr}\", breakpoint not changed"
+    not_changed: 'Incorrect expression "{expr}", breakpoint not changed'
   confirmations:
     delete_all: "Delete all breakpoints?"
   messages:
@@ -84,7 +84,7 @@ show:
 
 source:
   errors:
-    not_found: "File \"{file}\" not found"
+    not_found: 'File "{file}" not found'
 
 thread:
   errors:
@@ -97,17 +97,17 @@ toggle:
   errors:
     no_breakpoints: "No breakpoints have been set"
     no_display: "No display expressions have been set"
-    syntax: "\"{toggle}\" must be followed by \"display\", \"breakpoints\" or breakpoint ids"
-    expression: "Expression \"{expr}\" syntactically incorrect; breakpoint remains disabled."
+    syntax: '"{toggle}" must be followed by "display", "breakpoints" or breakpoint ids'
+    expression: 'Expression "{expr}" syntactically incorrect; breakpoint remains disabled.'
   messages:
     toggled: "Breakpoint {bpnum} {endis}abled"
 
 parse:
   errors:
     int:
-      too_low: "\"{cmd}\" argument \"{str}\" needs to be at least {min}"
-      too_high: "\"{cmd}\" argument \"{str}\" needs to be at most {max}"
-      not_number: "\"{cmd}\" argument \"{str}\" needs to be a number"
+      too_low: '"{cmd}" argument "{str}" needs to be at least {min}'
+      too_high: '"{cmd}" argument "{str}" needs to be at most {max}'
+      not_number: '"{cmd}" argument "{str}" needs to be a number'
 
 variable:
   errors:

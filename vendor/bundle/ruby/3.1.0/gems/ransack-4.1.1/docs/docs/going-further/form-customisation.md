@@ -25,6 +25,7 @@ en:
         title: Article Title
         body: Main Content
 ```
+
 The names of attribute fields may also be changed globally or under activerecord:
 
 ```yml

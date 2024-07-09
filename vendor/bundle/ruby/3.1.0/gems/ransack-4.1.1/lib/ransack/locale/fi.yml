@@ -62,10 +62,9 @@ fi:
       not_end: "ei pääty"
       not_end_any: "ei pääty jollakin"
       not_end_all: "ei pääty millään"
-      'true': "on tosi"
-      'false': "ei ole tosi"
+      "true": "on tosi"
+      "false": "ei ole tosi"
       present: "on läsnä"
       blank: "on tyhjä"
-      'null': "on määrittämätön"
+      "null": "on määrittämätön"
       not_null: "on määritetty"
-

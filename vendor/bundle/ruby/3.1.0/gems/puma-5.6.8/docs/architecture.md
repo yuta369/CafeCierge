@@ -7,7 +7,6 @@
 Puma is a threaded Ruby HTTP application server processing requests across a TCP
 and/or UNIX socket.
 
-
 Puma processes (there can be one or many) accept connections from the socket via
 a thread (in the [`Reactor`](../lib/puma/reactor.rb) class). The connection,
 once fully buffered and read, moves into the `todo` list, where an available
@@ -30,33 +29,33 @@ _workers_, and we sometimes call the threads created by Puma's
 
 ![https://bit.ly/2zwzhEK](images/puma-connection-flow.png)
 
-* Upon startup, Puma listens on a TCP or UNIX socket.
-  * The backlog of this socket is configured with a default of 1024, but the
+- Upon startup, Puma listens on a TCP or UNIX socket.
+  - The backlog of this socket is configured with a default of 1024, but the
     actual backlog value is capped by the `net.core.somaxconn` sysctl value.
     The backlog determines the size of the queue for unaccepted connections. If
     the backlog is full, the operating system is not accepting new connections.
-  * This socket backlog is distinct from the `backlog` of work as reported by
+  - This socket backlog is distinct from the `backlog` of work as reported by
     `Puma.stats` or the control server. The backlog that `Puma.stats` refers to
     represents the number of connections in the process' `todo` set waiting for
     a thread from the [`ThreadPool`](../lib/puma/thread_pool.rb).
-* By default, a single, separate thread (created by the
+- By default, a single, separate thread (created by the
   [`Reactor`](../lib/puma/reactor.rb) class) reads and buffers requests from the
   socket.
-  * When at least one worker thread is available for work, the reactor thread
+  - When at least one worker thread is available for work, the reactor thread
     listens to the socket and accepts a request (if one is waiting).
-  * The reactor thread waits for the entire HTTP request to be received.
-    * Puma exposes the time spent waiting for the HTTP request body to be
+  - The reactor thread waits for the entire HTTP request to be received.
+    - Puma exposes the time spent waiting for the HTTP request body to be
       received to the Rack app as `env['puma.request_body_wait']`
       (milliseconds).
-  * Once fully buffered and received, the connection is pushed into the "todo"
+  - Once fully buffered and received, the connection is pushed into the "todo"
     set.
-* Worker threads pop work off the "todo" set for processing.
-  * The worker thread processes the request via `call`ing the configured Rack
+- Worker threads pop work off the "todo" set for processing.
+  - The worker thread processes the request via `call`ing the configured Rack
     application. The Rack application generates the HTTP response.
-  * The worker thread writes the response to the connection. While Puma buffers
+  - The worker thread writes the response to the connection. While Puma buffers
     requests via a separate thread, it does not use a separate thread for
     responses.
-  * Once done, the thread becomes available to process another connection in the
+  - Once done, the thread becomes available to process another connection in the
     "todo" set.
 
 ### `queue_requests`

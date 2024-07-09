@@ -31,13 +31,13 @@ gem install sassc
 ## Usage
 
 This library utilizes `libsass` to allow you to compile SCSS or SASS syntax
-to CSS.  To compile, use a `SassC::Engine`, e.g.:
+to CSS. To compile, use a `SassC::Engine`, e.g.:
 
 ```ruby
 SassC::Engine.new(sass, style: :compressed).render
 ```
 
-**Note**:  If you want to use this library with Rails/Sprockets, check out
+**Note**: If you want to use this library with Rails/Sprockets, check out
 [sassc-rails](https://github.com/bolandrm/sassc-rails).
 
 Additionally, you can use `SassC::Sass2Scss` to convert Sass syntax to Scss syntax.

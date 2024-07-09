@@ -1,471 +1,444 @@
-## Rails 6.1.7.8 (June 04, 2024) ##
+## Rails 6.1.7.8 (June 04, 2024)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.7.7 (February 21, 2024)
 
-## Rails 6.1.7.7 (February 21, 2024) ##
+- No changes.
 
-*   No changes.
+## Rails 6.1.7.6 (August 22, 2023)
 
+- No changes.
 
-## Rails 6.1.7.6 (August 22, 2023) ##
+## Rails 6.1.7.5 (August 22, 2023)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.7.4 (June 26, 2023)
 
-## Rails 6.1.7.5 (August 22, 2023) ##
+- No changes.
 
-*   No changes.
+## Rails 6.1.7.3 (March 13, 2023)
 
+- Ignore certain data-\* attributes in rails-ujs when element is contenteditable
 
-## Rails 6.1.7.4 (June 26, 2023) ##
+  [CVE-2023-23913]
 
-*   No changes.
+## Rails 6.1.7.2 (January 24, 2023)
 
+- No changes.
 
-## Rails 6.1.7.3 (March 13, 2023) ##
+## Rails 6.1.7.1 (January 17, 2023)
 
-*   Ignore certain data-* attributes in rails-ujs when element is contenteditable
+- No changes.
 
-    [CVE-2023-23913]
+## Rails 6.1.7 (September 09, 2022)
 
+- No changes.
 
-## Rails 6.1.7.2 (January 24, 2023) ##
+## Rails 6.1.6.1 (July 12, 2022)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.6 (May 09, 2022)
 
-## Rails 6.1.7.1 (January 17, 2023) ##
+- No changes.
 
-*   No changes.
+## Rails 6.1.5.1 (April 26, 2022)
 
+- Fix and add protections for XSS in `ActionView::Helpers` and `ERB::Util`.
 
-## Rails 6.1.7 (September 09, 2022) ##
+  Escape dangerous characters in names of tags and names of attributes in the
+  tag helpers, following the XML specification. Rename the option
+  `:escape_attributes` to `:escape`, to simplify by applying the option to the
+  whole tag.
 
-*   No changes.
+  _Álvaro Martín Fraguas_
 
+## Rails 6.1.5 (March 09, 2022)
 
-## Rails 6.1.6.1 (July 12, 2022) ##
+- `preload_link_tag` properly inserts `as` attributes for files with `image` MIME
+  types, such as JPG or SVG.
 
-*   No changes.
+  _Nate Berkopec_
 
+- Add `autocomplete="off"` to all generated hidden fields.
 
-## Rails 6.1.6 (May 09, 2022) ##
+  Fixes #42610.
 
-*   No changes.
+  _Ryan Baumann_
 
+- Fix `current_page?` when URL has trailing slash.
 
-## Rails 6.1.5.1 (April 26, 2022) ##
+  This fixes the `current_page?` helper when the given URL has a trailing slash,
+  and is an absolute URL or also has query params.
 
-*   Fix and add protections for XSS in `ActionView::Helpers` and `ERB::Util`.
+  Fixes #33956.
 
-    Escape dangerous characters in names of tags and names of attributes in the
-    tag helpers, following the XML specification. Rename the option
-    `:escape_attributes` to `:escape`, to simplify by applying the option to the
-    whole tag.
+  _Jonathan Hefner_
 
-    *Álvaro Martín Fraguas*
+## Rails 6.1.4.7 (March 08, 2022)
 
-## Rails 6.1.5 (March 09, 2022) ##
+- No changes.
 
-*   `preload_link_tag` properly inserts `as` attributes for files with `image` MIME
-    types, such as JPG or SVG.
+## Rails 6.1.4.6 (February 11, 2022)
 
-    *Nate Berkopec*
+- No changes.
 
-*   Add `autocomplete="off"` to all generated hidden fields.
+## Rails 6.1.4.5 (February 11, 2022)
 
-    Fixes #42610.
+- No changes.
 
-    *Ryan Baumann*
+## Rails 6.1.4.4 (December 15, 2021)
 
-*   Fix `current_page?` when URL has trailing slash.
+- No changes.
 
-    This fixes the `current_page?` helper when the given URL has a trailing slash,
-    and is an absolute URL or also has query params.
+## Rails 6.1.4.3 (December 14, 2021)
 
-    Fixes #33956.
+- No changes.
 
-    *Jonathan Hefner*
+## Rails 6.1.4.2 (December 14, 2021)
 
+- No changes.
 
-## Rails 6.1.4.7 (March 08, 2022) ##
+## Rails 6.1.4.1 (August 19, 2021)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.4 (June 24, 2021)
 
-## Rails 6.1.4.6 (February 11, 2022) ##
+- The `translate` helper now passes `default` values that aren't
+  translation keys through `I18n.translate` for interpolation.
 
-*   No changes.
+  _Jonathan Hefner_
 
+- Don't attach UJS form submission handlers to Turbo forms.
 
-## Rails 6.1.4.5 (February 11, 2022) ##
+  _David Heinemeier Hansson_
 
-*   No changes.
+- Allow both `current_page?(url_hash)` and `current_page?(**url_hash)` on Ruby 2.7.
 
+  _Ryuta Kamizono_
 
-## Rails 6.1.4.4 (December 15, 2021) ##
+## Rails 6.1.3.2 (May 05, 2021)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.3.1 (March 26, 2021)
 
-## Rails 6.1.4.3 (December 14, 2021) ##
+- No changes.
 
-*   No changes.
+## Rails 6.1.3 (February 17, 2021)
 
+- No changes.
 
-## Rails 6.1.4.2 (December 14, 2021) ##
+## Rails 6.1.2.1 (February 10, 2021)
 
-*   No changes.
+- No changes.
 
+## Rails 6.1.2 (February 09, 2021)
 
-## Rails 6.1.4.1 (August 19, 2021) ##
+- No changes.
 
-*   No changes.
+## Rails 6.1.1 (January 07, 2021)
 
+- Fix lazy translation in partial with block.
 
-## Rails 6.1.4 (June 24, 2021) ##
+  _Marek Kasztelnik_
 
-*   The `translate` helper now passes `default` values that aren't
-    translation keys through `I18n.translate` for interpolation.
+- Avoid extra `SELECT COUNT` queries when rendering Active Record collections.
 
-    *Jonathan Hefner*
+  _aar0nr_
 
-*   Don't attach UJS form submission handlers to Turbo forms.
+- Link preloading keep integrity hashes in the header.
 
-    *David Heinemeier Hansson*
+  _Étienne Barrié_
 
-*   Allow both `current_page?(url_hash)` and `current_page?(**url_hash)` on Ruby 2.7.
+- Add `config.action_view.preload_links_header` to allow disabling of
+  the `Link` header being added by default when using `stylesheet_link_tag`
+  and `javascript_include_tag`.
 
-    *Ryuta Kamizono*
+  _Andrew White_
 
+- The `translate` helper now resolves `default` values when a `nil` key is
+  specified, instead of always returning `nil`.
 
-## Rails 6.1.3.2 (May 05, 2021) ##
+  _Jonathan Hefner_
 
-*   No changes.
+## Rails 6.1.0 (December 09, 2020)
 
+- SanitizeHelper.sanitized_allowed_attributes and SanitizeHelper.sanitized_allowed_tags
+  call safe_list_sanitizer's class method
 
-## Rails 6.1.3.1 (March 26, 2021) ##
+  Fixes #39586
 
-*   No changes.
+  _Taufiq Muhammadi_
 
+- Change form_with to generate non-remote forms by default.
 
-## Rails 6.1.3 (February 17, 2021) ##
+  `form_with` would generate a remote form by default. This would confuse
+  users because they were forced to handle remote requests.
 
-*   No changes.
+  All new 6.1 applications will generate non-remote forms by default.
+  When upgrading a 6.0 application you can enable remote forms by default by
+  setting `config.action_view.form_with_generates_remote_forms` to `true`.
 
+  _Petrik de Heus_
 
-## Rails 6.1.2.1 (February 10, 2021) ##
+- Yield translated strings to calls of `ActionView::FormBuilder#button`
+  when a block is given.
 
-*   No changes.
+  _Sean Doyle_
 
+- Alias `ActionView::Helpers::Tags::Label::LabelBuilder#translation` to
+  `#to_s` so that `form.label` calls can yield that value to their blocks.
 
-## Rails 6.1.2 (February 09, 2021) ##
+  _Sean Doyle_
 
-*   No changes.
+- Rename the new `TagHelper#class_names` method to `TagHelper#token_list`,
+  and make the original available as an alias.
 
+      token_list("foo", "foo bar")
+      # => "foo bar"
 
-## Rails 6.1.1 (January 07, 2021) ##
+  _Sean Doyle_
 
-*   Fix lazy translation in partial with block.
+- ARIA Array and Hash attributes are treated as space separated `DOMTokenList`
+  values. This is useful when declaring lists of label text identifiers in
+  `aria-labelledby` or `aria-describedby`.
 
-    *Marek Kasztelnik*
+      tag.input type: 'checkbox', name: 'published', aria: {
+        invalid: @post.errors[:published].any?,
+        labelledby: ['published_context', 'published_label'],
+        describedby: { published_errors: @post.errors[:published].any? }
+      }
+      #=> <input
+            type="checkbox" name="published" aria-invalid="true"
+            aria-labelledby="published_context published_label"
+            aria-describedby="published_errors"
+          >
 
-*   Avoid extra `SELECT COUNT` queries when rendering Active Record collections.
+  _Sean Doyle_
 
-    *aar0nr*
+- Remove deprecated `escape_whitelist` from `ActionView::Template::Handlers::ERB`.
 
-*   Link preloading keep integrity hashes in the header.
+  _Rafael Mendonça França_
 
-    *Étienne Barrié*
+- Remove deprecated `find_all_anywhere` from `ActionView::Resolver`.
 
-*   Add `config.action_view.preload_links_header` to allow disabling of
-    the `Link` header being added by default when using `stylesheet_link_tag`
-    and `javascript_include_tag`.
+  _Rafael Mendonça França_
 
-    *Andrew White*
+- Remove deprecated `formats` from `ActionView::Template::HTML`.
 
-*   The `translate` helper now resolves `default` values when a `nil` key is
-    specified, instead of always returning `nil`.
+  _Rafael Mendonça França_
 
-    *Jonathan Hefner*
+- Remove deprecated `formats` from `ActionView::Template::RawFile`.
 
+  _Rafael Mendonça França_
 
-## Rails 6.1.0 (December 09, 2020) ##
+- Remove deprecated `formats` from `ActionView::Template::Text`.
 
-*   SanitizeHelper.sanitized_allowed_attributes and SanitizeHelper.sanitized_allowed_tags
-    call safe_list_sanitizer's class method
+  _Rafael Mendonça França_
 
-    Fixes #39586
+- Remove deprecated `find_file` from `ActionView::PathSet`.
 
-    *Taufiq Muhammadi*
+  _Rafael Mendonça França_
 
-*   Change form_with to generate non-remote forms by default.
+- Remove deprecated `rendered_format` from `ActionView::LookupContext`.
 
-    `form_with` would generate a remote form by default. This would confuse
-    users because they were forced to handle remote requests.
+  _Rafael Mendonça França_
 
-    All new 6.1 applications will generate non-remote forms by default.
-    When upgrading a 6.0 application you can enable remote forms by default by
-    setting `config.action_view.form_with_generates_remote_forms` to `true`.
+- Remove deprecated `find_file` from `ActionView::ViewPaths`.
 
-    *Petrik de Heus*
+  _Rafael Mendonça França_
 
-*   Yield translated strings to calls of `ActionView::FormBuilder#button`
-    when a block is given.
+- Require that `ActionView::Base` subclasses implement `#compiled_method_container`.
 
-    *Sean Doyle*
+  _Rafael Mendonça França_
 
-*   Alias `ActionView::Helpers::Tags::Label::LabelBuilder#translation` to
-    `#to_s` so that `form.label` calls can yield that value to their blocks.
+- Remove deprecated support to pass an object that is not a `ActionView::LookupContext` as the first argument
+  in `ActionView::Base#initialize`.
 
-    *Sean Doyle*
+  _Rafael Mendonça França_
 
-*   Rename the new `TagHelper#class_names` method to `TagHelper#token_list`,
-    and make the original available as an alias.
+- Remove deprecated `format` argument `ActionView::Base#initialize`.
 
-        token_list("foo", "foo bar")
-        # => "foo bar"
+  _Rafael Mendonça França_
 
-    *Sean Doyle*
+- Remove deprecated `ActionView::Template#refresh`.
 
-*   ARIA Array and Hash attributes are treated as space separated `DOMTokenList`
-    values. This is useful when declaring lists of label text identifiers in
-    `aria-labelledby` or `aria-describedby`.
+  _Rafael Mendonça França_
 
-        tag.input type: 'checkbox', name: 'published', aria: {
-          invalid: @post.errors[:published].any?,
-          labelledby: ['published_context', 'published_label'],
-          describedby: { published_errors: @post.errors[:published].any? }
-        }
-        #=> <input
-              type="checkbox" name="published" aria-invalid="true"
-              aria-labelledby="published_context published_label"
-              aria-describedby="published_errors"
-            >
+- Remove deprecated `ActionView::Template#original_encoding`.
 
-    *Sean Doyle*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `escape_whitelist` from `ActionView::Template::Handlers::ERB`.
+- Remove deprecated `ActionView::Template#variants`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `find_all_anywhere` from `ActionView::Resolver`.
+- Remove deprecated `ActionView::Template#formats`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `formats` from `ActionView::Template::HTML`.
+- Remove deprecated `ActionView::Template#virtual_path=`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `formats` from `ActionView::Template::RawFile`.
+- Remove deprecated `ActionView::Template#updated_at`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `formats` from `ActionView::Template::Text`.
+- Remove deprecated `updated_at` argument required on `ActionView::Template#initialize`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `find_file` from `ActionView::PathSet`.
+- Make `locals` argument required on `ActionView::Template#initialize`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `rendered_format` from `ActionView::LookupContext`.
+- Remove deprecated `ActionView::Template.finalize_compiled_template_methods`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `find_file` from `ActionView::ViewPaths`.
+- Remove deprecated `config.action_view.finalize_compiled_template_methods`
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Require that `ActionView::Base` subclasses implement `#compiled_method_container`.
+- Remove deprecated support to calling `ActionView::ViewPaths#with_fallback` with a block.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated support to pass an object that is not a `ActionView::LookupContext` as the first argument
-    in `ActionView::Base#initialize`.
+- Remove deprecated support to passing absolute paths to `render template:`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `format` argument `ActionView::Base#initialize`.
+- Remove deprecated support to passing relative paths to `render file:`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `ActionView::Template#refresh`.
+- Remove support to template handlers that don't accept two arguments.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `ActionView::Template#original_encoding`.
+- Remove deprecated pattern argument in `ActionView::Template::PathResolver`.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `ActionView::Template#variants`.
+- Remove deprecated support to call private methods from object in some view helpers.
 
-    *Rafael Mendonça França*
+  _Rafael Mendonça França_
 
-*   Remove deprecated `ActionView::Template#formats`.
+- `ActionView::Helpers::TranslationHelper#translate` accepts a block, yielding
+  the translated text and the fully resolved translation key:
 
-    *Rafael Mendonça França*
+      <%= translate(".relative_key") do |translation, resolved_key| %>
+        <span title="<%= resolved_key %>"><%= translation %></span>
+      <% end %>
 
-*   Remove deprecated `ActionView::Template#virtual_path=`.
+  _Sean Doyle_
 
-    *Rafael Mendonça França*
+- Ensure cache fragment digests include all relevant template dependencies when
+  fragments are contained in a block passed to the render helper. Remove the
+  virtual_path keyword arguments found in CacheHelper as they no longer possess
+  any function following 1581cab.
 
-*   Remove deprecated `ActionView::Template#updated_at`.
+  Fixes #38984.
 
-    *Rafael Mendonça França*
+  _Aaron Lipman_
 
-*   Remove deprecated `updated_at` argument required on `ActionView::Template#initialize`.
+- Deprecate `config.action_view.raise_on_missing_translations` in favor of
+  `config.i18n.raise_on_missing_translations`.
 
-    *Rafael Mendonça França*
+  New generalized configuration option now determines whether an error should be raised
+  for missing translations in controllers and views.
 
-*   Make `locals` argument required on `ActionView::Template#initialize`.
+  _fatkodima_
 
-    *Rafael Mendonça França*
+- Instrument layout rendering in `TemplateRenderer#render_with_layout` as `render_layout.action_view`,
+  and include (when necessary) the layout's virtual path in notification payloads for collection and partial renders.
 
-*   Remove deprecated `ActionView::Template.finalize_compiled_template_methods`.
+  _Zach Kemp_
 
-    *Rafael Mendonça França*
+- `ActionView::Base.annotate_rendered_view_with_filenames` annotates HTML output with template file names.
 
-*   Remove deprecated `config.action_view.finalize_compiled_template_methods`
+  _Joel Hawksley_, _Aaron Patterson_
 
-    *Rafael Mendonça França*
+- `ActionView::Helpers::TranslationHelper#translate` returns nil when
+  passed `default: nil` without a translation matching `I18n#translate`.
 
-*   Remove deprecated support to calling `ActionView::ViewPaths#with_fallback` with a block.
+  _Stefan Wrobel_
 
-    *Rafael Mendonça França*
+- `OptimizedFileSystemResolver` prefers template details in order of locale,
+  formats, variants, handlers.
 
-*   Remove deprecated support to passing absolute paths to `render template:`.
+  _Iago Pimenta_
 
-    *Rafael Mendonça França*
+- Added `class_names` helper to create a CSS class value with conditional classes.
 
-*   Remove deprecated support to passing relative paths to `render file:`.
+  _Joel Hawksley_, _Aaron Patterson_
 
-    *Rafael Mendonça França*
+- Add support for conditional values to TagBuilder.
 
-*   Remove support to template handlers that don't accept two arguments.
+  _Joel Hawksley_
 
-    *Rafael Mendonça França*
+- `ActionView::Helpers::FormOptionsHelper#select` should mark option for `nil` as selected.
 
-*   Remove deprecated pattern argument in `ActionView::Template::PathResolver`.
+  ```ruby
+  @post = Post.new
+  @post.category = nil
 
-    *Rafael Mendonça França*
+  # Before
+  select("post", "category", none: nil, programming: 1, economics: 2)
+  # =>
+  # <select name="post[category]" id="post_category">
+  #   <option value="">none</option>
+  #  <option value="1">programming</option>
+  #  <option value="2">economics</option>
+  # </select>
 
-*   Remove deprecated support to call private methods from object in some view helpers.
+  # After
+  select("post", "category", none: nil, programming: 1, economics: 2)
+  # =>
+  # <select name="post[category]" id="post_category">
+  #   <option selected="selected" value="">none</option>
+  #  <option value="1">programming</option>
+  #  <option value="2">economics</option>
+  # </select>
+  ```
 
-    *Rafael Mendonça França*
+  _bogdanvlviv_
 
-*   `ActionView::Helpers::TranslationHelper#translate` accepts a block, yielding
-    the translated text and the fully resolved translation key:
+- Log lines for partial renders and started template renders are now
+  emitted at the `DEBUG` level instead of `INFO`.
 
-        <%= translate(".relative_key") do |translation, resolved_key| %>
-          <span title="<%= resolved_key %>"><%= translation %></span>
-        <% end %>
+  Completed template renders are still logged at the `INFO` level.
 
-    *Sean Doyle*
+  _DHH_
 
-*   Ensure cache fragment digests include all relevant template dependencies when
-    fragments are contained in a block passed to the render helper. Remove the
-    virtual_path keyword arguments found in CacheHelper as they no longer possess
-    any function following 1581cab.
+- ActionView::Helpers::SanitizeHelper: support rails-html-sanitizer 1.1.0.
 
-    Fixes #38984.
+  _Juanito Fatas_
 
-    *Aaron Lipman*
+- Added `phone_to` helper method to create a link from mobile numbers.
 
-*   Deprecate `config.action_view.raise_on_missing_translations` in favor of
-    `config.i18n.raise_on_missing_translations`.
+  _Pietro Moro_
 
-    New generalized configuration option now determines whether an error should be raised
-    for missing translations in controllers and views.
+- annotated_source_code returns an empty array so TemplateErrors without a
+  template in the backtrace are surfaced properly by DebugExceptions.
 
-    *fatkodima*
+  _Guilherme Mansur_, _Kasper Timm Hansen_
 
-*   Instrument layout rendering in `TemplateRenderer#render_with_layout` as `render_layout.action_view`,
-    and include (when necessary) the layout's virtual path in notification payloads for collection and partial renders.
+- Add autoload for SyntaxErrorInTemplate so syntax errors are correctly raised by DebugExceptions.
 
-    *Zach Kemp*
+  _Guilherme Mansur_, _Gannon McGibbon_
 
-*   `ActionView::Base.annotate_rendered_view_with_filenames` annotates HTML output with template file names.
+- `RenderingHelper` supports rendering objects that `respond_to?` `:render_in`.
 
-    *Joel Hawksley*, *Aaron Patterson*
+  _Joel Hawksley_, _Natasha Umer_, _Aaron Patterson_, _Shawn Allen_, _Emily Plummer_, _Diana Mounter_, _John Hawthorn_, _Nathan Herald_, _Zaid Zawaideh_, _Zach Ahn_
 
-*   `ActionView::Helpers::TranslationHelper#translate` returns nil when
-    passed `default: nil` without a translation matching `I18n#translate`.
+- Fix `select_tag` so that it doesn't change `options` when `include_blank` is present.
 
-    *Stefan Wrobel*
-
-*   `OptimizedFileSystemResolver` prefers template details in order of locale,
-    formats, variants, handlers.
-
-    *Iago Pimenta*
-
-*   Added `class_names` helper to create a CSS class value with conditional classes.
-
-    *Joel Hawksley*, *Aaron Patterson*
-
-*   Add support for conditional values to TagBuilder.
-
-    *Joel Hawksley*
-
-*   `ActionView::Helpers::FormOptionsHelper#select` should mark option for `nil` as selected.
-
-    ```ruby
-    @post = Post.new
-    @post.category = nil
-
-    # Before
-    select("post", "category", none: nil, programming: 1, economics: 2)
-    # =>
-    # <select name="post[category]" id="post_category">
-    #   <option value="">none</option>
-    #  <option value="1">programming</option>
-    #  <option value="2">economics</option>
-    # </select>
-
-    # After
-    select("post", "category", none: nil, programming: 1, economics: 2)
-    # =>
-    # <select name="post[category]" id="post_category">
-    #   <option selected="selected" value="">none</option>
-    #  <option value="1">programming</option>
-    #  <option value="2">economics</option>
-    # </select>
-    ```
-
-    *bogdanvlviv*
-
-*   Log lines for partial renders and started template renders are now
-    emitted at the `DEBUG` level instead of `INFO`.
-
-    Completed template renders are still logged at the `INFO` level.
-
-    *DHH*
-
-*   ActionView::Helpers::SanitizeHelper: support rails-html-sanitizer 1.1.0.
-
-    *Juanito Fatas*
-
-*   Added `phone_to` helper method to create a link from mobile numbers.
-
-    *Pietro Moro*
-
-*   annotated_source_code returns an empty array so TemplateErrors without a
-    template in the backtrace are surfaced properly by DebugExceptions.
-
-    *Guilherme Mansur*, *Kasper Timm Hansen*
-
-*   Add autoload for SyntaxErrorInTemplate so syntax errors are correctly raised by DebugExceptions.
-
-    *Guilherme Mansur*, *Gannon McGibbon*
-
-*   `RenderingHelper` supports rendering objects that `respond_to?` `:render_in`.
-
-    *Joel Hawksley*, *Natasha Umer*, *Aaron Patterson*, *Shawn Allen*, *Emily Plummer*, *Diana Mounter*, *John Hawthorn*, *Nathan Herald*, *Zaid Zawaideh*, *Zach Ahn*
-
-*   Fix `select_tag` so that it doesn't change `options` when `include_blank` is present.
-
-    *Younes SERRAJ*
-
+  _Younes SERRAJ_
 
 Please check [6-0-stable](https://github.com/rails/rails/blob/6-0-stable/actionview/CHANGELOG.md) for previous changes.

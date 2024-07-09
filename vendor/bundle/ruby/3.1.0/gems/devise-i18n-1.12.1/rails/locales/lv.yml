@@ -48,12 +48,12 @@ lv:
       confirmation_instructions:
         action: Apstiprināt kontu
         greeting: Sveicināti, %{recipient}!
-        instruction: 'Jūs varat apstiprināt, Jūsu konta epastu caur saiti zemāk:'
+        instruction: "Jūs varat apstiprināt, Jūsu konta epastu caur saiti zemāk:"
         subject: Apstiprināšanas apraksts
       email_changed:
         greeting: Sveicināti, %{recipient}!
         message: Informējam, ka Jūsu epasts ir nomainīts uz %{email}.
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: Epasts nomainīts
       password_change:
         greeting: Sveicināti, %{recipient}!
@@ -69,7 +69,7 @@ lv:
       unlock_instructions:
         action: Atbloķēt kontu
         greeting: Sveicināti, %{recipient}!
-        instruction: 'Nospiežiet uz saites zemāk, lai atbloķētu kontu:'
+        instruction: "Nospiežiet uz saites zemāk, lai atbloķētu kontu:"
         message: Jūsu konts tika bloķēts vairāku kļūdainu pieteikšanās mēģinājumu rezultātā.
         subject: Atbloķēšanas apraksts
     omniauth_callbacks:
@@ -94,7 +94,7 @@ lv:
       edit:
         are_you_sure: Vai Jūs esat pārliecināts/-ta?
         cancel_my_account: Atcelt kontu
-        currently_waiting_confirmation_for_email: 'Pašlaik gaida apstiprinājumu epastam: %{email}'
+        currently_waiting_confirmation_for_email: "Pašlaik gaida apstiprinājumu epastam: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: atstājiet tukšu šo lauku, ja nevēlaties veikt izmaiņas
         title: Rediģēt %{resource}
         unhappy: Neapmierināts
@@ -108,7 +108,7 @@ lv:
       signed_up_but_unconfirmed: Jums ir nosūtīts e-pasts ar reģistrācijas apstiprinājuma saiti. Lūdzu, atveriet šo saiti, lai aktivizētu Jūsu lietotāju.
       update_needs_confirmation: Jūsu labotās izmaiņas ir veiksmīgi saglabātas, bet mums ir jāpārbauda Jūsu jaunā e-pasta adrese. Lūdzu, pārbaudiet Jūsu e-pastu un uzklikšķiniet uz apstiprinājuma saites, lai pabeigtu Jūsu jaunās e-pasta adreses apstiprināšanu.
       updated: Jūsu labotās izmaiņas ir veiksmīgi saglabātas.
-      updated_but_not_signed_in: 
+      updated_but_not_signed_in:
     sessions:
       already_signed_out: Veiksmīgi atslēdzies.
       new:

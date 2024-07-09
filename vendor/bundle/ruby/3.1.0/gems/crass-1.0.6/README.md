@@ -1,64 +1,59 @@
-Crass
-=====
+# Crass
 
 Crass is a Ruby CSS parser that's fully compliant with the
 [CSS Syntax Level 3][css] specification.
 
-* [Home](https://github.com/rgrove/crass/)
-* [API Docs](http://rubydoc.info/github/rgrove/crass/master)
+- [Home](https://github.com/rgrove/crass/)
+- [API Docs](http://rubydoc.info/github/rgrove/crass/master)
 
 [![Build Status](https://travis-ci.org/rgrove/crass.svg?branch=master)](https://travis-ci.org/rgrove/crass)
 [![Gem Version](https://badge.fury.io/rb/crass.svg)](http://badge.fury.io/rb/crass)
 
-Features
---------
+## Features
 
-* Pure Ruby, with no runtime dependencies other than Ruby 1.9.x or higher.
+- Pure Ruby, with no runtime dependencies other than Ruby 1.9.x or higher.
 
-* Tokenizes and parses CSS according to the rules defined in the 14 November
+- Tokenizes and parses CSS according to the rules defined in the 14 November
   2014 editor's draft of the [CSS Syntax Level 3][css] specification.
 
-* Extremely tolerant of broken or invalid CSS. If a browser can handle it, Crass
+- Extremely tolerant of broken or invalid CSS. If a browser can handle it, Crass
   should be able to handle it too.
 
-* Optionally includes comments in the token stream.
+- Optionally includes comments in the token stream.
 
-* Optionally preserves certain CSS hacks, such as the IE "*" hack, which would
+- Optionally preserves certain CSS hacks, such as the IE "\*" hack, which would
   otherwise be discarded according to CSS3 tokenizing rules.
 
-* Capable of serializing the parse tree back to CSS while maintaining all
+- Capable of serializing the parse tree back to CSS while maintaining all
   original whitespace, comments, and indentation.
 
 [css]: http://dev.w3.org/csswg/css-syntax/
 
-Problems
---------
+## Problems
 
-* Crass isn't terribly fast. I mean, it's Ruby, and it's not really slow by Ruby
+- Crass isn't terribly fast. I mean, it's Ruby, and it's not really slow by Ruby
   standards. But compared to the CSS parser in your average browser? Yeah, it's
   slow.
 
-* Crass only parses the CSS syntax; it doesn't understand what any of it means,
+- Crass only parses the CSS syntax; it doesn't understand what any of it means,
   doesn't coalesce selectors, etc. You can do this yourself by consuming the
   parse tree, though.
 
-* While any node in the parse tree (or the parse tree as a whole) can be
+- While any node in the parse tree (or the parse tree as a whole) can be
   serialized back to CSS with perfect fidelity, changes made to those nodes
   (except for wholesale removal of nodes) are not reflected in the serialized
   output.
 
-* Crass only supports UTF-8 input and doesn't respect `@charset` rules. Input in
+- Crass only supports UTF-8 input and doesn't respect `@charset` rules. Input in
   any other encoding will be converted to UTF-8.
 
-Installing
-----------
+## Installing
 
 ```
 gem install crass
 ```
 
-Examples
---------
+## Examples
 
 Say you have a string containing some CSS:
 
@@ -151,15 +146,13 @@ a:hover {
 
 Wasn't that exciting?
 
-A Note on Versioning
---------------------
+## A Note on Versioning
 
 As of version 1.0.0, Crass adheres strictly to [SemVer 2.0][semver].
 
-[semver]:http://semver.org/spec/v2.0.0.html
+[semver]: http://semver.org/spec/v2.0.0.html
 
-Contributing
-------------
+## Contributing
 
 The best way to contribute is to use Crass and [create issues][issue] when you
 run into problems.
@@ -174,8 +167,7 @@ hate to have to turn down a pull request you spent a lot of time on.
 
 [issue]: https://github.com/rgrove/crass/issues/new
 
-Acknowledgments
----------------
+## Acknowledgments
 
 I'm deeply, deeply grateful to [Simon Sapin][simon] for his wonderfully
 comprehensive [CSS parsing tests][css-tests], which I adapted to create many of
@@ -186,7 +178,7 @@ I'm also grateful to [Tab Atkins Jr.][tab] and Simon Sapin (again!) for their
 work on the [CSS Syntax Level 3][spec] specification, which defines the
 tokenizing and parsing rules that Crass implements.
 
-[css-tests]:https://github.com/SimonSapin/css-parsing-tests/
-[simon]:http://exyr.org/about/
-[spec]:http://www.w3.org/TR/css-syntax-3/
-[tab]:http://www.xanthir.com/contact/
+[css-tests]: https://github.com/SimonSapin/css-parsing-tests/
+[simon]: http://exyr.org/about/
+[spec]: http://www.w3.org/TR/css-syntax-3/
+[tab]: http://www.xanthir.com/contact/

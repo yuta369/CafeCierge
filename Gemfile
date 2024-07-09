@@ -3,64 +3,63 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
-# Use Puma as the app server
-gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'pg', '>= 0.18', '< 2.0' # Use PostgreSQL as the database for Active Record
+gem 'puma', '~> 5.0' # Use Puma as the app server
+gem 'sassc-rails', '>= 2.1' # Use SCSSC for stylesheets
+gem 'webpacker', '~> 5.0' # Transpile app-like JavaScript
+gem 'turbolinks', '~> 5' # Makes navigating your web application faster
+gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease
+gem 'hotwire-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+# Authentication
+gem 'devise'
+
+# Authorization
+gem 'pundit'
+
+# Tagging
+gem 'acts-as-taggable-on'
+
+# Search functionality
+gem 'ransack'
+
+# Form helpers
+gem 'simple_form'
+
+# Admin interface
+gem 'activeadmin'
+
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw] # Debugging
+  gem 'dotenv-rails' # Loads environment variables from .env
+  gem 'factory_bot_rails' # Test fixtures replacement
+  gem 'rspec-rails' # Testing framework
+  gem 'prettier' # Code formatter
+  gem 'rubocop', require: false # Ruby static code analyzer
+  gem 'rubocop-performance', require: false # RuboCop extension focused on performance
+  gem 'rubocop-rails', require: false # RuboCop extension for Ruby on Rails
+  gem 'rubocop-rspec', require: false # RuboCop extension for RSpec
+  gem 'rubocop-capybara', require: false # RuboCop extension for Capybara
+  gem 'rubocop-factory_bot', require: false # RuboCop extension for FactoryBot
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 4.1.0'
-  # Display performance information such as SQL time and flame graphs for each request in your browser.
-  # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
-  gem 'rack-mini-profiler', '~> 2.0'
-  gem 'listen', '~> 3.3'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'web-console', '>= 4.1.0' # Access an interactive console on exception pages
+  gem 'listen', '~> 3.3' # Listen to file modifications
+  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
+  gem 'spring' # Speeds up development by keeping your application running in the background
+  gem 'spring-watcher-listen'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver', '>= 4.0.0.rc1'
-  # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
+  gem 'capybara', '>= 3.26' # Integration testing tool
+  gem 'selenium-webdriver', '>= 4.0.0.rc1' # Selenium WebDriver for Capybara
+  gem 'webdrivers' # Easy installation and use of web drivers to run system tests
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'devise'
-gem 'simple_form'
-gem 'ransack'
-gem 'acts-as-taggable-on'
-gem 'pundit'
-gem 'activeadmin'
-# gem 'activeadmin-translate'
-# gem 'devise-i18n'
-# gem 'activemodel-serializers-xml'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

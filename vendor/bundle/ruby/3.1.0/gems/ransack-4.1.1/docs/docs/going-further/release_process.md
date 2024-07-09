@@ -3,7 +3,6 @@ title: Versions and Releases
 sidebar_position: 11
 ---
 
-
 ## Semantic Versioning
 
 Ransack attempts to follow semantic versioning in the format of `x.y.z`, where:
@@ -16,10 +15,9 @@ Ransack attempts to follow semantic versioning in the format of `x.y.z`, where:
 
 In other words: `Major.Minor.Patch`.
 
-
 ## Release Process
 
-*For the maintainers of Ransack.*
+_For the maintainers of Ransack._
 
 To release a new version of Ransack and publish it to RubyGems, take the following steps:
 

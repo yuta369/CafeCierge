@@ -1,13 +1,12 @@
 "use strict";
 
-var _MiniProfiler = (function() {
+var _MiniProfiler = (function () {
   var _arguments = arguments;
   var options,
     container,
     controls,
     fetchedIds = (window.MiniProfiler && window.MiniProfiler.fetchedIds) || [],
-    fetchingIds =
-      (window.MiniProfiler && window.MiniProfiler.fetchingIds) || [],
+    fetchingIds = (window.MiniProfiler && window.MiniProfiler.fetchingIds) || [],
     // so we never pull down a profiler twice
     ajaxStartTime,
     totalsControl,
@@ -36,9 +35,7 @@ var _MiniProfiler = (function() {
   // remove and replace with Element.closest when we drop IE11 support
   // https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
 
-  var elementMatches =
-    Element.prototype.msMatchesSelector ||
-    Element.prototype.webkitMatchesSelector;
+  var elementMatches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 
   var elementClosest = function elementClosest(el, s) {
     if (typeof el.closest === "function") {
@@ -109,25 +106,20 @@ var _MiniProfiler = (function() {
           // ie is buggy strip out functions
           var copy = {
             navigation: {},
-            timing: clientPerformance.timing.toJSON()
+            timing: clientPerformance.timing.toJSON(),
           };
 
           if (clientPerformance.navigation) {
-            copy.navigation.redirectCount =
-              clientPerformance.navigation.redirectCount;
+            copy.navigation.redirectCount = clientPerformance.navigation.redirectCount;
           }
 
           clientPerformance = copy;
         }
-      } else if (
-        ajaxStartTime !== null &&
-        clientProbes &&
-        clientProbes.length > 0
-      ) {
+      } else if (ajaxStartTime !== null && clientProbes && clientProbes.length > 0) {
         clientPerformance = {
           timing: {
-            navigationStart: ajaxStartTime.getTime()
-          }
+            navigationStart: ajaxStartTime.getTime(),
+          },
         };
         ajaxStartTime = null;
       }
@@ -135,19 +127,19 @@ var _MiniProfiler = (function() {
       if (fetchedIds.indexOf(id) < 0 && fetchingIds.indexOf(id) < 0) {
         idx = fetchingIds.push(id) - 1;
 
-        (function() {
+        (function () {
           var request = new XMLHttpRequest();
           var url = options.path + "results";
           var params = {
             id: id,
             clientPerformance: clientPerformance,
             clientProbes: clientProbes,
-            popup: 1
+            popup: 1,
           };
           var queryParam = toQueryString(params);
           request.open("POST", url, true);
 
-          request.onload = function() {
+          request.onload = function () {
             if (request.status >= 200 && request.status < 400) {
               var json = JSON.parse(request.responseText);
               fetchedIds.push(id);
@@ -162,10 +154,7 @@ var _MiniProfiler = (function() {
 
           request.setRequestHeader("Accept", "application/json");
           request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-          request.setRequestHeader(
-            "Content-Type",
-            "application/x-www-form-urlencoded"
-          );
+          request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           request.send(queryParam);
         })();
       }
@@ -177,31 +166,22 @@ var _MiniProfiler = (function() {
     for (var key in data) {
       var val = data[key];
       var newKey = !parentKey ? key : parentKey + "[" + key + "]";
-      if (
-        typeof val === "object" &&
-        !Array.isArray(val) &&
-        val !== null &&
-        val !== undefined
-      ) {
+      if (typeof val === "object" && !Array.isArray(val) && val !== null && val !== undefined) {
         result[result.length] = toQueryString(val, newKey);
       } else {
         if (Array.isArray(val)) {
-          val.forEach(function(v) {
-            result[result.length] =
-              encodeURIComponent(newKey + "[]") + "=" + encodeURIComponent(v);
+          val.forEach(function (v) {
+            result[result.length] = encodeURIComponent(newKey + "[]") + "=" + encodeURIComponent(v);
           });
         } else if (val === null || val === undefined) {
           result[result.length] = encodeURIComponent(newKey) + "=";
         } else {
-          result[result.length] =
-            encodeURIComponent(newKey) +
-            "=" +
-            encodeURIComponent(val.toString());
+          result[result.length] = encodeURIComponent(newKey) + "=" + encodeURIComponent(val.toString());
         }
       }
     }
     return result
-      .filter(function(element) {
+      .filter(function (element) {
         return element && element.length > 0;
       })
       .join("&");
@@ -222,39 +202,29 @@ var _MiniProfiler = (function() {
 
     if (!controls && reqs > 1 && options.collapseResults && !expandedResults) {
       if (!totalsControl) {
-        toArray(container.querySelectorAll(".profiler-result")).forEach(
-          function(el) {
-            return (el.style.display = "none");
-          }
-        );
+        toArray(container.querySelectorAll(".profiler-result")).forEach(function (el) {
+          return (el.style.display = "none");
+        });
         totalsControl = document.createElement("div");
         totalsControl.setAttribute("class", "profiler-result");
-        totalsControl.innerHTML =
-          "<div class='profiler-button profiler-totals'></div>";
+        totalsControl.innerHTML = "<div class='profiler-button profiler-totals'></div>";
         container.appendChild(totalsControl);
-        totalsControl.addEventListener("click", function() {
-          toArray(
-            totalsControl.parentNode.querySelectorAll(".profiler-result")
-          ).forEach(function(el) {
+        totalsControl.addEventListener("click", function () {
+          toArray(totalsControl.parentNode.querySelectorAll(".profiler-result")).forEach(function (el) {
             return (el.style.display = "block");
           });
           totalsControl.style.display = "none";
           expandedResults = true;
         });
-        toArray(totalsControl.querySelectorAll(".profiler-button")).forEach(
-          function(el) {
-            return (el.style.display = "block");
-          }
-        );
+        toArray(totalsControl.querySelectorAll(".profiler-button")).forEach(function (el) {
+          return (el.style.display = "block");
+        });
       }
 
-      var reqsHtml =
-        reqs > 1 ? "<span class='profiler-reqs'>" + reqs + "</span>" : "";
+      var reqsHtml = reqs > 1 ? "<span class='profiler-reqs'>" + reqs + "</span>" : "";
       var sqlHtml =
         options.showTotalSqlCount && totalSqlCount > 0
-          ? " / <span class='profiler-number'>" +
-            totalSqlCount +
-            "</span> <span class='profiler-unit'>sql</span>"
+          ? " / <span class='profiler-number'>" + totalSqlCount + "</span> <span class='profiler-unit'>sql</span>"
           : "";
       totalsControl.querySelector(".profiler-button").innerHTML =
         "<span class='profiler-number'>" +
@@ -270,24 +240,19 @@ var _MiniProfiler = (function() {
     var button = result.querySelector(".profiler-button"),
       popup = result.querySelector(".profiler-popup"); // button will appear in corner with the total profiling duration - click to show details
 
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
       buttonClick(button, popup);
     }); // small duration steps and the column with aggregate durations are hidden by default; allow toggling
 
     toggleHidden(popup); // lightbox in the queries
 
-    toArray(popup.querySelectorAll(".profiler-queries-show")).forEach(function(
-      el
-    ) {
-      el.addEventListener("click", function() {
+    toArray(popup.querySelectorAll(".profiler-queries-show")).forEach(function (el) {
+      el.addEventListener("click", function () {
         queriesShow(this, result);
       });
     }); // limit count
 
-    if (
-      container.querySelectorAll(".profiler-result").length >
-      options.maxTracesToShow
-    ) {
+    if (container.querySelectorAll(".profiler-result").length > options.maxTracesToShow) {
       var elem = container.querySelector(".profiler-result");
 
       if (elem) {
@@ -300,51 +265,39 @@ var _MiniProfiler = (function() {
 
   var toggleHidden = function toggleHidden(popup) {
     var trivial = popup.querySelector(".profiler-toggle-trivial");
-    var childrenTime = popup.querySelector(
-      ".profiler-toggle-duration-with-children"
-    );
-    var trivialGaps = popup.parentNode.querySelector(
-      ".profiler-toggle-trivial-gaps"
-    );
+    var childrenTime = popup.querySelector(".profiler-toggle-duration-with-children");
+    var trivialGaps = popup.parentNode.querySelector(".profiler-toggle-trivial-gaps");
 
     var toggleIt = function toggleIt(node) {
       var link = node,
-        klass =
-          "profiler-" +
-          link.getAttribute("class").substr("profiler-toggle-".length),
+        klass = "profiler-" + link.getAttribute("class").substr("profiler-toggle-".length),
         isHidden = link.textContent.indexOf("show") > -1;
       var elements = toArray(popup.parentNode.querySelectorAll("." + klass));
 
       if (isHidden) {
-        elements.forEach(function(el) {
+        elements.forEach(function (el) {
           return (el.style.display = "table-row");
         });
       } else {
-        elements.forEach(function(el) {
+        elements.forEach(function (el) {
           return (el.style.display = "none");
         });
       }
 
       var text = link.textContent;
-      link.textContent = text.replace(
-        isHidden ? "show" : "hide",
-        isHidden ? "hide" : "show"
-      );
+      link.textContent = text.replace(isHidden ? "show" : "hide", isHidden ? "hide" : "show");
       popupPreventHorizontalScroll(popup);
     };
 
-    [childrenTime, trivial, trivialGaps].forEach(function(el) {
+    [childrenTime, trivial, trivialGaps].forEach(function (el) {
       if (el) {
-        el.addEventListener("click", function() {
+        el.addEventListener("click", function () {
           toggleIt(this);
         });
       }
     }); // if option is set or all our timings are trivial, go ahead and show them
 
-    if (
-      trivial &&
-      (options.showTrivial || trivial.getAttribute("show-on-load"))
-    ) {
+    if (trivial && (options.showTrivial || trivial.getAttribute("show-on-load"))) {
       toggleIt(trivial);
     } // if option is set, go ahead and show time with children
 
@@ -373,14 +326,12 @@ var _MiniProfiler = (function() {
       // if visible
       popupHide(button, popup);
     } else {
-      var visiblePopups = toArray(
-        container.querySelectorAll(".profiler-popup")
-      ).filter(function(el) {
+      var visiblePopups = toArray(container.querySelectorAll(".profiler-popup")).filter(function (el) {
         return el.offsetWidth > 0 || el.offsetHeight > 0;
       }); // theirButtons = visiblePopups.siblings(".profiler-button");
 
       var theirButtons = [];
-      visiblePopups.forEach(function(el) {
+      visiblePopups.forEach(function (el) {
         theirButtons.push(el.parentNode.querySelector(".profiler-button"));
       }); // hide any other popups
 
@@ -405,29 +356,21 @@ var _MiniProfiler = (function() {
 
     popup.style[options.renderVerticalPosition] = "".concat(px, "px");
     popup.style.maxHeight = "".concat(maxHeight, "px");
-    popup.style[options.renderHorizontalPosition] = "".concat(
-      button.offsetWidth - 3,
-      "px"
-    ); // move left or right, based on config
+    popup.style[options.renderHorizontalPosition] = "".concat(button.offsetWidth - 3, "px"); // move left or right, based on config
   };
 
-  var popupPreventHorizontalScroll = function popupPreventHorizontalScroll(
-    popup
-  ) {
+  var popupPreventHorizontalScroll = function popupPreventHorizontalScroll(popup) {
     var childrenHeight = 0;
-    toArray(popup.children).forEach(function(el) {
+    toArray(popup.children).forEach(function (el) {
       childrenHeight += el.offsetHeight;
     });
-    popup.style.paddingRight = "".concat(
-      childrenHeight > popup.offsetHeight ? 40 : 10,
-      "px"
-    );
+    popup.style.paddingRight = "".concat(childrenHeight > popup.offsetHeight ? 40 : 10, "px");
   };
 
   var popupHide = function popupHide(button, popup) {
     if (button) {
       if (Array.isArray(button)) {
-        button.forEach(function(el) {
+        button.forEach(function (el) {
           return el.classList.remove("profiler-button-active");
         });
       } else {
@@ -437,7 +380,7 @@ var _MiniProfiler = (function() {
 
     if (popup) {
       if (Array.isArray(popup)) {
-        popup.forEach(function(el) {
+        popup.forEach(function (el) {
           return (el.style.display = "none");
         });
       } else {
@@ -472,50 +415,41 @@ var _MiniProfiler = (function() {
     prettyPrint();
   };
 
-  var queriesScrollIntoView = function queriesScrollIntoView(
-    link,
-    queries,
-    whatToScroll
-  ) {
+  var queriesScrollIntoView = function queriesScrollIntoView(link, queries, whatToScroll) {
     var id = elementClosest(link, "tr").getAttribute("data-timing-id"),
-      cells = toArray(
-        queries.querySelectorAll('tr[data-timing-id="' + id + '"]')
-      ); // ensure they're in view
+      cells = toArray(queries.querySelectorAll('tr[data-timing-id="' + id + '"]')); // ensure they're in view
 
-    whatToScroll.scrollTop =
-      (whatToScroll.scrollTop || 0) + cells[0].offsetTop - 100; // highlight and then fade back to original bg color; do it ourselves to prevent any conflicts w/ jquery.UI or other implementations of Resig's color plugin
+    whatToScroll.scrollTop = (whatToScroll.scrollTop || 0) + cells[0].offsetTop - 100; // highlight and then fade back to original bg color; do it ourselves to prevent any conflicts w/ jquery.UI or other implementations of Resig's color plugin
 
-    cells.forEach(function(el) {
+    cells.forEach(function (el) {
       el.classList.add("higlight-animate");
     });
-    setTimeout(function() {
-      cells.forEach(function(el) {
+    setTimeout(function () {
+      cells.forEach(function (el) {
         return el.classList.remove("higlight-animate");
       });
     }, 3000);
   };
 
   var onTurboBeforeVisit = function onTurboBeforeVisit(e) {
-    if(!e.defaultPrevented) {
-      window.MiniProfilerContainer = document.querySelector('body > .profiler-results')
-      window.MiniProfiler.pageTransition()
+    if (!e.defaultPrevented) {
+      window.MiniProfilerContainer = document.querySelector("body > .profiler-results");
+      window.MiniProfiler.pageTransition();
     }
-  }
+  };
 
   var onTurboLoad = function onTurboLoad(e) {
-    if(window.MiniProfilerContainer) {
-      document.body.appendChild(window.MiniProfilerContainer)
+    if (window.MiniProfilerContainer) {
+      document.body.appendChild(window.MiniProfilerContainer);
     }
-  }
+  };
 
   var onClickEvents = function onClickEvents(e) {
     // this happens on every keystroke, and :visible is crazy expensive in IE <9
     // and in this case, the display:none check is sufficient.
-    var popup = toArray(document.querySelectorAll(".profiler-popup")).filter(
-      function(el) {
-        return el.style.display === "block";
-      }
-    );
+    var popup = toArray(document.querySelectorAll(".profiler-popup")).filter(function (el) {
+      return el.style.display === "block";
+    });
 
     if (!popup.length) {
       return;
@@ -523,9 +457,7 @@ var _MiniProfiler = (function() {
 
     popup = popup[0];
     var button = popup.parentNode.querySelector(".profiler-button"),
-      queries = elementClosest(popup, ".profiler-result").querySelector(
-        ".profiler-queries"
-      ),
+      queries = elementClosest(popup, ".profiler-result").querySelector(".profiler-queries"),
       bg = document.querySelector(".profiler-queries-bg"),
       isEscPress = e.type == "keyup" && e.which == 27,
       hidePopup = false,
@@ -565,15 +497,14 @@ var _MiniProfiler = (function() {
       results.style.display = "none";
     }
 
-    sessionStorage["rack-mini-profiler-start-hidden"] =
-      results.style.display === "none";
+    sessionStorage["rack-mini-profiler-start-hidden"] = results.style.display === "none";
   };
 
   var toggleShortcutEvent = function toggleShortcutEvent(e) {
     // simplified version of https://github.com/jeresig/jquery.hotkeys/blob/master/jquery.hotkeys.js
     var shortcut = options.toggleShortcut.toLowerCase();
     var modifier = "";
-    ["alt", "ctrl", "shift"].forEach(function(k) {
+    ["alt", "ctrl", "shift"].forEach(function (k) {
       if (e[k + "Key"]) {
         modifier += "".concat(k, "+");
       }
@@ -606,20 +537,20 @@ var _MiniProfiler = (function() {
       110: ".",
       173: "-",
       186: ";",
-      187: "="
+      187: "=",
     };
     var shiftNums = {
       "`": "~",
-      "1": "!",
-      "2": "@",
-      "3": "#",
-      "4": "$",
-      "5": "%",
-      "6": "^",
-      "7": "&",
-      "8": "*",
-      "9": "(",
-      "0": ")",
+      1: "!",
+      2: "@",
+      3: "#",
+      4: "$",
+      5: "%",
+      6: "^",
+      7: "&",
+      8: "*",
+      9: "(",
+      0: ")",
       "-": "_",
       "=": "+",
       ";": ": ",
@@ -627,7 +558,7 @@ var _MiniProfiler = (function() {
       ",": "<",
       ".": ">",
       "/": "?",
-      "\\": "|"
+      "\\": "|",
     };
     var character = String.fromCharCode(e.which).toLowerCase();
     var special = specialKeys[e.which];
@@ -660,15 +591,12 @@ var _MiniProfiler = (function() {
     if (typeof Turbolinks !== "undefined" && Turbolinks.supported) {
       document.addEventListener("page:change", unbindDocumentEvents);
       document.addEventListener("turbolinks:load", unbindDocumentEvents);
-      document.addEventListener(
-        "turbolinks:request-start",
-        turbolinksSkipResultsFetch
-      );
+      document.addEventListener("turbolinks:request-start", turbolinksSkipResultsFetch);
     }
 
     if (options.hotwireTurboDriveSupport) {
-      document.addEventListener("turbo:before-visit", onTurboBeforeVisit)
-      document.addEventListener("turbo:load", onTurboLoad)
+      document.addEventListener("turbo:before-visit", onTurboBeforeVisit);
+      document.addEventListener("turbo:load", onTurboLoad);
     }
   };
 
@@ -678,10 +606,7 @@ var _MiniProfiler = (function() {
     document.removeEventListener("keyup", toggleShortcutEvent);
     document.removeEventListener("page:change", unbindDocumentEvents);
     document.removeEventListener("turbolinks:load", unbindDocumentEvents);
-    document.removeEventListener(
-      "turbolinks:request-start",
-      turbolinksSkipResultsFetch
-    );
+    document.removeEventListener("turbolinks:request-start", turbolinksSkipResultsFetch);
     document.removeEventListener("turbo:before-visit", onTurboBeforeVisit);
     document.removeEventListener("turbo:load", onTurboLoad);
   };
@@ -693,15 +618,9 @@ var _MiniProfiler = (function() {
     toggleHidden(popup);
     prettyPrint(); // since queries are already shown, just highlight and scroll when clicking a "1 sql" link
 
-    toArray(popup.querySelectorAll(".profiler-queries-show")).forEach(function(
-      el
-    ) {
-      el.addEventListener("click", function() {
-        queriesScrollIntoView(
-          this,
-          document.querySelector(".profiler-queries"),
-          document.body
-        );
+    toArray(popup.querySelectorAll(".profiler-queries-show")).forEach(function (el) {
+      el.addEventListener("click", function () {
+        queriesScrollIntoView(this, document.querySelector(".profiler-queries"), document.body);
       });
     });
   };
@@ -713,12 +632,9 @@ var _MiniProfiler = (function() {
       temp.innerHTML = MiniProfiler.templates.snapshotsGroupsList(data);
     } else if (data.group_name) {
       var allCustomFieldsNames = [];
-      data.list.forEach(function(snapshot) {
-        Object.keys(snapshot.custom_fields).forEach(function(k) {
-          if (
-            allCustomFieldsNames.indexOf(k) === -1 &&
-            options.hiddenCustomFields.indexOf(k.toLowerCase()) === -1
-          ) {
+      data.list.forEach(function (snapshot) {
+        Object.keys(snapshot.custom_fields).forEach(function (k) {
+          if (allCustomFieldsNames.indexOf(k) === -1 && options.hiddenCustomFields.indexOf(k.toLowerCase()) === -1) {
             allCustomFieldsNames.push(k);
           }
         });
@@ -726,10 +642,10 @@ var _MiniProfiler = (function() {
       allCustomFieldsNames.sort();
       temp.innerHTML = MiniProfiler.templates.snapshotsList({
         data: data,
-        allCustomFieldsNames: allCustomFieldsNames
+        allCustomFieldsNames: allCustomFieldsNames,
       });
     }
-    Array.from(temp.children).forEach(function(child) {
+    Array.from(temp.children).forEach(function (child) {
       document.body.appendChild(child);
     });
   };
@@ -740,33 +656,26 @@ var _MiniProfiler = (function() {
 
       _controls.classList.add("profiler-controls");
 
-      _controls.innerHTML =
-        '<span class="profiler-min-max">m</span><span class="profiler-clear">c</span>';
+      _controls.innerHTML = '<span class="profiler-min-max">m</span><span class="profiler-clear">c</span>';
       container.appendChild(_controls);
-      document
-        .querySelector(".profiler-controls .profiler-min-max")
-        .addEventListener("click", function() {
-          return toggleClass(container, "profiler-min");
-        });
-      container.addEventListener("mouseenter", function() {
+      document.querySelector(".profiler-controls .profiler-min-max").addEventListener("click", function () {
+        return toggleClass(container, "profiler-min");
+      });
+      container.addEventListener("mouseenter", function () {
         if (this.classList.contains("profiler-min")) {
           this.querySelector(".profiler-min-max").style.display = "block";
         }
       });
-      container.addEventListener("mouseleave", function() {
+      container.addEventListener("mouseleave", function () {
         if (this.classList.contains("profiler-min")) {
           this.querySelector(".profiler-min-max").style.display = "none";
         }
       });
-      document
-        .querySelector(".profiler-controls .profiler-clear")
-        .addEventListener("click", function() {
-          toArray(container.querySelectorAll(".profiler-result")).forEach(
-            function(el) {
-              return el.parentElement.removeChild(el);
-            }
-          );
+      document.querySelector(".profiler-controls .profiler-clear").addEventListener("click", function () {
+        toArray(container.querySelectorAll(".profiler-result")).forEach(function (el) {
+          return el.parentElement.removeChild(el);
         });
+      });
     } else {
       container.classList.add("profiler-no-controls");
     }
@@ -805,27 +714,19 @@ var _MiniProfiler = (function() {
     if (!window.MiniProfiler || !window.MiniProfiler.patchesApplied) {
       var send = XMLHttpRequest.prototype.send;
 
-      XMLHttpRequest.prototype.send = function(data) {
+      XMLHttpRequest.prototype.send = function (data) {
         ajaxStartTime = new Date();
-        this.addEventListener("load", function() {
+        this.addEventListener("load", function () {
           // responseURL isn't available in IE11
-          if (
-            this.responseURL &&
-            this.responseURL.indexOf(window.location.origin) !== 0
-          ) {
+          if (this.responseURL && this.responseURL.indexOf(window.location.origin) !== 0) {
             return;
           }
           if (this.__miniProfilerSkipResultsFetch) {
             return;
           }
           // getAllResponseHeaders isn't available in Edge.
-          var allHeaders = this.getAllResponseHeaders
-            ? this.getAllResponseHeaders()
-            : null;
-          if (
-            allHeaders &&
-            allHeaders.toLowerCase().indexOf("x-miniprofiler-ids") === -1
-          ) {
+          var allHeaders = this.getAllResponseHeaders ? this.getAllResponseHeaders() : null;
+          if (allHeaders && allHeaders.toLowerCase().indexOf("x-miniprofiler-ids") === -1) {
             return;
           }
           // should be a string of comma-separated ids
@@ -846,17 +747,12 @@ var _MiniProfiler = (function() {
       ) {
         // Get the instance of PageRequestManager.
         var PageRequestManager = Sys.WebForms.PageRequestManager.getInstance();
-        PageRequestManager.add_endRequest(function(sender, args) {
+        PageRequestManager.add_endRequest(function (sender, args) {
           if (args) {
             var response = args.get_response();
 
-            if (
-              response.get_responseAvailable() &&
-              response._xmlHttpRequest !== null
-            ) {
-              var stringIds = args
-                .get_response()
-                .getResponseHeader("X-MiniProfiler-Ids");
+            if (response.get_responseAvailable() && response._xmlHttpRequest !== null) {
+              var stringIds = args.get_response().getResponseHeader("X-MiniProfiler-Ids");
 
               if (stringIds) {
                 var ids = stringIds.split(",");
@@ -868,14 +764,12 @@ var _MiniProfiler = (function() {
       } // more Asp.Net callbacks
 
       if (typeof WebForm_ExecuteCallback == "function") {
-        WebForm_ExecuteCallback = (function(callbackObject) {
+        WebForm_ExecuteCallback = (function (callbackObject) {
           // Store original function
           var original = WebForm_ExecuteCallback;
-          return function(callbackObject) {
+          return function (callbackObject) {
             original(callbackObject);
-            var stringIds = callbackObject.xmlRequest.getResponseHeader(
-              "X-MiniProfiler-Ids"
-            );
+            var stringIds = callbackObject.xmlRequest.getResponseHeader("X-MiniProfiler-Ids");
 
             if (stringIds) {
               var ids = stringIds.split(",");
@@ -885,13 +779,9 @@ var _MiniProfiler = (function() {
         })();
       } // also fetch results after ExtJS requests, in case it is being used
 
-      if (
-        typeof Ext != "undefined" &&
-        typeof Ext.Ajax != "undefined" &&
-        typeof Ext.Ajax.on != "undefined"
-      ) {
+      if (typeof Ext != "undefined" && typeof Ext.Ajax != "undefined" && typeof Ext.Ajax.on != "undefined") {
         // Ext.Ajax is a singleton, so we just have to attach to its 'requestcomplete' event
-        Ext.Ajax.on("requestcomplete", function(e, xhr, settings) {
+        Ext.Ajax.on("requestcomplete", function (e, xhr, settings) {
           //iframed file uploads don't have headers
           if (!xhr || !xhr.getResponseHeader) {
             return;
@@ -915,7 +805,7 @@ var _MiniProfiler = (function() {
               var ids = stringIds.split(",");
               fetchResults(ids);
             }
-          }
+          },
         });
       } // add support for AngularJS, which use the basic XMLHttpRequest object.
 
@@ -929,7 +819,7 @@ var _MiniProfiler = (function() {
               typeof this.miniprofiler.prev_onreadystatechange == "undefined"
             ) {
               this.miniprofiler = {
-                prev_onreadystatechange: this.onreadystatechange
+                prev_onreadystatechange: this.onreadystatechange,
               };
 
               this.onreadystatechange = function onReadyStateChangeReplacement() {
@@ -943,10 +833,7 @@ var _MiniProfiler = (function() {
                 }
 
                 if (this.miniprofiler.prev_onreadystatechange !== null)
-                  return this.miniprofiler.prev_onreadystatechange.apply(
-                    this,
-                    arguments
-                  );
+                  return this.miniprofiler.prev_onreadystatechange.apply(this, arguments);
               };
             }
           }
@@ -958,10 +845,10 @@ var _MiniProfiler = (function() {
       if (typeof window.fetch === "function") {
         var __originalFetch = window.fetch;
 
-        window.fetch = function(input, init) {
+        window.fetch = function (input, init) {
           var originalFetchRun = __originalFetch(input, init);
 
-          originalFetchRun.then(function(response) {
+          originalFetchRun.then(function (response) {
             try {
               // look for x-mini-profile-ids
               var entries = response.headers.entries();
@@ -972,16 +859,12 @@ var _MiniProfiler = (function() {
               try {
                 for (
                   var _iterator = entries[Symbol.iterator](), _step;
-                  !(_iteratorNormalCompletion = (_step = _iterator.next())
-                    .done);
+                  !(_iteratorNormalCompletion = (_step = _iterator.next()).done);
                   _iteratorNormalCompletion = true
                 ) {
                   var pair = _step.value;
 
-                  if (
-                    pair[0] &&
-                    pair[0].toLowerCase() == "x-miniprofiler-ids"
-                  ) {
+                  if (pair[0] && pair[0].toLowerCase() == "x-miniprofiler-ids") {
                     var ids = pair[1].split(",");
                     fetchResults(ids);
                   }
@@ -1020,15 +903,13 @@ var _MiniProfiler = (function() {
       var script = document.getElementById("mini-profiler");
       if (!script || !script.getAttribute) return;
 
-      this.options = options = (function() {
+      this.options = options = (function () {
         var version = script.getAttribute("data-version");
         var path = script.getAttribute("data-path");
         var currentId = script.getAttribute("data-current-id");
         var ids = script.getAttribute("data-ids");
         if (ids) ids = ids.split(",");
-        var horizontal_position = script.getAttribute(
-          "data-horizontal-position"
-        );
+        var horizontal_position = script.getAttribute("data-horizontal-position");
         var vertical_position = script.getAttribute("data-vertical-position");
         var toggleShortcut = script.getAttribute("data-toggle-shortcut");
 
@@ -1036,25 +917,19 @@ var _MiniProfiler = (function() {
           var maxTraces = parseInt(script.getAttribute("data-max-traces"), 10);
         }
 
-        var collapseResults =
-          script.getAttribute("data-collapse-results") === "true";
+        var collapseResults = script.getAttribute("data-collapse-results") === "true";
         var trivial = script.getAttribute("data-trivial") === "true";
         var children = script.getAttribute("data-children") === "true";
         var controls = script.getAttribute("data-controls") === "true";
-        var totalSqlCount =
-          script.getAttribute("data-total-sql-count") === "true";
+        var totalSqlCount = script.getAttribute("data-total-sql-count") === "true";
         var authorized = script.getAttribute("data-authorized") === "true";
         var startHidden =
           script.getAttribute("data-start-hidden") === "true" ||
           sessionStorage["rack-mini-profiler-start-hidden"] === "true";
         var htmlContainer = script.getAttribute("data-html-container");
         var cssUrl = script.getAttribute("data-css-url");
-        var hiddenCustomFields = script
-          .getAttribute("data-hidden-custom-fields")
-          .toLowerCase()
-          .split(",");
-        var hotwireTurboDriveSupport = script
-          .getAttribute('data-turbo-permanent') === "true";
+        var hiddenCustomFields = script.getAttribute("data-hidden-custom-fields").toLowerCase().split(",");
+        var hotwireTurboDriveSupport = script.getAttribute("data-turbo-permanent") === "true";
         return {
           ids: ids,
           path: path,
@@ -1074,7 +949,7 @@ var _MiniProfiler = (function() {
           htmlContainer: htmlContainer,
           cssUrl: cssUrl,
           hiddenCustomFields: hiddenCustomFields,
-          hotwireTurboDriveSupport: hotwireTurboDriveSupport
+          hotwireTurboDriveSupport: hotwireTurboDriveSupport,
         };
       })();
 
@@ -1106,7 +981,7 @@ var _MiniProfiler = (function() {
         sc.src = s;
         var done = false;
 
-        sc.onload = sc.onreadystatechange = function(_, abort) {
+        sc.onload = sc.onreadystatechange = function (_, abort) {
           if (!sc.readyState || /loaded|complete/.test(sc.readyState)) {
             if (!abort && !done) {
               done = true;
@@ -1179,9 +1054,7 @@ var _MiniProfiler = (function() {
       reqs = 0;
       totalTime = 0;
       expandedResults = false;
-      toArray(
-        document.querySelectorAll(".profiler-results .profiler-result")
-      ).forEach(function(el) {
+      toArray(document.querySelectorAll(".profiler-results .profiler-result")).forEach(function (el) {
         return el.parentElement.removeChild(el);
       });
     },
@@ -1195,16 +1068,14 @@ var _MiniProfiler = (function() {
       return {
         Name: name,
         Duration: "",
-        Start: ""
+        Start: "",
       };
     },
     renderDate: function renderDate(jsonDate) {
       // JavaScriptSerializer sends dates as /Date(1308024322065)/
       if (jsonDate) {
         return typeof jsonDate === "string"
-          ? new Date(
-              parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10)
-            ).toUTCString()
+          ? new Date(parseInt(jsonDate.replace("/Date(", "").replace(")/", ""), 10)).toUTCString()
           : jsonDate;
       }
     },
@@ -1241,8 +1112,7 @@ var _MiniProfiler = (function() {
     },
     moreUrl: function moreUrl(requestName) {
       var requestParts = requestName.split(" ");
-      var linkSrc =
-        requestParts[0] == "GET" ? requestParts[1] : window.location.href;
+      var linkSrc = requestParts[0] == "GET" ? requestParts[1] : window.location.href;
       var linkSuffix = linkSrc.indexOf("?") > 0 ? "&pp=help" : "?pp=help";
       return linkSrc + linkSuffix;
     },
@@ -1259,7 +1129,7 @@ var _MiniProfiler = (function() {
           isTrivial: trivial,
           name: t.Name,
           duration: t.Duration,
-          start: t.Start
+          start: t.Start,
         });
       } // Use the Paint Timing API for render performance.
 
@@ -1271,12 +1141,12 @@ var _MiniProfiler = (function() {
             isTrivial: false,
             name: "First Paint Time",
             duration: firstPaint[0].duration,
-            start: firstPaint[0].startTime
+            start: firstPaint[0].startTime,
           });
         }
       }
 
-      list.sort(function(a, b) {
+      list.sort(function (a, b) {
         return a.start - b.start;
       });
       return list;
@@ -1329,7 +1199,7 @@ var _MiniProfiler = (function() {
 
             newList.push({
               start: item.start,
-              finish: duration.start
+              finish: duration.start,
             });
           }
 
@@ -1341,7 +1211,7 @@ var _MiniProfiler = (function() {
 
             newList.push({
               start: duration.finish,
-              finish: item.finish
+              finish: item.finish,
             });
           }
         }
@@ -1352,16 +1222,13 @@ var _MiniProfiler = (function() {
       var processTimes = function processTimes(elem, parent) {
         var duration = {
           start: elem.start_milliseconds,
-          finish: elem.start_milliseconds + elem.duration_milliseconds
+          finish: elem.start_milliseconds + elem.duration_milliseconds,
         };
         elem.richTiming = [duration];
 
         if (parent !== null) {
           elem.parent = parent;
-          elem.parent.richTiming = removeDuration(
-            elem.parent.richTiming,
-            duration
-          );
+          elem.parent.richTiming = removeDuration(elem.parent.richTiming, duration);
         }
 
         if (elem.children) {
@@ -1373,7 +1240,7 @@ var _MiniProfiler = (function() {
 
       processTimes(root, null); // sort results by time
 
-      result.sort(function(a, b) {
+      result.sort(function (a, b) {
         return a.start_milliseconds - b.start_milliseconds;
       });
 
@@ -1391,9 +1258,7 @@ var _MiniProfiler = (function() {
             continue;
           }
 
-          overlap +=
-            Math.min(gap.finish, current.finish) -
-            Math.max(gap.start, current.start);
+          overlap += Math.min(gap.finish, current.finish) - Math.max(gap.start, current.start);
         }
 
         return overlap;
@@ -1405,7 +1270,7 @@ var _MiniProfiler = (function() {
         if (match === null || overlap > match.duration) {
           match = {
             name: node.name,
-            duration: overlap
+            duration: overlap,
           };
         } else if (match.name == node.name) {
           match.duration += overlap;
@@ -1422,11 +1287,11 @@ var _MiniProfiler = (function() {
 
       var time = 0;
       var prev = null;
-      result.forEach(function(r) {
+      result.forEach(function (r) {
         r.prevGap = {
           duration: (r.start_milliseconds - time).toFixed(2),
           start: time,
-          finish: r.start_milliseconds
+          finish: r.start_milliseconds,
         };
         r.prevGap.topReason = determineGap(r.prevGap, root, null);
         time = r.start_milliseconds + r.duration_milliseconds;
@@ -1438,7 +1303,7 @@ var _MiniProfiler = (function() {
         me.nextGap = {
           duration: (root.duration_milliseconds - time).toFixed(2),
           start: time,
-          finish: root.duration_milliseconds
+          finish: root.duration_milliseconds,
         };
         me.nextGap.topReason = determineGap(me.nextGap, root, null);
       }
@@ -1468,7 +1333,7 @@ var _MiniProfiler = (function() {
     formatParameters: function formatParameters(parameters) {
       if (parameters != null) {
         return parameters
-          .map(function(item, index) {
+          .map(function (item, index) {
             return "[" + item[0] + ", " + item[1] + "]";
           })
           .join(", ");
@@ -1506,7 +1371,7 @@ var _MiniProfiler = (function() {
       }
       diff = Math.round(diff / 24);
       return buildDisplayTime(diff, "day");
-    }
+    },
   };
 })();
 

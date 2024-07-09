@@ -3,7 +3,7 @@ title: Polymorphic Searches
 sidebar_position: 14
 ---
 
-When making searches from polymorphic models it is necessary to specify the type of model you are searching. 
+When making searches from polymorphic models it is necessary to specify the type of model you are searching.
 
 For example:
 

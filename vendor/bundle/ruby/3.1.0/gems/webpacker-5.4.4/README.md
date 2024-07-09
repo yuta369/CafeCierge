@@ -138,8 +138,8 @@ app/javascript:
 In `/packs/application.js`, include this at the top of the file:
 
 ```js
-import 'core-js/stable'
-import 'regenerator-runtime/runtime'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 ```
 
 You can then link the JavaScript pack in Rails views using the `javascript_pack_tag` helper.
@@ -375,15 +375,15 @@ option available in `config/webpacker.yml`. This lets you
 add additional paths that webpack should lookup when resolving modules:
 
 ```yml
-additional_paths: ['app/assets']
+additional_paths: ["app/assets"]
 ```
 
 You can then import these items inside your modules like so:
 
 ```js
 // Note it's relative to parent directory i.e. app/assets
-import 'stylesheets/main'
-import 'images/rails.png'
+import "stylesheets/main";
+import "images/rails.png";
 ```
 
 **Note:** Please be careful when adding paths here otherwise it

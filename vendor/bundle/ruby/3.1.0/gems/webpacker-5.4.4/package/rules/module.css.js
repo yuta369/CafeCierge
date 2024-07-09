@@ -1,3 +1,3 @@
-const getStyleRule = require('../utils/get_style_rule')
+const getStyleRule = require("../utils/get_style_rule");
 
-module.exports = getStyleRule(/\.(css)$/i, true)
+module.exports = getStyleRule(/\.(css)$/i, true);

@@ -23,18 +23,18 @@ Here are some tips for cluster mode:
 
 ### MRI
 
-* Use cluster mode and set the number of workers to 1.5x the number of CPU cores
+- Use cluster mode and set the number of workers to 1.5x the number of CPU cores
   in the machine, starting from a minimum of 2.
-* Set the number of threads to desired concurrent requests/number of workers.
+- Set the number of threads to desired concurrent requests/number of workers.
   Puma defaults to 5, and that's a decent number.
 
 #### Migrating from Unicorn
 
-* If you're migrating from unicorn though, here are some settings to start with:
-  * Set workers to half the number of unicorn workers you're using
-  * Set threads to 2
-  * Enjoy 50% memory savings
-* As you grow more confident in the thread-safety of your app, you can tune the
+- If you're migrating from unicorn though, here are some settings to start with:
+  - Set workers to half the number of unicorn workers you're using
+  - Set threads to 2
+  - Enjoy 50% memory savings
+- As you grow more confident in the thread-safety of your app, you can tune the
   workers down and the threads up.
 
 #### Ubuntu / Systemd (Systemctl) Installation
@@ -63,19 +63,19 @@ Using a timestamp header from an upstream proxy server (e.g., `nginx` or
 `haproxy`) makes it possible to indicate how long requests have been waiting for
 a Puma thread to become available.
 
-* Have your upstream proxy set a header with the time it received the request:
-    * nginx: `proxy_set_header X-Request-Start "${msec}";`
-    * haproxy >= 1.9: `http-request set-header X-Request-Start
-      t=%[date()]%[date_us()]`
-    * haproxy < 1.9: `http-request set-header X-Request-Start t=%[date()]`
-* In your Rack middleware, determine the amount of time elapsed since
+- Have your upstream proxy set a header with the time it received the request:
+  - nginx: `proxy_set_header X-Request-Start "${msec}";`
+  - haproxy >= 1.9: `http-request set-header X-Request-Start
+t=%[date()]%[date_us()]`
+  - haproxy < 1.9: `http-request set-header X-Request-Start t=%[date()]`
+- In your Rack middleware, determine the amount of time elapsed since
   `X-Request-Start`.
-* To improve accuracy, you will want to subtract time spent waiting for slow
+- To improve accuracy, you will want to subtract time spent waiting for slow
   clients:
-    * `env['puma.request_body_wait']` contains the number of milliseconds Puma
-      spent waiting for the client to send the request body.
-    * haproxy: `%Th` (TLS handshake time) and `%Ti` (idle time before request)
-      can can also be added as headers.
+  - `env['puma.request_body_wait']` contains the number of milliseconds Puma
+    spent waiting for the client to send the request body.
+  - haproxy: `%Th` (TLS handshake time) and `%Ti` (idle time before request)
+    can can also be added as headers.
 
 ## Should I daemonize?
 

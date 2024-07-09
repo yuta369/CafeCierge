@@ -48,8 +48,6 @@ Now, you can use `:author` instead of `:author_first_name` in a `sort_link`.
 
 Note that using `:author_first_name_or_author_last_name_cont` would produce an invalid sql query. In those cases, Ransack ignores the sorting clause.
 
-
-
 ### Problem with DISTINCT selects
 
 If passed `distinct: true`, `result` will generate a `SELECT DISTINCT` to
@@ -91,6 +89,7 @@ end
 Another method to approach this when using Postgresql is to use ActiveRecords's `.includes` in combination with `.group` instead of `distinct: true`.
 
 For example:
+
 ```ruby
 def index
   @q = Person.ransack(params[:q])
@@ -120,7 +119,7 @@ end
 
 If you get the above error while using `distinct: true` that means that
 one of the columns that Ransack is selecting is a `json` column.
-PostgreSQL does not provide comparison operators for the `json` type.  While
+PostgreSQL does not provide comparison operators for the `json` type. While
 it is possible to work around this, in practice it's much better to convert those
 to `jsonb`, as [recommended by the PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/datatype-json.html).
 
@@ -284,7 +283,7 @@ except it may be applied on a case-by-case basis.
 
 Continuing on from the preceding section, searching by scopes requires defining
 a whitelist of `ransackable_scopes` on the model class. The whitelist should be
-an array of *symbols*. By default, all class methods (e.g. scopes) are ignored.
+an array of _symbols_. By default, all class methods (e.g. scopes) are ignored.
 Scopes will be applied for matching `true` values, or for given values if the
 scope accepts a value:
 
@@ -371,6 +370,7 @@ def index
   @artists = @q.result
 end
 ```
+
 Normally, if you wanted users to be able to toggle between `AND` and `OR`
 query grouping, you would probably set up your search form so that `m` was in
 the URL params hash, but here we assigned `m` manually just to try it out

@@ -50,7 +50,7 @@ en-GB:
       confirmation_instructions:
         action: Confirm my account
         greeting: Welcome %{recipient}!
-        instruction: 'You can confirm your account email through the link below:'
+        instruction: "You can confirm your account email through the link below:"
         subject: Confirmation instructions
       email_changed:
         greeting: Hello %{recipient}!
@@ -66,14 +66,14 @@ en-GB:
         greeting: Hello %{recipient}!
         instruction: Someone has requested a link to change your password, and you can do this through the link below.
         instruction_2: If you didn't request this, please ignore this email.
-        instruction_3: 'Your password won''t change until you access the link above and create a new one.
+        instruction_3: "Your password won't change until you access the link above and create a new one.
 
-          '
+          "
         subject: Reset password instructions
       unlock_instructions:
         action: Unlock my account
         greeting: Hello %{recipient}!
-        instruction: 'Click the link below to unlock your account:'
+        instruction: "Click the link below to unlock your account:"
         message: Your account has been locked due to an excessive amount of unsuccessful sign in attempts.
         subject: Unlock Instructions
     omniauth_callbacks:
@@ -98,7 +98,7 @@ en-GB:
       edit:
         are_you_sure: Are you sure?
         cancel_my_account: Cancel my account
-        currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
+        currently_waiting_confirmation_for_email: "Currently waiting confirmation for: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
         title: Edit %{resource}
         unhappy: Unhappy?
@@ -145,5 +145,5 @@ en-GB:
       not_found: not found
       not_locked: was not locked
       not_saved:
-        one: '1 error prohibited this %{resource} from being saved:'
+        one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"

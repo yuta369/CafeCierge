@@ -1,14 +1,14 @@
 module.exports = {
-  extends: 'airbnb',
+  extends: "airbnb",
   rules: {
-    'comma-dangle': ['error', 'never'],
-    'import/no-unresolved': 'off',
-    'import/no-extraneous-dependencies': 'off',
-    'import/extensions': 'off',
-    semi: ['error', 'never']
+    "comma-dangle": ["error", "never"],
+    "import/no-unresolved": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/extensions": "off",
+    semi: ["error", "never"],
   },
   env: {
     browser: true,
-    node: true
-  }
-}
+    node: true,
+  },
+};

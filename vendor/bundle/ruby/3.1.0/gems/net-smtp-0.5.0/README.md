@@ -74,7 +74,7 @@ smtp.send_message msgstr, 'from@address', 'to@address'
 smtp.finish
 ```
 
-You can also use the block form of SMTP.start/SMTP#start.  This closes
+You can also use the block form of SMTP.start/SMTP#start. This closes
 the SMTP session automatically:
 
 ```ruby
@@ -84,7 +84,7 @@ Net::SMTP.start('your.smtp.server', 25) do |smtp|
 end
 ```
 
-I strongly recommend this scheme.  This form is simpler and more robust.
+I strongly recommend this scheme. This form is simpler and more robust.
 
 ## Development
 

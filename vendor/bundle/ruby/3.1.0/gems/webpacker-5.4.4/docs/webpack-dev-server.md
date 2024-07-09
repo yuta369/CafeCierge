@@ -1,6 +1,5 @@
 # webpack-dev-server
 
-
 ## HTTPS
 
 If you're using the `webpack-dev-server` in development, you can serve your packs over HTTPS
@@ -12,7 +11,6 @@ so your web browser will display a warning/exception upon accessing the page. If
 `https://localhost:3035/sockjs-node/info?t=1503127986584 net::ERR_INSECURE_RESPONSE`
 in your console, simply open the link in your browser and accept the SSL exception.
 Now if you refresh your Rails view everything should work as expected.
-
 
 ## HOT module replacement
 
@@ -30,7 +28,6 @@ more information:
 
 **Note:** Don't forget to disable `HMR` if you are not running `webpack-dev-server`
 otherwise you will get not found error for stylesheets.
-
 
 ## Nginx
 
@@ -77,9 +74,9 @@ server {
 ## Customizing Logging
 
 By default, the dev server will display a colored progress notification while
-your code is being compiled.  (Under the hood, we are using `webpack-dev-server
---progress --color`).  However, this might cause issues if you don't use
-`foreman` and/or try to log webpack-dev-server's output to a file.  You can
+your code is being compiled. (Under the hood, we are using `webpack-dev-server
+--progress --color`). However, this might cause issues if you don't use
+`foreman` and/or try to log webpack-dev-server's output to a file. You can
 disable this stylized output by adding `pretty: false` to your `dev_server`
 config:
 

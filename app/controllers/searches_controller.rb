@@ -1,7 +1,5 @@
 class SearchesController < ApplicationController
-  def index
-  end
+  def index; end
 
-  def create
-  end
+  def create; end
 end

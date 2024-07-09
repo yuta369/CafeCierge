@@ -1,6 +1,5 @@
 # Props
 
-
 ## React
 
 If you need more advanced React-integration, like server rendering, redux, or react-router, see [shakacode/react_on_rails](https://github.com/shakacode/react_on_rails), [react-rails](https://github.com/reactjs/react-rails), and [webpacker-react](https://github.com/renchap/webpacker-react).
@@ -22,24 +21,23 @@ If you're not concerned with view helpers to pass props or server rendering, can
 ```js
 // app/javascript/packs/hello_react.js
 
-const Hello = props => (
-  <div className='react-app-wrapper'>
+const Hello = (props) => (
+  <div className="react-app-wrapper">
     <img src={clockIcon} alt="clock" />
-    <h5 className='hello-react'>
+    <h5 className="hello-react">
       {props.message} {props.name}!
     </h5>
   </div>
-)
+);
 
 // Render component with data
-document.addEventListener('DOMContentLoaded', () => {
-  const node = document.getElementById('hello-react')
-  const data = JSON.parse(node.getAttribute('data'))
+document.addEventListener("DOMContentLoaded", () => {
+  const node = document.getElementById("hello-react");
+  const data = JSON.parse(node.getAttribute("data"));
 
-  ReactDOM.render(<Hello {...data} />, node)
-})
+  ReactDOM.render(<Hello {...data} />, node);
+});
 ```
-
 
 ## Vue
 
@@ -58,7 +56,7 @@ Add the data as attributes in the element you are going to use (or any other ele
 This should produce the following HTML:
 
 ```html
-<div id="hello-vue" data="{&quot;message&quot;:&quot;Hello!&quot;,&quot;name&quot;:&quot;David&quot;}"></div>
+<div id="hello-vue" data='{"message":"Hello!","name":"David"}'></div>
 ```
 
 Now, modify your Vue app to expect the properties.
@@ -75,35 +73,32 @@ Now, modify your Vue app to expect the properties.
     // A child component needs to explicitly declare
     // the props it expects to receive using the props option
     // See https://vuejs.org/v2/guide/components.html#Props
-    props: ["message","name"],
+    props: ["message", "name"],
     data: function () {
       return {
-        test: 'This will display: '
-      }
-    }
-  }
+        test: "This will display: ",
+      };
+    },
+  };
 </script>
 
-<style>
-</style>
-
+<style></style>
 ```
 
 ```js
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Get the properties BEFORE the app is instantiated
-  const node = document.getElementById('hello-vue')
-  const props = JSON.parse(node.getAttribute('data'))
+  const node = document.getElementById("hello-vue");
+  const props = JSON.parse(node.getAttribute("data"));
 
   // Render component with props
   new Vue({
-    render: h => h(App, { props })
-  }).$mount('#hello-vue');
-})
+    render: (h) => h(App, { props }),
+  }).$mount("#hello-vue");
+});
 ```
 
 You can follow same steps for Angular too.
-
 
 ## Elm
 
@@ -123,20 +118,19 @@ attribute:
 We parse the JSON data and pass it to Elm as flags:
 
 ```js
-import Elm from '../Main'
+import Elm from "../Main";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const node = document.getElementById('hello-elm')
-  const data = JSON.parse(node.getAttribute('data'))
-  Elm.Main.embed(node, data)
-})
+document.addEventListener("DOMContentLoaded", () => {
+  const node = document.getElementById("hello-elm");
+  const data = JSON.parse(node.getAttribute("data"));
+  Elm.Main.embed(node, data);
+});
 ```
 
 Defining `Flags` as a `type alias`, we instruct Elm to demand flags `message`
 and `name` of type `String` on initialization.
 
 Using `programWithFlags` we bring all the pieces together:
-
 
 ```elm
 module Main exposing (..)

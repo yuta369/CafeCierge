@@ -50,12 +50,12 @@ sq:
       confirmation_instructions:
         action: Ripoho llogarinë time
         greeting: Mirë se vini %{recipient}!
-        instruction: 'Llogarinë tuaj email mund ta ripohoni përmes lidhjes më poshtë:'
+        instruction: "Llogarinë tuaj email mund ta ripohoni përmes lidhjes më poshtë:"
         subject: Udhëzime ripohimi
       email_changed:
         greeting: Tungjatjeta %{recipient}!
         message: Po lidhemi me ju për t’ju njoftuar se email-i juaj po ndryshohet në %{email}.
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: Email-i u Ndryshua
       password_change:
         greeting: Tungjatjeta %{recipient}!
@@ -71,7 +71,7 @@ sq:
       unlock_instructions:
         action: Shkyçeni llogarinë time
         greeting: Tungjatjeta %{recipient}!
-        instruction: 'Që të shkyçet llogaria juaj, klikoni mbi lidhjen më poshtë:'
+        instruction: "Që të shkyçet llogaria juaj, klikoni mbi lidhjen më poshtë:"
         message: Llogaria juaj është kyçur për shkak të një numri të tepruar përpjekjesh të pasuksesshme për hyrje.
         subject: Udhëzime shkyçjeje
     omniauth_callbacks:
@@ -96,7 +96,7 @@ sq:
       edit:
         are_you_sure: Jeni i sigurt?
         cancel_my_account: Fshijeni llogarinë time
-        currently_waiting_confirmation_for_email: 'Në pritje të ripohimit për: %{email}'
+        currently_waiting_confirmation_for_email: "Në pritje të ripohimit për: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: lëreni të zbrazët nëse s’doni të ndryshohet
         title: Përpunoni %{resource}
         unhappy: I pakënaqur?
@@ -110,7 +110,7 @@ sq:
       signed_up_but_unconfirmed: Te adresa juaj email është dërguar një mesazh me një lidhje ripohimi. Që të aktivizoni llogarinë tuaj, ju lutemi, ndiqni lidhjen.
       update_needs_confirmation: E përditësuat me sukses llogarinë tuaj, por na duhet të verifikojmë adresën tuaj të re email. Ju lutemi, për të ripohuar adresën tuaj të re email, shihni te email-et tuaj dhe ndiqni lidhjen e ripohimit.
       updated: Llogaria juaj u përditësua me sukses.
-      updated_but_not_signed_in: 
+      updated_but_not_signed_in:
     sessions:
       already_signed_out: Dolët me sukses.
       new:
@@ -143,5 +143,5 @@ sq:
       not_found: s’u gjet
       not_locked: s’qe e kyçur
       not_saved:
-        one: 'Ruajtja e këtij %{resource} u pengua nga 1 gabim:'
-        other: 'Ruajtja e këtij %{resource} u pengua nga %{count} gabime:'
+        one: "Ruajtja e këtij %{resource} u pengua nga 1 gabim:"
+        other: "Ruajtja e këtij %{resource} u pengua nga %{count} gabime:"

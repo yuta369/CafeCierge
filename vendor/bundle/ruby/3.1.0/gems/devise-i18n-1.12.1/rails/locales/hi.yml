@@ -45,19 +45,19 @@ hi:
       last_attempt: आपके खाते के लॉक होने से पहले आपके पास एक और प्रयास है।
       locked: आपका खाता लॉक कर दिया गया है।
       not_found_in_database: अमान्य %{authentication_keys} या पासवर्ड।
-      timeout: 'आपका समय समाप्त हो गया। जारी रखने के लिए कृपया पुन: साइन इन करें।'
+      timeout: "आपका समय समाप्त हो गया। जारी रखने के लिए कृपया पुन: साइन इन करें।"
       unauthenticated: जारी रखने से पहले आपको साइन इन या साइन अप करने की आवश्यकता है।
       unconfirmed: जारी रखने से पहले आपको अपने ईमेल पते की पुष्टि करनी होगी।
     mailer:
       confirmation_instructions:
         action: मेरे खाते की पुष्टि करें
         greeting: अभिनंदन %{recipient}!
-        instruction: 'आप नीचे दिए गए लिंक के माध्यम से अपने ईमेल खाते की पुष्टि कर सकते हैं:'
+        instruction: "आप नीचे दिए गए लिंक के माध्यम से अपने ईमेल खाते की पुष्टि कर सकते हैं:"
         subject: पुष्टिकरण के  निर्देश
       email_changed:
         greeting: नमस्ते! %{recipient}!
         message: हम आपको यह सूचित करने के लिए संपर्क कर रहे हैं कि आपका ईमेल %{email} में बदला जा रहा है।
-        message_unconfirmed: 
+        message_unconfirmed:
         subject: ईमेल बदला गया
       password_change:
         greeting: नमस्ते %{recipient}!
@@ -73,7 +73,7 @@ hi:
       unlock_instructions:
         action: मेरा खाता अनलॉक करें
         greeting: नमस्ते %{recipient}!
-        instruction: 'अपना खाता अनलॉक करने के लिए नीचे दिए गए लिंक पर क्लिक करें:'
+        instruction: "अपना खाता अनलॉक करने के लिए नीचे दिए गए लिंक पर क्लिक करें:"
         message: अत्यधिक असफल साइन इन प्रयासों के करण आपका खाता लॉक कर दिया गया है।
         subject: अनलॉक करने के निर्देश
     omniauth_callbacks:
@@ -98,7 +98,7 @@ hi:
       edit:
         are_you_sure: क्या आप निश्चित हैं?
         cancel_my_account: मेरा खाता रद्द करें
-        currently_waiting_confirmation_for_email: 'वर्तमान में %{email} पुष्टि की प्रतीक्षा की जा रही है:'
+        currently_waiting_confirmation_for_email: "वर्तमान में %{email} पुष्टि की प्रतीक्षा की जा रही है:"
         leave_blank_if_you_don_t_want_to_change_it: यदि आप इसे बदलना नहीं चाहते हैं तो खाली छोड़ दें
         title: संपादन %{resource}
         unhappy: अप्रसन्न?
@@ -112,7 +112,7 @@ hi:
       signed_up_but_unconfirmed: आपके ईमेल पते पर एक पुष्टिकरण लिंक के साथ एक संदेश भेजा गया है। कृपया अपने खाते को सक्रिय करने के लिए लिंक का अनुसरण करें।
       update_needs_confirmation: आपने अपना खाता सफलतापूर्वक अपडेट कर दिया है, लेकिन हमें आपके नए ईमेल पते को सत्यापित करना होगा। कृपया अपना ईमेल देखें और अपने नए ईमेल पते की पुष्टि करने के लिए पुष्टि लिंक का अनुसरण करें।
       updated: आपका खाता सफलतापूर्वक अपडेट कर दिया गया है।
-      updated_but_not_signed_in: 
+      updated_but_not_signed_in:
     sessions:
       already_signed_out: सफलतापूर्वक साइन आउट किए गए।
       new:
@@ -145,5 +145,5 @@ hi:
       not_found: नहीं मिला
       not_locked: लॉक नहीं था
       not_saved:
-        one: '1 त्रुटि ने इस %{resource} को सहेजे जाने से रोक दिया:'
+        one: "1 त्रुटि ने इस %{resource} को सहेजे जाने से रोक दिया:"
         other: "%{count} त्रुटियों ने इस %{resource} को सहेजे जाने से प्रतिबंधित किया है:"

@@ -1,5 +1,4 @@
-Contributing to jquery-rails
-=====================
+# Contributing to jquery-rails
 
 [![Build Status](https://travis-ci.org/rails/jquery-rails.svg?branch=master)](https://travis-ci.org/rails/jquery-rails)
 
@@ -65,7 +64,7 @@ If you're making changes to the actual gem, run the tests as follows:
 2. Install the gems: `bundle install`
 
 3. Change the jquery-rails gem in the Gemfile to use your local
-version of the gem with your updates: `gem 'jquery-rails', :path => '../path/to/jquery-rails'`
+   version of the gem with your updates: `gem 'jquery-rails', :path => '../path/to/jquery-rails'`
 
 4. Update your bundled jquery-rails gem: `bundle update jquery-rails`
 

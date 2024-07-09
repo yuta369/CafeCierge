@@ -48,7 +48,7 @@ he:
       confirmation_instructions:
         action: אשר את החשבון שלי
         greeting: ברוך הבא %{recipient}!
-        instruction: 'אתה יכול לאשר את כתובת האימייל שלך בעזרת הקישור הנֿֿ״ל:'
+        instruction: "אתה יכול לאשר את כתובת האימייל שלך בעזרת הקישור הנֿֿ״ל:"
         subject: הוראות לאישור הרשמה
       email_changed:
         greeting: שלום %{recipient}!
@@ -69,7 +69,7 @@ he:
       unlock_instructions:
         action: בטל נעילת חשבון
         greeting: שלום %{recipient}!
-        instruction: 'לחץ על הלינק המוצג למטה בכדי לבטל את נעילת חשבונך:'
+        instruction: "לחץ על הלינק המוצג למטה בכדי לבטל את נעילת חשבונך:"
         message: חשבונך ננעל עקב מספר רב של ניסיונות כניסה כושלים.
         subject: הוראות להסרת נעילה
     omniauth_callbacks:
@@ -94,7 +94,7 @@ he:
       edit:
         are_you_sure: האם את בטוח?
         cancel_my_account: בטל את החשבון שלי
-        currently_waiting_confirmation_for_email: 'ממתין לאישור של הכתובת: %{email}'
+        currently_waiting_confirmation_for_email: "ממתין לאישור של הכתובת: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: השאר ריק אם אין ברצונך לשנותו
         title: ערוך %{resource}
         unhappy: לא מרוצה
@@ -141,5 +141,5 @@ he:
       not_found: לא נמצא.
       not_locked: לא היה נעול.
       not_saved:
-        one: 'שגיאה אחת מנעה את ה%{resource} מלהישמר:'
+        one: "שגיאה אחת מנעה את ה%{resource} מלהישמר:"
         other: "%{count} שגיאות מנעו מ%{resource} מלהישמר:"

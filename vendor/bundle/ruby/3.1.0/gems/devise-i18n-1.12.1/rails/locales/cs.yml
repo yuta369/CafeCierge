@@ -48,7 +48,7 @@ cs:
       confirmation_instructions:
         action: Potvrdit můj účet
         greeting: Vítejte, %{recipient}!
-        instruction: 'Můžete potvrdit e-mailovou adresu pomocí níže uvedeného odkazu:'
+        instruction: "Můžete potvrdit e-mailovou adresu pomocí níže uvedeného odkazu:"
         subject: Instrukce k potvrzení
       email_changed:
         greeting: Ahoj, %{recipient}!
@@ -69,7 +69,7 @@ cs:
       unlock_instructions:
         action: Odblokovat můj účet
         greeting: Ahoj %{recipient}!
-        instruction: 'Účet odblokujete kliknutím na níže uvedený odkazu:'
+        instruction: "Účet odblokujete kliknutím na níže uvedený odkazu:"
         message: Váš účet byl zablokován pro nadměrný počet neúspěšných pokusů o přihlášení.
         subject: Instrukce k odemknutí účtu
     omniauth_callbacks:
@@ -94,7 +94,7 @@ cs:
       edit:
         are_you_sure: Jste si jist(á)?
         cancel_my_account: Zrušit můj účet
-        currently_waiting_confirmation_for_email: 'Momentálně čeká na potvrzení pro: %{email}'
+        currently_waiting_confirmation_for_email: "Momentálně čeká na potvrzení pro: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: nevyplňujte, pokud ho nechcete měnit
         title: Upravit %{resource}
         unhappy: Nejste zde šťastni?

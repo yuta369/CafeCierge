@@ -48,7 +48,7 @@ da:
       confirmation_instructions:
         action: Bekræft min konto
         greeting: Velkommen %{recipient}
-        instruction: 'Du kan bekræfte din konto og e-mail via linket herunder:'
+        instruction: "Du kan bekræfte din konto og e-mail via linket herunder:"
         subject: Bekræftelsesinstruktioner
       email_changed:
         greeting: Hej %{recipient}
@@ -69,7 +69,7 @@ da:
       unlock_instructions:
         action: Lås min konto op
         greeting: Hej %{recipient}
-        instruction: 'Klik på linket herunder for at låse din konto op:'
+        instruction: "Klik på linket herunder for at låse din konto op:"
         message: Din konto er blevet låst efter for mange forkerte forsøg på at logge ind.
         subject: Låse-op-instruktioner
     omniauth_callbacks:
@@ -94,8 +94,8 @@ da:
       edit:
         are_you_sure: Er du sikker?
         cancel_my_account: Luk min konto
-        currently_waiting_confirmation_for_email: 'Afventer bekræftelse af: %{email}'
-        leave_blank_if_you_don_t_want_to_change_it: 'lad være tomt, hvis du ikke ønsker at ændre '
+        currently_waiting_confirmation_for_email: "Afventer bekræftelse af: %{email}"
+        leave_blank_if_you_don_t_want_to_change_it: "lad være tomt, hvis du ikke ønsker at ændre "
         title: Rediger %{resource}
         unhappy: Utilfreds?
         update: Opdater
@@ -141,5 +141,5 @@ da:
       not_found: ikke fundet
       not_locked: var ikke låst
       not_saved:
-        one: 'En fejl medførte, at denne %{resource} ikke kunne gemmes:'
+        one: "En fejl medførte, at denne %{resource} ikke kunne gemmes:"
         other: "%{count} fejl medførte, at denne %{resource} ikke kunne gemmes:"

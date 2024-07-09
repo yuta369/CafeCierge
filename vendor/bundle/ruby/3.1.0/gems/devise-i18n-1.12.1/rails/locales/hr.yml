@@ -52,7 +52,7 @@ hr:
       confirmation_instructions:
         action: Potvrdi moj račun
         greeting: Dobrodošli %{recipient}!
-        instruction: 'Možete potvrditi Vaš email kroz link ispod:'
+        instruction: "Možete potvrditi Vaš email kroz link ispod:"
         subject: Upute za potvrdu korisničkog računa
       email_changed:
         greeting: Pozdrav %{recipient}!
@@ -73,7 +73,7 @@ hr:
       unlock_instructions:
         action: Otključaj moj račun
         greeting: Pozdrav %{recipient}!
-        instruction: 'Kliknite na link ispod da otključate svoj račun:'
+        instruction: "Kliknite na link ispod da otključate svoj račun:"
         message: Vaš račun je zaključan zbog preveliko broja neuspješnih prijava.
         subject: Upute za otključavanje korisničkog računa
     omniauth_callbacks:
@@ -98,7 +98,7 @@ hr:
       edit:
         are_you_sure: Jeste li sigurni?
         cancel_my_account: Poništi moj račun
-        currently_waiting_confirmation_for_email: 'Trenutno čekamo potvrdu za: %{email}'
+        currently_waiting_confirmation_for_email: "Trenutno čekamo potvrdu za: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: ostavite prazno ako ne želite promjeniti
         title: Uređivanje %{resource}
         unhappy: Nezadovoljni?
@@ -149,5 +149,5 @@ hr:
       not_saved:
         few: "%{count} greške sprečavaju snimanje %{resource}:"
         many: "%{count} grešaka sprečavaju snimanje %{resource}:"
-        one: '1 greška sprečava snimanje %{resource}:'
+        one: "1 greška sprečava snimanje %{resource}:"
         other: "%{count} grešaka sprečavaju snimanje %{resource}:"

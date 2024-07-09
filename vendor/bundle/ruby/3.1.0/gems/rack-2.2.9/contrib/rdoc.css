@@ -1,9 +1,16 @@
 /* Forked from the Darkfish templates rdoc.css file, much hacked, probably
  * imperfect */
 
-html { max-width: 960px; margin: 0 auto; }
+html {
+  max-width: 960px;
+  margin: 0 auto;
+}
 body {
-  font: 14px "Helvetica Neue", Helvetica, Tahoma, sans-serif;
+  font:
+    14px "Helvetica Neue",
+    Helvetica,
+    Tahoma,
+    sans-serif;
 }
 body.file-popup {
   font-size: 90%;
@@ -11,21 +18,27 @@ body.file-popup {
 }
 
 h1 {
-  color: #4183C4;
+  color: #4183c4;
 }
 
 :link,
 :visited {
-  color: #4183C4;
+  color: #4183c4;
   text-decoration: none;
 }
 :link:hover,
 :visited:hover {
-  border-bottom: 1px dotted #4183C4;
+  border-bottom: 1px dotted #4183c4;
 }
 
-pre, pre.description {
-  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+pre,
+pre.description {
+  font:
+    12px Monaco,
+    "Courier New",
+    "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono",
+    monospace;
   padding: 1em;
   overflow: auto;
   line-height: 1.4;
@@ -109,13 +122,17 @@ pre, pre.description {
 
 /* @group Top-Level Structure */
 
-.project-section, #file-metadata, #class-metadata {
+.project-section,
+#file-metadata,
+#class-metadata {
   display: block;
   background: #f5f5f5;
   margin-bottom: 1em;
   padding: 0.5em;
 }
-.project-section h3, #file-metadata h3, #class-metadata h3 {
+.project-section h3,
+#file-metadata h3,
+#class-metadata h3 {
   margin: 0;
 }
 
@@ -350,22 +367,52 @@ ul.link-list .type {
 
 /* @group Source Code */
 
-.ruby-constant .ruby-keyword .ruby-ivar .ruby-operator .ruby-identifier
-.ruby-node .ruby-comment .ruby-regexp .ruby-value {
+.ruby-constant
+  .ruby-keyword
+  .ruby-ivar
+  .ruby-operator
+  .ruby-identifier
+  .ruby-node
+  .ruby-comment
+  .ruby-regexp
+  .ruby-value {
   background: transparent;
 }
 
 /* Thanks GitHub!!! */
-.ruby-constant   { color: #458; font-weight: bold; }
-.ruby-keyword    { color: black; font-weight: bold; }
-.ruby-ivar       { color: teal; }
-.ruby-operator   { color: #000; }
-.ruby-identifier { color: black; }
-.ruby-node       { color: red; }
-.ruby-comment    { color: #998; font-weight: bold; }
-.ruby-regexp     { color: #009926; }
-.ruby-value      { color: #099; }
-.ruby-string     { color: red; }
+.ruby-constant {
+  color: #458;
+  font-weight: bold;
+}
+.ruby-keyword {
+  color: black;
+  font-weight: bold;
+}
+.ruby-ivar {
+  color: teal;
+}
+.ruby-operator {
+  color: #000;
+}
+.ruby-identifier {
+  color: black;
+}
+.ruby-node {
+  color: red;
+}
+.ruby-comment {
+  color: #998;
+  font-weight: bold;
+}
+.ruby-regexp {
+  color: #009926;
+}
+.ruby-value {
+  color: #099;
+}
+.ruby-string {
+  color: red;
+}
 
 /* @group search results */
 

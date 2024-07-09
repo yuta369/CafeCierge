@@ -48,7 +48,7 @@ vi:
       confirmation_instructions:
         action: Xác nhận tài khoản
         greeting: Chào mừng %{recipient}!
-        instruction: 'Bạn có thể xác nhận tài khoản email bằng liên kết dưới đây:'
+        instruction: "Bạn có thể xác nhận tài khoản email bằng liên kết dưới đây:"
         subject: Hướng dẫn xác nhận tài khoản
       email_changed:
         greeting: Xin chào %{recipient}!
@@ -57,8 +57,8 @@ vi:
         subject: Email đã được thay đổi.
       password_change:
         greeting: Xin chào %{recipient}!
-        message: 'Chúng tôi thông báo với bạn là mật khẩu của bạn đã được thay đổi. '
-        subject: 'Mật khẩu đã được thay đổi. '
+        message: "Chúng tôi thông báo với bạn là mật khẩu của bạn đã được thay đổi. "
+        subject: "Mật khẩu đã được thay đổi. "
       reset_password_instructions:
         action: Thay đổi mật khẩu
         greeting: Xin chào %{recipient}!
@@ -69,7 +69,7 @@ vi:
       unlock_instructions:
         action: Mở khoá tài khoản
         greeting: Xin chào %{recipient}!
-        instruction: 'Hãy nhấn vào liên kết dưới đây để mở khoá tài khoản:'
+        instruction: "Hãy nhấn vào liên kết dưới đây để mở khoá tài khoản:"
         message: Tài khoản của bạn đã bị khoá do vượt quá giới hạn số lần đăng nhập không thành công.
         subject: Hướng dẫn mở khóa tài khoản
     omniauth_callbacks:
@@ -94,7 +94,7 @@ vi:
       edit:
         are_you_sure: Bạn có chắc?
         cancel_my_account: Xoá tài khoản
-        currently_waiting_confirmation_for_email: 'Đang đợi xác nhận tài khoản email: %{email}'
+        currently_waiting_confirmation_for_email: "Đang đợi xác nhận tài khoản email: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: để trống nếu bạn không muốn thay đổi mật khẩu
         title: Cập nhật %{resource}
         unhappy: Không hài lòng
@@ -141,5 +141,5 @@ vi:
       not_found: không tìm thấy
       not_locked: không bị khóa
       not_saved:
-        one: '1 lỗi khi lưu %{resource}:'
+        one: "1 lỗi khi lưu %{resource}:"
         other: "%{count} lỗi khi lưu %{resource}:"

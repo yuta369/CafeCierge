@@ -28,7 +28,7 @@ en:
     am: "am"
     pm: "pm"
 
-# Used in array.to_sentence.
+  # Used in array.to_sentence.
   support:
     array:
       words_connector: ", "
@@ -104,7 +104,7 @@ en:
         format: "%n %u"
         units:
           byte:
-            one:   "Byte"
+            one: "Byte"
             other: "Bytes"
           kb: "KB"
           mb: "MB"

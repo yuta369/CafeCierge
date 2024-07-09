@@ -10,20 +10,20 @@ facilitate writing complex XPath queries from Ruby code.
 
 To create quick, one-off expressions, `XPath.generate` can be used:
 
-``` ruby
+```ruby
 XPath.generate { |x| x.descendant(:ul)[x.attr(:id) == 'foo'] }
 ```
 
 You can also call expression methods directly on the `XPath` module:
 
-``` ruby
+```ruby
 XPath.descendant(:ul)[XPath.attr(:id) == 'foo']
 ```
 
 However for more complex expressions, it is probably more convenient to include
 the `XPath` module into your own class or module:
 
-``` ruby
+```ruby
 module MyXPaths
   include XPath
 
@@ -48,7 +48,7 @@ to be a string literal. On the other hand if you send in Symbol, XPath assumes
 this to be an XPath literal. Thus the following two statements are not
 equivalent:
 
-``` ruby
+```ruby
 XPath.descendant(:p)[XPath.attr(:id) == 'foo']
 XPath.descendant(:p)[XPath.attr(:id) == :foo]
 ```
@@ -66,7 +66,7 @@ tag it contains. Most likely this is not what you want.
 In fact anything other than a String is treated as a literal. Thus the
 following works as expected:
 
-``` ruby
+```ruby
 XPath.descendant(:p)[1]
 ```
 

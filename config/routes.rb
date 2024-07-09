@@ -2,7 +2,7 @@
 #   # Deviseルーティング（Adminユーザー）
 #   devise_for :admin_users, ActiveAdmin::Devise.config
 #   ActiveAdmin.routes(self)
-  
+
 #   # Deviseルーティング（一般ユーザー）
 #   devise_for :users, controllers: {
 #     sessions: 'users/sessions',

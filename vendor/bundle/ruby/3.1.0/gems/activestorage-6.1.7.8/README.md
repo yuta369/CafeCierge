@@ -145,35 +145,40 @@ Active Storage, with its included JavaScript library, supports uploading directl
 
 1. Include `activestorage.js` in your application's JavaScript bundle.
 
-    Using the asset pipeline:
-    ```js
-    //= require activestorage
-    ```
-    Using the npm package:
-    ```js
-    import * as ActiveStorage from "@rails/activestorage"
-    ActiveStorage.start()
-    ```
+   Using the asset pipeline:
+
+   ```js
+   //= require activestorage
+   ```
+
+   Using the npm package:
+
+   ```js
+   import * as ActiveStorage from "@rails/activestorage";
+   ActiveStorage.start();
+   ```
+
 2. Annotate file inputs with the direct upload URL.
 
-    ```ruby
-    <%= form.file_field :attachments, multiple: true, direct_upload: true %>
-    ```
+   ```ruby
+   <%= form.file_field :attachments, multiple: true, direct_upload: true %>
+   ```
+
 3. That's it! Uploads begin upon form submission.
 
 ### Direct upload JavaScript events
 
-| Event name | Event target | Event data (`event.detail`) | Description |
-| --- | --- | --- | --- |
-| `direct-uploads:start` | `<form>` | None | A form containing files for direct upload fields was submitted. |
-| `direct-upload:initialize` | `<input>` | `{id, file}` | Dispatched for every file after form submission. |
-| `direct-upload:start` | `<input>` | `{id, file}` | A direct upload is starting. |
-| `direct-upload:before-blob-request` | `<input>` | `{id, file, xhr}` | Before making a request to your application for direct upload metadata. |
-| `direct-upload:before-storage-request` | `<input>` | `{id, file, xhr}` | Before making a request to store a file. |
-| `direct-upload:progress` | `<input>` | `{id, file, progress}` | As requests to store files progress. |
-| `direct-upload:error` | `<input>` | `{id, file, error}` | An error occurred. An `alert` will display unless this event is canceled. |
-| `direct-upload:end` | `<input>` | `{id, file}` | A direct upload has ended. |
-| `direct-uploads:end` | `<form>` | None | All direct uploads have ended. |
+| Event name                             | Event target | Event data (`event.detail`) | Description                                                               |
+| -------------------------------------- | ------------ | --------------------------- | ------------------------------------------------------------------------- |
+| `direct-uploads:start`                 | `<form>`     | None                        | A form containing files for direct upload fields was submitted.           |
+| `direct-upload:initialize`             | `<input>`    | `{id, file}`                | Dispatched for every file after form submission.                          |
+| `direct-upload:start`                  | `<input>`    | `{id, file}`                | A direct upload is starting.                                              |
+| `direct-upload:before-blob-request`    | `<input>`    | `{id, file, xhr}`           | Before making a request to your application for direct upload metadata.   |
+| `direct-upload:before-storage-request` | `<input>`    | `{id, file, xhr}`           | Before making a request to store a file.                                  |
+| `direct-upload:progress`               | `<input>`    | `{id, file, progress}`      | As requests to store files progress.                                      |
+| `direct-upload:error`                  | `<input>`    | `{id, file, error}`         | An error occurred. An `alert` will display unless this event is canceled. |
+| `direct-upload:end`                    | `<input>`    | `{id, file}`                | A direct upload has ended.                                                |
+| `direct-uploads:end`                   | `<form>`     | None                        | All direct uploads have ended.                                            |
 
 ## License
 
@@ -183,12 +188,12 @@ Active Storage is released under the [MIT License](https://opensource.org/licens
 
 API documentation is at:
 
-* https://api.rubyonrails.org
+- https://api.rubyonrails.org
 
 Bug reports for the Ruby on Rails project can be filed here:
 
-* https://github.com/rails/rails/issues
+- https://github.com/rails/rails/issues
 
 Feature requests should be discussed on the rails-core mailing list here:
 
-* https://discuss.rubyonrails.org/c/rubyonrails-core
+- https://discuss.rubyonrails.org/c/rubyonrails-core

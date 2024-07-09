@@ -13,4 +13,3 @@ IndentCaseLabels: true
 PointerAlignment: Right
 SpaceBeforeParens: ControlStatements
 IndentWidth: 4
-...

@@ -10,7 +10,7 @@ Overflow is a better place for that where a wider community can help you!
 
 ## Filing an issue
 
-Good issue reports are extremely helpful!  Please only open an issue if a bug
+Good issue reports are extremely helpful! Please only open an issue if a bug
 is caused by Ransack, is new (has not already been reported), and can be
 reproduced from the information you provide.
 
@@ -32,12 +32,12 @@ Steps:
 
 If you do not provide a self-contained gist and would like your issue to be reviewed, do provide at a minimum:
 
-* A comprehensive list of steps to reproduce the issue, or even better, a
+- A comprehensive list of steps to reproduce the issue, or even better, a
   passing/failing test spec.
-* Whether you are using Ransack through another gem like ActiveAdmin,
+- Whether you are using Ransack through another gem like ActiveAdmin,
   SimpleForm, etc.
-* The versions of Ruby, Rails, Ransack and the database.
-* Any relevant stack traces ("Full trace" preferred).
+- The versions of Ruby, Rails, Ransack and the database.
+- Any relevant stack traces ("Full trace" preferred).
 
 Issues filed without the above information or that remain open without activity
 for 14 days will be closed. They can be re-opened if actionable information to reproduce the issue is provided.
@@ -79,9 +79,9 @@ Here's a quick guide:
    DB=pg bundle exec rake spec
    DB=mysql bundle exec rake spec
    ```
-   
+
    A one-liner to run all three
-   
+
    ```sh
    bundle exec rake spec && DB=pg bundle exec rake spec && DB=mysql bundle exec rake spec
    ```
@@ -89,16 +89,16 @@ Here's a quick guide:
    For Postgres and MySQL, databases are expected to exist, called 'ransack'. To create use these commands (assuming OS X and Homebrew):
 
    ### Postgres
-   
+
    ```sh
-   createdb ransack 
+   createdb ransack
    ```
 
    ### MySQL
-   
+
    ```sh
    mysql -u root
-   mysql> create database ransack; 
+   mysql> create database ransack;
    ```
 
    The test suite runs by default
@@ -132,17 +132,17 @@ Here's a quick guide:
    ```
 
 9. Commit your changes (`git commit -am 'Add feature/fix bug/improve docs'`).
-    If your pull request only contains documentation changes, please remember
-    to add `[skip ci]` to the beginning of your commit message so the CI
-    test suite doesn't :runner: needlessly.
+   If your pull request only contains documentation changes, please remember
+   to add `[skip ci]` to the beginning of your commit message so the CI
+   test suite doesn't :runner: needlessly.
 
 10. If necessary, rebase your commits into logical chunks, without errors. To
-   interactively rebase and cherry-pick from, say, the last 10 commits:
-   `git rebase -i HEAD~10`, then `git push -f`.
+    interactively rebase and cherry-pick from, say, the last 10 commits:
+    `git rebase -i HEAD~10`, then `git push -f`.
 
 11. Push the branch up to your fork on GitHub
-   (`git push origin my-new-feature`) and from GitHub submit a pull request to
-   Ransack's `main` branch.
+    (`git push origin my-new-feature`) and from GitHub submit a pull request to
+    Ransack's `main` branch.
 
 At this point you're waiting on us. We like to at least comment on, if not
 accept, pull requests within three business days (and, typically, one business
@@ -150,22 +150,22 @@ day). We may suggest some changes or improvements or alternatives.
 
 Some things that will increase the chance that your pull request is accepted:
 
-* Include tests that fail without your code, and pass with it.
-* Update the README, the change log, the documentation... anything that is
+- Include tests that fail without your code, and pass with it.
+- Update the README, the change log, the documentation... anything that is
   affected by your contribution.
-* Use idiomatic Ruby and follow the syntax conventions below.
+- Use idiomatic Ruby and follow the syntax conventions below.
 
 Syntax:
 
-* Indent with two spaces, no tabs.
-* 80 characters per line.
-* No trailing whitespace. Blank lines should not have any space.
-* Prefer `&&`/`||` over `and`/`or`.
-* `MyClass.my_method(my_arg)` not `my_method( my_arg )` or `my_method my_arg`.
-* `a = b` and not `a=b`.
-* `a_method { |block| ... }` and not `a_method { | block | ... }` or
-`a_method{|block| ...}`.
-* Prefer simplicity, readability, and maintainability over terseness.
-* Follow the conventions you see used in the code already.
+- Indent with two spaces, no tabs.
+- 80 characters per line.
+- No trailing whitespace. Blank lines should not have any space.
+- Prefer `&&`/`||` over `and`/`or`.
+- `MyClass.my_method(my_arg)` not `my_method( my_arg )` or `my_method my_arg`.
+- `a = b` and not `a=b`.
+- `a_method { |block| ... }` and not `a_method { | block | ... }` or
+  `a_method{|block| ...}`.
+- Prefer simplicity, readability, and maintainability over terseness.
+- Follow the conventions you see used in the code already.
 
 And in case we didn't emphasize it enough: We love tests!

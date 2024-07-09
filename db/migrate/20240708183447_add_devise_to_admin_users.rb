@@ -2,27 +2,17 @@ class AddDeviseToAdminUsers < ActiveRecord::Migration[6.1]
   def self.up
     change_table :admin_users do |t|
       ## Database authenticatable
-      unless column_exists? :admin_users, :email
-        t.string :email, null: false, default: ""
-      end
+      t.string :email, null: false, default: '' unless column_exists? :admin_users, :email
 
-      unless column_exists? :admin_users, :encrypted_password
-        t.string :encrypted_password, null: false, default: ""
-      end
+      t.string :encrypted_password, null: false, default: '' unless column_exists? :admin_users, :encrypted_password
 
       ## Recoverable
-      unless column_exists? :admin_users, :reset_password_token
-        t.string :reset_password_token
-      end
+      t.string :reset_password_token unless column_exists? :admin_users, :reset_password_token
 
-      unless column_exists? :admin_users, :reset_password_sent_at
-        t.datetime :reset_password_sent_at
-      end
+      t.datetime :reset_password_sent_at unless column_exists? :admin_users, :reset_password_sent_at
 
       ## Rememberable
-      unless column_exists? :admin_users, :remember_created_at
-        t.datetime :remember_created_at
-      end
+      t.datetime :remember_created_at unless column_exists? :admin_users, :remember_created_at
 
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false

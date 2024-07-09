@@ -29,15 +29,15 @@ does not contain errors, it will automatically set the flash message to
 `"Post was successfully created"` as long as you configure your I18n file:
 
 ```yaml
-  flash:
-    actions:
-      create:
-        notice: "%{resource_name} was successfully created."
-      update:
-        notice: "%{resource_name} was successfully updated."
-      destroy:
-        notice: "%{resource_name} was successfully destroyed."
-        alert: "%{resource_name} could not be destroyed."
+flash:
+  actions:
+    create:
+      notice: "%{resource_name} was successfully created."
+    update:
+      notice: "%{resource_name} was successfully updated."
+    destroy:
+      notice: "%{resource_name} was successfully destroyed."
+      alert: "%{resource_name} could not be destroyed."
 ```
 
 In case the resource contains errors, you should use the failure key on I18n. This is
@@ -46,10 +46,10 @@ and `destroy` actions are commented in generated I18n file. If you need a specif
 for a controller, let's say, for `PostsController`, you can also do:
 
 ```yaml
-  flash:
-    posts:
-      create:
-        notice: "Your post was created and will be published soon"
+flash:
+  posts:
+    create:
+      notice: "Your post was created and will be published soon"
 ```
 
 This responder is activated in all non get requests. By default it will use the keys
@@ -62,13 +62,13 @@ config.responders.flash_keys = [ :success, :failure ]
 You can also have embedded HTML. Just create a `_html` scope.
 
 ```yaml
-  flash:
-    actions:
-      create:
-        alert_html: "<strong>OH NOES!</strong> You did it wrong!"
-    posts:
-      create:
-        notice_html: "<strong>Yay!</strong> You did it!"
+flash:
+  actions:
+    create:
+      alert_html: "<strong>OH NOES!</strong> You did it wrong!"
+  posts:
+    create:
+      notice_html: "<strong>Yay!</strong> You did it!"
 ```
 
 See also the `namespace_lookup` option to search the full hierarchy of possible keys.
@@ -272,9 +272,9 @@ The example configuration showed above matches the statuses that better integrat
 
 Want more examples ? Check out these blog posts:
 
-* [Embracing REST with mind, body and soul](http://blog.plataformatec.com.br/2009/08/embracing-rest-with-mind-body-and-soul/)
-* [Three reasons to love ActionController::Responder](http://weblog.rubyonrails.org/2009/8/31/three-reasons-love-responder/)
-* [My five favorite things about Rails 3](http://www.engineyard.com/blog/2009/my-five-favorite-things-about-rails-3)
+- [Embracing REST with mind, body and soul](http://blog.plataformatec.com.br/2009/08/embracing-rest-with-mind-body-and-soul/)
+- [Three reasons to love ActionController::Responder](http://weblog.rubyonrails.org/2009/8/31/three-reasons-love-responder/)
+- [My five favorite things about Rails 3](http://www.engineyard.com/blog/2009/my-five-favorite-things-about-rails-3)
 
 ## Supported Ruby / Rails versions
 

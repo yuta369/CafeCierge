@@ -4,16 +4,15 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
   build-warp:
     name: ${{ matrix.HOST }} ${{ matrix.CONFIGURE_OPTIONS }} ${{ matrix.MEVAL }} ${{ matrix.LIBFFI_TEST_OPTIMIZATION }}
     runs-on: warp-ubuntu-latest-arm64-2x
@@ -21,8 +20,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-       include:
-         - HOST: "aarch64-linux-gnu"
+        include:
+          - HOST: "aarch64-linux-gnu"
 
     steps:
       - uses: actions/checkout@v3
@@ -45,49 +44,49 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-       include:
-         - HOST: "x86_64-pc-linux-gnu"
-           MEVAL: "export CC=clang CXX=clang"
-         - HOST: "i386-pc-linux-gnu"
-           MEVAL: 'export CC="gcc -m32" CXX="g++ -m32"'
-         - HOST: "x86_64-pc-linux-gnu"
-           CONFIGURE_OPTIONS: "--disable-shared"
-         - HOST: "x86_64-pc-linux-gnu"
-           CONFIGURE_OPTIONS: "--enable-shared"
-         - HOST: "m68k-linux-gnu"
-           MEVAL: 'export CC="m68k-linux-gnu-gcc-8 -mcpu=547x" CXX="m68k-linux-gnu-g++-8 -mcpu=547x"'
-           CONFIGURE_OPTIONS: '--disable-shared'
-           QEMU_LD_PREFIX: '/usr/m68k-linux-gnu'
-           QEMU_CPU: 'cfv4e'
-         - HOST: "sh4-linux-gnu"
-           CONFIGURE_OPTIONS: "--disable-shared"
-           QEMU_LD_PREFIX: "/usr/sh4-linux-gnu"
-           QEMU_CPU: 'sh7785'
-         - HOST: "alpha-linux-gnu"
-           CONFIGURE_OPTIONS: "--disable-shared"
-           QEMU_LD_PREFIX: "/usr/alpha-linux-gnu"
-           QEMU_CPU: 'ev4-alpha-cpu'
-         - HOST: "arm32v7-linux-gnu"
-           LIBFFI_TEST_OPTIMIZATION: "-O0"
-           QEMU_CPU: 'any'
-         - HOST: "arm32v7-linux-gnu"
-           LIBFFI_TEST_OPTIMIZATION: "-O2"
-           QEMU_CPU: 'any'
-         - HOST: "arm32v7-linux-gnu"
-           LIBFFI_TEST_OPTIMIZATION: "-O2 -fomit-frame-pointer"
-           QEMU_CPU: 'any'
-         - HOST: "powerpc-eabisim"
-           RUNTESTFLAGS: "--target_board powerpc-eabisim"
-         - HOST: "or1k-elf"
-           RUNTESTFLAGS: "--target_board or1k-sim"
-         - HOST: "m32r-elf"
-           RUNTESTFLAGS: "--target_board m32r-sim"
-         - HOST: "bfin-elf"
-           RUNTESTFLAGS: "--target_board bfin-sim"
-         - MEVAL: "export PATH=/opt/moxielogic/bin:$PATH CC=moxie-elf-gcc CXX=moxie-elf-g++"
-           HOST: "moxie-elf"
-           LDFLAGS: "-Tsim.ld"
-           RUNTESTFLAGS: "--target_board moxie-sim"
+        include:
+          - HOST: "x86_64-pc-linux-gnu"
+            MEVAL: "export CC=clang CXX=clang"
+          - HOST: "i386-pc-linux-gnu"
+            MEVAL: 'export CC="gcc -m32" CXX="g++ -m32"'
+          - HOST: "x86_64-pc-linux-gnu"
+            CONFIGURE_OPTIONS: "--disable-shared"
+          - HOST: "x86_64-pc-linux-gnu"
+            CONFIGURE_OPTIONS: "--enable-shared"
+          - HOST: "m68k-linux-gnu"
+            MEVAL: 'export CC="m68k-linux-gnu-gcc-8 -mcpu=547x" CXX="m68k-linux-gnu-g++-8 -mcpu=547x"'
+            CONFIGURE_OPTIONS: "--disable-shared"
+            QEMU_LD_PREFIX: "/usr/m68k-linux-gnu"
+            QEMU_CPU: "cfv4e"
+          - HOST: "sh4-linux-gnu"
+            CONFIGURE_OPTIONS: "--disable-shared"
+            QEMU_LD_PREFIX: "/usr/sh4-linux-gnu"
+            QEMU_CPU: "sh7785"
+          - HOST: "alpha-linux-gnu"
+            CONFIGURE_OPTIONS: "--disable-shared"
+            QEMU_LD_PREFIX: "/usr/alpha-linux-gnu"
+            QEMU_CPU: "ev4-alpha-cpu"
+          - HOST: "arm32v7-linux-gnu"
+            LIBFFI_TEST_OPTIMIZATION: "-O0"
+            QEMU_CPU: "any"
+          - HOST: "arm32v7-linux-gnu"
+            LIBFFI_TEST_OPTIMIZATION: "-O2"
+            QEMU_CPU: "any"
+          - HOST: "arm32v7-linux-gnu"
+            LIBFFI_TEST_OPTIMIZATION: "-O2 -fomit-frame-pointer"
+            QEMU_CPU: "any"
+          - HOST: "powerpc-eabisim"
+            RUNTESTFLAGS: "--target_board powerpc-eabisim"
+          - HOST: "or1k-elf"
+            RUNTESTFLAGS: "--target_board or1k-sim"
+          - HOST: "m32r-elf"
+            RUNTESTFLAGS: "--target_board m32r-sim"
+          - HOST: "bfin-elf"
+            RUNTESTFLAGS: "--target_board bfin-sim"
+          - MEVAL: "export PATH=/opt/moxielogic/bin:$PATH CC=moxie-elf-gcc CXX=moxie-elf-g++"
+            HOST: "moxie-elf"
+            LDFLAGS: "-Tsim.ld"
+            RUNTESTFLAGS: "--target_board moxie-sim"
 
     steps:
       - uses: actions/checkout@v3
@@ -112,60 +111,59 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-       include:
-         - CFARM_HOST: cfarm185.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: aarch64-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm185.fsffrance.org
-           CFARM_PORT: 22
-           CFARM_TRIPLE: aarch64-lto-linux-gnu
-           CFARM_CC: "gcc -flto"
-           CFARM_CXX: "g++ -flto"
-         - CFARM_HOST: cfarm400.cfarm.net
-           CFARM_PORT: 25465
-           CFARM_TRIPLE: loongarch64-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm230.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: mips-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm211.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: sparc64-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm211.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: sparc64-linux-gnu
-           CFARM_CC: "gcc -m32"
-           CFARM_CXX: "g++ -m32"
-         - CFARM_HOST: cfarm91.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: riscv64-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm103.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: aarch64-m1-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm112.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: powerpc64le-linux-gnu
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
-         - CFARM_HOST: cfarm111.cfarm.net
-           CFARM_PORT: 22
-           CFARM_TRIPLE: powerpc-ibm-aix7.1.5.0
-           CFARM_CC: "gcc"
-           CFARM_CXX: "g++"
+        include:
+          - CFARM_HOST: cfarm185.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: aarch64-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm185.fsffrance.org
+            CFARM_PORT: 22
+            CFARM_TRIPLE: aarch64-lto-linux-gnu
+            CFARM_CC: "gcc -flto"
+            CFARM_CXX: "g++ -flto"
+          - CFARM_HOST: cfarm400.cfarm.net
+            CFARM_PORT: 25465
+            CFARM_TRIPLE: loongarch64-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm230.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: mips-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm211.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: sparc64-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm211.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: sparc64-linux-gnu
+            CFARM_CC: "gcc -m32"
+            CFARM_CXX: "g++ -m32"
+          - CFARM_HOST: cfarm91.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: riscv64-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm103.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: aarch64-m1-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm112.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: powerpc64le-linux-gnu
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
+          - CFARM_HOST: cfarm111.cfarm.net
+            CFARM_PORT: 22
+            CFARM_TRIPLE: powerpc-ibm-aix7.1.5.0
+            CFARM_CC: "gcc"
+            CFARM_CXX: "g++"
 
     steps:
-
       - uses: actions/checkout@v3
 
       - name: Run autogen
@@ -276,7 +274,6 @@ jobs:
         shell: C:\tools\cygwin\bin\bash.exe --login --norc -eo pipefail -o igncr '{0}'
 
   build-msys2:
-
     runs-on: windows-latest
 
     strategy:
@@ -328,7 +325,6 @@ jobs:
         shell: msys2 {0}
 
   build-msys2-clang:
-
     runs-on: windows-latest
 
     strategy:

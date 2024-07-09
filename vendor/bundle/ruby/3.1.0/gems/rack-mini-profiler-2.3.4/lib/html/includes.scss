@@ -59,8 +59,12 @@ $zindex: 2147483640; // near 32bit max 2147483647
     font-family: $normalFonts;
     font-size: 14px;
   }
-  .ta-left  { text-align: left;  }
-  .ta-right { text-align: right; }
+  .ta-left {
+    text-align: left;
+  }
+  .ta-right {
+    text-align: right;
+  }
 }
 
 // styles shared between popup view and full view
@@ -628,7 +632,8 @@ $zindex: 2147483640; // near 32bit max 2147483647
       background: #6a737c;
       color: #ffffff;
     }
-    th, td {
+    th,
+    td {
       padding: 5px 10px;
       box-sizing: border-box;
       &:not(.request-group) {

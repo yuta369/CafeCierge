@@ -14,41 +14,38 @@
 //>>description: Functions to generate and remove uniqueId's
 //>>docs: https://api.jqueryui.com/uniqueId/
 
-( function( factory ) {
-	"use strict";
+(function (factory) {
+  "use strict";
 
-	if ( typeof define === "function" && define.amd ) {
+  if (typeof define === "function" && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(["jquery", "./version"], factory);
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+})(function ($) {
+  "use strict";
 
-		// AMD. Register as an anonymous module.
-		define( [ "jquery", "./version" ], factory );
-	} else {
+  return $.fn.extend({
+    uniqueId: (function () {
+      var uuid = 0;
 
-		// Browser globals
-		factory( jQuery );
-	}
-} )( function( $ ) {
-"use strict";
+      return function () {
+        return this.each(function () {
+          if (!this.id) {
+            this.id = "ui-id-" + ++uuid;
+          }
+        });
+      };
+    })(),
 
-return $.fn.extend( {
-	uniqueId: ( function() {
-		var uuid = 0;
-
-		return function() {
-			return this.each( function() {
-				if ( !this.id ) {
-					this.id = "ui-id-" + ( ++uuid );
-				}
-			} );
-		};
-	} )(),
-
-	removeUniqueId: function() {
-		return this.each( function() {
-			if ( /^ui-id-\d+$/.test( this.id ) ) {
-				$( this ).removeAttr( "id" );
-			}
-		} );
-	}
-} );
-
-} );
+    removeUniqueId: function () {
+      return this.each(function () {
+        if (/^ui-id-\d+$/.test(this.id)) {
+          $(this).removeAttr("id");
+        }
+      });
+    },
+  });
+});

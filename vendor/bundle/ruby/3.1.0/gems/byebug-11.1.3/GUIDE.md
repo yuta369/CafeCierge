@@ -486,7 +486,7 @@ NameError Exception: undefined local variable or method `n_args' for main:Object
 
 Notice in the above to get the value of variable `n` we had to use a print
 command like `eval n`. If we entered just `n`, that would be taken to mean byebug
-command `next`. In the current scope, variable `n_args` is not defined.  However
+command `next`. In the current scope, variable `n_args` is not defined. However
 I can change to the top-most frame by using the `frame 2` command. Notice that
 inside frame #2, the value of `n_args` can be shown. Also note that the value of
 variable `n` is different.
@@ -511,7 +511,7 @@ output and verify that what was printed is what was expected.
 
 Before we can turn that into something that can be `required`, we probably want
 to remove that output. However I like to keep in that line so that when I
-look at the file, I have an example of how to run it.  Therefore we will
+look at the file, I have an example of how to run it. Therefore we will
 conditionally run this line if that file is invoked directly, but skip it if it
 is not. _NOTE: `byebug` resets `$0` to try to make things like this work._
 
@@ -829,7 +829,7 @@ The `Company` class simulates a real company. The company has a manager and an
 employee represented by 2 threads: they work concurrently to achieve the
 company's targets.
 
-* The employee looks for tasks to complete. If there are tasks, it works hard to
+- The employee looks for tasks to complete. If there are tasks, it works hard to
   complete them. Otherwise he has a quick break.
 
 ```ruby
@@ -847,7 +847,7 @@ def employee_routine
 end
 ```
 
-* The manager, on the other hand, sits there all day and sporadically checks
+- The manager, on the other hand, sits there all day and sporadically checks
   whether there are any results to show off.
 
 ```ruby
@@ -871,7 +871,7 @@ some calculation with those numbers and what the manager does with the results
 is printing them to the screen.
 
 We instantiate a new company with an initial task and after running that
-company we expect the result to be printed in the screen, but it is not.  Lets
+company we expect the result to be printed in the screen, but it is not. Lets
 debug our sample program:
 
 ```bash
@@ -1159,9 +1159,9 @@ in the `employee_routine` method with the line
 
 To be continued...
 
-* More complex examples with objects, pretty printing and irb.
-* Line tracing and non-interactive tracing.
-* Post-mortem debugging.
+- More complex examples with objects, pretty printing and irb.
+- Line tracing and non-interactive tracing.
+- Post-mortem debugging.
 
 ## Getting in & out
 
@@ -1232,7 +1232,7 @@ use this option.
 
 #### -r | --require lib
 
-Requires the library before executing the script.  This option is compatible
+Requires the library before executing the script. This option is compatible
 with Ruby's.
 
 #### -t | --trace
@@ -1271,7 +1271,7 @@ terminal.
 When you start `byebug`, it automatically executes commands from its
 _init file_, called `.byebugrc`. During startup, `byebug` does the following:
 
-* __Processes command line options and operands.__ Reads the init file in your
+- **Processes command line options and operands.** Reads the init file in your
   current directory, if any, and then checks your home directory. The home
   directory is the directory named in the `$HOME` or `$HOMEPATH` environment
   variable. Thus, you can have more than one init file, one generic in your home
@@ -1317,7 +1317,7 @@ If speed is crucial, you may want to start and stop this around certain sections
 of code, using `Byebug.start` and `Byebug.stop`. Alternatively, instead of
 issuing an explicit `Byebug.stop` you can add a block to the `Byebug.start` and
 debugging is turned on for that block. If the block of code raises an uncaught
-exception that would cause the block to terminate, the `stop` will occur.  See
+exception that would cause the block to terminate, the `stop` will occur. See
 [Byebug.start with a block]().
 
 When `byebug`is run, `.byebugrc` is read.
@@ -1576,7 +1576,7 @@ startup see [Command Files]().
 #### Display
 
 If you find that you want to print the value of an expression frequently (to see
-how it changes), you might want to add it to the *automatic display list** so
+how it changes), you might want to add it to the \*automatic display list\*\* so
 that `byebug` evaluates it each time your program stops or after a line is
 printed if line tracing is enabled. Each expression added to the list is given a
 number to identify it; to remove an expression from the list, you specify that
@@ -1625,7 +1625,7 @@ typing just `n` will execute `byebug`'s command `next`.
 
 Finally, if you need more advanced functionality from REPL's, you can enter
 `irb` or `pry` using `irb` or `pry` commands. The binding's environment will be
-set to the current state in the program.  When you leave the repl and go back to
+set to the current state in the program. When you leave the repl and go back to
 `byebug`'s command prompt we show the file, line and text position of the
 program. If you issue a `list` without location information, the default
 location used is the current line rather than the current position that may have
@@ -1655,23 +1655,23 @@ irb(main):002:0> exit
 
 Byebug can print many different information about variables. Such as
 
-* `var const <object>`. Show the constants of `<object>`. This is basically
+- `var const <object>`. Show the constants of `<object>`. This is basically
   listing variables and their values in `<object>.constant`.
-* `var instance <object>`. Show the instance variables of `<object>`. This is
+- `var instance <object>`. Show the instance variables of `<object>`. This is
   basically listing `<object>.instance_variables`.
-* `var instance`. Show instance_variables of `self`.
-* `var local`. Show local variables.
-* `var global`. Show global variables.
-* `var all`. Show local, global and instance and class variables of `self`.
-* `method instance <object>`. Show methods of `<object>`. Basically this is the
+- `var instance`. Show instance_variables of `self`.
+- `var local`. Show local variables.
+- `var global`. Show global variables.
+- `var all`. Show local, global and instance and class variables of `self`.
+- `method instance <object>`. Show methods of `<object>`. Basically this is the
   same as running `<object>.instance_methods(false)`.
-* `method <class-or-module>`. Show methods of the class or module
+- `method <class-or-module>`. Show methods of the class or module
   `<class-or-module>`. Basically this is the same as running
   `<class-or-module>.methods`.
 
 ### Examining Program Source Files: list
 
-`byebug` can print parts of your script's source.  When your script stops,
+`byebug` can print parts of your script's source. When your script stops,
 `byebug` spontaneously lists the source code around the line where it stopped
 that line. It does that when you change the current stack frame as well.
 Implicitly there is a default line location. Each time a list command is run
@@ -1698,13 +1698,13 @@ nnn` prints lines centered around line number `nnn` in the current source file.
 just before the lines last printed. `list nnn-mmm` prints lines between `nnn`
 and `mmm` inclusive. `list =` prints lines centered around where the script is
 stopped. Repeating a `list` command with `RET` discards the argument, so it is
-equivalent to typing just `list`.  This is more useful than listing the same
+equivalent to typing just `list`. This is more useful than listing the same
 lines again. An exception is made for an argument of `-`: that argument is
 preserved in repetition so that each repetition moves up in the source file.
 
 ### Editing Source files: edit
 
-To edit a source file, use the `edit` command.  The editor of your choice is invoked
+To edit a source file, use the `edit` command. The editor of your choice is invoked
 with the current line set to the active line in the program. Alternatively, you can
 give a line specification to specify what part of the file you want to edit.
 
@@ -1792,14 +1792,14 @@ source code in Ruby, so we can not debug them using Byebug.
 
 ### Selecting a frame: `up`, `down` and `frame` commands
 
-* `up <n>`: Move `n` frames up the stack, towards the outermost frame (higher
+- `up <n>`: Move `n` frames up the stack, towards the outermost frame (higher
   frame numbers, frames that have existed longer). `n` defaults to one.
 
-* `down <n>`: Move `n` frames down the stack, towards the _innermost frame_
+- `down <n>`: Move `n` frames down the stack, towards the _innermost frame_
   (lower frame numbers, frames that were created more recently). `n` defaults to
   one.
 
-* `frame <n>`: Allows you to move to an arbitrary frame. `n` is the stack frame
+- `frame <n>`: Allows you to move to an arbitrary frame. `n` is the stack frame
   number or 0 if no frame number is given. `frame 0` will show the current and
   most recent stack frame. If a negative number is given, counting is from the
   other end of the stack frame, so `frame -1` shows the least-recent, outermost

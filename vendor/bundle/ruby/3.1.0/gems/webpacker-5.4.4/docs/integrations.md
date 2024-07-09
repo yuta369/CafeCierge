@@ -20,7 +20,6 @@ The installer will add all relevant dependencies using Yarn, changes
 to the configuration files, and an example React component to your
 project in `app/javascript/packs` so that you can experiment with React right away.
 
-
 ## Angular with TypeScript
 
 To use Webpacker with [Angular](https://angular.io/), create a
@@ -58,7 +57,6 @@ Rails.application.config.content_security_policy do |policy|
 end
 ```
 
-
 ## Vue
 
 To use Webpacker with [Vue](https://vuejs.org/), create a
@@ -68,6 +66,7 @@ new Rails 5.1+ app using `--webpack=vue` option:
 # Rails 5.1+
 rails new myapp --webpack=vue
 ```
+
 (or run `bundle exec rails webpacker:install:vue` on a Rails app already setup with Webpacker).
 
 The installer will add Vue and its required libraries using Yarn alongside
@@ -87,6 +86,7 @@ Rails.application.config.content_security_policy do |policy|
   end
 end
 ```
+
 You can read more about this in the [Vue docs](https://vuejs.org/v2/guide/installation.html#CSP-environments).
 
 ### Lazy loading integration
@@ -96,14 +96,16 @@ See [docs/es6](es6.md) to know more about Webpack and Webpacker configuration.
 For instance, you can lazy load Vue JS components:
 
 Before:
-```js
-import Vue from 'vue'
-import { VCard } from 'vuetify/lib'
 
-Vue.component('VCard', VCard)
+```js
+import Vue from "vue";
+import { VCard } from "vuetify/lib";
+
+Vue.component("VCard", VCard);
 ```
 
 After:
+
 ```js
 import Vue from 'vue'
 
@@ -117,16 +119,14 @@ Vue.component('OtherComponent', () => import('./OtherComponent'))
 You can use it in a Single File Component as well:
 
 ```html
-<template>
-  ...
-</template>
+<template> ... </template>
 
 <script>
-export default {
-  components: {
-    OtherComponent: () => import('./OtherComponent')
-  }
-}
+  export default {
+    components: {
+      OtherComponent: () => import("./OtherComponent"),
+    },
+  };
 </script>
 ```
 
@@ -144,16 +144,16 @@ By wrapping the import function into an arrow function, Vue will execute it only
  * Eg. ./UI/ButtonComponent.vue -> <button-component></button-component>
  */
 
-const files = require.context('./', true, /\.vue$/i)
-files.keys().map(key => {
-  const component = key.split('/').pop().split('.')[0]
+const files = require.context("./", true, /\.vue$/i);
+files.keys().map((key) => {
+  const component = key.split("/").pop().split(".")[0];
 
   // With Lazy Loading
-  Vue.component(component, () => import(`${key}`))
+  Vue.component(component, () => import(`${key}`));
 
   // Or without Lazy Loading
-  Vue.component(component, files(key).default)
-})
+  Vue.component(component, files(key).default);
+});
 ```
 
 ## Elm

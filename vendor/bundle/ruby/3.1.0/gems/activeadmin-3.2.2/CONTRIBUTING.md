@@ -90,8 +90,8 @@ in the `tmp/development_apps` folder.
 You should now be able to open <http://localhost:3000/admin> in your browser.
 You can log in using:
 
-*User*: admin@example.com
-*Password*: password
+_User_: admin@example.com
+_Password_: password
 
 If you need to perform any other commands on the test application, just pass
 them to the `local` rake task. For example, to boot the rails console:
@@ -153,11 +153,11 @@ git push --force-with-lease 325-add-japanese-translations
 
 A PR can only be merged into master by a maintainer if:
 
-* It is passing CI.
-* It has been approved by at least two maintainers. If it was a maintainer who
+- It is passing CI.
+- It has been approved by at least two maintainers. If it was a maintainer who
   opened the PR, only one extra approval is needed.
-* It has no requested changes.
-* It is up to date with current master.
+- It has no requested changes.
+- It is up to date with current master.
 
 Any maintainer is allowed to merge a PR if all of these conditions are
 met.
@@ -166,13 +166,13 @@ met.
 
 Maintainers need to do the following to push out a release:
 
-* Switch to the master branch and make sure it's up to date.
-* Make sure you have [chandler] properly configured. Chandler is used to
+- Switch to the master branch and make sure it's up to date.
+- Make sure you have [chandler] properly configured. Chandler is used to
   automatically submit github release notes from the changelog right after
   pushing the gem to rubygems.
-* Run one of `bin/rake release:prepare_{prerelease,prepatch,patch,preminor,minor,premajor,major}`, push the result and create a PR.
-* Review and merge the PR. The generated changelog in the PR should include all user visible changes you intend to ship.
-* Run `bin/rake release` from the target branch once the PR is merged.
+- Run one of `bin/rake release:prepare_{prerelease,prepatch,patch,preminor,minor,premajor,major}`, push the result and create a PR.
+- Review and merge the PR. The generated changelog in the PR should include all user visible changes you intend to ship.
+- Run `bin/rake release` from the target branch once the PR is merged.
 
 [chandler]: https://github.com/mattbrictson/chandler#2-configure-credentials
 [Stack Overflow]: http://stackoverflow.com/questions/tagged/activeadmin

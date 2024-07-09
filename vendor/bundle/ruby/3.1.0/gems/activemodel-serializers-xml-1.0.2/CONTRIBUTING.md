@@ -1,5 +1,4 @@
-Contributing to ActiveModel::Serializers::Xml
-=====================
+# Contributing to ActiveModel::Serializers::Xml
 
 [![Build Status](https://api.travis-ci.org/rails/activemodel-serializers-xml.svg)](https://travis-ci.org/rails/activemodel-serializers-xml)
 

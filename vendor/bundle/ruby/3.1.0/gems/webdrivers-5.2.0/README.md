@@ -9,10 +9,10 @@ Run Selenium tests more easily with automatic installation and updates for all s
 
 `webdrivers` downloads drivers and directs Selenium to use them. Currently supports:
 
-* [chromedriver](http://chromedriver.chromium.org/)
-* [geckodriver](https://github.com/mozilla/geckodriver)
-* [IEDriverServer](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver)
-* [msedgedriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+- [chromedriver](http://chromedriver.chromium.org/)
+- [geckodriver](https://github.com/mozilla/geckodriver)
+- [IEDriverServer](https://github.com/SeleniumHQ/selenium/wiki/InternetExplorerDriver)
+- [msedgedriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
 
 Works on macOS, Linux, Windows, and Windows Subsystem for Linux (WSL) v1 and v2. And do see the browser and OS specific
 notes at the bottom.
@@ -49,8 +49,8 @@ require 'webdrivers/edgedriver'
 
 The default download location is `~/.webdrivers` directory, and this is configurable:
 
- ```ruby
- Webdrivers.install_dir = '/webdrivers/install/dir'
+```ruby
+Webdrivers.install_dir = '/webdrivers/install/dir'
 ```
 
 Alternatively, you can define the path via the `WD_INSTALL_DIR` environment
@@ -104,16 +104,16 @@ using a compatible build version.
 ### Proxy
 
 If there is a proxy between you and the Internet then you will need to configure
-the gem to use the proxy.  You can do this by calling the `configure` method.
+the gem to use the proxy. You can do this by calling the `configure` method.
 
-````ruby
+```ruby
 Webdrivers.configure do |config|
   config.proxy_addr = 'myproxy_address.com'
   config.proxy_port = '8080'
   config.proxy_user = 'username'
   config.proxy_pass = 'password'
 end
-````
+```
 
 ### `SSL_connect` errors
 
@@ -129,9 +129,9 @@ gem "net_http_ssl_fix"
 
 Add the following to your code:
 
-````ruby
+```ruby
 require 'net_http_ssl_fix'
-````
+```
 
 Other solutions are documented on the RubyGems [website](https://guides.rubygems.org/ssl-certificate-update/).
 
@@ -202,11 +202,11 @@ Webdrivers.logger.level = :DEBUG
 
 The version of `chromedriver` will depend on the version of Chrome you are using it with:
 
- * For versions >= 70, the downloaded version of `chromedriver` will match the installed version of Google Chrome.
- More information [here](http://chromedriver.chromium.org/downloads/version-selection).
- * For versions <=  69, `chromedriver` version 2.41 will be downloaded.
- * For beta versions, you'll have to require the beta version of `chromedriver`
- using `Webdrivers::Chromedriver.required_version`.
+- For versions >= 70, the downloaded version of `chromedriver` will match the installed version of Google Chrome.
+  More information [here](http://chromedriver.chromium.org/downloads/version-selection).
+- For versions <= 69, `chromedriver` version 2.41 will be downloaded.
+- For beta versions, you'll have to require the beta version of `chromedriver`
+  using `Webdrivers::Chromedriver.required_version`.
 
 The gem looks for the Chrome/Chromium version that `chromedriver` will use by default.
 You can override this behavior by providing a path to the browser binary you want to use:
@@ -246,12 +246,12 @@ with the console font being changed when calling the old PowerShell (PS5).
 Webdrivers will detect WSLv2 as running on Linux and use Chrome on the Linux filesystem.
 
 WSLv2 doesn't support connecting to host ports out of the box, so it isn't possible to connect to Chromedriver on
-Windows without extra configurations, see: https://github.com/microsoft/WSL/issues/4619. The simplest way to use 
+Windows without extra configurations, see: https://github.com/microsoft/WSL/issues/4619. The simplest way to use
 Chromedriver with WSLv2 is to run Chrome headless on Linux.
 
 #### Chrome and Edge on Apple M1 (`arm64`)
 
-If you're switching from Intel to M1, you'll have to manually delete the existing Intel (`mac64`) driver before the 
+If you're switching from Intel to M1, you'll have to manually delete the existing Intel (`mac64`) driver before the
 M1 (`arm64`) build can be downloaded. Otherwise, you'll get an error: `Bad CPU type in executable - ~/.webdrivers/chromedriver (Errno::E086)`
 
 ## Wiki

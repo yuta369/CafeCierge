@@ -282,11 +282,12 @@ end
 ```
 
 If you need to extract zip files that report incorrect uncompressed sizes and you really trust them not too be too large, you can disable this setting with
+
 ```ruby
 Zip.validate_entry_sizes = false
 ```
 
-Note that if you use the lower level `Zip::InputStream` interface, `rubyzip` does *not* check the entry `size`s. In this case, the caller is responsible for making sure it does not read more data than expected from the input stream.
+Note that if you use the lower level `Zip::InputStream` interface, `rubyzip` does _not_ check the entry `size`s. In this case, the caller is responsible for making sure it does not read more data than expected from the input stream.
 
 ### Default Compression
 

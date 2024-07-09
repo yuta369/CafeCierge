@@ -22,13 +22,14 @@ To fully use the power of the JSONB column you may want to filter on any key tho
 Install the [ActiveRecordExtended](https://github.com/GeorgeKaraszi/ActiveRecordExtended) gem to add the `contains` arel predicate to your project. It let's you use the [Postgres contains operator @>](https://www.postgresql.org/docs/12/functions-json.html#FUNCTIONS-JSONB-OP-TABLE).
 
 Add a custom predicate in the `config/initializers/ransack.rb` file:
+
 ```ruby
 Ransack.configure do |config|
   config.add_predicate 'jcont', arel_predicate: 'contains', formatter: proc { |v| JSON.parse(v) }
 end
 ```
 
-Now you can ransack the JSONB columns using the _jcont predicate. For example the Person model has a `data` JSONB column, find entries where the column contains the {"group": "experts"} key-value pair:
+Now you can ransack the JSONB columns using the \_jcont predicate. For example the Person model has a `data` JSONB column, find entries where the column contains the {"group": "experts"} key-value pair:
 
     Person.ransack(data_jcont: '{"group": "experts"}').result.to_sql
 

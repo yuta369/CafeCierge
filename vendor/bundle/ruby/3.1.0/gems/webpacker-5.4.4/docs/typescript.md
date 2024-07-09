@@ -8,7 +8,7 @@
 bundle exec rails webpacker:install:typescript
 ```
 
-After that, a new file called `hello_typescript.ts` will be present in your `packs` directory (or rather the `source_entry_path` of your `webpacker.yml` configuration). You're now ready to write TypeScript. 
+After that, a new file called `hello_typescript.ts` will be present in your `packs` directory (or rather the `source_entry_path` of your `webpacker.yml` configuration). You're now ready to write TypeScript.
 
 ## (Optional) Adding Compile-Time Type Checking
 
@@ -16,68 +16,73 @@ The default installation only transpiles your TypeScript code using Babel. If yo
 
 1. Install the Fork TS Checker Webpack Plugin
 
-    ```sh
-    yarn add --dev fork-ts-checker-webpack-plugin
-    ```
+   ```sh
+   yarn add --dev fork-ts-checker-webpack-plugin
+   ```
 
 2. Then add it to your development environment config in `config/webpack/development.js`
 
-    ```js
-    const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-    const path = require("path");
+   ```js
+   const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+   const path = require("path");
 
-    environment.plugins.append(
-      "ForkTsCheckerWebpackPlugin",
-      new ForkTsCheckerWebpackPlugin({
-        typescript: {
-          configFile: path.resolve(__dirname, "../../tsconfig.json"),
-        },
-        async: false,
-      })
-    );
-    ```
+   environment.plugins.append(
+     "ForkTsCheckerWebpackPlugin",
+     new ForkTsCheckerWebpackPlugin({
+       typescript: {
+         configFile: path.resolve(__dirname, "../../tsconfig.json"),
+       },
+       async: false,
+     })
+   );
+   ```
 
-    If you are `fork-ts-checker-webpack-plugin` older than 5.0, the `tsconfig` option also needs to be specified:
+   If you are `fork-ts-checker-webpack-plugin` older than 5.0, the `tsconfig` option also needs to be specified:
 
-    ```js
-    const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
-    const path = require("path");
+   ```js
+   const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+   const path = require("path");
 
-    environment.plugins.append(
-      "ForkTsCheckerWebpackPlugin",
-      new ForkTsCheckerWebpackPlugin({
-        // this is a relative path to your project's TypeScript config
-        tsconfig: path.resolve(__dirname, "../../tsconfig.json"),
-        // non-async so type checking will block compilation
-        async: false,
-      })
-    );
-    ```
+   environment.plugins.append(
+     "ForkTsCheckerWebpackPlugin",
+     new ForkTsCheckerWebpackPlugin({
+       // this is a relative path to your project's TypeScript config
+       tsconfig: path.resolve(__dirname, "../../tsconfig.json"),
+       // non-async so type checking will block compilation
+       async: false,
+     })
+   );
+   ```
 
 ## Upgrading to 5.1
 
 If you update your App to `webpacker >= 5.1` and had TypeScript installed before, you need to add some new/remove some old configurations:
 
 1. Remove old packages:
-    - `yarn remove ts-loader`
+
+   - `yarn remove ts-loader`
 
 2. Add new packages:
-    - `yarn add @babel/preset-typescript`
 
-3. Remove old configuration files: 
-    - Delete this file: `config/webpack/loaders/typescript.js`
+   - `yarn add @babel/preset-typescript`
+
+3. Remove old configuration files:
+
+   - Delete this file: `config/webpack/loaders/typescript.js`
 
 4. Remove the following lines from `config/webpack/environment.js`:
-    - `const typescript = require('./loaders/typescript')`
-    - `environment.loaders.prepend('typescript', typescript)`
+
+   - `const typescript = require('./loaders/typescript')`
+   - `environment.loaders.prepend('typescript', typescript)`
 
 5. Add the TypeScript preset to your `babel.config.js`:
-    - This line `['@babel/preset-typescript', { 'allExtensions': true, 'isTSX': true }]` has to be added as the last item to the `presets` array in your `babel.config.js`
+   - This line `['@babel/preset-typescript', { 'allExtensions': true, 'isTSX': true }]` has to be added as the last item to the `presets` array in your `babel.config.js`
 
 ### Upgrading to 5.1 for Vue users
 
 1. Remove old packages:
-    - `yarn remove ts-loader pnp-webpack-plugin`
+
+   - `yarn remove ts-loader pnp-webpack-plugin`
 
 2. Follow point 3 and 4 from the `TypeScript with Vue components` section
 
@@ -90,7 +95,7 @@ bundle exec rails webpacker:install:typescript
 ```
 
 2. Rename the generated `hello_react.js` to `hello_react.tsx`. Make the file valid TypeScript and
-now you can use TypeScript, JSX with React.
+   now you can use TypeScript, JSX with React.
 
 ## TypeScript with Vue components
 
@@ -105,13 +110,13 @@ bundle exec rails webpacker:install:typescript
 4. Change the generated `babel.config.js` from
 
 ```js
-["@babel/preset-typescript", { "allExtensions": true, "isTSX": true }]
+["@babel/preset-typescript", { allExtensions: true, isTSX: true }];
 ```
 
 to
 
 ```js
-["babel-preset-typescript-vue", { "allExtensions": true, "isTSX": true }]
+["babel-preset-typescript-vue", { allExtensions: true, isTSX: true }];
 ```
 
 and now you can use `<script lang="ts">` in your `.vue` component files. See [the babel-preset-typescript-vue docs](https://www.npmjs.com/package/babel-preset-typescript-vue) for more info.
@@ -130,28 +135,34 @@ yarn add html-loader
 2. Add html-loader to `config/webpack/environment.js`
 
 ```js
-environment.loaders.append('html', {
+environment.loaders.append("html", {
   test: /\.html$/,
-  use: [{
-    loader: 'html-loader',
-    options: {
-      minimize: true,
-      removeAttributeQuotes: false,
-      caseSensitive: true,
-      customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
-      customAttrAssign: [ /\)?\]?=/ ]
-    }
-  }]
-})
+  use: [
+    {
+      loader: "html-loader",
+      options: {
+        minimize: true,
+        removeAttributeQuotes: false,
+        caseSensitive: true,
+        customAttrSurround: [
+          [/#/, /(?:)/],
+          [/\*/, /(?:)/],
+          [/\[?\(?/, /(?:)/],
+        ],
+        customAttrAssign: [/\)?\]?=/],
+      },
+    },
+  ],
+});
 ```
 
 3. Add `.html` to `config/webpacker.yml`
 
 ```yml
-  extensions:
-    - .elm
-    - .coffee
-    - .html
+extensions:
+  - .elm
+  - .coffee
+  - .html
 ```
 
 4. Setup a custom `d.ts` definition
@@ -160,8 +171,8 @@ environment.loaders.append('html', {
 // app/javascript/hello_angular/html.d.ts
 
 declare module "*.html" {
-  const content: string
-  export default content
+  const content: string;
+  export default content;
 }
 ```
 
@@ -174,16 +185,15 @@ declare module "*.html" {
 6. Import template into `app.component.ts`
 
 ```ts
-import { Component } from '@angular/core'
-import templateString from './template.html'
+import { Component } from "@angular/core";
+import templateString from "./template.html";
 
 @Component({
-  selector: 'hello-angular',
-  template: templateString
+  selector: "hello-angular",
+  template: templateString,
 })
-
 export class AppComponent {
-  name = 'Angular!'
+  name = "Angular!";
 }
 ```
 

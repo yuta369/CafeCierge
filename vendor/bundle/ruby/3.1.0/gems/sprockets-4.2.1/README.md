@@ -9,13 +9,13 @@ write assets in languages like CoffeeScript, Sass and SCSS.
 
 Install Sprockets from RubyGems:
 
-``` sh
+```sh
 $ gem install sprockets
 ```
 
 Or include it in your project's `Gemfile` with Bundler:
 
-``` ruby
+```ruby
 gem 'sprockets', '~> 4.0'
 ```
 
@@ -48,7 +48,7 @@ Since you are likely using Sprockets through another framework (such as the [the
 
 #### Accessing Assets
 
-Assets in Sprockets are always referenced by their *logical path*.
+Assets in Sprockets are always referenced by their _logical path_.
 
 The logical path is the path of the asset source file relative to its
 containing directory in the load path. For example, if your load path
@@ -86,23 +86,23 @@ For example, let's say you have custom JavaScript that you've written. You put t
 
 $().ready({
   // my custom code here
-})
+});
 ```
 
 The directive processor understands comment blocks in three formats:
 
-``` css
+```css
 /* Multi-line comment blocks (CSS, SCSS, JavaScript)
  *= require foo
  */
 ```
 
-``` js
+```js
 // Single-line comment blocks (SCSS, JavaScript)
 //= require foo
 ```
 
-``` coffee
+```coffee
 # Single-line comment blocks (CoffeeScript)
 #= require foo
 ```
@@ -198,7 +198,7 @@ Instead you would need to use:
 <%= asset_path("foo.js") %>
 ```
 
-Why would you want to use this behavior?  It is common behavior where you might want to include an entire directory of files in a top level JavaScript. You can do this in Sprockets using `require_tree .`
+Why would you want to use this behavior? It is common behavior where you might want to include an entire directory of files in a top level JavaScript. You can do this in Sprockets using `require_tree .`
 
 ```js
 //= require_tree .
@@ -244,7 +244,6 @@ Directives such as `require`, `link`, `depend_on`, and `depend_on_directory` tel
 
 On Rails you can force a "clean" install by clearing the `public/assets` and `tmp/cache/assets` directories.
 
-
 ## Default Directives
 
 Directives take a path or a path to a file. Paths for directive can be relative to the current file, for example:
@@ -271,8 +270,8 @@ Below is a section for each of the built in directive types supported by Sprocke
 
 ### require
 
-`require` *path* inserts the contents of the asset source file
-specified by *path*. If the file is required multiple times, it will
+`require` _path_ inserts the contents of the asset source file
+specified by _path_. If the file is required multiple times, it will
 appear in the bundle only once.
 
 **Example:**
@@ -334,8 +333,8 @@ var a = "A";
 
 ### require_directory
 
-`require_directory` *path* requires all source files of the same
-format in the directory specified by *path*. Files are required in
+`require_directory` _path_ requires all source files of the same
+format in the directory specified by _path_. Files are required in
 alphabetical order.
 
 **Example:**
@@ -357,13 +356,13 @@ You can also see [Index files are proxies for folders](#index-files-are-proxies-
 
 ### require_tree
 
-`require_tree` *path* works like `require_directory`, but operates
+`require_tree` _path_ works like `require_directory`, but operates
 recursively to require all files in all subdirectories of the
-directory specified by *path*.
+directory specified by _path_.
 
 ### link
 
-`link` *path* declares a dependency on the target *path* and adds it to a list
+`link` _path_ declares a dependency on the target _path_ and adds it to a list
 of subdependencies to be compiled when the asset is written out to
 disk.
 
@@ -392,11 +391,11 @@ This would find a manifest file at `my_engine/app/assets/config/my_engine_manife
 
 ### link_directory
 
-`link_directory` *path* links all the files inside the directory specified by the *path*. By "link", we mean they are specified as compilation targets to be written out to disk, and made available to be served to user-agents.
+`link_directory` _path_ links all the files inside the directory specified by the _path_. By "link", we mean they are specified as compilation targets to be written out to disk, and made available to be served to user-agents.
 
 Files in subdirectories will not be linked (Compare to [link_tree](#link_tree)).
 
-The *path* argument to `link_directory` is _not_ a logical path (it does not use the asset load paths), but is a path relative to the file the `link_directory` directive is found in, and can use `..` to  . For instance, you might want:
+The _path_ argument to `link_directory` is _not_ a logical path (it does not use the asset load paths), but is a path relative to the file the `link_directory` directive is found in, and can use `..` to . For instance, you might want:
 
 ```js
 //= link_directory ../stylesheets
@@ -416,9 +415,9 @@ instead identifies the content-type the source file must be recognized as.
 
 ### link_tree
 
-`link_tree` *path* works like [link_directory](#link_directory), but operates
+`link_tree` _path_ works like [link_directory](#link_directory), but operates
 recursively to link all files in all subdirectories of the
-directory specified by *path*.
+directory specified by _path_.
 
 Example:
 
@@ -426,20 +425,18 @@ Example:
 //= link_tree ./path/to/folder
 ```
 
-Like `link_directory`, the argument is path relative to the current file, it is *not* a 'logical path' tresolved against load paths.
+Like `link_directory`, the argument is path relative to the current file, it is _not_ a 'logical path' tresolved against load paths.
 
-
-As with `link_directory`, you can also specify a second argument -- separated by a space --  so any extra files not matching the content-type specified will be ignored:
+As with `link_directory`, you can also specify a second argument -- separated by a space -- so any extra files not matching the content-type specified will be ignored:
 
 ```js
 //= link_tree ./path/to/folder text/javascript
 //= link_tree ./path/to/other_folder .js
 ```
 
-
 ### depend_on
 
-`depend_on` *path* declares a dependency on the given *path* without
+`depend_on` _path_ declares a dependency on the given _path_ without
 including it in the bundle. This is useful when you need to expire an
 asset's cache in response to a change in another file.
 
@@ -451,19 +448,19 @@ you need to tell sprockets that it needs to re-compile the file if `bar.data` ch
 ```js
 //= depend_on "bar.data"
 
-var bar = '<%= File.read("bar.data") %>'
+var bar = '<%= File.read("bar.data") %>';
 ```
 
 To depend on an entire directory containing multiple files, use `depend_on_directory`
 
 ### depend_on_asset
 
-`depend_on_asset` *path* works like `depend_on`, but operates
+`depend_on_asset` _path_ works like `depend_on`, but operates
 recursively reading the file and following the directives found. This is automatically implied if you use `link`, so consider if it just makes sense using `link` instead of `depend_on_asset`.
 
 ### depend_on_directory
 
-`depend_on_directory` *path* declares all files in the given *path* without
+`depend_on_directory` _path_ declares all files in the given _path_ without
 including them in the bundle. This is useful when you need to expire an
 asset's cache in response to a change in multiple files in a single directory.
 
@@ -503,8 +500,8 @@ You can also see [Index files are proxies for folders](#index-files-are-proxies-
 
 ### stub
 
-`stub` *path* excludes that asset and its dependencies from the asset bundle.
-The *path* must be a valid asset and may or may not already be part
+`stub` _path_ excludes that asset and its dependencies from the asset bundle.
+The _path_ must be a valid asset and may or may not already be part
 of the bundle. `stub` should only be used at the top level bundle, not
 within any subdependencies.
 
@@ -532,9 +529,9 @@ that will cause a recompile if the value changes.
 
 For example if you have this in your `application.css`
 
-``` css
+```css
 .logo {
-  background: url(<%= asset_url("logo.png") %>)
+  background: url(<%=asset_url("logo.png")%>);
 }
 ```
 
@@ -585,7 +582,6 @@ be referenced with `<%= asset_path("foo.js") %>`. When referencing
 an asset in Rails, always specify the extension you want. Sprockets will
 convert `foo.coffee` to `foo.js`.
 
-
 ## ES6 Support
 
 Sprockets 4 ships with a Babel processor. This allows you to transpile ECMAScript6 to JavaScript just like you would transpile CoffeeScript to JavaScript. To use this, modify your Gemfile:
@@ -599,7 +595,7 @@ Any asset with the extension `es6` will be treated as an ES6 file:
 ```es6
 // app/assets/javascript/application.es6
 
-var square = (n) => n * n
+var square = (n) => n * n;
 
 console.log(square);
 ```
@@ -614,10 +610,9 @@ var square = function square(n) {
 console.log(square);
 ```
 
-
 ### JavaScript Templating with EJS and Eco
 
-Sprockets supports *JavaScript templates* for client-side rendering of
+Sprockets supports _JavaScript templates_ for client-side rendering of
 strings or markup. JavaScript templates have the special format
 extension `.jst` and are compiled to JavaScript functions.
 
@@ -663,7 +658,7 @@ config.assets.css_compressor = :scss
 
 If you're not using Rails, configure this directly on the "environment".
 
-``` ruby
+```ruby
 environment.js_compressor  = :terser
 environment.css_compressor = :scss
 ```
@@ -713,4 +708,5 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 Please see the [CHANGELOG](https://github.com/rails/sprockets/tree/master/CHANGELOG.md)
 
 ## License
+
 Sprockets is released under the [MIT License](MIT-LICENSE).

@@ -5,34 +5,451 @@
 
 "use strict";
 MiniProfiler.templates = {};
-MiniProfiler.templates["profilerTemplate"] = function anonymous(it
-) {
-var out=' <div class="profiler-result"> <div class="profiler-button ';if(it.has_duplicate_sql_timings){out+='profiler-warning';}out+='"> ';if(it.has_duplicate_sql_timings){out+='<span class="profiler-nuclear">!</span>';}out+=' <span class="profiler-number"> '+( MiniProfiler.formatDuration(it.duration_milliseconds))+' <span class="profiler-unit">ms</span> </span> ';if(MiniProfiler.showTotalSqlCount()){out+=' <span class="profiler-number"> '+( it.sql_count)+' <span class="profiler-unit">sql</span> </span> ';}out+=' </div> <div class="profiler-popup"> <div class="profiler-info"> <span class="profiler-name"> '+( it.name)+' <span class="profiler-overall-duration">('+( MiniProfiler.formatDuration(it.duration_milliseconds))+' ms)</span> </span> <span class="profiler-server-time">'+( it.machine_name)+' on '+( MiniProfiler.renderDate(it.started_formatted))+'</span> </div> <div class="profiler-output"> <table class="profiler-timings"> <thead> <tr> <th>event</th> <th>duration (ms)</th> <th class="profiler-duration-with-children">with children (ms)</th> <th class="time-from-start">from start (ms)</th> ';if(it.has_sql_timings){out+=' <th colspan="2">query time (ms)</th> ';}out+=' ';var arr1=it.custom_timing_names;if(arr1){var value,i1=-1,l1=arr1.length-1;while(i1<l1){value=arr1[i1+=1];out+=' <th colspan="2">'+( value.toLowerCase() )+' (ms)</th> ';} } out+=' </tr> </thead> <tbody> '+( MiniProfiler.templates.timingTemplate({timing: it.root, page: it}) )+' </tbody> <tfoot> <tr> <td colspan="3"> ';if(!it.client_timings){out+=' '+( MiniProfiler.templates.linksTemplate({timing: it.root, page: it}) )+' ';}out+=' <a class="profiler-toggle-duration-with-children" title="toggles column with aggregate child durations">show time with children</a> <a class="profiler-snapshots-page-link" title="Go to snapshots page" href="'+( MiniProfiler.options.path )+'snapshots">snapshots</a> </td> ';if(it.has_sql_timings){out+=' <td colspan="2" class="profiler-number profiler-percent-in-sql" title="'+( MiniProfiler.getSqlTimingsCount(it.root) )+' queries spent '+( MiniProfiler.formatDuration(it.duration_milliseconds_in_sql) )+' ms of total request time"> '+( MiniProfiler.formatDuration(it.duration_milliseconds_in_sql / it.duration_milliseconds * 100) )+' <span class="profiler-unit">% in sql</span> </td> ';}out+=' ';var arr2=it.custom_timing_names;if(arr2){var value,i2=-1,l2=arr2.length-1;while(i2<l2){value=arr2[i2+=1];out+=' <td colspan="2" class="profiler-number profiler-percentage-in-sql" title="'+( it.custom_timing_stats[value].count )+' '+( value.toLowerCase() )+' invocations spent '+( MiniProfiler.formatDuration(it.custom_timing_stats[value].duration) )+' ms of total request time"> '+( MiniProfiler.formatDuration(it.custom_timing_stats[value].duration / it.duration_milliseconds * 100) )+' <span class="profiler-unit">% in '+( value.toLowerCase() )+'</span> </td> ';} } out+=' </tr> </tfoot> </table> ';if(it.client_timings){out+=' <table class="profiler-timings profiler-client-timings"> <thead> <tr> <th>client event</th> <th>duration (ms)</th> <th>from start (ms)</th> </tr> </thead> <tbody> ';var arr3=MiniProfiler.getClientTimings(it.client_timings);if(arr3){var value,i3=-1,l3=arr3.length-1;while(i3<l3){value=arr3[i3+=1];out+=' <tr class="';if(value.isTrivial){out+='profiler-trivial';}out+='"> <td class="profiler-label">'+( value.name )+'</td> <td class="profiler-duration"> ';if(value.duration >= 0){out+=' <span class="profiler-unit"></span>'+( MiniProfiler.formatDuration(value.duration) )+' ';}out+=' </td> <td class="profiler-duration time-from-start"> <span class="profiler-unit">+</span>'+( MiniProfiler.formatDuration(value.start) )+' </td> </tr> ';} } out+=' </tbody> <tfoot> <td colspan="3"> '+( MiniProfiler.templates.linksTemplate({timing: it.root, page: it}) )+' </td> </tfoot> </table> ';}out+=' ';if(it.custom_fields && Object.keys(it.custom_fields).length > 0){out+=' <p class="custom-fields-title">Snapshot custom fields</p> <table class="profiler-timings"> <tbody> ';var arr4=Object.keys(it.custom_fields);if(arr4){var key,i4=-1,l4=arr4.length-1;while(i4<l4){key=arr4[i4+=1];out+=' <tr> <td class="profiler-label">'+( key )+'</td> <td class="profiler-label">'+( it.custom_fields[key] )+'</td> </tr> ';} } out+=' </tbody> </table> ';}out+=' </div> </div> ';if(it.has_sql_timings){out+=' <div class="profiler-queries"> <table> <thead> <tr> <th class="ta-right">step<br />time from start<br />query type<br />duration</th> <th class="ta-left">call stack<br />query</th> </tr> </thead> <tbody> ';var arr5=MiniProfiler.getSqlTimings(it.root);if(arr5){var value,index=-1,l5=arr5.length-1;while(index<l5){value=arr5[index+=1];out+=' '+( MiniProfiler.templates.sqlGapTemplate({g: value.prevGap}) )+' '+( MiniProfiler.templates.sqlTimingTemplate({i: index, s: value}) )+' ';if(value.nextGap){out+=' '+( MiniProfiler.templates.sqlGapTemplate({g: value.nextGap}) )+' ';}out+=' ';} } out+=' </tbody> </table> <p class="profiler-trivial-gap-container"> <a class="profiler-toggle-trivial-gaps">show trivial gaps</a> </p> </div> ';}out+=' </div>';return out;
-}
-MiniProfiler.templates["linksTemplate"] = function anonymous(it
-) {
-var out=' <a href="'+( MiniProfiler.shareUrl(it.page.id) )+'" class="profiler-share-profiler-results" target="_blank">share</a> <a href="'+( MiniProfiler.moreUrl(it.timing.name) )+'" class="profiler-more-actions">more</a> ';if(it.page.has_flamegraph){out+=' <a href="'+( MiniProfiler.flamegraphUrl(it.page.id) )+'" class="profiler-show-flamegraph" target="_blank">flamegraph</a> ';}out+=' ';if(it.custom_link){out+=' <a href="'+( it.custom_link )+'" class="profiler-custom-link" target="_blank">'+( it.custom_link_name )+'</a> ';}out+=' ';if(it.page.has_trivial_timings){out+=' <a class="profiler-toggle-trivial" data-show-on-load="'+( it.page.has_all_trivial_timings )+'" title="toggles any rows with &lt; '+( it.page.trivial_duration_threshold_milliseconds )+' ms"> show trivial </a> ';}return out;
-}
-MiniProfiler.templates["timingTemplate"] = function anonymous(it
-) {
-var out=' <tr class="';if(it.timing.is_trivial){out+='profiler-trivial';}out+='" data-timing-id="'+( it.timing.id )+'"> <td class="profiler-label" title="';if(it.timing.name && it.timing.name.length > 45){out+=''+( it.timing.name );}out+='"> <span class="profiler-indent">'+( MiniProfiler.renderIndent(it.timing.depth) )+'</span> '+( it.timing.name.slice(0,45) );if(it.timing.name && it.timing.name.length > 45){out+='...';}out+=' </td> <td class="profiler-duration" title="duration of this step without any children\'s durations"> '+( MiniProfiler.formatDuration(it.timing.duration_without_children_milliseconds) )+' </td> <td class="profiler-duration profiler-duration-with-children" title="duration of this step and its children"> '+( MiniProfiler.formatDuration(it.timing.duration_milliseconds) )+' </td> <td class="profiler-duration time-from-start" title="time elapsed since profiling started"> <span class="profiler-unit">+</span>'+( MiniProfiler.formatDuration(it.timing.start_milliseconds) )+' </td> ';if(it.timing.has_sql_timings){out+=' <td class="profiler-duration ';if(it.timing.has_duplicate_sql_timings){out+='profiler-warning';}out+='" title="';if(it.timing.has_duplicate_sql_timings){out+='duplicate queries detected - ';}if(it.timing.executed_readers > 0 || it.timing.executed_scalars > 0 || it.timing.executed_non_queries > 0){out+=''+( it.timing.executed_readers )+' reader, '+( it.timing.executed_scalars )+' scalar, '+( it.timing.executed_non_queries )+' non-query statements executed';}out+='"> <a class="profiler-queries-show"> ';if(it.timing.has_duplicate_sql_timings){out+='<span class="profiler-nuclear">!</span>';}out+=' '+( it.timing.sql_timings.length )+' <span class="profiler-unit">sql</span> </a> </td> <td class="profiler-duration" title="aggregate duration of all queries in this step (excludes children)"> '+( MiniProfiler.formatDuration(it.timing.sql_timings_duration_milliseconds) )+' </td> ';}else{out+=' <td colspan="2"></td> ';}out+=' ';var arr1=it.page.custom_timing_names;if(arr1){var value,i1=-1,l1=arr1.length-1;while(i1<l1){value=arr1[i1+=1];out+=' ';if(it.timing.custom_timings && it.timing.custom_timings[value]){out+=' <td class="profiler-duration" title="aggregate number of all '+( value.toLowerCase() )+' invocations in this step (excludes children)"> '+( it.timing.custom_timings[value].length )+' '+( value.toLowerCase() )+' </td> <td class="profiler-duration" title="aggregate duration of all '+( value.toLowerCase() )+' invocations in this step (excludes children)"> '+( MiniProfiler.formatDuration(it.timing.custom_timing_stats[value].duration) )+' </td> ';}else{out+=' <td colspan="2"></td> ';}out+=' ';} } out+=' </tr> ';if(it.timing.has_children){out+=' ';var arr2=it.timing.children;if(arr2){var value,i2=-1,l2=arr2.length-1;while(i2<l2){value=arr2[i2+=1];out+=' '+( MiniProfiler.templates.timingTemplate({timing: value, page: it.page}) )+' ';} } out+=' ';}return out;
-}
-MiniProfiler.templates["sqlTimingTemplate"] = function anonymous(it
-) {
-var out=' <tr class="'+( it.s.row_class || '' )+'" data-timing-id="'+( it.s.parent_timing_id )+'"> <td class="profiler-info"> <div>'+( it.s.parent_timing_name )+'</div> <div class="profiler-number"><span class="profiler-unit">T+</span>'+( MiniProfiler.formatDuration(it.s.start_milliseconds) )+' <span class="profiler-unit">ms</span></div> <div> ';if(it.s.is_duplicate){out+='<span class="profiler-warning">DUPLICATE</span>';}out+=' '+( MiniProfiler.renderExecuteType(it.s.execute_type) )+' </div> <div title="';if(it.s.execute_type == 3){out+='first result fetched: '+( it.s.first_fetch_duration_milliseconds )+'ms';}out+='">'+( MiniProfiler.formatDuration(it.s.duration_milliseconds) )+' <span class="profiler-unit">ms</span></div> </td> <td> <div class="query"> <pre class="profiler-stack-trace">'+( it.s.stack_trace_snippet )+'</pre> ';if(it.s.formatted_command_string){out+=' <pre class="prettyprint lang-sql"><code>'+( it.s.formatted_command_string )+'; '+( MiniProfiler.formatParameters(it.s.parameters) )+'</code></pre> ';}else{out+=' <i>Query redacted</i> ';}out+=' </div> </td> </tr>';return out;
-}
-MiniProfiler.templates["sqlGapTemplate"] = function anonymous(it
-) {
-var out=' <tr class="profiler-gap-info';if(it.g.duration < 4){out+=' profiler-trivial-gaps';}out+='"> <td class="profiler-info"> '+( it.g.duration )+' <span class="profiler-unit">ms</span> </td> <td class="query"> <div>'+( it.g.topReason.name )+' &mdash; '+( it.g.topReason.duration.toFixed(2) )+' <span class="profiler-unit">ms</span></div> </td> </tr>';return out;
-}
-MiniProfiler.templates["snapshotsGroupsList"] = function anonymous(it
-) {
-var out=' ';if(it.list && it.list.length){out+=' <table class="snapshots-table"> <thead> <tr> <th>Requests Group</th> <th>Worst Time (ms)</th> <th>Best Time (ms)</th> <th>No. of Snapshots</th> </tr> </thead> <tbody> ';var arr1=it.list;if(arr1){var row,i1=-1,l1=arr1.length-1;while(i1<l1){row=arr1[i1+=1];out+=' <tr> <td class="request-group"><a href="'+( row.url )+'">'+( row.name )+'</a></td> <td>'+( MiniProfiler.formatDuration(row.worst_score) )+'</td> <td>'+( MiniProfiler.formatDuration(row.best_score) )+'</td> <td>'+( row.snapshots_count )+'</td> </tr> ';} } out+=' </tbody> </table> ';}else{out+=' <h2>No snapshots exist</h2> ';}return out;
-}
-MiniProfiler.templates["snapshotsList"] = function anonymous(it
-) {
-var out=' '; var data = it.data; out+=' '; var customFieldsNames = it.allCustomFieldsNames; out+=' ';if(data.list && data.list.length){out+=' <h2>Snapshots for '+( data.group_name )+'</h2> <table class="snapshots-table"> <thead> <tr> <th>ID</th> <th>Duration (ms)</th> <th>SQL Count</th> ';var arr1=customFieldsNames;if(arr1){var name,i1=-1,l1=arr1.length-1;while(i1<l1){name=arr1[i1+=1];out+=' <th>'+( name )+'</th> ';} } out+=' <th>Age</th> </tr> </thead> <tbody> ';var arr2=data.list;if(arr2){var row,i2=-1,l2=arr2.length-1;while(i2<l2){row=arr2[i2+=1];out+=' <tr> <td><a href="'+( row.url )+'"> '+( row.id )+' </a></td> <td>'+( MiniProfiler.formatDuration(row.duration) )+'</td> <td>'+( row.sql_count )+'</td> ';var arr3=customFieldsNames;if(arr3){var name,i3=-1,l3=arr3.length-1;while(i3<l3){name=arr3[i3+=1];out+=' <td>'+( row.custom_fields[name] || "" )+'</td> ';} } out+=' <td> ';if(row.timestamp){out+=' '+( MiniProfiler.timestampToRelative(row.timestamp) )+' ';}out+=' </td> </tr> ';} } out+=' </tbody> </table> ';}else{out+=' <h2>No snapshots for '+( data.group_name )+'</h2> ';}return out;
-}
+MiniProfiler.templates["profilerTemplate"] = function anonymous(it) {
+  var out = ' <div class="profiler-result"> <div class="profiler-button ';
+  if (it.has_duplicate_sql_timings) {
+    out += "profiler-warning";
+  }
+  out += '"> ';
+  if (it.has_duplicate_sql_timings) {
+    out += '<span class="profiler-nuclear">!</span>';
+  }
+  out +=
+    ' <span class="profiler-number"> ' +
+    MiniProfiler.formatDuration(it.duration_milliseconds) +
+    ' <span class="profiler-unit">ms</span> </span> ';
+  if (MiniProfiler.showTotalSqlCount()) {
+    out += ' <span class="profiler-number"> ' + it.sql_count + ' <span class="profiler-unit">sql</span> </span> ';
+  }
+  out +=
+    ' </div> <div class="profiler-popup"> <div class="profiler-info"> <span class="profiler-name"> ' +
+    it.name +
+    ' <span class="profiler-overall-duration">(' +
+    MiniProfiler.formatDuration(it.duration_milliseconds) +
+    ' ms)</span> </span> <span class="profiler-server-time">' +
+    it.machine_name +
+    " on " +
+    MiniProfiler.renderDate(it.started_formatted) +
+    '</span> </div> <div class="profiler-output"> <table class="profiler-timings"> <thead> <tr> <th>event</th> <th>duration (ms)</th> <th class="profiler-duration-with-children">with children (ms)</th> <th class="time-from-start">from start (ms)</th> ';
+  if (it.has_sql_timings) {
+    out += ' <th colspan="2">query time (ms)</th> ';
+  }
+  out += " ";
+  var arr1 = it.custom_timing_names;
+  if (arr1) {
+    var value,
+      i1 = -1,
+      l1 = arr1.length - 1;
+    while (i1 < l1) {
+      value = arr1[(i1 += 1)];
+      out += ' <th colspan="2">' + value.toLowerCase() + " (ms)</th> ";
+    }
+  }
+  out +=
+    " </tr> </thead> <tbody> " +
+    MiniProfiler.templates.timingTemplate({ timing: it.root, page: it }) +
+    ' </tbody> <tfoot> <tr> <td colspan="3"> ';
+  if (!it.client_timings) {
+    out += " " + MiniProfiler.templates.linksTemplate({ timing: it.root, page: it }) + " ";
+  }
+  out +=
+    ' <a class="profiler-toggle-duration-with-children" title="toggles column with aggregate child durations">show time with children</a> <a class="profiler-snapshots-page-link" title="Go to snapshots page" href="' +
+    MiniProfiler.options.path +
+    'snapshots">snapshots</a> </td> ';
+  if (it.has_sql_timings) {
+    out +=
+      ' <td colspan="2" class="profiler-number profiler-percent-in-sql" title="' +
+      MiniProfiler.getSqlTimingsCount(it.root) +
+      " queries spent " +
+      MiniProfiler.formatDuration(it.duration_milliseconds_in_sql) +
+      ' ms of total request time"> ' +
+      MiniProfiler.formatDuration((it.duration_milliseconds_in_sql / it.duration_milliseconds) * 100) +
+      ' <span class="profiler-unit">% in sql</span> </td> ';
+  }
+  out += " ";
+  var arr2 = it.custom_timing_names;
+  if (arr2) {
+    var value,
+      i2 = -1,
+      l2 = arr2.length - 1;
+    while (i2 < l2) {
+      value = arr2[(i2 += 1)];
+      out +=
+        ' <td colspan="2" class="profiler-number profiler-percentage-in-sql" title="' +
+        it.custom_timing_stats[value].count +
+        " " +
+        value.toLowerCase() +
+        " invocations spent " +
+        MiniProfiler.formatDuration(it.custom_timing_stats[value].duration) +
+        ' ms of total request time"> ' +
+        MiniProfiler.formatDuration((it.custom_timing_stats[value].duration / it.duration_milliseconds) * 100) +
+        ' <span class="profiler-unit">% in ' +
+        value.toLowerCase() +
+        "</span> </td> ";
+    }
+  }
+  out += " </tr> </tfoot> </table> ";
+  if (it.client_timings) {
+    out +=
+      ' <table class="profiler-timings profiler-client-timings"> <thead> <tr> <th>client event</th> <th>duration (ms)</th> <th>from start (ms)</th> </tr> </thead> <tbody> ';
+    var arr3 = MiniProfiler.getClientTimings(it.client_timings);
+    if (arr3) {
+      var value,
+        i3 = -1,
+        l3 = arr3.length - 1;
+      while (i3 < l3) {
+        value = arr3[(i3 += 1)];
+        out += ' <tr class="';
+        if (value.isTrivial) {
+          out += "profiler-trivial";
+        }
+        out += '"> <td class="profiler-label">' + value.name + '</td> <td class="profiler-duration"> ';
+        if (value.duration >= 0) {
+          out += ' <span class="profiler-unit"></span>' + MiniProfiler.formatDuration(value.duration) + " ";
+        }
+        out +=
+          ' </td> <td class="profiler-duration time-from-start"> <span class="profiler-unit">+</span>' +
+          MiniProfiler.formatDuration(value.start) +
+          " </td> </tr> ";
+      }
+    }
+    out +=
+      ' </tbody> <tfoot> <td colspan="3"> ' +
+      MiniProfiler.templates.linksTemplate({ timing: it.root, page: it }) +
+      " </td> </tfoot> </table> ";
+  }
+  out += " ";
+  if (it.custom_fields && Object.keys(it.custom_fields).length > 0) {
+    out += ' <p class="custom-fields-title">Snapshot custom fields</p> <table class="profiler-timings"> <tbody> ';
+    var arr4 = Object.keys(it.custom_fields);
+    if (arr4) {
+      var key,
+        i4 = -1,
+        l4 = arr4.length - 1;
+      while (i4 < l4) {
+        key = arr4[(i4 += 1)];
+        out +=
+          ' <tr> <td class="profiler-label">' +
+          key +
+          '</td> <td class="profiler-label">' +
+          it.custom_fields[key] +
+          "</td> </tr> ";
+      }
+    }
+    out += " </tbody> </table> ";
+  }
+  out += " </div> </div> ";
+  if (it.has_sql_timings) {
+    out +=
+      ' <div class="profiler-queries"> <table> <thead> <tr> <th class="ta-right">step<br />time from start<br />query type<br />duration</th> <th class="ta-left">call stack<br />query</th> </tr> </thead> <tbody> ';
+    var arr5 = MiniProfiler.getSqlTimings(it.root);
+    if (arr5) {
+      var value,
+        index = -1,
+        l5 = arr5.length - 1;
+      while (index < l5) {
+        value = arr5[(index += 1)];
+        out +=
+          " " +
+          MiniProfiler.templates.sqlGapTemplate({ g: value.prevGap }) +
+          " " +
+          MiniProfiler.templates.sqlTimingTemplate({ i: index, s: value }) +
+          " ";
+        if (value.nextGap) {
+          out += " " + MiniProfiler.templates.sqlGapTemplate({ g: value.nextGap }) + " ";
+        }
+        out += " ";
+      }
+    }
+    out +=
+      ' </tbody> </table> <p class="profiler-trivial-gap-container"> <a class="profiler-toggle-trivial-gaps">show trivial gaps</a> </p> </div> ';
+  }
+  out += " </div>";
+  return out;
+};
+MiniProfiler.templates["linksTemplate"] = function anonymous(it) {
+  var out =
+    ' <a href="' +
+    MiniProfiler.shareUrl(it.page.id) +
+    '" class="profiler-share-profiler-results" target="_blank">share</a> <a href="' +
+    MiniProfiler.moreUrl(it.timing.name) +
+    '" class="profiler-more-actions">more</a> ';
+  if (it.page.has_flamegraph) {
+    out +=
+      ' <a href="' +
+      MiniProfiler.flamegraphUrl(it.page.id) +
+      '" class="profiler-show-flamegraph" target="_blank">flamegraph</a> ';
+  }
+  out += " ";
+  if (it.custom_link) {
+    out +=
+      ' <a href="' + it.custom_link + '" class="profiler-custom-link" target="_blank">' + it.custom_link_name + "</a> ";
+  }
+  out += " ";
+  if (it.page.has_trivial_timings) {
+    out +=
+      ' <a class="profiler-toggle-trivial" data-show-on-load="' +
+      it.page.has_all_trivial_timings +
+      '" title="toggles any rows with &lt; ' +
+      it.page.trivial_duration_threshold_milliseconds +
+      ' ms"> show trivial </a> ';
+  }
+  return out;
+};
+MiniProfiler.templates["timingTemplate"] = function anonymous(it) {
+  var out = ' <tr class="';
+  if (it.timing.is_trivial) {
+    out += "profiler-trivial";
+  }
+  out += '" data-timing-id="' + it.timing.id + '"> <td class="profiler-label" title="';
+  if (it.timing.name && it.timing.name.length > 45) {
+    out += "" + it.timing.name;
+  }
+  out +=
+    '"> <span class="profiler-indent">' +
+    MiniProfiler.renderIndent(it.timing.depth) +
+    "</span> " +
+    it.timing.name.slice(0, 45);
+  if (it.timing.name && it.timing.name.length > 45) {
+    out += "...";
+  }
+  out +=
+    ' </td> <td class="profiler-duration" title="duration of this step without any children\'s durations"> ' +
+    MiniProfiler.formatDuration(it.timing.duration_without_children_milliseconds) +
+    ' </td> <td class="profiler-duration profiler-duration-with-children" title="duration of this step and its children"> ' +
+    MiniProfiler.formatDuration(it.timing.duration_milliseconds) +
+    ' </td> <td class="profiler-duration time-from-start" title="time elapsed since profiling started"> <span class="profiler-unit">+</span>' +
+    MiniProfiler.formatDuration(it.timing.start_milliseconds) +
+    " </td> ";
+  if (it.timing.has_sql_timings) {
+    out += ' <td class="profiler-duration ';
+    if (it.timing.has_duplicate_sql_timings) {
+      out += "profiler-warning";
+    }
+    out += '" title="';
+    if (it.timing.has_duplicate_sql_timings) {
+      out += "duplicate queries detected - ";
+    }
+    if (it.timing.executed_readers > 0 || it.timing.executed_scalars > 0 || it.timing.executed_non_queries > 0) {
+      out +=
+        "" +
+        it.timing.executed_readers +
+        " reader, " +
+        it.timing.executed_scalars +
+        " scalar, " +
+        it.timing.executed_non_queries +
+        " non-query statements executed";
+    }
+    out += '"> <a class="profiler-queries-show"> ';
+    if (it.timing.has_duplicate_sql_timings) {
+      out += '<span class="profiler-nuclear">!</span>';
+    }
+    out +=
+      " " +
+      it.timing.sql_timings.length +
+      ' <span class="profiler-unit">sql</span> </a> </td> <td class="profiler-duration" title="aggregate duration of all queries in this step (excludes children)"> ' +
+      MiniProfiler.formatDuration(it.timing.sql_timings_duration_milliseconds) +
+      " </td> ";
+  } else {
+    out += ' <td colspan="2"></td> ';
+  }
+  out += " ";
+  var arr1 = it.page.custom_timing_names;
+  if (arr1) {
+    var value,
+      i1 = -1,
+      l1 = arr1.length - 1;
+    while (i1 < l1) {
+      value = arr1[(i1 += 1)];
+      out += " ";
+      if (it.timing.custom_timings && it.timing.custom_timings[value]) {
+        out +=
+          ' <td class="profiler-duration" title="aggregate number of all ' +
+          value.toLowerCase() +
+          ' invocations in this step (excludes children)"> ' +
+          it.timing.custom_timings[value].length +
+          " " +
+          value.toLowerCase() +
+          ' </td> <td class="profiler-duration" title="aggregate duration of all ' +
+          value.toLowerCase() +
+          ' invocations in this step (excludes children)"> ' +
+          MiniProfiler.formatDuration(it.timing.custom_timing_stats[value].duration) +
+          " </td> ";
+      } else {
+        out += ' <td colspan="2"></td> ';
+      }
+      out += " ";
+    }
+  }
+  out += " </tr> ";
+  if (it.timing.has_children) {
+    out += " ";
+    var arr2 = it.timing.children;
+    if (arr2) {
+      var value,
+        i2 = -1,
+        l2 = arr2.length - 1;
+      while (i2 < l2) {
+        value = arr2[(i2 += 1)];
+        out +=
+          " " +
+          MiniProfiler.templates.timingTemplate({
+            timing: value,
+            page: it.page,
+          }) +
+          " ";
+      }
+    }
+    out += " ";
+  }
+  return out;
+};
+MiniProfiler.templates["sqlTimingTemplate"] = function anonymous(it) {
+  var out =
+    ' <tr class="' +
+    (it.s.row_class || "") +
+    '" data-timing-id="' +
+    it.s.parent_timing_id +
+    '"> <td class="profiler-info"> <div>' +
+    it.s.parent_timing_name +
+    '</div> <div class="profiler-number"><span class="profiler-unit">T+</span>' +
+    MiniProfiler.formatDuration(it.s.start_milliseconds) +
+    ' <span class="profiler-unit">ms</span></div> <div> ';
+  if (it.s.is_duplicate) {
+    out += '<span class="profiler-warning">DUPLICATE</span>';
+  }
+  out += " " + MiniProfiler.renderExecuteType(it.s.execute_type) + ' </div> <div title="';
+  if (it.s.execute_type == 3) {
+    out += "first result fetched: " + it.s.first_fetch_duration_milliseconds + "ms";
+  }
+  out +=
+    '">' +
+    MiniProfiler.formatDuration(it.s.duration_milliseconds) +
+    ' <span class="profiler-unit">ms</span></div> </td> <td> <div class="query"> <pre class="profiler-stack-trace">' +
+    it.s.stack_trace_snippet +
+    "</pre> ";
+  if (it.s.formatted_command_string) {
+    out +=
+      ' <pre class="prettyprint lang-sql"><code>' +
+      it.s.formatted_command_string +
+      "; " +
+      MiniProfiler.formatParameters(it.s.parameters) +
+      "</code></pre> ";
+  } else {
+    out += " <i>Query redacted</i> ";
+  }
+  out += " </div> </td> </tr>";
+  return out;
+};
+MiniProfiler.templates["sqlGapTemplate"] = function anonymous(it) {
+  var out = ' <tr class="profiler-gap-info';
+  if (it.g.duration < 4) {
+    out += " profiler-trivial-gaps";
+  }
+  out +=
+    '"> <td class="profiler-info"> ' +
+    it.g.duration +
+    ' <span class="profiler-unit">ms</span> </td> <td class="query"> <div>' +
+    it.g.topReason.name +
+    " &mdash; " +
+    it.g.topReason.duration.toFixed(2) +
+    ' <span class="profiler-unit">ms</span></div> </td> </tr>';
+  return out;
+};
+MiniProfiler.templates["snapshotsGroupsList"] = function anonymous(it) {
+  var out = " ";
+  if (it.list && it.list.length) {
+    out +=
+      ' <table class="snapshots-table"> <thead> <tr> <th>Requests Group</th> <th>Worst Time (ms)</th> <th>Best Time (ms)</th> <th>No. of Snapshots</th> </tr> </thead> <tbody> ';
+    var arr1 = it.list;
+    if (arr1) {
+      var row,
+        i1 = -1,
+        l1 = arr1.length - 1;
+      while (i1 < l1) {
+        row = arr1[(i1 += 1)];
+        out +=
+          ' <tr> <td class="request-group"><a href="' +
+          row.url +
+          '">' +
+          row.name +
+          "</a></td> <td>" +
+          MiniProfiler.formatDuration(row.worst_score) +
+          "</td> <td>" +
+          MiniProfiler.formatDuration(row.best_score) +
+          "</td> <td>" +
+          row.snapshots_count +
+          "</td> </tr> ";
+      }
+    }
+    out += " </tbody> </table> ";
+  } else {
+    out += " <h2>No snapshots exist</h2> ";
+  }
+  return out;
+};
+MiniProfiler.templates["snapshotsList"] = function anonymous(it) {
+  var out = " ";
+  var data = it.data;
+  out += " ";
+  var customFieldsNames = it.allCustomFieldsNames;
+  out += " ";
+  if (data.list && data.list.length) {
+    out +=
+      " <h2>Snapshots for " +
+      data.group_name +
+      '</h2> <table class="snapshots-table"> <thead> <tr> <th>ID</th> <th>Duration (ms)</th> <th>SQL Count</th> ';
+    var arr1 = customFieldsNames;
+    if (arr1) {
+      var name,
+        i1 = -1,
+        l1 = arr1.length - 1;
+      while (i1 < l1) {
+        name = arr1[(i1 += 1)];
+        out += " <th>" + name + "</th> ";
+      }
+    }
+    out += " <th>Age</th> </tr> </thead> <tbody> ";
+    var arr2 = data.list;
+    if (arr2) {
+      var row,
+        i2 = -1,
+        l2 = arr2.length - 1;
+      while (i2 < l2) {
+        row = arr2[(i2 += 1)];
+        out +=
+          ' <tr> <td><a href="' +
+          row.url +
+          '"> ' +
+          row.id +
+          " </a></td> <td>" +
+          MiniProfiler.formatDuration(row.duration) +
+          "</td> <td>" +
+          row.sql_count +
+          "</td> ";
+        var arr3 = customFieldsNames;
+        if (arr3) {
+          var name,
+            i3 = -1,
+            l3 = arr3.length - 1;
+          while (i3 < l3) {
+            name = arr3[(i3 += 1)];
+            out += " <td>" + (row.custom_fields[name] || "") + "</td> ";
+          }
+        }
+        out += " <td> ";
+        if (row.timestamp) {
+          out += " " + MiniProfiler.timestampToRelative(row.timestamp) + " ";
+        }
+        out += " </td> </tr> ";
+      }
+    }
+    out += " </tbody> </table> ";
+  } else {
+    out += " <h2>No snapshots for " + data.group_name + "</h2> ";
+  }
+  return out;
+};
 
 if (typeof prettyPrint === "undefined") {
   // prettify.js
@@ -42,14 +459,11 @@ if (typeof prettyPrint === "undefined") {
   window.PR_TAB_WIDTH = 8;
   window.PR_normalizedHtml = window.PR = window.prettyPrintOne = window.prettyPrint = void 0;
 
-  window._pr_isIE6 = function() {
-    var y =
-      navigator &&
-      navigator.userAgent &&
-      navigator.userAgent.match(/\bMSIE ([678])\./);
+  window._pr_isIE6 = function () {
+    var y = navigator && navigator.userAgent && navigator.userAgent.match(/\bMSIE ([678])\./);
     y = y ? +y[1] : false;
 
-    window._pr_isIE6 = function() {
+    window._pr_isIE6 = function () {
       return y;
     };
 
@@ -824,21 +1238,18 @@ if (typeof prettyPrint === "undefined") {
     PR.createSimpleLexer(
       [
         ["pln", /^[\t\n\r \xA0]+/, null, "\t\n\r \xA0"],
-        ["str", /^(?:"(?:[^\"\\]|\\.)*"|'(?:[^\'\\]|\\.)*')/, null, "\"'"]
+        ["str", /^(?:"(?:[^\"\\]|\\.)*"|'(?:[^\'\\]|\\.)*')/, null, "\"'"],
       ],
       [
         ["com", /^(?:--[^\r\n]*|\/\*[\s\S]*?(?:\*\/|$))/],
         [
           "kwd",
           /^(?:ADD|ALL|ALTER|AND|ANY|AS|ASC|AUTHORIZATION|BACKUP|BEGIN|BETWEEN|BREAK|BROWSE|BULK|BY|CASCADE|CASE|CHECK|CHECKPOINT|CLOSE|CLUSTERED|COALESCE|COLLATE|COLUMN|COMMIT|COMPUTE|CONSTRAINT|CONTAINS|CONTAINSTABLE|CONTINUE|CONVERT|CREATE|CROSS|CURRENT|CURRENT_DATE|CURRENT_TIME|CURRENT_TIMESTAMP|CURRENT_USER|CURSOR|DATABASE|DBCC|DEALLOCATE|DECLARE|DEFAULT|DELETE|DENY|DESC|DISK|DISTINCT|DISTRIBUTED|DOUBLE|DROP|DUMMY|DUMP|ELSE|END|ERRLVL|ESCAPE|EXCEPT|EXEC|EXECUTE|EXISTS|EXIT|FETCH|FILE|FILLFACTOR|FOR|FOREIGN|FREETEXT|FREETEXTTABLE|FROM|FULL|FUNCTION|GOTO|GRANT|GROUP|HAVING|HOLDLOCK|IDENTITY|IDENTITYCOL|IDENTITY_INSERT|IF|IN|INDEX|INNER|INSERT|INTERSECT|INTO|IS|JOIN|KEY|KILL|LEFT|LIKE|LINENO|LOAD|NATIONAL|NOCHECK|NONCLUSTERED|NOT|NULL|NULLIF|OF|OFF|OFFSETS|ON|OPEN|OPENDATASOURCE|OPENQUERY|OPENROWSET|OPENXML|OPTION|OR|ORDER|OUTER|OVER|PERCENT|PLAN|PRECISION|PRIMARY|PRINT|PROC|PROCEDURE|PUBLIC|RAISERROR|READ|READTEXT|RECONFIGURE|REFERENCES|REPLICATION|RESTORE|RESTRICT|RETURN|REVOKE|RIGHT|ROLLBACK|ROWCOUNT|ROWGUIDCOL|RULE|SAVE|SCHEMA|SELECT|SESSION_USER|SET|SETUSER|SHUTDOWN|SOME|STATISTICS|SYSTEM_USER|TABLE|TEXTSIZE|THEN|TO|TOP|TRAN|TRANSACTION|TRIGGER|TRUNCATE|TSEQUAL|UNION|UNIQUE|UPDATE|UPDATETEXT|USE|USER|VALUES|VARYING|VIEW|WAITFOR|WHEN|WHERE|WHILE|WITH|WRITETEXT)(?=[^\w-]|$)/i,
-          null
+          null,
         ],
-        [
-          "lit",
-          /^[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?))/i
-        ],
+        ["lit", /^[+-]?(?:0x[\da-f]+|(?:(?:\.\d+|\d+(?:\.\d*)?)(?:e[+\-]?\d+)?))/i],
         ["pln", /^[a-z_][\w-]*/i],
-        ["pun", /^[^\w\t\n\r \xA0\"\'][^\w\t\n\r \xA0+\-\"\']*/]
+        ["pun", /^[^\w\t\n\r \xA0\"\'][^\w\t\n\r \xA0+\-\"\']*/],
       ]
     ),
     ["sql"]

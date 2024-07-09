@@ -1,5 +1,4 @@
-Contributing to Rack
-=====================
+# Contributing to Rack
 
 Rack is work of [hundreds of contributors](https://github.com/rack/rack/graphs/contributors). You're encouraged to submit [pull requests](https://github.com/rack/rack/pulls), [propose features and discuss issues](https://github.com/rack/rack/issues). When in doubt, post to the [rack-devel](http://groups.google.com/group/rack-devel) mailing list.
 
@@ -52,9 +51,9 @@ Some tests will be skipped if a dependency is not found.
 
 To run the test suite completely, you need:
 
-  * fcgi
-  * dalli
-  * thin
+- fcgi
+- dalli
+- thin
 
 To test Memcache sessions, you need memcached (will be run on port 11211) and dalli installed.
 

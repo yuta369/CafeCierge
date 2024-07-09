@@ -1,8 +1,8 @@
 en:
   # Attributes names common to most models
   #attributes:
-    #created_at: "Created at"
-    #updated_at: "Updated at"
+  #created_at: "Created at"
+  #updated_at: "Updated at"
 
   # Default error messages
   errors:
@@ -36,13 +36,13 @@ en:
 
     # Translate model names. Used in Model.human_name().
     #models:
-      # For example,
-      #   user: "Dude"
-      # will translate User model name to "Dude"
+    # For example,
+    #   user: "Dude"
+    # will translate User model name to "Dude"
 
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:
-      # For example,
-      #   user:
-      #     login: "Handle"
-      # will translate User attribute "login" as "Handle"
+    # For example,
+    #   user:
+    #     login: "Handle"
+    # will translate User attribute "login" as "Handle"

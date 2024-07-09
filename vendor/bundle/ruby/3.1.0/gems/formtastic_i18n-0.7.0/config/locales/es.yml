@@ -8,4 +8,3 @@ es:
     :cancel: "Cancelar"
     :reset: "Restablecer %{model}"
     :required: "requerido"
-

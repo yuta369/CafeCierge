@@ -1,7 +1,7 @@
 body.logged_out {
   background: #e8e9ea;
 
-  #content_wrapper{
+  #content_wrapper {
     width: 500px;
     margin: 70px auto;
     #active_admin_content {
@@ -15,7 +15,7 @@ body.logged_out {
     @include section-header;
     @include primary-gradient;
     @include text-shadow(#000);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     border: none;
     color: #fff;
     margin: -13px -30px 20px -30px;
@@ -28,17 +28,25 @@ body.logged_out {
         @include no-shadow;
         background: none;
         padding: 0;
-        li { padding: 10px 0; }
+        li {
+          padding: 10px 0;
+        }
 
-        input[type=text], input[type=email], input[type=password] {
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
           width: 70%;
         }
-        &.buttons { margin-left: 20%; }
+        &.buttons {
+          margin-left: 20%;
+        }
         margin-bottom: 0;
       }
     }
 
-    a { float: right; margin-top: -32px; }
+    a {
+      float: right;
+      margin-top: -32px;
+    }
   }
-
 }

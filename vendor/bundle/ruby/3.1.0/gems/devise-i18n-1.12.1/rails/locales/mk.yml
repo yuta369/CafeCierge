@@ -50,7 +50,7 @@ mk:
       confirmation_instructions:
         action: Потврди го мојот профил
         greeting: Добредојде %{recipient}!
-        instruction: 'Може да ја потврдите Вашата е-маил адреса за Вашиот профил преку линкот кој е зададен подолу:'
+        instruction: "Може да ја потврдите Вашата е-маил адреса за Вашиот профил преку линкот кој е зададен подолу:"
         subject: Инструкции за потврда на е-маил адреса
       email_changed:
         greeting: Здраво %{recipient}!
@@ -70,7 +70,7 @@ mk:
       unlock_instructions:
         action: Отклучи го мојот профил
         greeting: Здраво %{recipient}!
-        instruction: 'Кликнете не линкот зададен подолу за да го отклучите Вашиот профил:'
+        instruction: "Кликнете не линкот зададен подолу за да го отклучите Вашиот профил:"
         message: Вашиот профил е заклучен поради преминување на дозволениот број на обиди за најавување.
         subject: Инструкции за отклучување на профил
     omniauth_callbacks:
@@ -95,7 +95,7 @@ mk:
       edit:
         are_you_sure: Дали сте сигурни?
         cancel_my_account: Откажи го мојот профил
-        currently_waiting_confirmation_for_email: 'Моментално се чека потврда за: %{email}'
+        currently_waiting_confirmation_for_email: "Моментално се чека потврда за: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: оставете празно доколку не сакате да извршите промена
         title: Измени %{resource}
         unhappy: Не сте задоволни?
@@ -142,5 +142,5 @@ mk:
       not_found: не е пронајден
       not_locked: е заклучен
       not_saved:
-        one: '1 грешка спречија %{resource} да се зачува:'
+        one: "1 грешка спречија %{resource} да се зачува:"
         other: "%{count} грешки спречија %{resource} да се зачува:"

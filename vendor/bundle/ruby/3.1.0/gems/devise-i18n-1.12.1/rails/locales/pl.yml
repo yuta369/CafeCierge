@@ -51,7 +51,7 @@ pl:
       confirmation_instructions:
         action: Potwierdź swoje konto
         greeting: Witaj %{recipient}!
-        instruction: 'Możesz potwierdzić swoje konto przy pomocy poniższego linku:'
+        instruction: "Możesz potwierdzić swoje konto przy pomocy poniższego linku:"
         subject: Instrukcja aktywacji konta
       email_changed:
         greeting: Witaj %{recipient}!
@@ -72,7 +72,7 @@ pl:
       unlock_instructions:
         action: Odblokuj swoje konto
         greeting: Cześć %{recipient}!
-        instruction: 'Kliknij poniższy link, aby odblokować swoje konto:'
+        instruction: "Kliknij poniższy link, aby odblokować swoje konto:"
         message: Twoje konto zostało zablokowane z powodu zbyt dużej liczby nieprawidłowych prób zalogowania się na nie.
         subject: Instrukcja odblokowania konta
     omniauth_callbacks:
@@ -97,7 +97,7 @@ pl:
       edit:
         are_you_sure: Jesteś pewny?
         cancel_my_account: Anuluj moje konto
-        currently_waiting_confirmation_for_email: 'Aktualnie oczekujemy na potwierdzenie z: %{email}'
+        currently_waiting_confirmation_for_email: "Aktualnie oczekujemy na potwierdzenie z: %{email}"
         leave_blank_if_you_don_t_want_to_change_it: pozostaw puste, jeśli nie chcesz wprowadzać zmian
         title: Edytuj %{resource}
         unhappy: Niezadowolony

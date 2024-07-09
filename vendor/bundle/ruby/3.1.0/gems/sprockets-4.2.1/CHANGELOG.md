@@ -104,7 +104,6 @@ Get upgrade notes from Sprockets 3.x to 4.x at https://github.com/rails/sprocket
 
 - Fix load_paths on Sass processors [#223]
 
-
 ## 4.0.0.beta1
 
 - Initial release of Sprockets 4

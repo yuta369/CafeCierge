@@ -2,7 +2,6 @@
 title: Sorting
 ---
 
-
 # Sorting
 
 ## Sorting in the View

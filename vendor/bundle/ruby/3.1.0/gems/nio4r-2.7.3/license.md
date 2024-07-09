@@ -50,7 +50,7 @@ Copyright, 2023, by Tsimnuj Hawj.
 Copyright, 2023, by Phillip Aldridge.  
 Copyright, 2023, by Maxime Demolin.  
 Copyright, 2023-2024, by Vít Ondruch.  
-Copyright, 2023, by Jean Boussier.  
+Copyright, 2023, by Jean Boussier.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
