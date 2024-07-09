@@ -11,12 +11,19 @@ module CafeCierge
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
+    # Run "rails time:zones:all" for a list of available time zone names.
+    config.time_zone = "Tokyo"
+
+    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
+    config.i18n.default_locale = :ja
+
+    # Add additional load paths for your own custom dirs.
+    config.eager_load_paths << Rails.root.join("lib")
+
+    # Additional configuration can be added here
+    # config.generators do |g|
+    #   g.orm :active_record, primary_key_type: :uuid
+    # end
   end
 end
