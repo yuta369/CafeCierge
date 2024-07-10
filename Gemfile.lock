@@ -452,6 +452,7 @@ DEPENDENCIES
   factory_bot_rails
   hotwire-rails
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.3)
   omniauth-facebook
   omniauth-github
