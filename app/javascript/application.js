@@ -4,3 +4,6 @@ Turbo.start()
 
 // Import Stimulus controllers
 import "./controllers"
+import "bootstrap"
+import "@popperjs/core"
+import "bootstrap/dist/js/bootstrap"

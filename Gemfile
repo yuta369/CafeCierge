@@ -8,9 +8,12 @@ gem 'pg', '>= 0.18', '< 2.0' # Use PostgreSQL as the database for Active Record
 gem 'puma', '~> 5.0' # Use Puma as the app server
 gem 'sassc-rails', '>= 2.1' # Use SCSSC for stylesheets
 gem 'webpacker', '~> 5.0' # Transpile app-like JavaScript
-gem 'turbolinks', '~> 5' # Makes navigating your web application faster
 gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease
 gem 'hotwire-rails'
+gem 'bootstrap', '~> 5.0.0'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-github'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
