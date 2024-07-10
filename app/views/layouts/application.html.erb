@@ -11,31 +11,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;700&family=M+PLUS+Rounded+1c:wght@400;500;700&family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a7eeb2be5e.js" crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">CafeCierge</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <body class="d-flex flex-column vh-100">
+    <%= render 'layouts/header' %>
+    <main class="mb-auto background">
+      <div class="container" style="position: relative;">
+        <% if notice %>
+          <p class="m-5 alert alert-primary alert-dismissible mx-auto text-center" style="box-shadow: 0px 5px 12px #cad4e2, -6px -6px 12px #fff">
+            <strong><%= notice %></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </p>
+        <% end %>
+        <% if alert %>
+          <p class="m-5 alert alert-danger alert-dismissible text-center" style="box-shadow: 0px 5px 12px #cad4e2, -6px -6px 12px #fff">
+            <strong><%= alert %></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </p>
+        <% end %>
     <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

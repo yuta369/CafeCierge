@@ -1,4 +1,17 @@
 class User < ApplicationRecord
+  has_one_attached :profile_image
+  
+  has_many :reviews
+  has_many :comments
+  has_many :favorites
+  has_many :followed_users, through: :follows, source: :followee
+  has_many :following_users, through: :follows, source: :follower
+  has_many :reservations
+  
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
