@@ -11,6 +11,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
+  validates :profile_image, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+                            size: { less_than: 5.megabytes , message: 'is not given between size' }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

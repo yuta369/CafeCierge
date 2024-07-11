@@ -3,45 +3,65 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.2'
 
+# Rails Framework
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
+
+# Database
 gem 'pg', '>= 0.18', '< 2.0' # Use PostgreSQL as the database for Active Record
+
+# Application Server
 gem 'puma', '~> 5.0' # Use Puma as the app server
+
+# Stylesheets
 gem 'sassc-rails', '>= 2.1' # Use SCSSC for stylesheets
+gem 'bootstrap', '~> 5.0.0' # Bootstrap framework
+
+# JavaScript Transpilation
 gem 'webpacker', '~> 5.0' # Transpile app-like JavaScript
-gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease
+
+# Hotwire (Turbo and Stimulus for real-time features)
 gem 'hotwire-rails'
-gem 'bootstrap', '~> 5.0.0'
+
+# API Builder
+gem 'jbuilder', '~> 2.7' # Build JSON APIs with ease
+
+# Authentication
+gem 'devise' # Flexible authentication solution for Rails
+gem 'devise-i18n' # Devise internationalization
+
+# Authorization
+gem 'pundit' # Object-oriented authorization for Rails applications
+
+# Tagging
+gem 'acts-as-taggable-on' # Tagging functionality
+
+# Search functionality
+gem 'ransack' # Object-based searching
+
+# Form helpers
+gem 'simple_form' # Forms made easy
+
+# Pagination
+gem 'kaminari' # Pagination library for Rails
+
+# Admin interface
+gem 'activeadmin' # Ruby on Rails framework for creating elegant backends
+
+# OmniAuth providers
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
-gem 'kaminari'
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.4', require: false
-
-# Authentication
-gem 'devise'
-
-# Authorization
-gem 'pundit'
-
-# Tagging
-gem 'acts-as-taggable-on'
-
-# Search functionality
-gem 'ransack'
-
-# Form helpers
-gem 'simple_form'
-
-# Admin interface
-gem 'activeadmin'
+# Performance
+gem 'bootsnap', '>= 1.4.4', require: false # Reduces boot times through caching
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Debugging
   gem 'dotenv-rails' # Loads environment variables from .env
   gem 'factory_bot_rails' # Test fixtures replacement
   gem 'rspec-rails' # Testing framework
+
+  # Code Quality Tools
   gem 'prettier' # Code formatter
   gem 'rubocop', require: false # Ruby static code analyzer
   gem 'rubocop-performance', require: false # RuboCop extension focused on performance
@@ -65,5 +85,8 @@ group :test do
   gem 'webdrivers' # Easy installation and use of web drivers to run system tests
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Windows support
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'image_processing', '~> 1.2' # Image processing for ActiveStorage
+gem 'mini_magick', '~> 4.11'

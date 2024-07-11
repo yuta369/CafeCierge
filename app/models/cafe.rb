@@ -12,4 +12,6 @@ class Cafe < ApplicationRecord
   validates :contact_info, presence: true
   validates :category, presence: true
   validates :price_range, presence: true
+  validates :images, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+                     size: { less_than: 5.megabytes , message: 'is not given between size' }
 end
