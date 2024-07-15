@@ -10,7 +10,7 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
 gem 'sqlite3', '~> 1.4' # Use SQLite3 as the database for Active Record
 
 # Application Server
-gem 'puma', '~> 4.3' # Use Puma as the app server
+gem 'puma', '~> 3.11' # Use Puma as the app server
 gem 'ffi', '~> 1.14.2'
 
 # Stylesheets
@@ -96,3 +96,12 @@ gem 'mini_magick', '~> 4.11'
 gem 'font-awesome-sass', '~> 6.5.2'
 
 gem 'active_storage_validations'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
