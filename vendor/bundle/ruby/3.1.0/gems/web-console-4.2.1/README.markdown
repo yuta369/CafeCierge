@@ -175,10 +175,10 @@ Make sure your configuration lives in `config/environments/development.rb`.
 
 ## Credits
 
-- Shoutout to [Hailey Somerville] for [better_errors].
-- Kudos to [John Mair] for [binding_of_caller] and [debug_inspector].
-- Thanks to [Charles Oliver Nutter] for all the _JRuby_ feedback.
-- Hugs and kisses to all of our [contributors]!
+* Shoutout to [Hailey Somerville] for [better_errors].
+* Kudos to [John Mair] for [binding_of_caller] and [debug_inspector].
+* Thanks to [Charles Oliver Nutter] for all the _JRuby_ feedback.
+* Hugs and kisses to all of our [contributors]!
 
 [better_errors]: https://github.com/BetterErrors/better_errors
 [debug_inspector]: https://github.com/banister/debug_inspector

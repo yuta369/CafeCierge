@@ -16,10 +16,9 @@ More performance improvements:
 - Improve general performance!
 - Further improve performance for ASCII strings
 
-_You should really upgrade - it's much faster now!_
+*You should really upgrade - it's much faster now!*
 
 ## 2.4.0
-
 - Improve performance for ASCII-only strings, by @fatkodima
 - Require Ruby 2.4
 
@@ -29,7 +28,7 @@ _You should really upgrade - it's much faster now!_
 
 ## 2.2.0
 
-- Add _Hangul Jamo Extended-B_ block to zero-width chars, thanks @ninjalj #22
+- Add *Hangul Jamo Extended-B* block to zero-width chars, thanks @ninjalj #22
 
 ## 2.1.0
 
@@ -82,7 +81,7 @@ Refactorings / Internal Changes:
 
 ## 1.4.1
 
-- Only bundle required lib/_ and data/_ files in actual rubygem, patch by @tas50
+- Only bundle required lib/* and data/* files in actual rubygem, patch by @tas50
 
 ## 1.4.0
 
@@ -186,9 +185,11 @@ Refactorings / Internal Changes:
 - Don't build index table automatically when not available
 - Don't include EastAsianWidth.txt in gem (only index)
 
+
 ## 0.1.0
 
 - Fix github issue #1
+
 
 ## 0.1.0
 

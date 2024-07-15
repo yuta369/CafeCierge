@@ -1,4 +1,5 @@
-# Contributing to Jbuilder
+Contributing to Jbuilder
+=====================
 
 [![Build Status](https://github.com/rails/jbuilder/workflows/Ruby%20test/badge.svg)][test]
 [![Gem Version](https://badge.fury.io/rb/jbuilder.svg)][gem]

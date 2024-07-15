@@ -48,12 +48,12 @@ sv:
       confirmation_instructions:
         action: Bekräfta mitt konto
         greeting: Välkommen %{recipient}!
-        instruction: "Du kan bekräfta ditt konto med länken nedan:"
+        instruction: 'Du kan bekräfta ditt konto med länken nedan:'
         subject: Instruktioner för bekräftning av konto
       email_changed:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela att din e-post ändras till %{email}.
-        message_unconfirmed:
+        message_unconfirmed: 
         subject: E-post ändrades
       password_change:
         greeting: Hej %{recipient}!
@@ -69,7 +69,7 @@ sv:
       unlock_instructions:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
-        instruction: "Följ länken nedan för att låsa upp ditt konto:"
+        instruction: 'Följ länken nedan för att låsa upp ditt konto:'
         message: Ditt konto har låsts på grund av för många felaktiga inloggningsförsök.
         subject: Instruktioner för upplåsning av konto
     omniauth_callbacks:
@@ -94,7 +94,7 @@ sv:
       edit:
         are_you_sure: Är du säker?
         cancel_my_account: Avsluta mitt konto
-        currently_waiting_confirmation_for_email: "Väntar på bekräftelse för: %{email}"
+        currently_waiting_confirmation_for_email: 'Väntar på bekräftelse för: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lämna tomt om du inte vill byta det
         title: Ändra %{resource}
         unhappy: Missnöjd
@@ -141,5 +141,5 @@ sv:
       not_found: hittades inte
       not_locked: var inte låst
       not_saved:
-        one: "1 fel hindrade denna %{resource} från att sparas:"
+        one: '1 fel hindrade denna %{resource} från att sparas:'
         other: "%{count} fel hindrade denna %{resource} från att sparas:"

@@ -15,59 +15,69 @@
 //>>description: Refresh input widgets when their form is reset
 //>>docs: https://api.jqueryui.com/form-reset-mixin/
 
-(function (factory) {
-  "use strict";
+( function( factory ) {
+	"use strict";
 
-  if (typeof define === "function" && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(["jquery", "./form", "./version"], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-})(function ($) {
-  "use strict";
+	if ( typeof define === "function" && define.amd ) {
 
-  return ($.ui.formResetMixin = {
-    _formResetHandler: function () {
-      var form = $(this);
+		// AMD. Register as an anonymous module.
+		define( [
+			"jquery",
+			"./form",
+			"./version"
+		], factory );
+	} else {
 
-      // Wait for the form reset to actually happen before refreshing
-      setTimeout(function () {
-        var instances = form.data("ui-form-reset-instances");
-        $.each(instances, function () {
-          this.refresh();
-        });
-      });
-    },
+		// Browser globals
+		factory( jQuery );
+	}
+} )( function( $ ) {
+"use strict";
 
-    _bindFormResetHandler: function () {
-      this.form = this.element._form();
-      if (!this.form.length) {
-        return;
-      }
+return $.ui.formResetMixin = {
+	_formResetHandler: function() {
+		var form = $( this );
 
-      var instances = this.form.data("ui-form-reset-instances") || [];
-      if (!instances.length) {
-        // We don't use _on() here because we use a single event handler per form
-        this.form.on("reset.ui-form-reset", this._formResetHandler);
-      }
-      instances.push(this);
-      this.form.data("ui-form-reset-instances", instances);
-    },
+		// Wait for the form reset to actually happen before refreshing
+		setTimeout( function() {
+			var instances = form.data( "ui-form-reset-instances" );
+			$.each( instances, function() {
+				this.refresh();
+			} );
+		} );
+	},
 
-    _unbindFormResetHandler: function () {
-      if (!this.form.length) {
-        return;
-      }
+	_bindFormResetHandler: function() {
+		this.form = this.element._form();
+		if ( !this.form.length ) {
+			return;
+		}
 
-      var instances = this.form.data("ui-form-reset-instances");
-      instances.splice($.inArray(this, instances), 1);
-      if (instances.length) {
-        this.form.data("ui-form-reset-instances", instances);
-      } else {
-        this.form.removeData("ui-form-reset-instances").off("reset.ui-form-reset");
-      }
-    },
-  });
-});
+		var instances = this.form.data( "ui-form-reset-instances" ) || [];
+		if ( !instances.length ) {
+
+			// We don't use _on() here because we use a single event handler per form
+			this.form.on( "reset.ui-form-reset", this._formResetHandler );
+		}
+		instances.push( this );
+		this.form.data( "ui-form-reset-instances", instances );
+	},
+
+	_unbindFormResetHandler: function() {
+		if ( !this.form.length ) {
+			return;
+		}
+
+		var instances = this.form.data( "ui-form-reset-instances" );
+		instances.splice( $.inArray( this, instances ), 1 );
+		if ( instances.length ) {
+			this.form.data( "ui-form-reset-instances", instances );
+		} else {
+			this.form
+				.removeData( "ui-form-reset-instances" )
+				.off( "reset.ui-form-reset" );
+		}
+	}
+};
+
+} );

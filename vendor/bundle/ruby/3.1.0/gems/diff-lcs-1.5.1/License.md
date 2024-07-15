@@ -8,8 +8,8 @@ same terms as Perl itself") and given that the Ruby implementation originally
 hewed pretty closely to the Perl version, I must maintain the additional
 licensing terms.
 
-- Copyright 2004–2013 Austin Ziegler.
-- Adapted from Algorithm::Diff (Perl) by Ned Konz and a Smalltalk version by
+* Copyright 2004–2013 Austin Ziegler.
+* Adapted from Algorithm::Diff (Perl) by Ned Konz and a Smalltalk version by
   Mario I. Wolczko.
 
 ## MIT License

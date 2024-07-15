@@ -1,6 +1,6 @@
 # dotenv [![Gem Version](https://badge.fury.io/rb/dotenv.svg)](https://badge.fury.io/rb/dotenv)
 
-Shim to load environment variables from `.env` into `ENV` in _development_.
+Shim to load environment variables from `.env` into `ENV` in *development*.
 
 Storing [configuration in the environment](http://12factor.net/config) is one of the tenets of a [twelve-factor app](http://12factor.net). Anything that is likely to change between deployment environments–such as resource handles for databases or credentials for external services–should be extracted from the code into environment variables.
 
@@ -160,6 +160,7 @@ Dotenv will load the following files depending on `RAILS_ENV`, with the first fi
   </tr>
 </table>
 
+
 These files are loaded during the `before_configuration` callback, which is fired when the `Application` constant is defined in `config/application.rb` with `class Application < Rails::Application`. If you need it to be initialized sooner, or need to customize the loading process, you can do so at the top of `application.rb`
 
 ```ruby
@@ -178,10 +179,10 @@ end
 
 Available options:
 
-- `Dotenv::Rails.files` - list of files to be loaded, in order of precedence.
-- `Dotenv::Rails.overwrite` - Overwrite exiting `ENV` variables with contents of `.env*` files
-- `Dotenv::Rails.logger` - The logger to use for dotenv's logging. Defaults to `Rails.logger`
-- `Dotenv::Rails.autorestore` - Enable or disable [autorestore](#autorestore-in-tests)
+* `Dotenv::Rails.files` - list of files to be loaded, in order of precedence.
+* `Dotenv::Rails.overwrite` - Overwrite exiting `ENV` variables with contents of `.env*` files
+* `Dotenv::Rails.logger` - The logger to use for dotenv's logging. Defaults to `Rails.logger`
+* `Dotenv::Rails.autorestore` - Enable or disable [autorestore](#autorestore-in-tests)
 
 ### Multi-line values
 
@@ -275,7 +276,6 @@ You can use the `-t` or `--template` flag on the dotenv cli to create a template
 ```console
 $ dotenv -t .env
 ```
-
 A template will be created in your working directory named `{FINAME}.template`. So in the above example, it would create a `.env.template` file.
 
 The template will contain all the environment variables in your `.env` file but with their values set to the variable names.
@@ -298,7 +298,7 @@ SECRET_KEY=SECRET_KEY
 
 ### Can I use dotenv in production?
 
-dotenv was originally created to load configuration variables into `ENV` in _development_. There are typically better ways to manage configuration in production environments - such as `/etc/environment` managed by [Puppet](https://github.com/puppetlabs/puppet) or [Chef](https://github.com/chef/chef), `heroku config`, etc.
+dotenv was originally created to load configuration variables into `ENV` in *development*. There are typically better ways to manage configuration in production environments - such as `/etc/environment` managed by [Puppet](https://github.com/puppetlabs/puppet) or [Chef](https://github.com/chef/chef), `heroku config`, etc.
 
 However, some find dotenv to be a convenient way to configure Rails applications in staging and production environments, and you can do that by defining environment-specific files like `.env.production` or `.env.test`.
 

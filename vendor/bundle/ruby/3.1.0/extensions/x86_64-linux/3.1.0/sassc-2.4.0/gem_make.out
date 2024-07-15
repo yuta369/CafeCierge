@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240708-38838-wrtb2i.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-m7bnpc.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
@@ -77,4 +77,4 @@ linking shared-object sassc/libsass.so
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/sassc-2.4.0/ext
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 libsass.so ./.gem.20240708-38838-udws2r/sassc
+/usr/bin/install -c -m 0755 libsass.so ./.gem.20240714-9040-cg0txc/sassc

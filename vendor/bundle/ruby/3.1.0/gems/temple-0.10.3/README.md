@@ -1,4 +1,5 @@
-# Temple
+Temple
+======
 
 [![test](https://github.com/judofyr/temple/actions/workflows/test.yml/badge.svg)](https://github.com/judofyr/temple/actions/workflows/test.yml) [![Code Climate](https://codeclimate.com/github/judofyr/temple.svg)](https://codeclimate.com/github/judofyr/temple) [![Gem Version](https://badge.fury.io/rb/temple.svg)](https://rubygems.org/gems/temple) [![Yard Docs](https://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/gems/temple/frames)
 
@@ -13,27 +14,29 @@ we'll try to do our best. In fact, it doesn't have to be related to Temple at
 all. As long as it has something to do with template languages, we're
 interested: <http://groups.google.com/group/guardians-of-the-temple>.
 
-## Links
+Links
+-----
 
-- Source: <http://github.com/judofyr/temple>
-- Bugs: <http://github.com/judofyr/temple/issues>
-- List: <http://groups.google.com/group/guardians-of-the-temple>
-- API documentation:
-  - Latest Gem: <http://rubydoc.info/gems/temple/frames>
-  - GitHub master: <http://rubydoc.info/github/judofyr/temple/master/frames>
-- Abstractions: <http://github.com/judofyr/temple/blob/master/EXPRESSIONS.md>
+* Source: <http://github.com/judofyr/temple>
+* Bugs:   <http://github.com/judofyr/temple/issues>
+* List:   <http://groups.google.com/group/guardians-of-the-temple>
+* API documentation:
+    * Latest Gem: <http://rubydoc.info/gems/temple/frames>
+    * GitHub master: <http://rubydoc.info/github/judofyr/temple/master/frames>
+* Abstractions: <http://github.com/judofyr/temple/blob/master/EXPRESSIONS.md>
 
-## Overview
+Overview
+--------
 
 Temple is built on a theory that every template consists of three elements:
 
-- Static text
-- Dynamic text (pieces of Ruby which are evaluated and sent to the client)
-- Codes (pieces of Ruby which are evaluated and _not_ sent to the client, but
+* Static text
+* Dynamic text (pieces of Ruby which are evaluated and sent to the client)
+* Codes (pieces of Ruby which are evaluated and *not* sent to the client, but
   might change the control flow).
 
 The goal of a template engine is to take the template and eventually compile
-it into _the core abstraction_:
+it into *the core abstraction*:
 
 ```ruby
  [:multi,
@@ -57,10 +60,11 @@ Ruby code for you:
  _buf.join
 ```
 
-## S-expression
+S-expression
+------------
 
 In Temple, an Sexp is simply an array (or a subclass) where the first element
-is the _type_ and the rest are the _arguments_. The type must be a symbol and
+is the *type* and the rest are the *arguments*. The type must be a symbol and
 it's recommended to only use strings, symbols, arrays and numbers as
 arguments.
 
@@ -80,11 +84,12 @@ Some examples:
  [:html, :tag, "em", [:html, :attrs], [:static, "Hey hey"]]
 ```
 
-_NOTE:_ SexpProcessor, a library written by Ryan Davis, includes a `Sexp`
+*NOTE:* SexpProcessor, a library written by Ryan Davis, includes a `Sexp`
 class. While you can use this class (since it's a subclass of Array), it's not
 what Temple mean by "Sexp".
 
-## Abstractions
+Abstractions
+------------
 
 The idea behind Temple is that abstractions are good, and it's better to have
 too many than too few. While you should always end up with the core
@@ -114,16 +119,17 @@ with tabs or spaces? Or should it remove as much whitespace as possible?
 Single or double quotes in attributes? Escape all weird UTF-8 characters?
 
 With an abstraction you can easily introduce a completely new HTML compiler,
-and whatever is below doesn't have to care about it _at all_. They just
+and whatever is below doesn't have to care about it *at all*. They just
 continue to use the HTML abstraction. Maybe you even want to write your
 compiler in another language? Sexps are easily serialized and if you don't
 mind working across processes, it's not a problem at all.
 
 All abstractions used by Temple are documented in [EXPRESSIONS.md](EXPRESSIONS.md).
 
-## Compilers
+Compilers
+---------
 
-A _compiler_ is simply an object which responds a method called #call which
+A *compiler* is simply an object which responds a method called #call which
 takes one argument and returns a value. It's illegal for a compiler to mutate
 the argument, and it should be possible to use the same instance several times
 (although not by several threads at the same time).
@@ -149,7 +155,7 @@ In Temple, a parser is also a compiler, because a compiler is just something
 that takes some input and produces some output. A parser is then something
 that takes a string and returns an Sexp.
 
-It's important to remember that the parser _should be dumb_. No optimization,
+It's important to remember that the parser *should be dumb*. No optimization,
 no guesses. It should produce an Sexp that is as close to the source as
 possible. You should invent your own abstraction. Maybe you even want to
 separate the parsers into several parts and introduce several abstractions on
@@ -180,12 +186,13 @@ own.
 
 In fact, one of the great things about Temple is that if you write a new
 generator which turns out to be a lot faster then the others, it's going to
-make _every single engine_ based on Temple faster! So if you have any ideas,
+make *every single engine* based on Temple faster! So if you have any ideas,
 please share them - it's highly appreciated.
 
-## Engines
+Engines
+-------
 
-When you have a chain of a parsers, some filters and a generator you can finally create your _engine_. Temple provides {Temple::Engine} which makes this very easy:
+When you have a chain of a parsers, some filters and a generator you can finally create your *engine*. Temple provides {Temple::Engine} which makes this very easy:
 
 ```ruby
  class MyEngine < Temple::Engine
@@ -208,7 +215,8 @@ When you have a chain of a parsers, some filters and a generator you can finally
  engine.call(something)
 ```
 
-## And then?
+And then?
+---------
 
 You've ran the template through the parser, some filters and in the end a
 generator. What happens next?
@@ -226,7 +234,8 @@ Rails.
  MyTemplate.new { "String" }.render # => Render a string
 ```
 
-## Installation
+Installation
+------------
 
 You need at least Ruby 1.9.3 to work with Temple. Temple is published as a Ruby Gem which can be installed
 as following:
@@ -235,19 +244,21 @@ as following:
  $ gem install temple
 ```
 
-## Engines using Temple
+Engines using Temple
+--------------------
 
-- [Slim](https://github.com/slim-template/slim)
-- [Hamlit](https://github.com/k0kubun/hamlit)
-- [Faml](https://github.com/eagletmt/faml)
-- [Sal](https://github.com/stonean/sal.rb)
-- [Temple-Mustache (Example implementation)](https://github.com/minad/temple-mustache)
-- Temple ERB example implementation (Temple::ERB::Template)
-- [WLang](https://github.com/blambeau/wlang)
+* [Slim](https://github.com/slim-template/slim)
+* [Hamlit](https://github.com/k0kubun/hamlit)
+* [Faml](https://github.com/eagletmt/faml)
+* [Sal](https://github.com/stonean/sal.rb)
+* [Temple-Mustache (Example implementation)](https://github.com/minad/temple-mustache)
+* Temple ERB example implementation (Temple::ERB::Template)
+* [WLang](https://github.com/blambeau/wlang)
 
-## Acknowledgements
+Acknowledgements
+----------------
 
-Thanks to [\_why](http://en.wikipedia.org/wiki/Why_the_lucky_stiff) for
+Thanks to [_why](http://en.wikipedia.org/wiki/Why_the_lucky_stiff) for
 creating an excellent template engine (Markaby) which is quite slow. That's
 how I started experimenting with template engines in the first place.
 

@@ -1,17 +1,59 @@
-@import "sanitize.css";
-@import "bootstrap";
+@import 'bootstrap';
 
 body {
-  font-family: 'Roboto', 'Noto Sans JP', 'M PLUS Rounded 1c', 'kanit', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Roboto", "Noto Sans JP", "M PLUS Rounded 1c", "kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
   color: #333333;
   background-color: #ffffff;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, .navbar {
-  font-family: 'M PLUS Rounded 1c', 'kanit', 'Roboto', 'Noto Sans JP', "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+main {
+  flex: 1;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+}
+
+.footer ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.5; /* リスト項目の行間を確保 */
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar {
+  font-family: "M PLUS Rounded 1c", "kanit", "Roboto", "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
   color: #000000;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -22,7 +64,8 @@ h1, h2, h3, h4, h5, h6, .navbar {
 // <weight>: Use a value from 100 to 900
 
 .noto-sans-jp-400 {
-  font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -32,44 +75,65 @@ h1, h2, h3, h4, h5, h6, .navbar {
 // <weight>: Use a value from 100 to 900
 
 .roboto-condensed-700 {
-  font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
 }
 
 .kanit-regular {
-  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .kanit-medium {
-  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .kanit-bold {
-  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "Kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
 
 .m-plus-rounded-1c-regular {
-  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 .m-plus-rounded-1c-medium {
-  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 500;
   font-style: normal;
 }
 
 .m-plus-rounded-1c-bold {
-  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-family: "M PLUS Rounded 1c", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
+    "Yu Gothic", "Meiryo", sans-serif;
   font-weight: 700;
   font-style: normal;
+}
+
+.nec {
+    background-color: red;
+    color: white;
+    font-weight: 500;
+    margin-left: 20px;
+    padding: 0px 4px 2px 4px;
+}
+
+.img-preview {
+  max-width: 200px;
+  max-height: 200px;
+  margin: 10px;
 }

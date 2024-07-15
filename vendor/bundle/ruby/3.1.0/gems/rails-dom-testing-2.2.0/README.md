@@ -47,7 +47,7 @@ When testing in a Rails application, the parser default can also be set by setti
 Some assertions support an `html_version:` keyword argument which can override the default for that
 assertion. For example:
 
-```ruby
+``` ruby
 # compare DOMs built with the HTML5 parser
 assert_dom_equal(expected, actual, html_version: :html5)
 
@@ -74,12 +74,10 @@ Or install it yourself as:
 ## Read more
 
 Under the hood the doms are parsed with Nokogiri, and you'll generally be working with these two classes:
-
 - [`Nokogiri::XML::Node`](http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node)
 - [`Nokogiri::XML::NodeSet`](http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/NodeSet)
 
 Read more about Nokogiri:
-
 - [Nokogiri](http://nokogiri.org)
 
 ## Contributing to Rails::Dom::Testing
@@ -90,5 +88,4 @@ features and discuss issues.
 See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
-
 Rails::Dom::Testing is released under the [MIT License](MIT-LICENSE).

@@ -5,7 +5,7 @@ See our extensive reference, guides, and cookbook in [the factory_bot book][].
 For information on integrations with third party libraries, such as RSpec or
 Rails, see [the factory_bot wiki][].
 
-We also have [a detailed introductory video][], available for free on Upcase.
+ We also have [a detailed introductory video][], available for free on Upcase.
 
 [a detailed introductory video]: https://upcase.com/videos/factory-bot?utm_source=github&utm_medium=open-source&utm_campaign=factory-girl
 [the factory_bot book]: https://thoughtbot.github.io/factory_bot
@@ -14,11 +14,12 @@ We also have [a detailed introductory video][], available for free on Upcase.
 This document is deprecated and preserved for historical use. It may disappear
 at any time.
 
-# Getting Started
+Getting Started
+===============
 
-- [Setup](#setup)
-  - [Update Your Gemfile](#update-your-gemfile)
-  - [Configure your test suite](#configure-your-test-suite)
+* [Setup](#setup)
+  + [Update Your Gemfile](#update-your-gemfile)
+  + [Configure your test suite](#configure-your-test-suite)
     - [RSpec](#rspec)
     - [Test::Unit](#testunit)
     - [Cucumber](#cucumber)
@@ -26,78 +27,79 @@ at any time.
     - [Minitest](#minitest)
     - [Minitest::Spec](#minitestspec)
     - [minitest-rails](#minitest-rails)
-- [Defining factories](#defining-factories)
-  - [Factory name and attributes](#factory-name-and-attributes)
-  - [Specifying the class explicitly](#specifying-the-class-explicitly)
-  - [Hash attributes](#hash-attributes)
-  - [Best practices](#best-practices)
-  - [Definition file paths](#definition-file-paths)
-  - [Static Attributes](#static-attributes)
-- [Using factories](#using-factories)
-  - [Build strategies](#build-strategies)
-  - [Attribute overrides](#attribute-overrides)
-  - [`build_stubbed` and `Marshal.dump`](#build_stubbed-and-marshaldump)
-- [Aliases](#aliases)
-- [Dependent Attributes](#dependent-attributes)
-- [Transient Attributes](#transient-attributes)
-  - [With other attributes](#with-other-attributes)
-  - [With `attributes_for`](#with-attributes_for)
-  - [With callbacks](#with-callbacks)
-  - [With associations](#with-associations)
-- [Method Name / Reserved Word Attributes](#method-name--reserved-word-attributes)
-- [Inheritance](#inheritance)
-  - [Nested factories](#nested-factories)
-  - [Assigning parent explicitly](#assigning-parent-explicitly)
-  - [Best practices](#best-practices-1)
-- [Associations](#associations)
-  - [Implicit definition](#implicit-definition)
-  - [Explicit definition](#explicit-definition)
-  - [Inline definition](#inline-definition)
-  - [Specifying the factory](#specifying-the-factory)
-  - [Overriding attributes](#overriding-attributes)
-  - [Association overrides](#association-overrides)
-  - [Build strategies](#build-strategies-1)
-  - [`has_many` associations](#has_many-associations)
-  - [`has_and_belongs_to_many` associations](#has_and_belongs_to_many-associations)
-  - [Polymorphic associations](#polymorphic-associations)
-  - [Interconnected associations](#interconnected-associations)
-- [Sequences](#sequences)
-  - [Global sequences](#global-sequences)
-  - [With dynamic attributes](#with-dynamic-attributes)
-  - [As implicit attributes](#as-implicit-attributes)
-  - [Inline sequences](#inline-sequences)
-  - [Initial value](#initial-value)
-  - [Without a block](#without-a-block)
-  - [Aliases](#aliases-1)
-  - [Rewinding](#rewinding)
-  - [Uniqueness](#uniqueness)
-- [Traits](#traits)
-  - [Defining traits](#defining-traits)
-  - [As implicit attributes](#as-implicit-attributes-1)
-  - [Attribute precedence](#attribute-precedence)
-  - [In child factories](#in-child-factories)
-  - [Using traits](#using-traits)
-  - [With associations](#with-associations-1)
-  - [Traits within traits](#traits-within-traits)
-  - [With transient attributes](#with-transient-attributes)
-  - [Enum traits](#enum-traits)
-- [Callbacks](#callbacks)
-  - [Default callbacks](#default-callbacks)
-  - [Multiple callbacks](#multiple-callbacks)
-  - [Global callbacks](#global-callbacks)
-  - [Symbol#to_proc](#symbolto_proc)
-- [Modifying factories](#modifying-factories)
-- [Building or Creating Multiple Records](#building-or-creating-multiple-records)
-- [Linting Factories](#linting-factories)
-- [Custom Construction](#custom-construction)
-- [Custom Strategies](#custom-strategies)
-- [Custom Callbacks](#custom-callbacks)
-- [Custom Methods to Persist Objects](#custom-methods-to-persist-objects)
-- [ActiveSupport Instrumentation](#activesupport-instrumentation)
-- [Rails Preloaders and RSpec](#rails-preloaders-and-rspec)
-- [Using Without Bundler](#using-without-bundler)
+* [Defining factories](#defining-factories)
+  + [Factory name and attributes](#factory-name-and-attributes)
+  + [Specifying the class explicitly](#specifying-the-class-explicitly)
+  + [Hash attributes](#hash-attributes)
+  + [Best practices](#best-practices)
+  + [Definition file paths](#definition-file-paths)
+  + [Static Attributes](#static-attributes)
+* [Using factories](#using-factories)
+  + [Build strategies](#build-strategies)
+  + [Attribute overrides](#attribute-overrides)
+  + [`build_stubbed` and `Marshal.dump`](#build_stubbed-and-marshaldump)
+* [Aliases](#aliases)
+* [Dependent Attributes](#dependent-attributes)
+* [Transient Attributes](#transient-attributes)
+  + [With other attributes](#with-other-attributes)
+  + [With `attributes_for`](#with-attributes_for)
+  + [With callbacks](#with-callbacks)
+  + [With associations](#with-associations)
+* [Method Name / Reserved Word Attributes](#method-name--reserved-word-attributes)
+* [Inheritance](#inheritance)
+  + [Nested factories](#nested-factories)
+  + [Assigning parent explicitly](#assigning-parent-explicitly)
+  + [Best practices](#best-practices-1)
+* [Associations](#associations)
+  + [Implicit definition](#implicit-definition)
+  + [Explicit definition](#explicit-definition)
+  + [Inline definition](#inline-definition)
+  + [Specifying the factory](#specifying-the-factory)
+  + [Overriding attributes](#overriding-attributes)
+  + [Association overrides](#association-overrides)
+  + [Build strategies](#build-strategies-1)
+  + [`has_many` associations](#has_many-associations)
+  + [`has_and_belongs_to_many` associations](#has_and_belongs_to_many-associations)
+  + [Polymorphic associations](#polymorphic-associations)
+  + [Interconnected associations](#interconnected-associations)
+* [Sequences](#sequences)
+  + [Global sequences](#global-sequences)
+  + [With dynamic attributes](#with-dynamic-attributes)
+  + [As implicit attributes](#as-implicit-attributes)
+  + [Inline sequences](#inline-sequences)
+  + [Initial value](#initial-value)
+  + [Without a block](#without-a-block)
+  + [Aliases](#aliases-1)
+  + [Rewinding](#rewinding)
+  + [Uniqueness](#uniqueness)
+* [Traits](#traits)
+  + [Defining traits](#defining-traits)
+  + [As implicit attributes](#as-implicit-attributes-1)
+  + [Attribute precedence](#attribute-precedence)
+  + [In child factories](#in-child-factories)
+  + [Using traits](#using-traits)
+  + [With associations](#with-associations-1)
+  + [Traits within traits](#traits-within-traits)
+  + [With transient attributes](#with-transient-attributes)
+  + [Enum traits](#enum-traits)
+* [Callbacks](#callbacks)
+  + [Default callbacks](#default-callbacks)
+  + [Multiple callbacks](#multiple-callbacks)
+  + [Global callbacks](#global-callbacks)
+  + [Symbol#to_proc](#symbolto_proc)
+* [Modifying factories](#modifying-factories)
+* [Building or Creating Multiple Records](#building-or-creating-multiple-records)
+* [Linting Factories](#linting-factories)
+* [Custom Construction](#custom-construction)
+* [Custom Strategies](#custom-strategies)
+* [Custom Callbacks](#custom-callbacks)
+* [Custom Methods to Persist Objects](#custom-methods-to-persist-objects)
+* [ActiveSupport Instrumentation](#activesupport-instrumentation)
+* [Rails Preloaders and RSpec](#rails-preloaders-and-rspec)
+* [Using Without Bundler](#using-without-bundler)
 
-## Setup
+Setup
+-----
 
 ### Update Your Gemfile
 
@@ -107,7 +109,7 @@ If you're using Rails:
 gem "factory_bot_rails"
 ```
 
-If you're _not_ using Rails:
+If you're *not* using Rails:
 
 ```ruby
 gem "factory_bot"
@@ -127,7 +129,7 @@ RSpec.configure do |config|
 end
 ```
 
-If you're _not_ using Rails:
+If you're *not* using Rails:
 
 ```ruby
 RSpec.configure do |config|
@@ -187,9 +189,10 @@ end
 ```
 
 If you do not include `FactoryBot::Syntax::Methods` in your test suite, then all
-factory_bot methods will need to be prefaced with `FactoryBot`.
+factory\_bot methods will need to be prefaced with `FactoryBot`.
 
-## Defining factories
+Defining factories
+------------------
 
 ### Factory name and attributes
 
@@ -259,16 +262,18 @@ following locations:
 
 ### Static Attributes
 
-Static attributes (without a block) are no longer available in factory_bot 5.
+Static attributes (without a block) are no longer available in factory\_bot 5.
 You can read more about the decision to remove them in
 [this blog post](https://robots.thoughtbot.com/deprecating-static-attributes-in-factory_bot-4-11).
 
-## Using factories
+
+Using factories
+---------------
 
 ### Build strategies
 
-factory_bot supports several different build strategies: build, create,
-attributes_for and build_stubbed:
+factory\_bot supports several different build strategies: build, create,
+attributes\_for and build\_stubbed:
 
 ```ruby
 # Returns a User instance that's not saved
@@ -330,14 +335,15 @@ user = build(:user, account:, friends:)
 ### `build_stubbed` and `Marshal.dump`
 
 Note that objects created with `build_stubbed` cannot be serialized with
-`Marshal.dump`, since factory_bot defines singleton methods on these objects.
+`Marshal.dump`, since factory\_bot defines singleton methods on these objects.
 
-## Aliases
+Aliases
+-------
 
-factory_bot allows you to define aliases to existing factories to make them
+factory\_bot allows you to define aliases to existing factories to make them
 easier to re-use. This could come in handy when, for example, your Post object
 has an author attribute that actually refers to an instance of a User class.
-While normally factory_bot can infer the factory name from the association name,
+While normally factory\_bot can infer the factory name from the association name,
 in this case it will look for an author factory in vain. So, alias your user
 factory so it can be used under alias names.
 
@@ -364,7 +370,8 @@ factory :comment do
 end
 ```
 
-## Dependent Attributes
+Dependent Attributes
+--------------------
 
 Attributes can be based on the values of other attributes using the evaluator
 that is yielded to dynamic attribute blocks:
@@ -380,8 +387,8 @@ create(:user, last_name: "Doe").email
 # => "joe.doe@example.com"
 ```
 
-## Transient Attributes
-
+Transient Attributes
+--------------------
 Transient attributes are attributes only available within the factory definition, and not set on the object being built. This allows for more complex logic inside factories.
 
 ### With other attributes
@@ -408,12 +415,12 @@ create(:user, rockstar: false).name
 
 ### With `attributes_for`
 
-Transient attributes will be ignored within attributes_for and won't be set on
+Transient attributes will be ignored within attributes\_for and won't be set on
 the model, even if the attribute exists or you attempt to override it.
 
 ### With callbacks
 
-If you need to access the evaluator in a factory_bot callback,
+If you need to access the evaluator in a factory\_bot callback,
 you'll need to declare a second block argument (for the evaluator) and access
 transient attributes from there.
 
@@ -439,7 +446,7 @@ create(:user, upcased: true).name
 
 ### With associations
 
-Transient [associations](#associations) are not supported in factory_bot.
+Transient [associations](#associations) are not supported in factory\_bot.
 Associations within the transient block will be treated as regular,
 non-transient associations.
 
@@ -456,7 +463,8 @@ factory :user do
 end
 ```
 
-## Method Name / Reserved Word Attributes
+Method Name / Reserved Word Attributes
+-------------------------------
 
 If your attributes conflict with existing methods or reserved words (all methods in the [DefinitionProxy](https://github.com/thoughtbot/factory_bot/blob/main/lib/factory_bot/definition_proxy.rb) class) you can define them with `add_attribute`.
 
@@ -471,7 +479,8 @@ end
 
 ```
 
-## Inheritance
+Inheritance
+-----------
 
 ### Nested factories
 
@@ -513,7 +522,8 @@ with only the attributes required to create it. Then, create more specific
 factories that inherit from this basic parent. Factory definitions are still
 code, so keep them DRY.
 
-## Associations
+Associations
+------------
 
 ### Implicit definition
 
@@ -599,6 +609,7 @@ end
 
 Explicitly:
 
+
 ```ruby
 factory :post do
   # ...
@@ -637,7 +648,7 @@ post = build(:post, author: eunji)
 
 ### Build strategies
 
-In factory_bot 5, associations default to using the same build strategy as
+In factory\_bot 5, associations default to using the same build strategy as
 their parent object:
 
 ```ruby
@@ -659,7 +670,7 @@ post.author.new_record? # => false
 ```
 
 This is different than the default behavior for previous versions of
-factory_bot, where the association strategy would not always match the strategy
+factory\_bot, where the association strategy would not always match the strategy
 of the parent object. If you want to continue using the old behavior, you can
 set the `use_parent_strategy` configuration option to `false`.
 
@@ -731,8 +742,9 @@ user_with_posts.posts.length # 5
 user_with_posts(posts_count: 15).posts.length # 15
 ```
 
-If you prefer to keep the object creation fully within factory_bot, you can
+If you prefer to keep the object creation fully within factory\_bot, you can
 build the posts in an `after(:create)` callback.
+
 
 ```ruby
 FactoryBot.define do
@@ -835,6 +847,7 @@ to the above `has_many` relationship, with a small change: you need to pass an
 array of objects to the model's pluralized attribute name rather than a single
 object to the singular version of the attribute name.
 
+
 ```ruby
 def profile_with_languages(languages_count: 2)
   FactoryBot.create(:profile) do |profile|
@@ -909,11 +922,11 @@ create(:comment, :for_photo)
 ### Interconnected associations
 
 There are limitless ways objects might be interconnected, and
-factory_bot may not always be suited to handle those relationships. In some
-cases it makes sense to use factory_bot to build each individual object, and
+factory\_bot may not always be suited to handle those relationships. In some
+cases it makes sense to use factory\_bot to build each individual object, and
 then to write helper methods in plain Ruby to tie those objects together.
 
-That said, some more complex, interconnected relationships can be built in factory_bot
+That said, some more complex, interconnected relationships can be built in factory\_bot
 using inline associations with reference to the `instance` being built.
 
 Let's say your models look like this, where an associated `Student` and
@@ -962,7 +975,8 @@ Also, note that if you assign any attributes inside a custom `initialize_with`
 (e.g. `initialize_with { new(**attributes) }`), those attributes should not refer to `instance`,
 since it will be `nil`.
 
-## Sequences
+Sequences
+---------
 
 ### Global sequences
 
@@ -1125,7 +1139,9 @@ FactoryBot.create(:user, email: "person1@example.com")
 FactoryBot.create(:user)
 ```
 
-## Traits
+
+Traits
+------
 
 ### Defining traits
 
@@ -1258,7 +1274,7 @@ end
 ### Using traits
 
 Traits can also be passed in as a list of symbols when you construct an instance
-from factory_bot.
+from factory\_bot.
 
 ```ruby
 factory :user do
@@ -1387,7 +1403,7 @@ end
 
 ```
 
-factory_bot will automatically define traits for each possible value of the
+factory\_bot will automatically define traits for each possible value of the
 enum:
 
 ```rb
@@ -1468,16 +1484,17 @@ FactoryBot.define do
 end
 ```
 
-## Callbacks
+Callbacks
+---------
 
 ### Default callbacks
 
-factory_bot makes available four callbacks for injecting some code:
+factory\_bot makes available four callbacks for injecting some code:
 
-- after(:build) - called after a factory is built (via `FactoryBot.build`, `FactoryBot.create`)
-- before(:create) - called before a factory is saved (via `FactoryBot.create`)
-- after(:create) - called after a factory is saved (via `FactoryBot.create`)
-- after(:stub) - called after a factory is stubbed (via `FactoryBot.build_stubbed`)
+* after(:build)   - called after a factory is built   (via `FactoryBot.build`, `FactoryBot.create`)
+* before(:create) - called before a factory is saved  (via `FactoryBot.create`)
+* after(:create)  - called after a factory is saved   (via `FactoryBot.create`)
+* after(:stub)    - called after a factory is stubbed (via `FactoryBot.build_stubbed`)
 
 Examples:
 
@@ -1501,7 +1518,7 @@ factory :user do
 end
 ```
 
-Factories can also define any number of the same kind of callback. These
+Factories can also define any number of the same kind of callback.  These
 callbacks will be executed in the order they are specified:
 
 ```ruby
@@ -1566,7 +1583,8 @@ end
 create(:user) # creates the user and confirms it
 ```
 
-## Modifying factories
+Modifying factories
+-------------------
 
 If you're given a set of factories (say, from a gem developer) but want to
 change them to fit into your application better, you can modify that factory
@@ -1612,10 +1630,11 @@ When modifying a factory, you can change any of the attributes you want (aside f
 
 `FactoryBot.modify` must be called outside of a `FactoryBot.define` block as it operates on factories differently.
 
-A caveat: you can only modify factories (not sequences or traits) and callbacks _still compound as they normally would_. So, if
+A caveat: you can only modify factories (not sequences or traits) and callbacks *still compound as they normally would*. So, if
 the factory you're modifying defines an `after(:create)` callback, you defining an `after(:create)` won't override it, it'll just get run after the first callback.
 
-## Building or Creating Multiple Records
+Building or Creating Multiple Records
+-------------------------------------
 
 Sometimes, you'll want to create or build multiple instances of a factory at once.
 
@@ -1667,9 +1686,10 @@ If you need multiple attribute hashes, `attributes_for_list` will generate them:
 users_attrs = attributes_for_list(:user, 25) # array of attribute hashes
 ```
 
-## Linting Factories
+Linting Factories
+-----------------
 
-factory_bot allows for linting known factories:
+factory\_bot allows for linting known factories:
 
 ```ruby
 FactoryBot.lint
@@ -1752,9 +1772,10 @@ helpful for debugging:
 FactoryBot.lint verbose: true
 ```
 
-## Custom Construction
+Custom Construction
+-------------------
 
-If you want to use factory_bot to construct an object where some attributes
+If you want to use factory\_bot to construct an object where some attributes
 are passed to `initialize` or if you want to do something other than simply
 calling `new` on your build class, you can override the default behavior by
 defining `initialize_with` on your factory. Example:
@@ -1782,7 +1803,7 @@ end
 build(:user).name # Jane Doe
 ```
 
-Although factory_bot is written to work with ActiveRecord out of the box, it
+Although factory\_bot is written to work with ActiveRecord out of the box, it
 can also work with any Ruby class. For maximum compatibility with ActiveRecord,
 the default initializer builds all instances by calling `new` on your build class
 without any arguments. It then calls attribute writer methods to assign all the
@@ -1791,9 +1812,9 @@ work for almost any other Ruby class.
 
 You can override the initializer in order to:
 
-- Build non-ActiveRecord objects that require arguments to `initialize`
-- Use a method other than `new` to instantiate the instance
-- Do wild things like decorate the instance after it's built
+* Build non-ActiveRecord objects that require arguments to `initialize`
+* Use a method other than `new` to instantiate the instance
+* Do wild things like decorate the instance after it's built
 
 When using `initialize_with`, you don't have to declare the class itself when
 calling `new`; however, any other class methods you want to call will have to
@@ -1838,7 +1859,7 @@ end
 ```
 
 When using `initialize_with`, attributes accessed from within the `initialize_with`
-block are assigned _only_ in the constructor; this equates to roughly the
+block are assigned *only* in the constructor; this equates to roughly the
 following code:
 
 ```ruby
@@ -1855,7 +1876,7 @@ build(:user)
 User.new('value')
 ```
 
-This prevents duplicate assignment; in versions of factory_bot before 4.0, it
+This prevents duplicate assignment; in versions of factory\_bot before 4.0, it
 would run this:
 
 ```ruby
@@ -1873,9 +1894,10 @@ user = User.new('value')
 user.name = 'value'
 ```
 
-## Custom Strategies
+Custom Strategies
+-----------------
 
-There are times where you may want to extend behavior of factory_bot by
+There are times where you may want to extend behavior of factory\_bot by
 adding a custom build strategy.
 
 Strategies define two methods: `association` and `result`. `association`
@@ -1886,7 +1908,7 @@ callbacks (with `notify`), `object` or `hash` (to get the result instance or a
 hash based on the attributes defined in the factory), and `create`, which
 executes the `to_create` callback defined on the factory.
 
-To understand how factory_bot uses strategies internally, it's probably
+To understand how factory\_bot uses strategies internally, it's probably
 easiest to just view the source for each of the four default strategies.
 
 Here's an example of composing a strategy using
@@ -1910,7 +1932,7 @@ class JsonStrategy
 end
 ```
 
-For factory_bot to recognize the new strategy, you can register it:
+For factory\_bot to recognize the new strategy, you can register it:
 
 ```ruby
 FactoryBot.register_strategy(:json, JsonStrategy)
@@ -1922,10 +1944,11 @@ This allows you to call
 FactoryBot.json(:user)
 ```
 
-Finally, you can override factory_bot's own strategies if you'd like by
+Finally, you can override factory\_bot's own strategies if you'd like by
 registering a new object in place of the strategies.
 
-## Custom Callbacks
+Custom Callbacks
+----------------
 
 Custom callbacks can be defined if you're using custom strategies:
 
@@ -1963,7 +1986,8 @@ FactoryBot.define do
 end
 ```
 
-## Custom Methods to Persist Objects
+Custom Methods to Persist Objects
+---------------------------------
 
 By default, creating a record will call `save!` on the instance; since this
 may not always be ideal, you can override that behavior by defining
@@ -1998,7 +2022,8 @@ FactoryBot.define do
 end
 ```
 
-## ActiveSupport Instrumentation
+ActiveSupport Instrumentation
+-----------------------------
 
 In order to track what factories are created (and with what build strategy),
 `ActiveSupport::Notifications` are included to provide a way to subscribe to
@@ -2059,7 +2084,8 @@ config.after(:suite) do
 end
 ```
 
-## Rails Preloaders and RSpec
+Rails Preloaders and RSpec
+--------------------------
 
 When running RSpec with a Rails preloader such as `spring` or `zeus`, it's possible
 to encounter an `ActiveRecord::AssociationTypeMismatch` error when creating a factory
@@ -2095,7 +2121,8 @@ RSpec.configure do |config|
 end
 ```
 
-## Using Without Bundler
+Using Without Bundler
+---------------------
 
 If you're not using Bundler, be sure to have the gem installed and call:
 

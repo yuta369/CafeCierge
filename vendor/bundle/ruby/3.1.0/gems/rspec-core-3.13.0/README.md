@@ -44,7 +44,7 @@ RSpec.describe Order do
 end
 ```
 
-The `describe` method creates an [ExampleGroup](http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup). Within the
+The `describe` method creates an [ExampleGroup](http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup).  Within the
 block passed to `describe` you can declare examples using the `it` method.
 
 Under the hood, an example group is a class in which the block passed to
@@ -117,7 +117,7 @@ more accurate naming when you share hooks, `let` declarations, helper methods,
 etc, but no examples.
 
 If you want to reuse shared examples or contexts across your RSpec suite you can
-define them in a stand alone _\*.rb_ files (_spec/support/shared_examples/definition.rb_
+define them in a stand alone _*.rb_ files (_spec/support/shared_examples/definition.rb_
 for example). But you will have to manually `require` them (there is no autoloading of
 _spec/support/_ directory unless you set it up yourself).
 
@@ -176,12 +176,12 @@ end
 
 RSpec has two scopes:
 
-- **Example Group**: Example groups are defined by a `describe` or
+* **Example Group**: Example groups are defined by a `describe` or
   `context` block, which is eagerly evaluated when the spec file is
   loaded. The block is evaluated in the context of a subclass of
   `RSpec::Core::ExampleGroup`, or a subclass of the parent example group
   when you're nesting them.
-- **Example**: Examples -- typically defined by an `it` block -- and any other
+* **Example**: Examples -- typically defined by an `it` block -- and any other
   blocks with per-example semantics -- such as a `before(:example)` hook -- are
   evaluated in the context of
   an _instance_ of the example group class to which the example belongs.
@@ -191,7 +191,7 @@ RSpec has two scopes:
 
 To make this more concrete, consider this code snippet:
 
-```ruby
+``` ruby
 RSpec.describe "Using an array as a stack" do
   def build_stack
     []
@@ -219,7 +219,7 @@ end
 
 Under the covers, this is (roughly) equivalent to:
 
-```ruby
+``` ruby
 class UsingAnArrayAsAStack < RSpec::Core::ExampleGroup
   def build_stack
     []
@@ -247,7 +247,7 @@ end
 
 To run these examples, RSpec would (roughly) do the following:
 
-```ruby
+``` ruby
 example_1 = UsingAnArrayAsAStack.new
 example_1.before_example_1
 example_1.it_is_initially_empty
@@ -376,14 +376,14 @@ specs and cucumber features, and make patches.
 NOTE: You do not need to use rspec-dev to work on a specific RSpec repo. You
 can treat each RSpec repo as an independent project.
 
-- [Build details](BUILD_DETAIL.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Detailed contributing guide](CONTRIBUTING.md)
-- [Development setup guide](DEVELOPMENT.md)
+* [Build details](BUILD_DETAIL.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Detailed contributing guide](CONTRIBUTING.md)
+* [Development setup guide](DEVELOPMENT.md)
 
 ## Also see
 
-- [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
-- [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
-- [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
-- [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)
+* [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
+* [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
+* [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
+* [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)

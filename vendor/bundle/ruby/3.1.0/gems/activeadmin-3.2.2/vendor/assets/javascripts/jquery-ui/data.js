@@ -14,29 +14,32 @@
 //>>description: Selects elements which have data stored under the specified key.
 //>>docs: https://api.jqueryui.com/data-selector/
 
-(function (factory) {
-  "use strict";
+( function( factory ) {
+	"use strict";
 
-  if (typeof define === "function" && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(["jquery", "./version"], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-})(function ($) {
-  "use strict";
+	if ( typeof define === "function" && define.amd ) {
 
-  return $.extend($.expr.pseudos, {
-    data: $.expr.createPseudo
-      ? $.expr.createPseudo(function (dataName) {
-          return function (elem) {
-            return !!$.data(elem, dataName);
-          };
-        })
-      : // Support: jQuery <1.8
-        function (elem, i, match) {
-          return !!$.data(elem, match[3]);
-        },
-  });
-});
+		// AMD. Register as an anonymous module.
+		define( [ "jquery", "./version" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery );
+	}
+} )( function( $ ) {
+"use strict";
+
+return $.extend( $.expr.pseudos, {
+	data: $.expr.createPseudo ?
+		$.expr.createPseudo( function( dataName ) {
+			return function( elem ) {
+				return !!$.data( elem, dataName );
+			};
+		} ) :
+
+		// Support: jQuery <1.8
+		function( elem, i, match ) {
+			return !!$.data( elem, match[ 3 ] );
+		}
+} );
+} );

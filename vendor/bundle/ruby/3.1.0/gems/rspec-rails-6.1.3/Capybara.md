@@ -9,7 +9,7 @@ GET request and provide access to the result (via `page`).
 
 Capybara::DSL is added to examples in:
 
-- spec/features
+* spec/features
 
 ## Capybara::RSpecMatchers
 
@@ -17,11 +17,11 @@ Exposes matchers used to specify expected HTML content (e.g. `should_not have_se
 
 Capybara::RSpecMatchers is added to examples in:
 
-- spec/features
-- spec/controllers
-- spec/views
-- spec/helpers
-- spec/mailers
+* spec/features
+* spec/controllers
+* spec/views
+* spec/helpers
+* spec/mailers
 
 ## Upgrading to Capybara-3.x
 

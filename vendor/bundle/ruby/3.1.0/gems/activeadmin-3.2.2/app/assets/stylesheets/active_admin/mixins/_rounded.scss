@@ -2,7 +2,7 @@
   border-radius: $radius;
 }
 
-@mixin rounded-all($top-left: 3px, $top-right: 3px, $bottom-right: 3px, $bottom-left: 3px) {
+@mixin rounded-all($top-left:3px, $top-right:3px, $bottom-right:3px, $bottom-left:3px) {
   border-top-right-radius: $top-right;
   border-top-left-radius: $top-left;
   border-bottom-right-radius: $bottom-right;

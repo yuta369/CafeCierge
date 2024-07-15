@@ -10,9 +10,9 @@ Most recent major version only.
 
 Contact one of the maintainers directly:
 
-- [@Burgestrand](https://github.com/Burgestrand)
-- [@dgmstuart](https://github.com/dgmstuart)
-- [@varvet](https://github.com/varvet)
+* [@Burgestrand](https://github.com/Burgestrand)
+* [@dgmstuart](https://github.com/dgmstuart)
+* [@varvet](https://github.com/varvet)
 
 You can report vulnerabilities on GitHub too: https://github.com/varvet/pundit/security
 

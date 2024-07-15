@@ -1,0 +1,60 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container container-fluid">
+      <a class="navbar-brand" href="#">CaféCierge</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <% if user_signed_in? %>
+            <% if current_user&.admin? %>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/dashboard">Admin Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/users">Manage Users</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/cafes">Manage Cafes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/reviews">Manage Reviews</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/comments">Manage Comments</a>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" href="/cafes/new">New Cafe</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/edit">Edit Profile</a>
+              </li>
+            <% end %>
+            <li class="nav-item">
+              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+        <form class="d-flex" action="/search" method="get">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>

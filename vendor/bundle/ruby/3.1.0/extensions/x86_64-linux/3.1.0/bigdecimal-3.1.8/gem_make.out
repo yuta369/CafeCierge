@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.1.8/ext/bigdecimal
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240710-10960-m8rx4z.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-3hxqsi.rb extconf.rb
 checking for __builtin_clz()... yes
 checking for __builtin_clzl()... yes
 checking for __builtin_clzll()... yes
@@ -42,4 +42,4 @@ linking shared-object bigdecimal.so
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bigdecimal-3.1.8/ext/bigdecimal
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20240710-10960-xmonhk
+/usr/bin/install -c -m 0755 bigdecimal.so ./.gem.20240714-9040-y9hzgp

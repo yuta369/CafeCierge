@@ -6,13 +6,13 @@ instances, attribute hashes, and stubbed objects), and support for multiple
 factories for the same class (`user`, `admin_user`, and so on), including factory
 inheritance.
 
-### Transitioning from factory_girl_rails?
+### Transitioning from factory\_girl\_rails?
 
 Check out the [guide](https://github.com/thoughtbot/factory_bot/blob/4-9-0-stable/UPGRADE_FROM_FACTORY_GIRL.md).
 
 ## Rails
 
-factory_bot_rails provides Rails integration for [factory_bot][fb].
+factory\_bot\_rails provides Rails integration for [factory_bot][fb].
 
 Supported Rails versions are listed in [`Appraisals`](Appraisals). Supported
 Ruby versions are listed in [`.github/workflows/build.yml`](.github/workflows/build.yml).
@@ -35,12 +35,12 @@ group :development, :test do
 end
 ```
 
-You may want to configure your test suite to include factory_bot methods; see
+You may want to configure your test suite to include factory\_bot methods; see
 [configuration](https://github.com/thoughtbot/factory_bot/blob/main/GETTING_STARTED.md#configure-your-test-suite).
 
 ### Automatic Factory Definition Loading
 
-By default, factory_bot_rails will automatically load factories
+By default, factory\_bot\_rails will automatically load factories
 defined in the following locations,
 relative to the root of the Rails project:
 
@@ -60,7 +60,7 @@ appropriate environment configuration in `config/environments`:
 config.factory_bot.definition_file_paths = ["custom/factories"]
 ```
 
-This will cause factory_bot_rails to automatically load factories in
+This will cause factory\_bot\_rails to automatically load factories in
 `custom/factories.rb` and `custom/factories/*.rb`.
 
 It is possible to use this setting to share factories from a gem:
@@ -86,9 +86,9 @@ config.factory_bot.definition_file_paths = []
 
 ### Generators
 
-Including factory_bot_rails in the development group of your Gemfile
+Including factory\_bot\_rails in the development group of your Gemfile
 will cause Rails to generate factories instead of fixtures.
-If you want to disable this feature, you can either move factory_bot_rails out
+If you want to disable this feature, you can either move factory\_bot\_rails out
 of the development group of your Gemfile, or add the following configuration:
 
 ```ruby
@@ -113,7 +113,7 @@ config.generators do |g|
 end
 ```
 
-Note that factory_bot_rails will not automatically load files in custom
+Note that factory\_bot\_rails will not automatically load files in custom
 locations unless you add them to `config.factory_bot.definition_file_paths` as
 well.
 
@@ -140,11 +140,11 @@ end
 To override the [default factory template][], define your own template in
 `lib/templates/factory_bot/model/factories.erb`. This template will have
 access to any methods available in `FactoryBot::Generators::ModelGenerator`.
-Note that factory_bot_rails will only use this custom template if you are
+Note that factory\_bot\_rails will only use this custom template if you are
 generating each factory in a separate file; it will have no effect if you are
 generating all of your factories in `test/factories.rb` or `spec/factories.rb`.
 
-Factory_bot_rails will add a custom generator:
+Factory\_bot\_rails will add a custom generator:
 
 ```shell
 rails generate factory_bot:model NAME [field:type field:type] [options]

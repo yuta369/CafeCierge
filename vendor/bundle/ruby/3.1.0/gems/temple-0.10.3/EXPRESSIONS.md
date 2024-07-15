@@ -1,4 +1,5 @@
-# Temple expression documentation
+Temple expression documentation
+===============================
 
 Temple uses S-expressions to represent the parsed template code. The S-expressions
 are passed from filter to filter until the generator. The generator transforms
@@ -7,7 +8,8 @@ the S-expression to a ruby code string. See the {file:README.md README} for an i
 In this document we documented all the expressions which are used by Temple. There is also
 a formal grammar which can validate expressions.
 
-## The Core Abstraction
+The Core Abstraction
+--------------------
 
 The core abstraction is what every template evetually should be compiled
 to. Currently it consists of six types:
@@ -37,14 +39,12 @@ Static indicates that the given string should be appended to the result.
 Example:
 
     [:static, "Hello World"]
-
 is the same as:
-\_buf << "Hello World"
+    _buf << "Hello World"
 
     [:static, "Hello \n World"]
-
 is the same as
-\_buf << "Hello\nWorld"
+    _buf << "Hello\nWorld"
 
 ### [:dynamic, ruby]
 
@@ -82,13 +82,13 @@ Example:
       [:static, "Some content"],
       [:capture, "foo", [:static, "More content"]],
       [:dynamic, "foo.downcase"]]
-
 is the same as:
-\_buf << "Some content"
-foo = "More content"
-\_buf << foo.downcase
+    _buf << "Some content"
+    foo = "More content"
+    _buf << foo.downcase
 
-## Control flow abstraction
+Control flow abstraction
+------------------------
 
 Control flow abstractions can be used to write common ruby control flow constructs.
 These expressions are compiled to [:code, ruby] by Temple::Filters::ControlFlow
@@ -101,13 +101,12 @@ Example:
      "1+1 == 2",
      [:static, "Yes"],
      [:static, "No"]]
-
 is the same as:
-if 1+1 == 2
-\_buf << "Yes"
-else
-\_buf << "No"
-end
+    if 1+1 == 2
+      _buf << "Yes"
+    else
+      _buf << "No"
+    end
 
 ### [:block, ruby, sexp]
 
@@ -116,11 +115,10 @@ Example:
     [:block,
      '10.times do',
      [:static, 'Hello']]
-
 is the same as:
-10.times do
-\_buf << 'Hello'
-end
+    10.times do
+      _buf << 'Hello'
+    end
 
 ### [:case, argument, [condition, sexp], [condition, sexp], ...]
 
@@ -131,16 +129,15 @@ Example:
      ["1",   "value is 1"],
      ["2",   "value is 2"],
      [:else, "don't know"]]
-
 is the same as:
-case value
-when 1
-\_buf << "value is 1"
-when 2
-\_buf << "value is 2"
-else
-\_buf << "don't know"
-end
+    case value
+    when 1
+      _buf << "value is 1"
+    when 2
+      _buf << "value is 2"
+    else
+      _buf << "don't know"
+    end
 
 ### [:cond, [condition, sexp], [condition, sexp], ...]
 
@@ -148,18 +145,18 @@ end
      ["a",   "a is true"],
      ["b",   "b is true"],
      [:else, "a and b are false"]]
-
 is the same as:
-case
-when a
-\_buf << "a is true"
-when b
-\_buf << "b is true"
-else
-\_buf << "a and b are false"
-end
+    case
+    when a
+      _buf << "a is true"
+    when b
+      _buf << "b is true"
+    else
+      _buf << "a and b are false"
+    end
 
-## Escape abstraction
+Escape abstraction
+------------------
 
 The Escape abstraction is processed by Temple::Filters::Escapable.
 
@@ -175,24 +172,23 @@ Example:
       [:dynamic, "code"],
       [:static, "<"],
       [:escape, false, [:static, ">"]]]]
-
 is transformed to
-[:multi,
-[:dynamic, 'escape_html(code)'],
-[:static, '&lt;'],
-[:static, '>']]
+    [:multi,
+     [:dynamic, 'escape_html(code)'],
+     [:static, '&lt;'],
+     [:static, '>']]
 
-## HTML abstraction
+HTML abstraction
+----------------
 
 The HTML abstraction is processed by the html filters (Temple::HTML::Fast and Temple::HTML::Pretty).
 
 ### [:html, :doctype, string]
 
 Example:
-[:html, :doctype, '5']
+    [:html, :doctype, '5']
 generates
-
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 Supported doctypes:
 
@@ -210,18 +206,16 @@ Supported doctypes:
 ### [:html, :comment, sexp]
 
 Example:
-[:html, :comment, [:static, 'comment']]
+    [:html, :comment, [:static, 'comment']]
 generates:
-
-<!--comment-->
+    <!--comment-->
 
 ### [:html, :condcomment, condition, sexp]
 
 Example:
-[:html, :condcomment, 'IE', [:static, 'comment']]
+    [:html, :condcomment, 'IE', [:static, 'comment']]
 generates:
-
-<!--[if IE]>comment<![endif]-->
+    <!--[if IE]>comment<![endif]-->
 
 ### [:html, :tag, identifier, attributes, optional-sexp]
 
@@ -230,10 +224,10 @@ the tag is closed (e.g. `<br/>` `<img/>`). The tag is also closed if the content
 (consists only of :multi and :newline expressions) and the tag is registered as auto-closing.
 
 Example:
-[:html, :tag, 'img', [:html, :attrs, [:html, :attr, 'src', 'image.png']]]
-[:html, :tag, 'p', [:multi], [:static, 'Content']]
+    [:html, :tag, 'img', [:html, :attrs, [:html, :attr, 'src', 'image.png']]]
+    [:html, :tag, 'p', [:multi], [:static, 'Content']]
 generates:
-
+    
     <img src="image.png"/>
     <p>Content</p>
 
@@ -249,7 +243,8 @@ HTML attribute abstraction. Identifier can be a String or a Symbol.
 
 HTML javascript abstraction which wraps the js code in a HTML comment or CDATA depending on document format.
 
-## Formal grammar
+Formal grammar
+--------------
 
 Validate expressions with Temple::Grammar.match? and Temple::Grammar.validate!
 
@@ -257,11 +252,11 @@ Validate expressions with Temple::Grammar.match? and Temple::Grammar.validate!
     Temple::Grammar.validate! [:multi, 'Invalid Temple Expression']
 
 The formal grammar is given in a Ruby DSL similar to EBNF and should be easy to understand if you know EBNF. Repeated tokens
-are given by appending ?, \* or + as in regular expressions.
+are given by appending ?, * or + as in regular expressions.
 
-- ? means zero or one occurence
-- \* means zero or more occurences
-- \+ means one or more occurences
+* ? means zero or one occurence
+* \* means zero or more occurences
+* \+ means one or more occurences
 
 <!-- Find a better way to include the grammar -->
 <script src="http://gist-it.appspot.com/github/judofyr/temple/raw/master/lib/temple/grammar.rb"></script>

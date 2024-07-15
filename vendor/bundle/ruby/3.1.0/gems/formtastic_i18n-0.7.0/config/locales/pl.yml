@@ -2,3 +2,4 @@ pl:
   formtastic:
     :update: "Aktualizuj %{model}"
     :create: "Utwórz %{model}"
+

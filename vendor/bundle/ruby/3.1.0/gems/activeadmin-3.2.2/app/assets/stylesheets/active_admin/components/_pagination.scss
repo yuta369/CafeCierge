@@ -15,8 +15,7 @@
     @include default-button;
   }
 
-  a,
-  span.page.current {
+  a, span.page.current {
     @include rounded(0px);
     margin-right: 4px;
     padding: 2px 5px;
@@ -27,9 +26,7 @@
   float: right;
   margin-bottom: 5px;
   color: #b3bcc1;
-  b {
-    color: #5c6469;
-  }
+  b { color: #5c6469; }
 }
 
 .download_links {

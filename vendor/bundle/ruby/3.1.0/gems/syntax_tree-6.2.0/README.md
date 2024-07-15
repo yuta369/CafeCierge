@@ -33,10 +33,10 @@ It is built with only standard library dependencies. It additionally ships with 
   - [SyntaxTree.index(source)](#syntaxtreeindexsource)
 - [Nodes](#nodes)
   - [child_nodes](#child_nodes)
-  - [copy(\*\*attrs)](#copyattrs)
+  - [copy(**attrs)](#copyattrs)
   - [Pattern matching](#pattern-matching)
   - [pretty_print(q)](#pretty_printq)
-  - [to_json(\*opts)](#to_jsonopts)
+  - [to_json(*opts)](#to_jsonopts)
   - [format(q)](#formatq)
   - [===(other)](#other)
   - [construct_keys](#construct_keys)
@@ -394,7 +394,7 @@ program.child_nodes.first.child_nodes.first
 # => (binary (int "1") :+ (int "1"))
 ```
 
-### copy(\*\*attrs)
+### copy(**attrs)
 
 This method returns a copy of the node, with the given attributes replaced.
 
@@ -437,7 +437,7 @@ pp SyntaxTree.parse("1 + 1")
 # (program (statements (binary (int "1") + (int "1"))))
 ```
 
-### to_json(\*opts)
+### to_json(*opts)
 
 Every node responds to the `to_json` Ruby interface, which makes it usable by the `json` library. Much like `pretty_print`, you could use this API manually, but it's mostly used by `JSON` to dump the nodes to a serialized format. For example:
 
@@ -520,10 +520,10 @@ visitor.visit(SyntaxTree.parse("1 + 1"))
 
 With visitors, you only define handlers for the nodes that you need. You can find the names of the methods that you will need to define within the base visitor, as they're all aliased to the default behavior (visiting the child nodes). Note that when you define a handler for a node, you have to tell Syntax Tree how to walk further. In the example above, we don't need to go any further because we already know the child nodes are `SyntaxTree::Int`, so they can't possibly contain more `SyntaxTree::Binary` nodes. In other circumstances you may not know though, so you can either:
 
-- call `super` (which will do the default and visit all child nodes)
-- call `visit_child_nodes` manually
-- call `visit(child)` with each child that you want to visit
-- call nothing if you're sure you don't want to descend further
+* call `super` (which will do the default and visit all child nodes)
+* call `visit_child_nodes` manually
+* call `visit(child)` with each child that you want to visit
+* call nothing if you're sure you don't want to descend further
 
 There are a couple of visitors that ship with Syntax Tree that can be used as examples. They live in the [lib/syntax_tree](lib/syntax_tree) directory.
 
@@ -708,9 +708,9 @@ You can register additional customization that can flow through the same CLI wit
 
 To register plugins, define a file somewhere in your load path named `syntax_tree/my_plugin`. Then when invoking the CLI, you will pass `--plugins=my_plugin`. To require multiple, separate them by a comma. In this way, you can modify Syntax Tree however you would like. Some plugins ship with Syntax Tree itself. They are:
 
-- `plugin/single_quotes` - This will change all of your string literals to use single quotes instead of the default double quotes.
-- `plugin/trailing_comma` - This will put trailing commas into multiline array literals, hash literals, and method calls that can support trailing commas.
-- `plugin/disable_auto_ternary` - This will prevent the automatic conversion of `if ... else` to ternary expressions.
+* `plugin/single_quotes` - This will change all of your string literals to use single quotes instead of the default double quotes.
+* `plugin/trailing_comma` - This will put trailing commas into multiline array literals, hash literals, and method calls that can support trailing commas.
+* `plugin/disable_auto_ternary` - This will prevent the automatic conversion of `if ... else` to ternary expressions.
 
 If you're using Syntax Tree as a library, you can require those files directly or manually pass those options to the formatter initializer through the `SyntaxTree::Formatter::Options` class.
 
@@ -724,18 +724,18 @@ SyntaxTree.register_handler(".mylang", MyLanguage)
 
 In this case, whenever the CLI encounters a filepath that ends with the given extension, it will invoke methods on `MyLanguage` instead of `SyntaxTree` itself. To make sure your object conforms to each of the necessary APIs, it should implement:
 
-- `MyLanguage.read(filepath)` - usually this is just an alias to `File.read(filepath)`, but if you need anything else that hook is here.
-- `MyLanguage.parse(source)` - this should return the syntax tree corresponding to the given source. Those objects should implement the `pretty_print` interface.
-- `MyLanguage.format(source)` - this should return the formatted version of the given source.
+* `MyLanguage.read(filepath)` - usually this is just an alias to `File.read(filepath)`, but if you need anything else that hook is here.
+* `MyLanguage.parse(source)` - this should return the syntax tree corresponding to the given source. Those objects should implement the `pretty_print` interface.
+* `MyLanguage.format(source)` - this should return the formatted version of the given source.
 
 Below are listed all of the "official" language plugins hosted under the same GitHub organization, which can be used as references for how to implement other plugins.
 
-- [bf](https://github.com/ruby-syntax-tree/syntax_tree-bf) for the [brainf\*\*\* language](https://esolangs.org/wiki/Brainfuck).
-- [css](https://github.com/ruby-syntax-tree/syntax_tree-css) for the [CSS stylesheet language](https://www.w3.org/Style/CSS/).
-- [haml](https://github.com/ruby-syntax-tree/syntax_tree-haml) for the [Haml template language](https://haml.info/).
-- [json](https://github.com/ruby-syntax-tree/syntax_tree-json) for the [JSON notation language](https://www.json.org/).
-- [rbs](https://github.com/ruby-syntax-tree/syntax_tree-rbs) for the [RBS type language](https://github.com/ruby/rbs).
-- [xml](https://github.com/ruby-syntax-tree/syntax_tree-xml) for the [XML markup language](https://www.w3.org/XML/).
+* [bf](https://github.com/ruby-syntax-tree/syntax_tree-bf) for the [brainf*** language](https://esolangs.org/wiki/Brainfuck).
+* [css](https://github.com/ruby-syntax-tree/syntax_tree-css) for the [CSS stylesheet language](https://www.w3.org/Style/CSS/).
+* [haml](https://github.com/ruby-syntax-tree/syntax_tree-haml) for the [Haml template language](https://haml.info/).
+* [json](https://github.com/ruby-syntax-tree/syntax_tree-json) for the [JSON notation language](https://www.json.org/).
+* [rbs](https://github.com/ruby-syntax-tree/syntax_tree-rbs) for the [RBS type language](https://github.com/ruby/rbs).
+* [xml](https://github.com/ruby-syntax-tree/syntax_tree-xml) for the [XML markup language](https://www.w3.org/XML/).
 
 ## Integration
 
@@ -813,10 +813,10 @@ inherit_gem:
 
 ### Editors
 
-- [Neovim](https://neovim.io/) - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
-- [Vim](https://www.vim.org/) - [dense-analysis/ale](https://github.com/dense-analysis/ale).
-- [VSCode](https://code.visualstudio.com/) - [ruby-syntax-tree/vscode-syntax-tree](https://github.com/ruby-syntax-tree/vscode-syntax-tree).
-- [Emacs](https://www.gnu.org/software/emacs/) - [emacs-format-all-the-code](https://github.com/lassik/emacs-format-all-the-code).
+* [Neovim](https://neovim.io/) - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig).
+* [Vim](https://www.vim.org/) - [dense-analysis/ale](https://github.com/dense-analysis/ale).
+* [VSCode](https://code.visualstudio.com/) - [ruby-syntax-tree/vscode-syntax-tree](https://github.com/ruby-syntax-tree/vscode-syntax-tree).
+* [Emacs](https://www.gnu.org/software/emacs/) - [emacs-format-all-the-code](https://github.com/lassik/emacs-format-all-the-code).
 
 ## Contributing
 

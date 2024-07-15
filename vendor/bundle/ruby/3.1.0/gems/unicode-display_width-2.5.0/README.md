@@ -4,7 +4,7 @@ Determines the monospace display width of a string in Ruby. Useful for all kinds
 
 Unicode version: **15.1.0** (September 2023)
 
-Supported Rubies: **3.2**, **3.1**, **3.0**, **2.7**
+Supported Rubies: **3.2**,  **3.1**, **3.0**, **2.7**
 
 Old Rubies which might still work: **2.6**, **2.5**, **2.4**
 
@@ -43,21 +43,21 @@ Guessing the correct space a character will consume on terminals is not easy. Th
 
 Further at the top means higher precedence. Please expect changes to this algorithm with every MINOR version update (the X in 1.X.0)!
 
-| Width  | Characters                                                                                                                           | Comment                                                                                                                                       |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| X      | (user defined)                                                                                                                       | Overwrites any other values                                                                                                                   |
-| -1     | `"\b"`                                                                                                                               | Backspace (total width never below 0)                                                                                                         |
-| 0      | `"\0"`, `"\x05"`, `"\a"`, `"\n"`, `"\v"`, `"\f"`, `"\r"`, `"\x0E"`, `"\x0F"`                                                         | [C0 control codes](https://en.wikipedia.org/wiki/C0_and_C1_control_codes#C0_.28ASCII_and_derivatives.29) which do not change horizontal width |
-| 1      | `"\u{00AD}"`                                                                                                                         | SOFT HYPHEN                                                                                                                                   |
-| 2      | `"\u{2E3A}"`                                                                                                                         | TWO-EM DASH                                                                                                                                   |
-| 3      | `"\u{2E3B}"`                                                                                                                         | THREE-EM DASH                                                                                                                                 |
-| 0      | General Categories: Mn, Me, Cf (non-arabic)                                                                                          | Excludes ARABIC format characters                                                                                                             |
-| 0      | `"\u{1160}".."\u{11FF}"`, `"\u{D7B0}".."\u{D7FF}"`                                                                                   | HANGUL JUNGSEONG                                                                                                                              |
-| 0      | `"\u{2060}".."\u{206F}"`, `"\u{FFF0}".."\u{FFF8}"`, `"\u{E0000}".."\u{E0FFF}"`                                                       | Ignorable ranges                                                                                                                              |
-| 2      | East Asian Width: F, W                                                                                                               | Full-width characters                                                                                                                         |
-| 2      | `"\u{3400}".."\u{4DBF}"`, `"\u{4E00}".."\u{9FFF}"`, `"\u{F900}".."\u{FAFF}"`, `"\u{20000}".."\u{2FFFD}"`, `"\u{30000}".."\u{3FFFD}"` | Full-width ranges                                                                                                                             |
-| 1 or 2 | East Asian Width: A                                                                                                                  | Ambiguous characters, user defined, default: 1                                                                                                |
-| 1      | All other codepoints                                                                                                                 | -                                                                                                                                             |
+Width  | Characters                   | Comment
+-------|------------------------------|--------------------------------------------------
+X      | (user defined)               | Overwrites any other values
+-1     | `"\b"`                       | Backspace (total width never below 0)
+0      | `"\0"`, `"\x05"`, `"\a"`, `"\n"`, `"\v"`, `"\f"`, `"\r"`, `"\x0E"`, `"\x0F"` | [C0 control codes](https://en.wikipedia.org/wiki/C0_and_C1_control_codes#C0_.28ASCII_and_derivatives.29) which do not change horizontal width
+1      | `"\u{00AD}"`                 | SOFT HYPHEN
+2      | `"\u{2E3A}"`                 | TWO-EM DASH
+3      | `"\u{2E3B}"`                 | THREE-EM DASH
+0      | General Categories: Mn, Me, Cf (non-arabic) | Excludes ARABIC format characters
+0      | `"\u{1160}".."\u{11FF}"`, `"\u{D7B0}".."\u{D7FF}"`     | HANGUL JUNGSEONG
+0      | `"\u{2060}".."\u{206F}"`, `"\u{FFF0}".."\u{FFF8}"`, `"\u{E0000}".."\u{E0FFF}"` | Ignorable ranges
+2      | East Asian Width: F, W       | Full-width characters
+2      | `"\u{3400}".."\u{4DBF}"`, `"\u{4E00}".."\u{9FFF}"`, `"\u{F900}".."\u{FAFF}"`, `"\u{20000}".."\u{2FFFD}"`, `"\u{30000}".."\u{3FFFD}"` | Full-width ranges
+1 or 2 | East Asian Width: A          | Ambiguous characters, user defined, default: 1
+1      | All other codepoints         | -
 
 ## Install
 
@@ -98,6 +98,7 @@ Unicode::DisplayWidth.of("a\tb", 1, "\t".ord => 10)) # => tab counted as 10, so 
 ```
 
 Please note that using overwrites disables some perfomance optimizations of this gem.
+
 
 #### Emoji Support
 
@@ -150,7 +151,6 @@ Use this one-liner to print out display widths for strings from the command-line
 $ gem install unicode-display_width
 $ ruby -r unicode/display_width -e 'puts Unicode::DisplayWidth.of $*[0]' -- "一"
 ```
-
 Replace "一" with the actual string to measure
 
 ## Other Implementations & Discussion
@@ -166,6 +166,6 @@ See [unicode-x](https://github.com/janlelis/unicode-x) for more Unicode related 
 ## Copyright & Info
 
 - Copyright (c) 2011, 2015-2023 Jan Lelis, https://janlelis.com, released under the MIT
-  license
+license
 - Early versions based on runpaint's unicode-data interface: Copyright (c) 2009 Run Paint Run Run
 - Unicode data: https://www.unicode.org/copyright.html#Exhibit1

@@ -1,4 +1,4 @@
-import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from "./utils";
+import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from './utils';
 
 class PerPage {
   constructor(element) {
@@ -6,9 +6,10 @@ class PerPage {
   }
 
   update() {
-    const params = queryStringToParams().filter(({ name }) => name != "per_page" || name != "page");
+    const params = queryStringToParams()
+      .filter(({name}) => name != 'per_page' || name != 'page')
 
-    params.push({ name: "per_page", value: this.element.value });
+    params.push({ name: 'per_page', value: this.element.value });
 
     if (hasTurbolinks()) {
       turbolinksVisit(params);
@@ -19,18 +20,18 @@ class PerPage {
 
   static _jQueryInterface(config) {
     return this.each(function () {
-      const $this = $(this);
-      let data = $this.data("perPage");
+      const $this = $(this)
+      let data = $this.data('perPage')
 
       if (!data) {
-        data = new PerPage(this);
-        $this.data("perPage", data);
+        data = new PerPage(this)
+        $this.data('perPage', data)
       }
 
-      if (config === "update") {
-        data[config]();
+      if (config === 'update') {
+        data[config]()
       }
-    });
+    })
   }
 }
 

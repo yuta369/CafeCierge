@@ -11,7 +11,6 @@ INFO: This README refers to **Simple Form** 5.0. For older releases, check the r
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 ## Table of Contents
 
 - [Installation](#installation)
@@ -199,7 +198,7 @@ any html attribute to that wrapper as well using the `:wrapper_html` option, lik
 <% end %>
 ```
 
-Required fields are marked with an \* prepended to their labels.
+Required fields are marked with an * prepended to their labels.
 
 By default all inputs are required. When the form object includes `ActiveModel::Validations`
 (which, for example, happens with Active Record models), fields are required only when there is `presence` validation.
@@ -236,7 +235,7 @@ for a complete list of defaults.
 <% end %>
 ```
 
-So instead of a checkbox for the _accepts_ attribute, you'll have a pair of radio buttons with yes/no
+So instead of a checkbox for the *accepts* attribute, you'll have a pair of radio buttons with yes/no
 labels and a textarea instead of a text field for the description. You can also render boolean
 attributes using `as: :select` to show a dropdown.
 
@@ -308,10 +307,10 @@ end
 ```html
 <form>
   ...
-  <input class="string required" id="user_name" maxlength="255" name="user[name]" size="255" type="text" />
-  <input name="user[remember_me]" type="hidden" value="0" />
+  <input class="string required" id="user_name" maxlength="255" name="user[name]" size="255" type="text">
+  <input name="user[remember_me]" type="hidden" value="0">
   <label class="checkbox">
-    <input class="boolean optional" id="user_published" name="user[remember_me]" type="checkbox" value="1" />
+    <input class="boolean optional" id="user_published" name="user[remember_me]" type="checkbox" value="1">
   </label>
 </form>
 ```
@@ -330,9 +329,9 @@ end
 ```html
 <form>
   ...
-  <input class="string required" id="user_name" maxlength="255" name="user[name]" size="255" type="text" />
-  <input name="user[remember_me]" type="hidden" value="0" />
-  <input class="boolean optional" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" />
+  <input class="string required" id="user_name" maxlength="255" name="user[name]" size="255" type="text">
+  <input name="user[remember_me]" type="hidden" value="0">
+  <input class="boolean optional" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1">
 </form>
 ```
 
@@ -358,10 +357,10 @@ helpers (read Extra Helpers section below for more information).
 
 Collection inputs accept two other options beside collections:
 
-- _label_method_ => the label method to be applied to the collection to retrieve the label (use this
+* *label_method* => the label method to be applied to the collection to retrieve the label (use this
   instead of the `text_method` option in `collection_select`)
 
-- _value_method_ => the value method to be applied to the collection to retrieve the value
+* *value_method* => the value method to be applied to the collection to retrieve the value
 
 Those methods are useful to manipulate the given collection. Both of these options also accept
 lambda/procs in case you want to calculate the value or label in a special way eg. custom
@@ -385,7 +384,7 @@ f.input :age, collection: 18..60, prompt: "Select your age", selected: 21
 
 It may also be useful to explicitly pass a value to the optional `:selected` like above, especially if passing a collection of nested objects.
 
-It is also possible to create grouped collection selects, that will use the html _optgroup_ tags, like this:
+It is also possible to create grouped collection selects, that will use the html *optgroup* tags, like this:
 
 ```ruby
 f.input :country_id, collection: @continents, as: :grouped_select, group_method: :countries
@@ -394,10 +393,10 @@ f.input :country_id, collection: @continents, as: :grouped_select, group_method:
 Grouped collection inputs accept the same `:label_method` and `:value_method` options, which will be
 used to retrieve label/value attributes for the `option` tags. Besides that, you can give:
 
-- _group_method_ => the method to be called on the given collection to generate the options for
+* *group_method* => the method to be called on the given collection to generate the options for
   each group (required)
 
-- _group_label_method_ => the label method to be applied on the given collection to retrieve the label
+* *group_label_method* => the label method to be applied on the given collection to retrieve the label
   for the _optgroup_ (**Simple Form** will attempt to guess the best one the same way it does with
   `:label_method`)
 
@@ -597,36 +596,36 @@ The following table shows the html element you will get for each attribute
 according to its database definition. These defaults can be changed by
 specifying the helper method in the column `Mapping` as the `as:` option.
 
-| Mapping         | Generated HTML Element               | Database Column Type                                           |
-| --------------- | ------------------------------------ | -------------------------------------------------------------- |
-| `boolean`       | `input[type=checkbox]`               | `boolean`                                                      |
-| `string`        | `input[type=text]`                   | `string`                                                       |
-| `citext`        | `input[type=text]`                   | `citext`                                                       |
-| `email`         | `input[type=email]`                  | `string` with `name =~ /email/`                                |
-| `url`           | `input[type=url]`                    | `string` with `name =~ /url/`                                  |
-| `tel`           | `input[type=tel]`                    | `string` with `name =~ /phone/`                                |
-| `password`      | `input[type=password]`               | `string` with `name =~ /password/`                             |
-| `search`        | `input[type=search]`                 | -                                                              |
-| `uuid`          | `input[type=text]`                   | `uuid`                                                         |
-| `color`         | `input[type=color]`                  | `string`                                                       |
-| `text`          | `textarea`                           | `text`                                                         |
-| `hstore`        | `textarea`                           | `hstore`                                                       |
-| `json`          | `textarea`                           | `json`                                                         |
-| `jsonb`         | `textarea`                           | `jsonb`                                                        |
-| `file`          | `input[type=file]`                   | `string` responding to file methods                            |
-| `hidden`        | `input[type=hidden]`                 | -                                                              |
-| `integer`       | `input[type=number]`                 | `integer`                                                      |
-| `float`         | `input[type=number]`                 | `float`                                                        |
-| `decimal`       | `input[type=number]`                 | `decimal`                                                      |
-| `range`         | `input[type=range]`                  | -                                                              |
-| `datetime`      | `datetime select`                    | `datetime/timestamp`                                           |
-| `date`          | `date select`                        | `date`                                                         |
-| `time`          | `time select`                        | `time`                                                         |
-| `select`        | `select`                             | `belongs_to`/`has_many`/`has_and_belongs_to_many` associations |
-| `radio_buttons` | collection of `input[type=radio]`    | `belongs_to` associations                                      |
-| `check_boxes`   | collection of `input[type=checkbox]` | `has_many`/`has_and_belongs_to_many` associations              |
-| `country`       | `select` (countries as options)      | `string` with `name =~ /country/`                              |
-| `time_zone`     | `select` (timezones as options)      | `string` with `name =~ /time_zone/`                            |
+Mapping         | Generated HTML Element               | Database Column Type
+--------------- |--------------------------------------|---------------------
+`boolean`       | `input[type=checkbox]`               | `boolean`
+`string`        | `input[type=text]`                   | `string`
+`citext`        | `input[type=text]`                   | `citext`
+`email`         | `input[type=email]`                  | `string` with `name =~ /email/`
+`url`           | `input[type=url]`                    | `string` with `name =~ /url/`
+`tel`           | `input[type=tel]`                    | `string` with `name =~ /phone/`
+`password`      | `input[type=password]`               | `string` with `name =~ /password/`
+`search`        | `input[type=search]`                 | -
+`uuid`          | `input[type=text]`                   | `uuid`
+`color`         | `input[type=color]`                  | `string`
+`text`          | `textarea`                           | `text`
+`hstore`        | `textarea`                           | `hstore`
+`json`          | `textarea`                           | `json`
+`jsonb`         | `textarea`                           | `jsonb`
+`file`          | `input[type=file]`                   | `string` responding to file methods
+`hidden`        | `input[type=hidden]`                 | -
+`integer`       | `input[type=number]`                 | `integer`
+`float`         | `input[type=number]`                 | `float`
+`decimal`       | `input[type=number]`                 | `decimal`
+`range`         | `input[type=range]`                  | -
+`datetime`      | `datetime select`                    | `datetime/timestamp`
+`date`          | `date select`                        | `date`
+`time`          | `time select`                        | `time`
+`select`        | `select`                             | `belongs_to`/`has_many`/`has_and_belongs_to_many` associations
+`radio_buttons` | collection of `input[type=radio]`    | `belongs_to` associations
+`check_boxes`   | collection of `input[type=checkbox]` | `has_many`/`has_and_belongs_to_many` associations
+`country`       | `select` (countries as options)      | `string` with `name =~ /country/`
+`time_zone`     | `select` (timezones as options)      | `string` with `name =~ /time_zone/`
 
 ## Custom inputs
 
@@ -649,7 +648,6 @@ And use it in your views:
 ```ruby
 f.input :money, as: :currency
 ```
-
 Note, you may have to create the `app/inputs/` directory and restart your webserver.
 
 You can also redefine existing **Simple Form** inputs by creating a new class with the same name. For
@@ -730,22 +728,22 @@ en:
   simple_form:
     labels:
       user:
-        username: "User name"
-        password: "Password"
+        username: 'User name'
+        password: 'Password'
     hints:
       user:
-        username: "User name to sign in."
-        password: "No special characters, please."
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
     placeholders:
       user:
-        username: "Your username"
-        password: "****"
+        username: 'Your username'
+        password: '****'
     include_blanks:
       user:
-        age: "Rather not say"
+        age: 'Rather not say'
     prompts:
       user:
-        role: "Select your role"
+        role: 'Select your role'
 ```
 
 And your forms will use this information to render the components for you.
@@ -759,11 +757,11 @@ en:
   simple_form:
     labels:
       user:
-        username: "User name"
-        password: "Password"
+        username: 'User name'
+        password: 'Password'
         edit:
-          username: "Change user name"
-          password: "Change password"
+          username: 'Change user name'
+          password: 'Change password'
 ```
 
 This way **Simple Form** will figure out the right translation for you, based on the action being
@@ -775,18 +773,18 @@ en:
   simple_form:
     labels:
       defaults:
-        username: "User name"
-        password: "Password"
+        username: 'User name'
+        password: 'Password'
         new:
-          username: "Choose a user name"
+          username: 'Choose a user name'
     hints:
       defaults:
-        username: "User name to sign in."
-        password: "No special characters, please."
+        username: 'User name to sign in.'
+        password: 'No special characters, please.'
     placeholders:
       defaults:
-        username: "Your username"
-        password: "****"
+        username: 'Your username'
+        password: '****'
 ```
 
 **Simple Form** will always look for a default attribute translation under the "defaults" key if no
@@ -820,8 +818,8 @@ en:
     options:
       user:
         role:
-          admin: "Administrator"
-          editor: "Editor"
+          admin: 'Administrator'
+          editor: 'Editor'
 ```
 
 You can also use the `defaults` key as you would do with labels, hints and placeholders. It is
@@ -851,10 +849,10 @@ how translations for namespaced model and attribute names are defined:
 en:
   activerecord:
     models:
-      admin/user: User
+        admin/user: User
     attributes:
-      admin/user:
-        name: Name
+        admin/user:
+            name: Name
 ```
 
 They should be placed under `admin/user`. Form labels, hints and placeholders for those attributes,
@@ -864,8 +862,8 @@ though, should be placed under `admin_user`:
 en:
   simple_form:
     labels:
-      admin_user:
-        name: Name
+        admin_user:
+            name: Name
 ```
 
 This difference exists because **Simple Form** relies on `object_name` provided by Rails'
@@ -881,13 +879,13 @@ en:
   simple_form:
     labels:
       posts:
-        title: "Post title"
+        title: 'Post title'
     hints:
       posts:
-        title: "A good title"
+        title: 'A good title'
     placeholders:
       posts:
-        title: "Once upon a time..."
+        title: 'Once upon a time...'
 ```
 
 ## Configuration
@@ -1086,7 +1084,7 @@ A cleaner method to create your views would be:
 To use the number option on the input, first, tells to Simple Form the place where the components
 will be:
 
-```ruby
+``` ruby
 # config/initializers/simple_form.rb
 Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
 ```
@@ -1286,9 +1284,9 @@ If you have discovered a security related bug, please do NOT use the GitHub issu
 
 ## Maintainers
 
-- Carlos Antonio da Silva (https://github.com/carlosantoniodasilva)
-- Rafael Mendonça França (https://github.com/rafaelfranca)
-- Felipe Renan (https://github.com/feliperenan)
+* Carlos Antonio da Silva (https://github.com/carlosantoniodasilva)
+* Rafael Mendonça França (https://github.com/rafaelfranca)
+* Felipe Renan (https://github.com/feliperenan)
 
 [![Gem Version](https://fury-badge.herokuapp.com/rb/simple_form.png)](http://badge.fury.io/rb/simple_form)
 [![Inline docs](http://inch-ci.org/github/heartcombo/simple_form.png)](http://inch-ci.org/github/heartcombo/simple_form)

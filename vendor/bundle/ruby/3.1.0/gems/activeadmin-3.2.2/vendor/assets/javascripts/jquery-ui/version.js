@@ -1,17 +1,20 @@
-(function (factory) {
-  "use strict";
+( function( factory ) {
+	"use strict";
 
-  if (typeof define === "function" && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(["jquery"], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-})(function ($) {
-  "use strict";
+	if ( typeof define === "function" && define.amd ) {
 
-  $.ui = $.ui || {};
+		// AMD. Register as an anonymous module.
+		define( [ "jquery" ], factory );
+	} else {
 
-  return ($.ui.version = "1.13.3");
-});
+		// Browser globals
+		factory( jQuery );
+	}
+} )( function( $ ) {
+"use strict";
+
+$.ui = $.ui || {};
+
+return $.ui.version = "1.13.3";
+
+} );

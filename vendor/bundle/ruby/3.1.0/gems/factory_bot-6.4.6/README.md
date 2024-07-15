@@ -7,24 +7,28 @@ If you want to use factory_bot with Rails, see
 
 _[Interested in the history of the project name?][NAME]_
 
-### Transitioning from factory_girl?
+
+### Transitioning from factory\_girl?
 
 Check out the [guide](https://github.com/thoughtbot/factory_bot/blob/4-9-0-stable/UPGRADE_FROM_FACTORY_GIRL.md).
 
-## Documentation
+
+Documentation
+-------------
 
 See our extensive reference, guides, and cookbook in [the factory_bot book][].
 
 For information on integrations with third party libraries, such as RSpec or
 Rails, see [the factory_bot wiki][].
 
-We also have [a detailed introductory video][], available for free on Upcase.
+ We also have [a detailed introductory video][], available for free on Upcase.
 
 [a detailed introductory video]: https://upcase.com/videos/factory-bot?utm_source=github&utm_medium=open-source&utm_campaign=factory-girl
 [the factory_bot book]: https://thoughtbot.github.io/factory_bot
 [the factory_bot wiki]: https://github.com/thoughtbot/factory_bot/wiki
 
-## Install
+Install
+--------
 
 Run:
 
@@ -38,25 +42,29 @@ To install the gem manually from your shell, run:
 gem install factory_bot
 ```
 
-## Supported Ruby versions
+Supported Ruby versions
+-----------------------
 
 Supported Ruby versions are listed in [`.github/workflows/build.yml`](https://github.com/thoughtbot/factory_bot/blob/main/.github/workflows/build.yml)
 
-## More Information
+More Information
+----------------
 
-- [Rubygems](https://rubygems.org/gems/factory_bot)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/factory-bot)
-- [Issues](https://github.com/thoughtbot/factory_bot/issues)
-- [GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS](https://robots.thoughtbot.com/)
+* [Rubygems](https://rubygems.org/gems/factory_bot)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/factory-bot)
+* [Issues](https://github.com/thoughtbot/factory_bot/issues)
+* [GIANT ROBOTS SMASHING INTO OTHER GIANT ROBOTS](https://robots.thoughtbot.com/)
 
 [GETTING_STARTED]: https://github.com/thoughtbot/factory_bot/blob/main/GETTING_STARTED.md
 [NAME]: https://github.com/thoughtbot/factory_bot/blob/main/NAME.md
 
-## Useful Tools
+Useful Tools
+------------
 
-- [FactoryTrace](https://github.com/djezzzl/factory_trace) - helps to find unused factories and traits.
+* [FactoryTrace](https://github.com/djezzzl/factory_trace) - helps to find unused factories and traits.
 
-## Contributing
+Contributing
+------------
 
 Please see [CONTRIBUTING.md](https://github.com/thoughtbot/factory_bot/blob/main/CONTRIBUTING.md).
 
@@ -64,7 +72,8 @@ factory_bot was originally written by Joe Ferris and is maintained by thoughtbot
 Many improvements and bugfixes were contributed by the [open source
 community](https://github.com/thoughtbot/factory_bot/graphs/contributors).
 
-## License
+License
+-------
 
 factory_bot is Copyright © 2008-2022 Joe Ferris and thoughtbot. It is free
 software, and may be redistributed under the terms specified in the
@@ -72,7 +81,9 @@ software, and may be redistributed under the terms specified in the
 
 [LICENSE]: https://github.com/thoughtbot/factory_bot/blob/main/LICENSE
 
-## About thoughtbot
+
+About thoughtbot
+----------------
 
 ![thoughtbot](https://thoughtbot.com/brand_assets/93:44.svg)
 

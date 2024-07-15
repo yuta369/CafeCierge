@@ -7,8 +7,8 @@
 
 Contains the classes needed by [RuboCop](https://github.com/rubocop/rubocop) to deal with Ruby's AST, in particular:
 
-- `RuboCop::AST::Node` ([doc](docs/modules/ROOT/pages/node_types.adoc))
-- `RuboCop::AST::NodePattern` ([doc](docs/modules/ROOT/pages/node_pattern.adoc))
+* `RuboCop::AST::Node` ([doc](docs/modules/ROOT/pages/node_types.adoc))
+* `RuboCop::AST::NodePattern` ([doc](docs/modules/ROOT/pages/node_pattern.adoc))
 
 This gem may be used independently from the main RuboCop gem. It was extracted from RuboCop in version 0.84 and its only
 dependency is the [parser](https://github.com/whitequark/parser) gem, which `rubocop-ast` extends.
@@ -36,9 +36,8 @@ See the [docs site](https://docs.rubocop.org/rubocop-ast) for more details.
 ### Parser compatibility switches
 
 This gem, by default, uses most [legacy AST output from parser](https://github.com/whitequark/parser/#usage), except for the following which are set to `true`:
-
-- `emit_forward_arg`
-- `emit_match_pattern`
+* `emit_forward_arg`
+* `emit_match_pattern`
 
 The main `RuboCop` gem uses these defaults (and is currently only compatible with these), but this gem can be used separately from `RuboCop` and is meant to be compatible with all settings. For example, to have `-> { ... }` emitted
 as `LambdaNode` instead of `SendNode`:

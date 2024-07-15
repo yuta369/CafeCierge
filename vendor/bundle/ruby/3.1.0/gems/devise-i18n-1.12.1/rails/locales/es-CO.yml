@@ -3,9 +3,9 @@ es-CO:
     attributes:
       user:
         confirmation_sent_at: Confirmación enviada a
-        confirmation_token: "Código de confirmación
+        confirmation_token: 'Código de confirmación
 
-          "
+          '
         confirmed_at: Confirmado en
         created_at: Creado en
         current_password: Contraseña actual
@@ -52,7 +52,7 @@ es-CO:
       confirmation_instructions:
         action: Confirmar mi cuenta
         greeting: "¡Bienvenido %{recipient}!"
-        instruction: "Puedes confirmar tu correo electrónico a través del siguiente enlace:"
+        instruction: 'Puedes confirmar tu correo electrónico a través del siguiente enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
@@ -73,7 +73,7 @@ es-CO:
       unlock_instructions:
         action: Desbloquear mi cuenta
         greeting: "¡Hola %{recipient}!"
-        instruction: "Haz click en el siguiente enlace para desbloquear tu cuenta:"
+        instruction: 'Haz click en el siguiente enlace para desbloquear tu cuenta:'
         message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos para iniciar sesión.
         subject: Instrucciones para desbloquear tu cuenta
     omniauth_callbacks:
@@ -98,7 +98,7 @@ es-CO:
       edit:
         are_you_sure: "¿Está usted seguro?"
         cancel_my_account: Eliminar mi cuenta
-        currently_waiting_confirmation_for_email: "Actualmente esperando la confirmación de: %{email}"
+        currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmación de: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarlo
         title: Editar %{resource}
         unhappy: No se encuentra feliz
@@ -145,5 +145,5 @@ es-CO:
       not_found: no se encontró
       not_locked: no se encuentra bloqueada
       not_saved:
-        one: "Un error ocurrió al tratar de guardar %{resource}:"
+        one: 'Un error ocurrió al tratar de guardar %{resource}:'
         other: "%{count} errores ocurrieron al tratar de guardar %{resource}:"

@@ -1,18 +1,18 @@
 class User < ApplicationRecord
   has_one_attached :profile_image
-  
+
   has_many :reviews
   has_many :comments
   has_many :favorites
   has_many :followed_users, through: :follows, source: :followee
   has_many :following_users, through: :follows, source: :follower
   has_many :reservations
-  
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :password, length: { minimum: 6 }, if: -> { new_record? || !password.nil? }
   validates :profile_image, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
-                            size: { less_than: 5.megabytes , message: 'is not given between size' }
+                            size: { less_than: 5.megabytes, message: 'is not given between size' }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -30,5 +30,16 @@ class User < ApplicationRecord
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
     end
+  end
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "Guest User"
+    end
+  end
+  
+  def admin?
+    role == 'admin'
   end
 end

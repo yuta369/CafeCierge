@@ -1,4 +1,5 @@
-# Ruby/ProgressBar
+Ruby/ProgressBar
+================================================================================
 
 <div align="center">
   <a href="https://rubygems.org/gems/ruby-progressbar" alt="RubyGems Version">
@@ -30,31 +31,33 @@
 
 <img src="https://kompanee-public-assets.s3.amazonaws.com/readmes/ruby-progressbar-cage.png" align="right" />
 
-The **ultimate** text progress bar library for Ruby! It'll **SMASH YOU OVER THE
+The **ultimate** text progress bar library for Ruby!  It'll **SMASH YOU OVER THE
 HEAD** with a **PURE RUSH** of progress bar excitement!
 
-Don't miss out on what all the kids are talking about! If you want everyone to
+Don't miss out on what all the kids are talking about!  If you want everyone to
 know that your gem or app can survive _in the cage_ then YOU WANT
 **RUBY-PROGRESSBAR**!
 
 <br>
 
-## It's Better Than The Other 186,312 Progress Bar Libraries Because
+It's Better Than The Other 186,312 Progress Bar Libraries Because
+--------------------------------------------------------------------------------
 
-- It has [stood the test of time][history] (2008-today)
+* It has [stood the test of time][history] (2008-today)
 
-- Full test suite
+* Full test suite
 
-- [_**ZERO**_ dependencies][gemspec]
+* [_**ZERO**_ dependencies][gemspec]
 
-- Used by [tons of other open source projects][dependencies] (which means we
+* Used by [tons of other open source projects][dependencies] (which means we
   find out about bugs quickly)
 
-- It's pretty [freakin' sweet](https://www.youtube.com/watch?v=On3IoVhf_GM)
+* It's pretty [freakin' sweet](https://www.youtube.com/watch?v=On3IoVhf_GM)
 
-- And most importantly... our awesome [contributors][contributors]
+* And most importantly... our awesome [contributors][contributors]
 
-## Basic Usage
+Basic Usage
+--------------------------------------------------------------------------------
 
 ### Creation
 
@@ -89,16 +92,19 @@ Progress: |===================================                                  
 
 ![Basic Usage Marking Progress](http://kompanee-public-assets.s3.amazonaws.com/readmes/ruby-progressbar-basic-usage-marking-progress-2.gif)
 
-## Full Reference
+Full Reference
+--------------------------------------------------------------------------------
 
-There's gotten to be too much awesome to pack into one page. Visit the
+There's gotten to be too much awesome to pack into one page.  Visit the
 [wiki][wiki] for the full documentation.
 
-## Issues
+Issues
+--------------------------------------------------------------------------------
 
 If you have problems, please create a [Github issue][issues].
 
-## Credits
+Credits
+--------------------------------------------------------------------------------
 
 ![The Kompanee][kompanee-logo]
 
@@ -106,19 +112,20 @@ ruby-progressbar is maintained by [The Kompanee, Ltd.][kompanee-site]
 
 The names and logos for The Kompanee are trademarks of The Kompanee, Ltd.
 
-## License
+License
+--------------------------------------------------------------------------------
 
 ruby-progressbar 1.0 is Copyright &copy; 2011-2021 The Kompanee. It is free
 software, and may be redistributed under the terms specified in the LICENSE
 file.
 ruby-progressbar 0.9.0 is Copyright &copy; 2008 [Satoru Takabayashi][satoru]
 
-[contributors]: https://github.com/jfelchner/ruby-progressbar/graphs/contributors
-[dependencies]: https://github.com/jfelchner/ruby-progressbar/network/dependents
-[gemspec]: https://github.com/jfelchner/ruby-progressbar/blob/master/ruby-progressbar.gemspec
-[history]: https://github.com/jfelchner/ruby-progressbar/wiki/History
-[issues]: https://github.com/jfelchner/ruby-progressbar/issues
+[contributors]:  https://github.com/jfelchner/ruby-progressbar/graphs/contributors
+[dependencies]:  https://github.com/jfelchner/ruby-progressbar/network/dependents
+[gemspec]:       https://github.com/jfelchner/ruby-progressbar/blob/master/ruby-progressbar.gemspec
+[history]:       https://github.com/jfelchner/ruby-progressbar/wiki/History
+[issues]:        https://github.com/jfelchner/ruby-progressbar/issues
 [kompanee-logo]: https://kompanee-public-assets.s3.amazonaws.com/readmes/kompanee-horizontal-black.png
 [kompanee-site]: http://www.thekompanee.com
-[satoru]: http://0xcc.net
-[wiki]: https://github.com/jfelchner/ruby-progressbar/wiki
+[satoru]:        http://0xcc.net
+[wiki]:          https://github.com/jfelchner/ruby-progressbar/wiki

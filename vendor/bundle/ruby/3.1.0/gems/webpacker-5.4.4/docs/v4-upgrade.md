@@ -1,5 +1,6 @@
 # Webpacker Upgrade Guide
 
+
 To update a Webpacker v3.5 app to v4, follow these steps:
 
 1. Update the `webpacker` gem and the `@rails/webpacker` package to v4. This will upgrade Webpack itself from 3.x to 4.x, make sure you're aware of [any deprecations which might effect you](https://webpack.js.org/migrate/4/). Also make sure any other packages you depend on support Webpack 4 and don't require any changes, e.g. if you explicitly include `webpack` you need to upgrade it to 4.x, and if you use `webpack-dev-server` you need to upgrade it to 3.x.
@@ -26,13 +27,13 @@ For the full configuration options of `splitChunks`, see the [Webpack documentat
 
 ```js
 // config/webpack/environment.js
-const WebpackAssetsManifest = require("webpack-assets-manifest");
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 // Enable the default config
-environment.splitChunks();
+environment.splitChunks()
 
 // or using custom config
-environment.splitChunks((config) => Object.assign({}, config, { optimization: { splitChunks: false } }));
+environment.splitChunks((config) => Object.assign({}, config, { optimization: { splitChunks: false }}))
 ```
 
 Then use the `javascript_packs_with_chunks_tag` and `stylesheet_packs_with_chunks_tag` helpers to include all the transpiled
@@ -76,19 +77,21 @@ some cases it can lead to issues. To avoid running `babel-loader` in the
 following code can be added to `config/webpack/environment.js`:
 
 ```javascript
-environment.loaders.delete("nodeModules");
+environment.loaders.delete('nodeModules')
 ```
 
 Alternatively, in order to skip only a specific library in the `node_modules`
 folder, this code can be added:
 
 ```javascript
-const nodeModulesLoader = environment.loaders.get("nodeModules");
+const nodeModulesLoader = environment.loaders.get('nodeModules')
 if (!Array.isArray(nodeModulesLoader.exclude)) {
-  nodeModulesLoader.exclude = nodeModulesLoader.exclude == null ? [] : [nodeModulesLoader.exclude];
+  nodeModulesLoader.exclude = (nodeModulesLoader.exclude == null)
+    ? []
+    : [nodeModulesLoader.exclude]
 }
-nodeModulesLoader.exclude.push(/some-library/); // replace `some-library` with
-// the actual path to exclude
+nodeModulesLoader.exclude.push(/some-library/) // replace `some-library` with
+                                               // the actual path to exclude
 ```
 
 ## Source Maps Enabled By Default
@@ -100,10 +103,10 @@ If you want to keep the old behavior source maps can be disabled in any environm
 ```js
 // config/webpack/production.js
 
-const environment = require("./environment");
-environment.config.merge({ devtool: false });
+const environment = require('./environment')
+environment.config.merge({ devtool: false })
 
-module.exports = environment.toWebpackConfig();
+module.exports = environment.toWebpackConfig()
 ```
 
 ## Namespaces
@@ -123,14 +126,14 @@ The compiled packs in the public directory are now stored under namespaces:
 ```
 
 ## Upgrading projects with custom Webpack setups that use only the view helpers
-
 The default value for `extract_css` is **false** in `config/webpack.yml`. Custom webpack builds that extract the CSS such as often used with [React on Rails](https://github.com/shakacode/react_on_rails) should set this value to true or else no CSS link tags are generated.
 
-```yml
-default: &default # other stuff
-  extract_css: true
-  # by default, extract and emit a css file. The default is false
-```
+  ```yml
+  default: &default
+     # other stuff
+     extract_css: true
+     # by default, extract and emit a css file. The default is false
+  ```
 
 ## Example Upgrades
 

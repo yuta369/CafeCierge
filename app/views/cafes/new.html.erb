@@ -1,2 +1,72 @@
-<h1>Cafes#new</h1>
-<p>Find me in app/views/cafes/new.html.erb</p>
+<%= simple_form_for @cafe, html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.label :name, "カフェ名" %>
+    <%= f.input :name, placeholder: "カフェの名前を入力", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address, "住所" %>
+    <%= f.input :address, placeholder: "カフェの正確な住所を入力", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :contact_info, "電話番号" %>
+    <%= f.input :contact_info, placeholder: "カフェの電話番号を入力", required: true %>
+    <%= f.label :website, "ウェブサイトURL" %>
+    <%= f.input :website, placeholder: "カフェの公式ウェブサイトのリンク" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :hours, "営業時間" %>
+    <%= f.input :hours, as: :text, placeholder: "例：月～金 8:00-18:00, 土日 10:00-20:00", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :category, "カテゴリー" %>
+    <%= f.input :category, as: :select, collection: ["コーヒー", "ベーカリー", "デザートバー", "その他"], prompt: "カテゴリーを選択してください", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price_range, "価格帯" %>
+    <%= f.input :price_range, as: :select, collection: ["〜500円", "500〜1000円", "1000〜2000円", "2000円〜"], required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :images, "写真" %>
+    <%= f.file_field :images, multiple: true, accept: "image/png,image/jpeg,image/jpg" %>
+    <div id="image-preview"></div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tag_list, "タグ" %>
+    <%= f.input :tag_list, input_html: { data: { role: 'tagsinput' } }, placeholder: "カフェに関連するタグを追加" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :features, "特長" %>
+    <div class="form-check form-check-inline">
+      <%= f.check_box :features, { multiple: true }, "Wi-Fi", class: 'form-check-input' %>
+      <%= f.label :features, "Wi-Fi", class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.check_box :features, { multiple: true }, "電源", class: 'form-check-input' %>
+      <%= f.label :features, "電源", class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.check_box :features, { multiple: true }, "禁煙/喫煙", class: 'form-check-input' %>
+      <%= f.label :features, "禁煙/喫煙", class: 'form-check-label' %>
+    </div>
+    <div class="form-check form-check-inline">
+      <%= f.check_box :features, { multiple: true }, "ペット同伴", class: 'form-check-input' %>
+      <%= f.label :features, "ペット同伴", class: 'form-check-label' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "投稿する", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', cafes_path, class: 'btn btn-secondary' %>

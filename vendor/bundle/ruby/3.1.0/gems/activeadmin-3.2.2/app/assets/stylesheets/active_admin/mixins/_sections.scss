@@ -3,9 +3,7 @@
   @include text-shadow;
   border: solid 1px #cdcdcd;
   @include border-colors(#e6e6e6, #d4d4d4, #cdcdcd);
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.12),
-    0 0 1px #fff inset;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 0 1px #FFF inset;
 
   font-size: 1em;
   font-weight: bold;
@@ -19,7 +17,7 @@
 @mixin section-background {
   background: #f4f4f4;
   @include rounded(4px);
-  @include inset-shadow(0, 1px, 4px, #ddd);
+  @include inset-shadow(0,1px,4px, #ddd);
 }
 
 @mixin section {
@@ -34,12 +32,10 @@
     }
   }
 
-  > div {
-    padding: 3px $section-padding $section-padding $section-padding;
-  }
+  > div { padding: 3px $section-padding $section-padding $section-padding; }
 
   hr {
     border: none;
-    border-bottom: 1px solid #e8e8e8;
+    border-bottom: 1px solid #E8E8E8;
   }
 }

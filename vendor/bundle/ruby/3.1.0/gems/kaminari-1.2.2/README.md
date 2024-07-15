@@ -5,49 +5,45 @@ A Scope & Engine based, clean, powerful, customizable and sophisticated paginato
 ## Features
 
 ### Clean
-
 Does not globally pollute `Array`, `Hash`, `Object` or `AR::Base`.
 
 ### Easy to Use
-
 Just bundle the gem, then your models are ready to be paginated.
 No configuration required.
 Don't have to define anything in your models or helpers.
 
 ### Simple Scope-based API
-
 Everything is method chainable with less "Hasheritis". You know, that's the modern Rails way.
 No special collection class or anything for the paginated values, instead using a general `AR::Relation` instance.
 So, of course you can chain any other conditions before or after the paginator scope.
 
 ### Customizable Engine-based I18n-aware Helpers
-
 As the whole pagination helper is basically just a collection of links and non-links, Kaminari renders each of them through its own partial template inside the Engine.
 So, you can easily modify their behaviour, style or whatever by overriding partial templates.
 
 ### ORM & Template Engine Agnostic
-
 Kaminari supports multiple ORMs (ActiveRecord, DataMapper, Mongoid, MongoMapper) multiple web frameworks (Rails, Sinatra, Grape), and multiple template engines (ERB, Haml, Slim).
 
 ### Modern
-
 The pagination helper outputs the HTML5 `<nav>` tag by default. Plus, the helper supports Rails unobtrusive Ajax.
+
 
 ## Supported Versions
 
-- Ruby 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3.0, 3.1
+* Ruby 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 3.0, 3.1
 
-- Rails 4.1, 4.2, 5.0, 5.1, 5.2, 6.0, 6.1, 7.0, 7.1
+* Rails 4.1, 4.2, 5.0, 5.1, 5.2, 6.0, 6.1, 7.0, 7.1
 
-- Sinatra 1.4, 2.0
+* Sinatra 1.4, 2.0
 
-- Haml 3+
+* Haml 3+
 
-- Mongoid 3+
+* Mongoid 3+
 
-- MongoMapper 0.9+
+* MongoMapper 0.9+
 
-- DataMapper 1.1.0+
+* DataMapper 1.1.0+
+
 
 ## Installation
 
@@ -64,6 +60,7 @@ Then bundle:
 ```
 
 If you're building non-Rails of non-ActiveRecord app and want the pagination feature on it, please take a look at [Other Framework/Library Support](#other-frameworklibrary-support) section.
+
 
 ## Query Basics
 
@@ -84,7 +81,6 @@ User.order(:name).page(7)
 ```
 
 You can get page numbers or page conditions by using below methods.
-
 ```ruby
 User.count                     #=> 1000
 User.page(1).limit_value       #=> 20
@@ -165,6 +161,7 @@ Run the following generator command, then edit the generated file.
 
 You can change the method name `page` to `bonzo` or `plant` or whatever you like, in order to play nice with existing `page` method or association or scope or any other plugin that defines `page` method on your models.
 
+
 ### Configuring Default per_page Value for Each Model by `paginates_per`
 
 You can specify default `per_page` value per each model using the following declarative DSL.
@@ -201,6 +198,7 @@ Typically, your controller code will look like this:
 @users = User.order(:name).page params[:page]
 ```
 
+
 ## Views
 
 ### The Same Old Helper Method
@@ -212,6 +210,7 @@ Just call the `paginate` helper:
 ```
 
 This will render several `?page=N` pagination links surrounded by an HTML5 `<nav>` tag.
+
 
 ## Helpers
 
@@ -335,10 +334,11 @@ This returns the server relative path to the next page.
 
 This returns the server relative path to the previous page.
 
+
 ## I18n and Labels
 
 The default labels for 'first', 'last', 'previous', '...' and 'next' are stored in the I18n yaml inside the engine, and rendered through I18n API.
-You can switch the label value per I18n.locale for your internationalized application. Keys and the default values are the following. You can override them by adding to a YAML file in your `Rails.root/config/locales` directory.
+You can switch the label value per I18n.locale for your internationalized application.  Keys and the default values are the following. You can override them by adding to a YAML file in your `Rails.root/config/locales` directory.
 
 ```yaml
 en:
@@ -362,6 +362,7 @@ en:
 
 If you use non-English localization see [i18n rules](https://github.com/svenfuchs/i18n/blob/master/test/test_data/locales/plurals.rb) for changing
 `one_page:display_entries` block.
+
 
 ## Customizing the Pagination Helper
 
@@ -427,6 +428,7 @@ Customize away!
 
 Note: if the theme isn't present or none is specified, kaminari will default back to the views included within the gem.
 
+
 ## Paginating Without Issuing SELECT COUNT Query
 
 Generally the paginator needs to know the total number of records to display the links, but sometimes we don't need the total number of records and just need the "previous page" and "next page" links.
@@ -446,6 +448,7 @@ In your view file, you can only use simple helpers like the following instead of
 <%= link_to_next_page @users, 'Next Page' %>
 ```
 
+
 ## Paginating a Generic Array object
 
 Kaminari provides an Array wrapper class that adapts a generic Array object to the `paginate` view helper. However, the `paginate` helper doesn't automatically handle your Array object (this is intentional and by design).
@@ -462,12 +465,12 @@ You can specify the `total_count` value through options Hash. This would be help
 ```
 
 or, in the case of using an external API to source the page of data:
-
 ```ruby
 page_size = 10
 one_page = get_page_of_data params[:page], page_size
 @paginatable_array = Kaminari.paginate_array(one_page.data, total_count: one_page.total_count).page(params[:page]).per(page_size)
 ```
+
 
 ## Creating Friendly URLs and Caching
 
@@ -494,6 +497,7 @@ This will create URLs like `/my_resources/page/33` instead of `/my_resources?pag
 Because the `page` parameter is now a URL segment, we can leverage on Rails page [caching](http://guides.rubyonrails.org/caching_with_rails.html#page-caching)!
 
 NOTE: In this example, I've pointed the route to my `:index` action. You may have defined a custom pagination action in your controller - you should point `action: :your_custom_action` instead.
+
 
 ## Other Framework/Library Support
 
@@ -523,10 +527,10 @@ gem 'kaminari-actionview'
 
 Kaminari currently provides adapters for the following ORMs:
 
-- Active Record: https://github.com/kaminari/kaminari/tree/master/kaminari-activerecord (included in this repo)
-- Mongoid: https://github.com/kaminari/kaminari-mongoid
-- MongoMapper: https://github.com/kaminari/kaminari-mongo_mapper
-- DataMapper: https://github.com/kaminari/kaminari-data_mapper (would not work on kaminari 1.0.x)
+* Active Record: https://github.com/kaminari/kaminari/tree/master/kaminari-activerecord  (included in this repo)
+* Mongoid: https://github.com/kaminari/kaminari-mongoid
+* MongoMapper: https://github.com/kaminari/kaminari-mongo_mapper
+* DataMapper: https://github.com/kaminari/kaminari-data_mapper  (would not work on kaminari 1.0.x)
 
 ### For Other Web Framework Users
 
@@ -539,17 +543,20 @@ gem 'kaminari-sinatra'
 
 Kaminari currently provides adapters for the following web frameworks:
 
-- Action View: https://github.com/kaminari/kaminari/tree/master/kaminari-actionview (included in this repo)
-- Sinatra: https://github.com/kaminari/kaminari-sinatra
-- Grape: https://github.com/kaminari/kaminari-grape
+* Action View: https://github.com/kaminari/kaminari/tree/master/kaminari-actionview  (included in this repo)
+* Sinatra: https://github.com/kaminari/kaminari-sinatra
+* Grape: https://github.com/kaminari/kaminari-grape
+
 
 ## For More Information
 
 Check out Kaminari recipes on the GitHub Wiki for more advanced tips and techniques. https://github.com/kaminari/kaminari/wiki/Kaminari-recipes
 
+
 ## Questions, Feedback
 
-Feel free to message me on Github (amatsuda) or Twitter ([@a_matsuda](https://twitter.com/a_matsuda)) ☇☇☇ :)
+Feel free to message me on Github (amatsuda) or Twitter ([@a_matsuda](https://twitter.com/a_matsuda))  ☇☇☇  :)
+
 
 ## Contributing to Kaminari
 
@@ -574,6 +581,7 @@ You can find a list of supported test tasks by running `rake -T`. You may also f
 % BUNDLE_GEMFILE='gemfiles/active_record_50.gemfile' bundle install
 % BUNDLE_GEMFILE='gemfiles/active_record_50.gemfile' TEST=kaminari-core/test/requests/navigation_test.rb bundle exec rake test
 ```
+
 
 ## Copyright
 

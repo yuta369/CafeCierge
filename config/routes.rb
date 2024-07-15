@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+  
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
 
   # その他のルーティング
   # 静的ページ

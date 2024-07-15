@@ -50,12 +50,12 @@ pt:
       confirmation_instructions:
         action: Confirmar a minha conta
         greeting: Bem-vindo %{recipient}!
-        instruction: "Pode confirmar a sua conta através do link:"
+        instruction: 'Pode confirmar a sua conta através do link:'
         subject: Instruções de confirmação
       email_changed:
         greeting: Olá %{recipient}!
         message: Estamos a entrar em contacto para notificar que o seu endereço de email foi alterado para %{email}.
-        message_unconfirmed:
+        message_unconfirmed: 
         subject: Endereço de email alterado
       password_change:
         greeting: Olá %{recipient}!
@@ -71,7 +71,7 @@ pt:
       unlock_instructions:
         action: Desbloquear a minha conta
         greeting: Olá %{recipient}!
-        instruction: "Clique no seguinte link para desbloquear a sua conta:"
+        instruction: 'Clique no seguinte link para desbloquear a sua conta:'
         message: A sua conta foi bloqueada devido a um número excessivo de tentativas de acesso inválidas.
         subject: Instruções de desbloqueio
     omniauth_callbacks:
@@ -96,7 +96,7 @@ pt:
       edit:
         are_you_sure: Tem a certeza?
         cancel_my_account: Cancelar a minha conta
-        currently_waiting_confirmation_for_email: "A aguardar a confirmação de: %{email}"
+        currently_waiting_confirmation_for_email: 'A aguardar a confirmação de: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: deixe em branco caso não queira alterar
         title: Editar %{resource}
         unhappy: Descontente?
@@ -110,7 +110,7 @@ pt:
       signed_up_but_unconfirmed: Foi enviado um email com um link para confirmar o seu email. Por favor abra o link para ativar a sua conta.
       update_needs_confirmation: A sua conta foi atualizada com sucesso, mas precisamos de confirmar o seu email. Por favor veja o seu email e clique no link para finalizar a confirmação do seu email.
       updated: A sua conta foi atualizada com sucesso.
-      updated_but_not_signed_in:
+      updated_but_not_signed_in: 
     sessions:
       already_signed_out: Sessão terminada com sucesso.
       new:

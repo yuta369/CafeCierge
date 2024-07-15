@@ -7,14 +7,16 @@ ruby '3.1.2'
 gem 'rails', '~> 6.1.7', '>= 6.1.7.8'
 
 # Database
-gem 'pg', '>= 0.18', '< 2.0' # Use PostgreSQL as the database for Active Record
+gem 'sqlite3', '~> 1.4' # Use SQLite3 as the database for Active Record
 
 # Application Server
-gem 'puma', '~> 5.0' # Use Puma as the app server
+gem 'puma', '~> 4.3' # Use Puma as the app server
+gem 'ffi', '~> 1.14.2'
 
 # Stylesheets
 gem 'sassc-rails', '>= 2.1' # Use SCSSC for stylesheets
 gem 'bootstrap', '~> 5.0.0' # Bootstrap framework
+gem 'jquery-rails'
 
 # JavaScript Transpilation
 gem 'webpacker', '~> 5.0' # Transpile app-like JavaScript
@@ -74,7 +76,7 @@ end
 group :development do
   gem 'web-console', '>= 4.1.0' # Access an interactive console on exception pages
   gem 'listen', '~> 3.3' # Listen to file modifications
-  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
+#  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
   gem 'spring' # Speeds up development by keeping your application running in the background
   gem 'spring-watcher-listen'
 end
@@ -90,3 +92,7 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'image_processing', '~> 1.2' # Image processing for ActiveStorage
 gem 'mini_magick', '~> 4.11'
+
+gem 'font-awesome-sass', '~> 6.5.2'
+
+gem 'active_storage_validations'

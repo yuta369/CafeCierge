@@ -18,15 +18,15 @@ jobs:
     strategy:
       matrix:
         ruby: ${{ fromJson(needs.ruby-versions.outputs.versions) }}
-        os: [ubuntu-latest, macos-latest]
+        os: [ ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby }}
-      - name: Install dependencies
-        run: bundle install
-      - name: Run test
-        run: rake test
+    - uses: actions/checkout@v3
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ matrix.ruby }}
+    - name: Install dependencies
+      run: bundle install
+    - name: Run test
+      run: rake test

@@ -9,20 +9,20 @@ generate dynamic content.
 
 ## Features
 
-- Whitespace active
-- Well-formatted markup
-- DRY
-- Follows CSS conventions
-- Integrates Ruby code
-- Implements Rails templates with the .haml extension
+* Whitespace active
+* Well-formatted markup
+* DRY
+* Follows CSS conventions
+* Integrates Ruby code
+* Implements Rails templates with the .haml extension
 
 ## Using Haml
 
 Haml can be used in three ways:
 
-- as a command-line tool,
-- as a plugin for Ruby on Rails,
-- and as a standalone Ruby module.
+* as a command-line tool,
+* as a plugin for Ruby on Rails,
+* and as a standalone Ruby module.
 
 The first step for all of these is to install the Haml gem:
 
@@ -100,7 +100,6 @@ Haml::Template.options[:escape_html] = false
 ```
 
 In sinatra specifically, you can set them in global config with:
-
 ```ruby
 set :haml, { escape_html: false }
 ```
@@ -334,9 +333,9 @@ will render as:
     <input>
     <input xyz-hidden='false'>
 
+
 <!-- The title to the next section (Prefixed Attributes) has changed. This
 <a> tag is so old links to here still work. -->
-
 <a id="html5_custom_data_attributes" style="border:0;"></a>
 
 #### Data Attributes
@@ -462,9 +461,9 @@ and is compiled to:
 
 Class names are ordered in the following way:
 
-1. Tag identifiers in order (aka, ".alert.me" => "alert me")
-2. Classes appearing in HTML-style attributes
-3. Classes appearing in Hash-style attributes
+1) Tag identifiers in order (aka, ".alert.me" => "alert me")
+2) Classes appearing in HTML-style attributes
+3) Classes appearing in Hash-style attributes
 
 For instance, this is a complicated and unintuitive test case illustrating the ordering
 
@@ -474,7 +473,7 @@ The resulting HTML would be as follows:
 
     <div class='foo moo baz bar alpha'></div>
 
-_Versions of Haml prior to 5.0 would alphabetically sort class names._
+*Versions of Haml prior to 5.0 would alphabetically sort class names.*
 
 ### Empty (void) Tags: `/`
 
@@ -608,7 +607,7 @@ is compiled to:
     </div>
 
 The `:class` attribute may be used in conjunction with an object
-reference. The compiled element will have the union of all classes.
+reference.  The compiled element will have the union of all classes.
 
     - user = User.find(1)
     %p[user]{:class => 'alpha bravo'}
@@ -648,50 +647,50 @@ supported:
 
 `!!!`
 : XHTML 1.0 Transitional<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">`
 
 `!!! Strict`
 : XHTML 1.0 Strict<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">`
 
 `!!! Frameset`
 : XHTML 1.0 Frameset<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">`
 
 `!!! 5`
 : XHTML 5<br/>
-`<!DOCTYPE html>`<br/>
+ `<!DOCTYPE html>`<br/>
 
 `!!! 1.1`
 : XHTML 1.1<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">`
 
 `!!! Basic`
 : XHTML Basic 1.1<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd"> `
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd"> `
 
 `!!! Mobile`
 : XHTML Mobile 1.2<br/>
-`<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">`
+ `<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">`
 
 `!!! RDFa`
 : XHTML+RDFa 1.0<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">`
 
 When the {Haml::Options#format `:format`} option is set to `:html4`, the following
 doctypes are supported:
 
 `!!!`
 : HTML 4.01 Transitional<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">`
 
 `!!! Strict`
 : HTML 4.01 Strict<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">`
 
 `!!! Frameset`
 : HTML 4.01 Frameset<br/>
-`<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">`
+ `<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">`
 
 When the {Haml::Options#format `:format`} option is set to `:html5`,
 `!!!` is always `<!DOCTYPE html>`.
@@ -765,7 +764,7 @@ is compiled to:
     <![endif]-->
 
 To generate “downlevel-revealed” conditional comments, where the content is
-hidden from IE but not other browsers, add a `!` before the brackets: `/![]`.
+hidden from IE but not other browsers,  add a `!` before the brackets: `/![]`.
 Haml will produce valid HTML when generating this kind of conditional comment.
 
 For example:
@@ -858,7 +857,7 @@ Note that it's illegal to nest code within a tag that ends with `=`.
 ### Running Ruby: `-`
 
 The hyphen character is also followed by Ruby code. This code is evaluated but
-_not_ inserted into the document.
+*not* inserted into the document.
 
 **It is not recommended that you use this widely; almost all processing code and
 logic should be restricted to Controllers, Helpers, or partials.**
@@ -998,6 +997,7 @@ In cases like this, the recommended workaround is output the code as a Ruby
 string to force Haml to parse the code with Ruby.
 
     %span= "#{'{'}"
+
 
 ### Escaping HTML: `&=` {#escaping_html}
 
@@ -1205,7 +1205,7 @@ The simplest example of a filter might be something like:
         [:static, "hello world"]
       end
     end
-
+    
     Haml::Filters.registered[:hello] ||= HelloFilter
 
 A more complex example:
@@ -1218,7 +1218,7 @@ A more complex example:
         temple << [:static, " world"]
         temple
       end
-
+    
       private
       def compile_text(text)
         if ::Haml::Util.contains_interpolation?(text)
@@ -1273,7 +1273,7 @@ so you can wrap attributes without using `|` (see [Attributes](#attributes)).
 
 In addition, sometimes you need to call Ruby methods or declare data structures
 that just need a lot of template information.
-So data structures and functions that require lots of arguments
+So data structures and  functions that require lots of arguments
 can be wrapped over multiple lines,
 as long as each line but the last ends in a comma
 (see [Inserting Ruby](#inserting_ruby)).
@@ -1299,9 +1299,8 @@ Blocks of literal text can be preserved using the [`:preserve` filter](#preserve
 ## Turbo
 
 For people using Turbo-rails and Haml 6+ need to either:
-
-- follow the naming convention with the html format (ie. ensure any `.haml` files end `.html.haml`), or
-- add a monkey patch as follows:
+*  follow the naming convention with the html format (ie. ensure any `.haml` files end `.html.haml`), or
+*  add a monkey patch as follows:
 
 ```rb
 # config/initializers/haml.rb

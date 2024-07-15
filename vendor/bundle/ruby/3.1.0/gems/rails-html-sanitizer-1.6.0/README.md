@@ -4,6 +4,7 @@ This gem is responsible for sanitizing HTML fragments in Rails applications. Spe
 
 Rails HTML Sanitizer is only intended to be used with Rails applications. If you need similar functionality but aren't using Rails, consider using the underlying sanitization library [Loofah](https://github.com/flavorjones/loofah) directly.
 
+
 ## Usage
 
 ### Sanitizers
@@ -11,6 +12,7 @@ Rails HTML Sanitizer is only intended to be used with Rails applications. If you
 All sanitizers respond to `sanitize`, and are available in variants that use either HTML4 or HTML5 parsing, under the `Rails::HTML4` and `Rails::HTML5` namespaces, respectively.
 
 NOTE: The HTML5 sanitizers are not supported on JRuby. Users may programmatically check for support by calling `Rails::HTML::Sanitizer.html5_support?`.
+
 
 #### FullSanitizer
 
@@ -30,6 +32,8 @@ full_sanitizer.sanitize("<b>Bold</b> no more!  <a href='more.html'>See more here
 
 HTML5 version:
 
+
+
 #### LinkSanitizer
 
 ```ruby
@@ -45,6 +49,7 @@ link_sanitizer = Rails::HTML4::LinkSanitizer.new
 link_sanitizer.sanitize('<a href="example.com">Only the link text will be kept.</a>')
 # => Only the link text will be kept.
 ```
+
 
 #### SafeListSanitizer
 
@@ -171,11 +176,12 @@ Using the `CommentScrubber` from above, you can use this in a Rails view like so
 
 ### A note on HTML entities
 
-**Rails HTML sanitizers are intended to be used by the view layer, at page-render time. They are _not_ intended to sanitize persisted strings that will be sanitized _again_ at page-render time.**
+__Rails HTML sanitizers are intended to be used by the view layer, at page-render time. They are *not* intended to sanitize persisted strings that will be sanitized *again* at page-render time.__
 
 Proper HTML sanitization will replace some characters with HTML entities. For example, text containing a `<` character will be updated to contain `&lt;` to ensure that the markup is well-formed.
 
-This is important to keep in mind because **HTML entities will render improperly if they are sanitized twice.**
+This is important to keep in mind because __HTML entities will render improperly if they are sanitized twice.__
+
 
 #### A concrete example showing the problem that can arise
 
@@ -187,13 +193,15 @@ When the page is rendered, if this string is sanitized a second time by the view
 
 Another problem that can arise is rendering the sanitized string in a non-HTML context (for example, if it ends up being part of an SMS message). In this case, it may contain inappropriate HTML entities.
 
+
 #### Suggested alternatives
 
 You might simply choose to persist the untrusted string as-is (the raw input), and then ensure that the string will be properly sanitized by the view layer.
 
 That raw string, if rendered in an non-HTML context (like SMS), must also be sanitized by a method appropriate for that context. You may wish to look into using [Loofah](https://github.com/flavorjones/loofah) or [Sanitize](https://github.com/rgrove/sanitize) to customize how this sanitization works, including omitting HTML entities in the final string.
 
-If you really want to sanitize the string that's stored in your database, you may wish to look into [Loofah::ActiveRecord](https://github.com/flavorjones/loofah-activerecord) rather than use the Rails HTML sanitizers.
+If you really want to sanitize the string that's stored in your database, you may wish to look into  [Loofah::ActiveRecord](https://github.com/flavorjones/loofah-activerecord) rather than use the Rails HTML sanitizers.
+
 
 ### A note on module names
 
@@ -210,6 +218,7 @@ The following aliases are maintained for backwards compatibility:
 - `Rails::HTML::LinkSanitizer` points to `Rails::HTML4::LinkSanitizer`
 - `Rails::HTML::SafeListSanitizer` points to `Rails::HTML4::SafeListSanitizer`
 
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -224,13 +233,15 @@ Or install it yourself as:
 
     $ gem install rails-html-sanitizer
 
+
 ## Support matrix
 
 | branch | ruby support | actively maintained | security support                       |
-| ------ | ------------ | ------------------- | -------------------------------------- |
+|--------|--------------|---------------------|----------------------------------------|
 | 1.6.x  | >= 2.7       | yes                 | yes                                    |
 | 1.5.x  | >= 2.5       | no                  | while Rails 6.1 is in security support |
 | 1.4.x  | >= 1.8.7     | no                  | no                                     |
+
 
 ## Read more
 
@@ -243,6 +254,7 @@ The `node` argument passed to some methods in a custom scrubber is an instance o
 - [`Nokogiri::XML::Node`](https://nokogiri.org/rdoc/Nokogiri/XML/Node.html)
 - [Nokogiri](http://nokogiri.org)
 
+
 ## Contributing to Rails HTML Sanitizers
 
 Rails HTML Sanitizers is work of many contributors. You're encouraged to submit pull requests, propose features and discuss issues.
@@ -252,6 +264,7 @@ See [CONTRIBUTING](CONTRIBUTING.md).
 ### Security reports
 
 Trying to report a possible security vulnerability in this project? Please check out the [Rails project's security policy](https://rubyonrails.org/security) for instructions.
+
 
 ## License
 

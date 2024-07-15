@@ -1,5 +1,4 @@
 # RSpec Mocks [![Build Status](https://github.com/rspec/rspec-mocks/workflows/RSpec%20CI/badge.svg)](https://github.com/rspec/rspec-mocks/actions) [![Code Climate](https://codeclimate.com/github/rspec/rspec-mocks.svg)](https://codeclimate.com/github/rspec/rspec-mocks)
-
 rspec-mocks is a test-double framework for rspec with support for method stubs,
 fakes, and message expectations on generated test-doubles and real objects
 alike.
@@ -17,7 +16,6 @@ RSpec repos as well. Add the following to your `Gemfile`:
   gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'main'
 end
 ```
-
 ## Contributing
 
 Once you've set up the environment, you'll need to cd into the working
@@ -28,11 +26,10 @@ NOTE: You do not need to use rspec-dev to work on a specific RSpec repo. You
 can treat each RSpec repo as an independent project.
 
 For information about contributing to RSpec, please refer to the following markdown files:
-
-- [Build details](BUILD_DETAIL.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Detailed contributing guide](CONTRIBUTING.md)
-- [Development setup guide](DEVELOPMENT.md)
+* [Build details](BUILD_DETAIL.md)
+* [Code of Conduct](CODE_OF_CONDUCT.md)
+* [Detailed contributing guide](CONTRIBUTING.md)
+* [Development setup guide](DEVELOPMENT.md)
 
 ## Test Doubles
 
@@ -70,7 +67,7 @@ puts books.inspect # with names, it's clearer which were actually added
 
 ## Method Stubs
 
-A method stub is an implementation that returns a pre-determined value. Method
+A method stub is an implementation that returns a pre-determined value.  Method
 stubs can be declared on test doubles or real objects using the same syntax.
 rspec-mocks supports 3 forms for declaring method stubs:
 
@@ -122,7 +119,7 @@ Chains can be arbitrarily long, which makes it quite painless to violate the Law
 ## Consecutive return values
 
 When a stub might be invoked more than once, you can provide additional
-arguments to `and_return`. The invocations cycle through the list. The last
+arguments to `and_return`.  The invocations cycle through the list. The last
 value is returned for any subsequent invocations:
 
 ```ruby
@@ -206,7 +203,7 @@ expect(greeter).to have_received(:greet_with).with("Hello")
 
 ### Mock Objects and Test Stubs
 
-The names Mock Object and Test Stub suggest specialized Test Doubles. i.e.
+The names Mock Object and Test Stub suggest specialized Test Doubles.  i.e.
 a Test Stub is a Test Double that only supports method stubs, and a Mock
 Object is a Test Double that supports message expectations and method
 stubs.
@@ -434,34 +431,35 @@ These methods add the appropriate stub or expectation to all instances of
 This feature is sometimes useful when working with legacy code, though in
 general we discourage its use for a number of reasons:
 
-- The `rspec-mocks` API is designed for individual object instances, but this
+* The `rspec-mocks` API is designed for individual object instances, but this
   feature operates on entire classes of objects. As a result there are some
   semantically confusing edge cases. For example in
   `expect_any_instance_of(Widget).to receive(:name).twice` it isn't clear
   whether each specific instance is expected to receive `name` twice, or if two
   receives total are expected. (It's the former.)
-- Using this feature is often a design smell. It may be
+* Using this feature is often a design smell. It may be
   that your test is trying to do too much or that the object under test is too
   complex.
-- It is the most complicated feature of `rspec-mocks`, and has historically
+* It is the most complicated feature of `rspec-mocks`, and has historically
   received the most bug reports. (None of the core team actively use it,
   which doesn't help.)
+
 
 ## Further Reading
 
 There are many different viewpoints about the meaning of mocks and stubs. If
 you are interested in learning more, here is some recommended reading:
 
-- Mock Objects: http://www.mockobjects.com/
-- Endo-Testing: http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF
-- Mock Roles, Not Objects: http://www.jmock.org/oopsla2004.pdf
-- Test Double: http://www.martinfowler.com/bliki/TestDouble.html
-- Test Double Patterns: http://xunitpatterns.com/Test%20Double%20Patterns.html
-- Mocks aren't stubs: http://www.martinfowler.com/articles/mocksArentStubs.html
+* Mock Objects: http://www.mockobjects.com/
+* Endo-Testing: http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF
+* Mock Roles, Not Objects: http://www.jmock.org/oopsla2004.pdf
+* Test Double: http://www.martinfowler.com/bliki/TestDouble.html
+* Test Double Patterns: http://xunitpatterns.com/Test%20Double%20Patterns.html
+* Mocks aren't stubs: http://www.martinfowler.com/articles/mocksArentStubs.html
 
 ## Also see
 
-- [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
-- [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
-- [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
-- [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)
+* [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
+* [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
+* [https://github.com/rspec/rspec-expectations](https://github.com/rspec/rspec-expectations)
+* [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)

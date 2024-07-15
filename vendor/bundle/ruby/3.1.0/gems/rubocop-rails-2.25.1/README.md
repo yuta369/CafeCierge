@@ -119,7 +119,7 @@ If you use RuboCop Rails in your project, you can include one of these badges in
 
 Here are the Markdown snippets for the two badges:
 
-```markdown
+``` markdown
 [![Rails Style Guide](https://img.shields.io/badge/code_style-rubocop-brightgreen.svg)](https://github.com/rubocop/rubocop-rails)
 
 [![Rails Style Guide](https://img.shields.io/badge/code_style-community-brightgreen.svg)](https://rails.rubystyle.guide)

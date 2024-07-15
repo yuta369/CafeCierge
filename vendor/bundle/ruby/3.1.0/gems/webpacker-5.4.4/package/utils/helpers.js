@@ -1,44 +1,45 @@
-const { stringify } = require("flatted");
+const { stringify } = require('flatted')
 
-const isObject = (value) =>
-  typeof value === "object" && value !== null && (value.length === undefined || value.length === null);
+const isObject = (value) => typeof value === 'object'
+  && value !== null
+  && (value.length === undefined || value.length === null)
 
-const isNotObject = (value) => !isObject(value);
+const isNotObject = (value) => !isObject(value)
 
-const isBoolean = (str) => /^true/.test(str) || /^false/.test(str);
+const isBoolean = (str) => /^true/.test(str) || /^false/.test(str)
 
-const isEmpty = (value) => value === null || value === undefined;
+const isEmpty = (value) => value === null || value === undefined
 
-const isString = (key) => key && typeof key === "string";
+const isString = (key) => key && typeof key === 'string'
 
 const isStrPath = (key) => {
-  if (!isString(key)) throw new Error(`Key ${key} should be string`);
-  return isString(key) && key.includes(".");
-};
+  if (!isString(key)) throw new Error(`Key ${key} should be string`)
+  return isString(key) && key.includes('.')
+}
 
-const isArray = (value) => Array.isArray(value);
+const isArray = (value) => Array.isArray(value)
 
-const isEqual = (target, source) => stringify(target) === stringify(source);
+const isEqual = (target, source) => stringify(target) === stringify(source)
 
-const canMerge = (value) => isObject(value) || isArray(value);
+const canMerge = (value) => isObject(value) || isArray(value)
 
-const prettyPrint = (obj) => JSON.stringify(obj, null, 2);
+const prettyPrint = (obj) => JSON.stringify(obj, null, 2)
 
 const chdirTestApp = () => {
   try {
-    return process.chdir("test/test_app");
+    return process.chdir('test/test_app')
   } catch (e) {
-    return null;
+    return null
   }
-};
+}
 
-const chdirCwd = () => process.chdir(process.cwd());
+const chdirCwd = () => process.chdir(process.cwd())
 
 const resetEnv = () => {
-  process.env = {};
-};
+  process.env = {}
+}
 
-const ensureTrailingSlash = (path) => (path.endsWith("/") ? path : `${path}/`);
+const ensureTrailingSlash = (path) => (path.endsWith('/') ? path : `${path}/`)
 
 module.exports = {
   chdirTestApp,
@@ -53,5 +54,5 @@ module.exports = {
   isStrPath,
   canMerge,
   prettyPrint,
-  resetEnv,
-};
+  resetEnv
+}

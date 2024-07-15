@@ -1,5 +1,0 @@
-require:
-  - rubocop-capybara
-
-Capybara/CurrentPathExpectation:
-  Enabled: true

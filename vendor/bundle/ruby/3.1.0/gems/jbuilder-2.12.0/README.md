@@ -5,7 +5,7 @@ manipulating giant hash structures. This is particularly helpful when the
 generation process is fraught with conditionals and loops. Here's a simple
 example:
 
-```ruby
+``` ruby
 # app/views/messages/show.json.jbuilder
 
 json.content format_content(@message.content)
@@ -31,7 +31,7 @@ end
 
 This will build the following structure:
 
-```javascript
+``` javascript
 {
   "content": "<p>This is <i>serious</i> monkey business</p>",
   "created_at": "2011-10-29T20:45:28-05:00",
@@ -59,7 +59,7 @@ This will build the following structure:
 
 To define attribute and structure names dynamically, use the `set!` method:
 
-```ruby
+``` ruby
 json.set! :author do
   json.set! :name, 'David'
 end
@@ -67,9 +67,10 @@ end
 # => {"author": { "name": "David" }}
 ```
 
+
 To merge existing hash or array to current context:
 
-```ruby
+``` ruby
 hash = { author: { name: "David" } }
 json.post do
   json.title "Merge HOWTO"
@@ -79,9 +80,9 @@ end
 # => "post": { "title": "Merge HOWTO", "author": { "name": "David" } }
 ```
 
-Top level arrays can be handled directly. Useful for index and other collection actions.
+Top level arrays can be handled directly.  Useful for index and other collection actions.
 
-```ruby
+``` ruby
 # @comments = @post.comments
 
 json.array! @comments do |comment|
@@ -99,7 +100,7 @@ end
 
 You can also extract attributes from array directly.
 
-```ruby
+``` ruby
 # @people = People.all
 
 json.array! @people, :id, :name
@@ -134,9 +135,9 @@ end
 # => { "people": [ { "id": 1, "name": "David" }, { "id": 2, "name": "Jamie" } ] }
 ```
 
-Jbuilder objects can be directly nested inside each other. Useful for composing objects.
+Jbuilder objects can be directly nested inside each other.  Useful for composing objects.
 
-```ruby
+``` ruby
 class Person
   # ... Class Definition ... #
   def to_builder
@@ -166,7 +167,7 @@ You can either use Jbuilder stand-alone or directly as an ActionView template
 language. When required in Rails, you can create views à la show.json.jbuilder
 (the json is already yielded):
 
-```ruby
+``` ruby
 # Any helpers available to views are available to the builder
 json.content format_content(@message.content)
 json.(@message, :created_at, :updated_at)
@@ -238,9 +239,10 @@ json.partial! 'sub_template', locals: { user: user }
 json.partial! 'sub_template', user: user
 ```
 
+
 You can explicitly make Jbuilder object return null if you want:
 
-```ruby
+``` ruby
 json.extract! @post, :id, :title, :content, :published_at
 json.author do
   if @post.anonymous?
@@ -303,7 +305,7 @@ This will include both records as part of the cache key and updating either of t
 Keys can be auto formatted using `key_format!`, this can be used to convert
 keynames from the standard ruby_format to camelCase:
 
-```ruby
+``` ruby
 json.key_format! camelize: :lower
 json.first_name 'David'
 
@@ -313,7 +315,7 @@ json.first_name 'David'
 You can set this globally with the class method `key_format` (from inside your
 environment.rb for example):
 
-```ruby
+``` ruby
 Jbuilder.key_format camelize: :lower
 ```
 
@@ -321,7 +323,7 @@ By default, key format is not applied to keys of hashes that are
 passed to methods like `set!`, `array!` or `merge!`. You can opt into
 deeply transforming these as well:
 
-```ruby
+``` ruby
 json.key_format! camelize: :lower
 json.deep_format_keys!
 json.settings([{some_value: "abc"}])
@@ -332,7 +334,7 @@ json.settings([{some_value: "abc"}])
 You can set this globally with the class method `deep_format_keys` (from inside your
 environment.rb for example):
 
-```ruby
+``` ruby
 Jbuilder.deep_format_keys true
 ```
 
@@ -348,5 +350,4 @@ features and discuss issues.
 See [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
-
 Jbuilder is released under the [MIT License](http://www.opensource.org/licenses/MIT).

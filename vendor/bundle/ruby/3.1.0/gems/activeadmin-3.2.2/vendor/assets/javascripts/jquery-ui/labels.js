@@ -14,53 +14,58 @@
 //>>description: Find all the labels associated with a given input
 //>>docs: https://api.jqueryui.com/labels/
 
-(function (factory) {
-  "use strict";
+( function( factory ) {
+	"use strict";
 
-  if (typeof define === "function" && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(["jquery", "./version"], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-})(function ($) {
-  "use strict";
+	if ( typeof define === "function" && define.amd ) {
 
-  return ($.fn.labels = function () {
-    var ancestor, selector, id, labels, ancestors;
+		// AMD. Register as an anonymous module.
+		define( [ "jquery", "./version" ], factory );
+	} else {
 
-    if (!this.length) {
-      return this.pushStack([]);
-    }
+		// Browser globals
+		factory( jQuery );
+	}
+} )( function( $ ) {
+"use strict";
 
-    // Check control.labels first
-    if (this[0].labels && this[0].labels.length) {
-      return this.pushStack(this[0].labels);
-    }
+return $.fn.labels = function() {
+	var ancestor, selector, id, labels, ancestors;
 
-    // Support: IE <= 11, FF <= 37, Android <= 2.3 only
-    // Above browsers do not support control.labels. Everything below is to support them
-    // as well as document fragments. control.labels does not work on document fragments
-    labels = this.eq(0).parents("label");
+	if ( !this.length ) {
+		return this.pushStack( [] );
+	}
 
-    // Look for the label based on the id
-    id = this.attr("id");
-    if (id) {
-      // We don't search against the document in case the element
-      // is disconnected from the DOM
-      ancestor = this.eq(0).parents().last();
+	// Check control.labels first
+	if ( this[ 0 ].labels && this[ 0 ].labels.length ) {
+		return this.pushStack( this[ 0 ].labels );
+	}
 
-      // Get a full set of top level ancestors
-      ancestors = ancestor.add(ancestor.length ? ancestor.siblings() : this.siblings());
+	// Support: IE <= 11, FF <= 37, Android <= 2.3 only
+	// Above browsers do not support control.labels. Everything below is to support them
+	// as well as document fragments. control.labels does not work on document fragments
+	labels = this.eq( 0 ).parents( "label" );
 
-      // Create a selector for the label based on the id
-      selector = "label[for='" + $.escapeSelector(id) + "']";
+	// Look for the label based on the id
+	id = this.attr( "id" );
+	if ( id ) {
 
-      labels = labels.add(ancestors.find(selector).addBack(selector));
-    }
+		// We don't search against the document in case the element
+		// is disconnected from the DOM
+		ancestor = this.eq( 0 ).parents().last();
 
-    // Return whatever we have found for labels
-    return this.pushStack(labels);
-  });
-});
+		// Get a full set of top level ancestors
+		ancestors = ancestor.add( ancestor.length ? ancestor.siblings() : this.siblings() );
+
+		// Create a selector for the label based on the id
+		selector = "label[for='" + $.escapeSelector( id ) + "']";
+
+		labels = labels.add( ancestors.find( selector ).addBack( selector ) );
+
+	}
+
+	// Return whatever we have found for labels
+	return this.pushStack( labels );
+};
+
+} );

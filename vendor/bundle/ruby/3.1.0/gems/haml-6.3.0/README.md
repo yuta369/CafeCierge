@@ -15,21 +15,21 @@ that's both powerful and easy to understand.
 Haml can be used from the command line or as part of a Ruby web framework. The
 first step is to install the gem:
 
-```sh
+~~~sh
 gem install haml
-```
+~~~
 
 After you write some Haml, you can run
 
-```sh
+~~~sh
 haml render document.haml
-```
+~~~
 
 to compile it to HTML. For more information on these commands, check out
 
-```sh
+~~~sh
 haml --help
-```
+~~~
 
 To use Haml programmatically, check out the [YARD documentation](https://haml.info/docs/yardoc/).
 
@@ -37,9 +37,9 @@ To use Haml programmatically, check out the [YARD documentation](https://haml.in
 
 To use Haml with Rails, simply add Haml to your Gemfile and run `bundle`.
 
-```ruby
+~~~ruby
 gem 'haml'
-```
+~~~
 
 If you'd like to replace Rails's ERB-based generators with Haml, add
 [haml-rails](https://github.com/haml/haml-rails) to your Gemfile as well.
@@ -48,76 +48,76 @@ If you'd like to replace Rails's ERB-based generators with Haml, add
 
 The most basic element of Haml is a shorthand for creating HTML:
 
-```haml
+~~~haml
 %tagname{:attr1 => 'value1', :attr2 => 'value2'} Contents
-```
+~~~
 
 No end-tag is needed; Haml handles that automatically. If you prefer HTML-style
 attributes, you can also use:
 
-```haml
+~~~haml
 %tagname(attr1='value1' attr2='value2') Contents
-```
+~~~
 
 Adding `class` and `id` attributes is even easier. Haml uses the same syntax as
 the CSS that styles the document:
 
-```haml
+~~~haml
 %tagname#id.class
-```
+~~~
 
 In fact, when you're using the `<div>` tag, it becomes _even easier_. Because
 `<div>` is such a common element, a tag without a name defaults to a div. So
 
-```haml
+~~~haml
 #foo Hello!
-```
+~~~
 
 becomes
 
-```html
-<div id="foo">Hello!</div>
-```
+~~~html
+<div id='foo'>Hello!</div>
+~~~
 
 Haml uses indentation to bring the individual elements to represent the HTML
 structure. A tag's children are indented beneath than the parent tag. Again, a
 closing tag is automatically added. For example:
 
-```haml
+~~~haml
 %ul
   %li Salt
   %li Pepper
-```
+~~~
 
 becomes:
 
-```html
+~~~html
 <ul>
   <li>Salt</li>
   <li>Pepper</li>
 </ul>
-```
+~~~
 
 You can also put plain text as a child of an element:
 
-```haml
+~~~haml
 %p
   Hello,
   World!
-```
+~~~
 
 It's also possible to embed Ruby code into Haml documents. An equals sign, `=`,
 will output the result of the code. A hyphen, `-`, will run the code but not
 output the result. You can even use control statements like `if` and `while`:
 
-```haml
+~~~haml
 %p
   Date/Time:
   - now = DateTime.now
   %strong= now
   - if now > DateTime.parse("December 31, 2006")
     = "Happy new " + "year!"
-```
+~~~
 
 Haml provides far more tools than those presented here. Check out the [reference
 documentation](https://haml.info/docs/yardoc/file.REFERENCE.html)
@@ -136,17 +136,15 @@ Contributions are welcomed, but before you get started please read the
 
 After forking and then cloning the repo locally, install Bundler and then use it
 to install the development gem dependencies:
-
-```sh
+~~~sh
 gem install bundler
 bundle install
-```
+~~~
 
 Once this is complete, you should be able to run the test suite:
-
-```sh
+~~~sh
 rake
-```
+~~~
 
 At this point `rake` should run without error or warning and you are ready to
 start working on your patch!
@@ -154,9 +152,9 @@ start working on your patch!
 Note that you can also run just one test out of the test suite if you're working
 on a specific area:
 
-```sh
+~~~sh
 ruby -Itest test/helper_test.rb -n test_buffer_access
-```
+~~~
 
 Haml currently supports Ruby 2.0.0 and higher, so please make sure your changes run on 2.0+.
 
@@ -164,10 +162,10 @@ Haml currently supports Ruby 2.0.0 and higher, so please make sure your changes 
 
 ### Current Maintainers
 
-- [Akira Matsuda](https://github.com/amatsuda)
-- [Matt Wildig](https://github.com/mattwildig)
-- [Tee Parham](https://github.com/teeparham)
-- [Takashi Kokubun](https://github.com/k0kubun)
+* [Akira Matsuda](https://github.com/amatsuda)
+* [Matt Wildig](https://github.com/mattwildig)
+* [Tee Parham](https://github.com/teeparham)
+* [Takashi Kokubun](https://github.com/k0kubun)
 
 ### Alumni
 

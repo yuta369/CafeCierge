@@ -67,7 +67,7 @@ RSpec.describe Order do
 end
 ```
 
-The `describe` and `it` methods come from rspec-core. The `Order`, `LineItem`, `Item` and `Money` classes would be from _your_ code. The last line of the example
+The `describe` and `it` methods come from rspec-core.  The `Order`, `LineItem`, `Item` and `Money` classes would be from _your_ code. The last line of the example
 expresses an expected outcome. If `order.total == Money.new(5.55, :USD)`, then
 the example passes. If not, it fails with a message like:
 
@@ -239,7 +239,7 @@ See [detailed information on the `should` syntax and its usage.](https://github.
 
 You can also create compound matcher expressions using `and` or `or`:
 
-```ruby
+``` ruby
 expect(alphabet).to start_with("a").and end_with("z")
 expect(stoplight.color).to eq("red").or eq("green").or eq("yellow")
 ```
@@ -320,7 +320,7 @@ end
 
 ## Also see
 
-- [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
-- [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
-- [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
-- [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)
+* [https://github.com/rspec/rspec](https://github.com/rspec/rspec)
+* [https://github.com/rspec/rspec-core](https://github.com/rspec/rspec-core)
+* [https://github.com/rspec/rspec-mocks](https://github.com/rspec/rspec-mocks)
+* [https://github.com/rspec/rspec-rails](https://github.com/rspec/rspec-rails)

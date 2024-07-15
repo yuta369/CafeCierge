@@ -11,15 +11,15 @@ creating elegant backends for website administration.
 
 ## Goals
 
-- Enable developers to quickly create good-looking administration interfaces.
-- Build a DSL for developers and an interface for businesses.
-- Ensure that developers can easily customize every nook and cranny.
+* Enable developers to quickly create good-looking administration interfaces.
+* Build a DSL for developers and an interface for businesses.
+* Ensure that developers can easily customize every nook and cranny.
 
 ## Getting started
 
-- Check out [the docs][docs].
-- Try the [live demo][demo].
-- The [wiki] includes links to tutorials, articles and sample projects.
+* Check out [the docs][docs].
+* Try the [live demo][demo].
+* The [wiki] includes links to tutorials, articles and sample projects.
 
 ## For enterprise
 
@@ -58,14 +58,14 @@ sponsor for the project, and also submit expenses to it.
 
 We try not to reinvent the wheel, so Active Admin is built with other open source projects:
 
-| Tool                  | Description                                                              |
-| --------------------- | ------------------------------------------------------------------------ |
-| [Arbre]               | Ruby -> HTML, just like that.                                            |
-| [Devise]              | Powerful, extensible user authentication                                 |
-| [Formtastic]          | A Rails form builder plugin with semantically rich and accessible markup |
-| [Inherited Resources] | Simplifies controllers with pre-built RESTful controller actions         |
-| [Kaminari]            | Elegant pagination for any sort of collection                            |
-| [Ransack]             | Provides a simple search API to query your data                          |
+Tool                  | Description
+--------------------- | -----------
+[Arbre]               | Ruby -> HTML, just like that.
+[Devise]              | Powerful, extensible user authentication
+[Formtastic]          | A Rails form builder plugin with semantically rich and accessible markup
+[Inherited Resources] | Simplifies controllers with pre-built RESTful controller actions
+[Kaminari]            | Elegant pagination for any sort of collection
+[Ransack]             | Provides a simple search API to query your data
 
 ## Security contact information
 
@@ -90,6 +90,7 @@ Thanks to [Open Collective][opencollective contributors] and all our Open Collec
 [Inherited Resources]: https://github.com/activeadmin/inherited_resources
 [Kaminari]: https://github.com/kaminari/kaminari
 [Ransack]: https://github.com/activerecord-hackery/ransack
+
 [rubygems_badge]: http://img.shields.io/gem/v/activeadmin.svg
 [rubygems]: https://rubygems.org/gems/activeadmin
 [actions_badge]: https://github.com/activeadmin/activeadmin/workflows/ci/badge.svg
@@ -102,6 +103,7 @@ Thanks to [Open Collective][opencollective contributors] and all our Open Collec
 [tidelift]: https://tidelift.com/subscription/pkg/rubygems-activeadmin?utm_source=rubygems-activeadmin&utm_medium=readme
 [tidelift_enterprise]: https://tidelift.com/subscription/pkg/rubygems-activeadmin?utm_source=rubygems-activeadmin&utm_medium=referral&utm_campaign=enterprise
 [tidelift_support]: https://tidelift.com/subscription/pkg/rubygems-activeadmin?utm_source=rubygems-activeadmin&utm_medium=referral&utm_campaign=github&utm_content=support
+
 [docs]: http://activeadmin.info/0-installation.html
 [demo]: http://demo.activeadmin.info/admin
 [wiki]: https://github.com/activeadmin/activeadmin/wiki

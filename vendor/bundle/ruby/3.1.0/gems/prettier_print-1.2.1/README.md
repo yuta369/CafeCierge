@@ -35,10 +35,10 @@ q = PrettierPrint.new(+"", 80, "\n") { |n| " " * n }
 
 By convention, the `PrettierPrint` object is called `q`. The arguments are detailed below.
 
-- This first argument (and the only required argument) is the output object. It can be anything that responds to `<<`, provided that method accepts strings. Usually this is an unfrozen empty string (`+""`). It's also common to see an empty array (`[]`).
-- The optional second argument is the print width. This defaults to `80`. For more information about this see the section below on [print width](#print-width).
-- The optional third argument is the newline to use. This defaults to `"\n"`. In some special circumstances, you might want something else like `"\r\n"` or any other newline marker.
-- The final optional argument is the block that specifies how to build spaces. It receives a single argument which is the number of spaces to generate. This defaults to printing the specified number of space characters. You would modify this only in special circumstances.
+* This first argument (and the only required argument) is the output object. It can be anything that responds to `<<`, provided that method accepts strings. Usually this is an unfrozen empty string (`+""`). It's also common to see an empty array (`[]`).
+* The optional second argument is the print width. This defaults to `80`. For more information about this see the section below on [print width](#print-width).
+* The optional third argument is the newline to use. This defaults to `"\n"`. In some special circumstances, you might want something else like `"\r\n"` or any other newline marker.
+* The final optional argument is the block that specifies how to build spaces. It receives a single argument which is the number of spaces to generate. This defaults to printing the specified number of space characters. You would modify this only in special circumstances.
 
 ### Print width
 
@@ -96,7 +96,7 @@ By default, breakables will indent the next line to the current level of indenta
 q.breakable(indent: false)
 ```
 
-There are some times when you want to force a newline into the output and not check whether or not it fits on the current line. You need this behavior if, for instance, you're printing Ruby code and you need to put a separator between two statements. To force the newline into the output, you can use the optional `force` keyword, as in:
+There are some times when you want to force a newline into the output and not check whether or not it fits on the current line. You need this behavior if, for instance, you're printing Ruby code and you need to put a separator between two statements. To force the newline into the output, you can use the optional `force`  keyword, as in:
 
 ```ruby
 q.breakable(force: true)
@@ -431,10 +431,10 @@ puts PrettierPrint.format(+"") { |q| print_directory(q, Dir["**/*"]) }
 
 There are lots of other examples that you can look at in other gems and files. Those include:
 
-- [test/prettier_print_test.rb](test/prettier_print_test.rb) - the test file for this gem
-- [Syntax Tree](https://github.com/ruby-syntax-tree/syntax_tree) - a formatter for Ruby code
-- [Syntax Tree HAML plugin](https://github.com/ruby-syntax-tree/syntax_tree-haml) - a formatter for the HAML template language
-- [Syntax Tree RBS plugin](https://github.com/ruby-syntax-tree/syntax_tree-rbs) - a formatter the RBS type specification language
+* [test/prettier_print_test.rb](test/prettier_print_test.rb) - the test file for this gem
+* [Syntax Tree](https://github.com/ruby-syntax-tree/syntax_tree) - a formatter for Ruby code
+* [Syntax Tree HAML plugin](https://github.com/ruby-syntax-tree/syntax_tree-haml) - a formatter for the HAML template language
+* [Syntax Tree RBS plugin](https://github.com/ruby-syntax-tree/syntax_tree-rbs) - a formatter the RBS type specification language
 
 ## Contributing
 

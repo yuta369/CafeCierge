@@ -13,8 +13,8 @@ FactoryBot/AssociationStyle:
   Description: Use a consistent style to define associations.
   Enabled: pending
   Safe: false
-  VersionAdded: "2.23"
-  VersionChanged: "2.24"
+  VersionAdded: '2.23'
+  VersionChanged: '2.24'
   EnforcedStyle: implicit
   SupportedStyles:
     - explicit
@@ -25,8 +25,8 @@ FactoryBot/AssociationStyle:
 FactoryBot/AttributeDefinedStatically:
   Description: Always declare attribute values as blocks.
   Enabled: true
-  VersionAdded: "1.28"
-  VersionChanged: "2.24"
+  VersionAdded: '1.28'
+  VersionChanged: '2.24'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/AttributeDefinedStatically
 
 FactoryBot/ConsistentParenthesesStyle:
@@ -42,8 +42,8 @@ FactoryBot/ConsistentParenthesesStyle:
     - require_parentheses
     - omit_parentheses
   ExplicitOnly: false
-  VersionAdded: "2.14"
-  VersionChanged: "2.23"
+  VersionAdded: '2.14'
+  VersionChanged: '2.23'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/ConsistentParenthesesStyle
 
 FactoryBot/CreateList:
@@ -61,8 +61,8 @@ FactoryBot/CreateList:
     - n_times
   ExplicitOnly: false
   SafeAutoCorrect: false
-  VersionAdded: "1.25"
-  VersionChanged: "2.26"
+  VersionAdded: '1.25'
+  VersionChanged: '2.26'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/CreateList
 
 FactoryBot/ExcessiveCreateList:
@@ -74,7 +74,7 @@ FactoryBot/ExcessiveCreateList:
     - "**/test/**/*"
     - "**/features/support/factories/**/*.rb"
   MaxAmount: 10
-  VersionAdded: "2.25"
+  VersionAdded: '2.25'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/ExcessiveCreateList
 
 FactoryBot/FactoryAssociationWithStrategy:
@@ -85,15 +85,15 @@ FactoryBot/FactoryAssociationWithStrategy:
     - "**/spec/**/*"
     - "**/test/**/*"
     - "**/features/support/factories/**/*.rb"
-  VersionAdded: "2.23"
-  VersionChanged: "2.23"
+  VersionAdded: '2.23'
+  VersionChanged: '2.23'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/FactoryAssociationWithStrategy
 
 FactoryBot/FactoryClassName:
   Description: Use string value when setting the class attribute explicitly.
   Enabled: true
-  VersionAdded: "1.37"
-  VersionChanged: "2.24"
+  VersionAdded: '1.37'
+  VersionChanged: '2.24'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/FactoryClassName
 
 FactoryBot/FactoryNameStyle:
@@ -109,14 +109,14 @@ FactoryBot/FactoryNameStyle:
     - symbol
     - string
   ExplicitOnly: false
-  VersionAdded: "2.16"
-  VersionChanged: "2.23"
+  VersionAdded: '2.16'
+  VersionChanged: '2.23'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/FactoryNameStyle
 
 FactoryBot/IdSequence:
   Description: Do not create a FactoryBot sequence for an id column.
   Enabled: pending
-  VersionAdded: "2.24"
+  VersionAdded: '2.24'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/IdSequence
 
 FactoryBot/RedundantFactoryOption:
@@ -127,7 +127,7 @@ FactoryBot/RedundantFactoryOption:
     - "**/spec/**/*"
     - "**/test/**/*"
     - "**/features/support/factories/**/*.rb"
-  VersionAdded: "2.23"
+  VersionAdded: '2.23'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/RedundantFactoryOption
 
 FactoryBot/SyntaxMethods:
@@ -139,5 +139,5 @@ FactoryBot/SyntaxMethods:
     - "**/test/**/*"
     - "**/features/support/factories/**/*.rb"
   SafeAutoCorrect: false
-  VersionAdded: "2.7"
+  VersionAdded: '2.7'
   Reference: https://www.rubydoc.info/gems/rubocop-factory_bot/RuboCop/Cop/FactoryBot/SyntaxMethods

@@ -1,3 +1,4 @@
+
 # Installation and Using SQLite3 extensions
 
 This document will help you install the `sqlite3` ruby gem. It also contains instructions on loading database extensions and building against drop-in replacements for sqlite3.
@@ -20,7 +21,7 @@ If you are using one of these Ruby versions on one of these platforms, the nativ
 
 For example, on a linux system running Ruby 3.1:
 
-```text
+``` text
 $ ruby -v
 ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [x86_64-linux]
 
@@ -46,9 +47,11 @@ If you're on a platform that supports a native gem but you want to avoid using i
   - version 2.1 or later, then you'll need to run `bundle config set force_ruby_platform true`
   - version 2.0 or earlier, then you'll need to run `bundle config force_ruby_platform true`
 
+
 ### Compiling the source gem
 
 If you are on a platform or version of Ruby that is not covered by the Native Gems, then the vanilla "ruby platform" (non-native) gem will be installed by the `gem install` or `bundle` commands.
+
 
 #### Packaged libsqlite3
 
@@ -56,7 +59,7 @@ By default, as of v1.5.0 of this library, the latest available version of libsql
 
 For example, on a linux system running Ruby 2.5:
 
-```text
+``` text
 $ ruby -v
 ruby 2.5.9p229 (2021-04-05 revision 67939) [x86_64-linux]
 
@@ -76,38 +79,39 @@ Upstream sqlite allows for the setting of some parameters at compile time. If yo
 
 **If you're installing the gem using `gem install`** then you can pass in these compile-time flags like this:
 
-```sh
+``` sh
 gem install sqlite3 --platform=ruby -- \
   --with-sqlite-cflags="-DSQLITE_DEFAULT_CACHE_SIZE=9999 -DSQLITE_DEFAULT_PAGE_SIZE=4444"
 ```
 
 or the equivalent:
 
-```sh
+``` sh
 CFLAGS="-DSQLITE_DEFAULT_CACHE_SIZE=9999 -DSQLITE_DEFAULT_PAGE_SIZE=4444" \
   gem install sqlite3 --platform=ruby
 ```
 
 **If you're installing the gem using `bundler`** then you should first pin the gem to the "ruby" platform gem, so that you are compiling from source:
 
-```ruby
+``` ruby
 # Gemfile
 gem "sqlite3", force_ruby_platform: true # requires bundler >= 2.3.18
 ```
 
 and then set up a bundler config parameter for `build.sqlite3`:
 
-```sh
+``` sh
 bundle config set build.sqlite3 \
   "--with-sqlite-cflags='-DSQLITE_DEFAULT_CACHE_SIZE=9999 -DSQLITE_DEFAULT_PAGE_SIZE=4444'"
 ```
 
 NOTE the use of single quotes within the double-quoted string to ensure the space between compiler flags is interpreted correctly. The contents of your `.bundle/config` file should look like:
 
-```yaml
+``` yaml
 ---
 BUNDLE_BUILD__SQLITE3: "--with-sqlite-cflags='-DSQLITE_DEFAULT_CACHE_SIZE=9999 -DSQLITE_DEFAULT_PAGE_SIZE=4444'"
 ```
+
 
 #### System libsqlite3
 
@@ -121,7 +125,7 @@ PLEASE NOTE:
 
 For example, on a linux system running Ruby 2.5:
 
-```text
+``` text
 $ time gem install sqlite3 -- --enable-system-libraries
 Building native extensions with: '--enable-system-libraries'
 This could take a while...
@@ -135,24 +139,25 @@ sys     0m0.912s
 
 If you're using bundler, you can opt into system libraries like this:
 
-```sh
+``` sh
 bundle config build.sqlite3 --enable-system-libraries
 ```
 
 If you have sqlite3 installed in a non-standard location, you may need to specify the location of the include and lib files by using `--with-sqlite-include` and `--with-sqlite-lib` options (or a `--with-sqlite-dir` option, see [MakeMakefile#dir_config](https://ruby-doc.org/stdlib-3.1.1/libdoc/mkmf/rdoc/MakeMakefile.html#method-i-dir_config)). If you have pkg-config installed and configured properly, this may not be necessary.
 
-```sh
+``` sh
 gem install sqlite3 -- \
   --enable-system-libraries \
   --with-sqlite3-include=/opt/local/include \
   --with-sqlite3-lib=/opt/local/lib
 ```
 
+
 #### System libsqlcipher
 
 If you'd like to link against a system-installed libsqlcipher, you may do so by using the `--with-sqlcipher` flag:
 
-```text
+``` text
 $ time gem install sqlite3 -- --with-sqlcipher
 Building native extensions with: '--with-sqlcipher'
 This could take a while...
@@ -166,6 +171,7 @@ sys     0m0.896s
 
 If you have sqlcipher installed in a non-standard location, you may need to specify the location of the include and lib files by using `--with-sqlite-include` and `--with-sqlite-lib` options (or a `--with-sqlite-dir` option, see [MakeMakefile#dir_config](https://ruby-doc.org/stdlib-3.1.1/libdoc/mkmf/rdoc/MakeMakefile.html#method-i-dir_config)). If you have pkg-config installed and configured properly, this may not be necessary.
 
+
 ## Using SQLite3 extensions
 
 ### How do I load a sqlite extension?
@@ -174,7 +180,7 @@ Some add-ons are available to sqlite as "extensions". The instructions that upst
 
 In this example, I'll be loading the ["spellfix" extension](https://www.sqlite.org/spellfix1.html):
 
-```text
+``` text
 # download spellfix.c from somewherehttp://www.sqlite.org/src/finfo?name=ext/misc/spellfix.c
 $ wget https://raw.githubusercontent.com/sqlite/sqlite/master/ext/misc/spellfix.c
 spellfix.c                     100%[=================================================>] 100.89K  --.-KB/s    in 0.09s
@@ -191,7 +197,7 @@ total 192
 
 Then, in your application, use that `spellfix.o` file like this:
 
-```ruby
+``` ruby
 require "sqlite3"
 
 db = SQLite3::Database.new(':memory:')
@@ -250,3 +256,4 @@ gem install sqlite3 --platform=ruby -- \
   --with-opt-include=/path/to/include \
   --with-opt-lib=/path/to/lib
 ```
+

@@ -50,7 +50,7 @@ es-CL:
       confirmation_instructions:
         action: Confirmar mi cuenta
         greeting: "¡Te damos la bienvenida, %{recipient}!"
-        instruction: "Se puede confirmar el correo electrónico de la cuenta a través de este enlace:"
+        instruction: 'Se puede confirmar el correo electrónico de la cuenta a través de este enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: Hola %{recipient}!
@@ -71,7 +71,7 @@ es-CL:
       unlock_instructions:
         action: Desbloquear mi cuenta
         greeting: "¡Hola, %{recipient}!"
-        instruction: "Haz clic en el siguiente enlace para desbloquear tu cuenta:"
+        instruction: 'Haz clic en el siguiente enlace para desbloquear tu cuenta:'
         message: Bloqueamos tu debido a una cantidad excesiva de intentos fallidos para ingresar.
         subject: Instrucciones para desbloquear tu cuenta
     omniauth_callbacks:
@@ -85,7 +85,7 @@ es-CL:
         new_password: Contraseña nueva
       new:
         forgot_your_password: "¿Has olvidado tu contraseña?"
-        send_me_reset_password_instructions:
+        send_me_reset_password_instructions: 
       no_token: No puedes acceder a esta página si no es a través de un enlace para restablecer tu contraseña. Si has llegado hasta aquí desde el correo para restablecer tu contraseña, por favor asegúrate de que la URL introducida está completa.
       send_instructions: En unos minutos recibirás un correo con instrucciones sobre cómo restablecer tu contraseña.
       send_paranoid_instructions: Si tu correo existe en nuestra base de datos, recibirás en tu bandeja de entrada un correo con instrucciones sobre cómo restablecer tu contraseña.
@@ -96,7 +96,7 @@ es-CL:
       edit:
         are_you_sure: "¿Está usted seguro?"
         cancel_my_account: Eliminar mi cuenta
-        currently_waiting_confirmation_for_email: "Actualmente esperando la confirmación de: %{email}"
+        currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmación de: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarlo
         title: Editar %{resource}
         unhappy: No se encuentra feliz
@@ -126,7 +126,7 @@ es-CL:
         sign_in: Iniciar sesión
         sign_in_with_provider: Iniciar sesión con %{provider}
         sign_up: Registrarse
-      minimum_password_length:
+      minimum_password_length: 
     unlocks:
       new:
         resend_unlock_instructions: Reenviar instrucciones para desbloquear la cuenta
@@ -141,5 +141,5 @@ es-CL:
       not_found: no se encontró
       not_locked: no se encuentra bloqueada
       not_saved:
-        one: "Un error ocurrió al tratar de guardar %{resource}:"
+        one: 'Un error ocurrió al tratar de guardar %{resource}:'
         other: "%{count} errores ocurrieron al tratar de guardar %{resource}:"

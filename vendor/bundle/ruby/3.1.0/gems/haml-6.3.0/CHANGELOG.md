@@ -2,115 +2,115 @@
 
 ## 6.3.0
 
-- Remove `Haml::RailsTemplate#default_format` that was added in v6.1.3 for Turbo [#1152](https://github.com/haml/haml/issues/1152), [#1154](https://github.com/haml/haml/issues/1154) ([discussion](https://github.com/haml/haml/pull/1144#issuecomment-1755088572))
-  - See [the reference](https://github.com/haml/haml/blob/v6.3.0/REFERENCE.md#turbo) for suggested alternatives.
+* Remove `Haml::RailsTemplate#default_format` that was added in v6.1.3 for Turbo [#1152](https://github.com/haml/haml/issues/1152), [#1154](https://github.com/haml/haml/issues/1154) ([discussion](https://github.com/haml/haml/pull/1144#issuecomment-1755088572))
+  * See [the reference](https://github.com/haml/haml/blob/v6.3.0/REFERENCE.md#turbo) for suggested alternatives.
 
 ## 6.2.5
 
-- Deprecate `Haml::RailsTemplate#default_format` that was added in v6.1.3 for Turbo ([discussion](https://github.com/haml/haml/pull/1144#issuecomment-1755088572))
-  - See [the reference](https://github.com/haml/haml/blob/v6.2.5/REFERENCE.md#turbo) for suggested alternatives.
+* Deprecate `Haml::RailsTemplate#default_format` that was added in v6.1.3 for Turbo ([discussion](https://github.com/haml/haml/pull/1144#issuecomment-1755088572))
+  * See [the reference](https://github.com/haml/haml/blob/v6.2.5/REFERENCE.md#turbo) for suggested alternatives.
 
 ## 6.2.4
 
-- Support case-in statement [#1155](https://github.com/haml/haml/issues/1155)
+* Support case-in statement [#1155](https://github.com/haml/haml/issues/1155)
 
 ## 6.2.3
 
-- Resurrect RDFa doctype support [#1147](https://github.com/haml/haml/issues/1147)
+* Resurrect RDFa doctype support [#1147](https://github.com/haml/haml/issues/1147)
 
 ## 6.2.2
 
-- Allow adding custom attributes to `Haml::BOOLEAN_ATTRIBUTES` [#1148](https://github.com/haml/haml/issues/1148)
-- Consider `aria-xxx: false` as a boolean attribute
+* Allow adding custom attributes to `Haml::BOOLEAN_ATTRIBUTES` [#1148](https://github.com/haml/haml/issues/1148)
+* Consider `aria-xxx: false` as a boolean attribute
 
 ## 6.2.1
 
-- Fix v6.2.0's bug in rendering dynamic `aria` attributes [#1149](https://github.com/haml/haml/issues/1149)
+* Fix v6.2.0's bug in rendering dynamic `aria` attributes [#1149](https://github.com/haml/haml/issues/1149)
 
 ## 6.2.0
 
-- Drop the C extension [#1146](https://github.com/haml/haml/issues/1146)
+* Drop the C extension [#1146](https://github.com/haml/haml/issues/1146)
 
 ## 6.1.4
 
-- Let `Haml::Util.escape_html` use `ERB::Escape` if available [#1145](https://github.com/haml/haml/issues/1145)
+* Let `Haml::Util.escape_html` use `ERB::Escape` if available [#1145](https://github.com/haml/haml/issues/1145)
 
 ## 6.1.3
 
-- Add `Haml::RailsTemplate#default_format` for Turbo compatibility [#1144](https://github.com/haml/haml/issues/1144)
+* Add `Haml::RailsTemplate#default_format` for Turbo compatibility [#1144](https://github.com/haml/haml/issues/1144)
 
 ## 6.1.2
 
-- Use the rails template path as `filename` [#1140](https://github.com/haml/haml/issues/1140)
+* Use the rails template path as `filename` [#1140](https://github.com/haml/haml/issues/1140)
 
 ## 6.1.1
 
-- Fix an empty output of Ruby 3.1's Hash shorthand syntax [#1083](https://github.com/haml/haml/issues/1083)
+* Fix an empty output of Ruby 3.1's Hash shorthand syntax [#1083](https://github.com/haml/haml/issues/1083)
 
 ## 6.1.0
 
-- Optimize away a `to_s` call on `=` scripts
-- Fix escaping for objects that return an `html_safe` string on `to_s` [#1117](https://github.com/haml/haml/issues/1117)
+* Optimize away a `to_s` call on `=` scripts
+* Fix escaping for objects that return an `html_safe` string on `to_s` [#1117](https://github.com/haml/haml/issues/1117)
 
 ## 6.0.12
 
-- Fix a whitespace removal with `>` and an `if`-`else` statement [#1114](https://github.com/haml/haml/issues/1114)
+* Fix a whitespace removal with `>` and an `if`-`else` statement [#1114](https://github.com/haml/haml/issues/1114)
 
 ## 6.0.11
 
-- Fix a whitespace removal with `>` and an `if` statement [#1114](https://github.com/haml/haml/issues/1114)
+* Fix a whitespace removal with `>` and an `if` statement [#1114](https://github.com/haml/haml/issues/1114)
 
 ## 6.0.10
 
-- Evaluate :erb filter in the template context like Haml 5
+* Evaluate :erb filter in the template context like Haml 5
 
 ## 6.0.9
 
-- Support sass-embedded [#1112](https://github.com/haml/haml/issues/1112)
+* Support sass-embedded [#1112](https://github.com/haml/haml/issues/1112)
 
 ## 6.0.8
 
-- Support interpolation in HTML comments, which has not been working since 6.0.0
+* Support interpolation in HTML comments, which has not been working since 6.0.0
   [#1107](https://github.com/haml/haml/issues/1107)
 
 ## 6.0.7
 
-- `Haml::Engine` and `Haml::Template` use StringBuffer instead of ArrayBuffer
-  - It seems more performant in many cases with recent Ruby versions.
-  - `Haml::RailsTemplate` is not affected.
+* `Haml::Engine` and `Haml::Template` use StringBuffer instead of ArrayBuffer
+  * It seems more performant in many cases with recent Ruby versions.
+  * `Haml::RailsTemplate` is not affected.
 
 ## 6.0.6
 
-- Prevent CRuby from accidentally using the Ruby implementation fallback
-  - Reversing what v6.0.3 and v6.0.4 did, but still supporting Wasm.
+* Prevent CRuby from accidentally using the Ruby implementation fallback
+  * Reversing what v6.0.3 and v6.0.4 did, but still supporting Wasm.
 
 ## 6.0.5
 
-- Resurrect `#haml_object_ref` support in an object reference [#1097](https://github.com/haml/haml/issues/1097)
-  - This was removed in 6.0.0, and added back in this version.
-- Stop warning `remove_whitespace: true` option.
+* Resurrect `#haml_object_ref` support in an object reference [#1097](https://github.com/haml/haml/issues/1097)
+  * This was removed in 6.0.0, and added back in this version.
+* Stop warning `remove_whitespace: true` option.
 
 ## 6.0.4
 
 Released on October 2, 2022
 ([diff](https://github.com/haml/haml/compare/v6.0.3...v6.0.4)).
 
-- Fix a parse failure of `%` in attributes [#1096](https://github.com/haml/haml/issues/1096)
-- Add another fallback from C to Ruby for Wasm.
+* Fix a parse failure of `%` in attributes [#1096](https://github.com/haml/haml/issues/1096)
+* Add another fallback from C to Ruby for Wasm.
 
 ## 6.0.3
 
 Released on September 28, 2022
 ([diff](https://github.com/haml/haml/compare/v6.0.2...v6.0.3)).
 
-- For Wasm, fallback to Ruby when C extension is not available.
+* For Wasm, fallback to Ruby when C extension is not available.
 
 ## 6.0.2
 
 Released on September 28, 2022
 ([diff](https://github.com/haml/haml/compare/v6.0.1...v6.0.2)).
 
-- Unescape HTML-safe arguments for `surround`, `succeed`, and `precede` on Rails
+* Unescape HTML-safe arguments for `surround`, `succeed`, and `precede` on Rails
   [#1088](https://github.com/haml/haml/issues/1088)
 
 ## 6.0.1
@@ -118,139 +118,139 @@ Released on September 28, 2022
 Released on September 23, 2022
 ([diff](https://github.com/haml/haml/compare/v6.0.0...v6.0.1)).
 
-- Unescape HTML-safe interpolation on Rails [#1084](https://github.com/haml/haml/issues/1084)
-- Resurrect Haml 5's `AttributeParser.available?` for syntax_tree-haml [#1085](https://github.com/haml/haml/issues/1085)
+* Unescape HTML-safe interpolation on Rails [#1084](https://github.com/haml/haml/issues/1084)
+* Resurrect Haml 5's `AttributeParser.available?` for syntax\_tree-haml [#1085](https://github.com/haml/haml/issues/1085)
 
 ## 6.0.0
 
 Released on September 21, 2022
 ([diff](https://github.com/haml/haml/compare/v5.2.2...v6.0.0)).
 
-- Replace the implementation with Hamlit
-  - Haml 6 is about 1.7x faster than Haml 5 in [this benchmark](benchmark/slim/run-benchmarks.rb).
-  - The parser is kept as is, but everything else is replaced.
-  - The `haml` CLI interface was also replaced.
-  - The interface of `Haml::Engine` is changed. `Haml::Template` is most likely what you need now.
-    - before: `Haml::Engine.new("%p Haml code!").render`
-    - after: `Haml::Template.new { "%p Haml code!" }.render`
-  - Most Haml helpers are removed.
-    - Rails:
-      - Kept: `find_and_reserve`, `preserve`, `surround`, `precede`, `succeed`, `capture_haml`
-      - Removed: `block_is_haml?`, `flatten`, `haml_concat`, `haml_indent`, `haml_tag`, `haml_tag_if`, `html_attrs`,
-        `html_escape`, `init_haml_helpers`, `is_haml?`, `list_of`, `non_haml`, `tab_down`, `tab_up`, `with_tabs`
-    - Tilt:
-      - Kept: `preserve`
-      - Removed: `block_is_haml?`, `capture_haml`, `escape_once`, `find_and_preserve`, `flatten`, `haml_concat`,
-        `haml_indent`, `haml_tag`, `haml_tag_if`, `html_attrs`, `html_escape`, `init_haml_helpers`, `is_haml?`,
-        `list_of`, `non_haml`, `precede`, `succeed`, `surround`, `tab_down`, `tab_up`, `with_tabs`
-    - `:ruby` filter
-      - Removed: `haml_io`
-    - Alternatives to the removed helpers:
-      - Some simple ones could work by copying [the original definition](https://github.com/haml/haml/blob/v5.2.2/lib/haml/helpers.rb).
-      - For helpers generating general HTML tags, also consider using what your framework provides, e.g. Rails `content_tag`.
-        Same applies to `capture_haml`, e.g. Rails `capture`.
-      - Ones that rely on `Haml::Buffer` have no direct alternative by design. They existed at the cost of performance.
-        You need to define a helper, instantiate a String buffer in it, append stuff to it, and call it inside `=`.
-  - Only the following attributes and `aria`/`data` attributes are considered boolean attributes:
-    - `allowfullscreen`, `async`, `autobuffer`, `autofocus`, `autoplay`, `checked`, `controls`, `default`,
-      `defer`, `disabled`, `download`, `formnovalidate`, `hidden`, `inert`, `ismap`, `itemscope`, `loop`,
-      `multiple`, `muted`, `novalidate`, `open`, `pubdate`, `readonly`, `required`, `reversed`, `scoped`,
-      `seamless`, `selected`, `sortable`, `truespeed`, `typemustmatch`
-  - Only `data` and `aria` attributes support using a nested Hash to render hyphenated attributes, e.g.
+* Replace the implementation with Hamlit
+  * Haml 6 is about 1.7x faster than Haml 5 in [this benchmark](benchmark/slim/run-benchmarks.rb).
+  * The parser is kept as is, but everything else is replaced.
+  * The `haml` CLI interface was also replaced.
+  * The interface of `Haml::Engine` is changed. `Haml::Template` is most likely what you need now.
+     * before: `Haml::Engine.new("%p Haml code!").render`
+     * after: `Haml::Template.new { "%p Haml code!" }.render`
+  * Most Haml helpers are removed.
+     * Rails:
+         * Kept: `find_and_reserve`, `preserve`, `surround`, `precede`, `succeed`, `capture_haml`
+         * Removed: `block_is_haml?`, `flatten`, `haml_concat`, `haml_indent`, `haml_tag`, `haml_tag_if`, `html_attrs`,
+           `html_escape`, `init_haml_helpers`, `is_haml?`, `list_of`, `non_haml`, `tab_down`, `tab_up`, `with_tabs`
+     * Tilt:
+         * Kept: `preserve`
+         * Removed: `block_is_haml?`, `capture_haml`, `escape_once`, `find_and_preserve`, `flatten`, `haml_concat`,
+           `haml_indent`, `haml_tag`, `haml_tag_if`, `html_attrs`, `html_escape`, `init_haml_helpers`, `is_haml?`,
+           `list_of`, `non_haml`, `precede`, `succeed`, `surround`, `tab_down`, `tab_up`, `with_tabs`
+     * `:ruby` filter
+         * Removed: `haml_io`
+     * Alternatives to the removed helpers:
+         * Some simple ones could work by copying [the original definition](https://github.com/haml/haml/blob/v5.2.2/lib/haml/helpers.rb).
+         * For helpers generating general HTML tags, also consider using what your framework provides, e.g. Rails `content_tag`.
+           Same applies to `capture_haml`, e.g. Rails `capture`.
+         * Ones that rely on `Haml::Buffer` have no direct alternative by design. They existed at the cost of performance.
+           You need to define a helper, instantiate a String buffer in it, append stuff to it, and call it inside `=`.
+  * Only the following attributes and `aria`/`data` attributes are considered boolean attributes:
+     * `allowfullscreen`, `async`, `autobuffer`, `autofocus`, `autoplay`, `checked`, `controls`, `default`,
+       `defer`, `disabled`, `download`, `formnovalidate`, `hidden`, `inert`, `ismap`, `itemscope`, `loop`,
+       `multiple`, `muted`, `novalidate`, `open`, `pubdate`, `readonly`, `required`, `reversed`, `scoped`,
+       `seamless`, `selected`, `sortable`, `truespeed`, `typemustmatch`
+  * Only `data` and `aria` attributes support using a nested Hash to render hyphenated attributes, e.g.
     `data: { foo: 'bar' }` becomes `data-foo="bar"`, but this no longer works for non-`data`/`aria` attributes.
-  - Some legacy Rails integration is removed.
-  - The default value of `escape_html` option became true.
-  - `-` script lines no longer support capturing. Only `=` lines are supported to yield a nested block.
-  - Overriding `data` attributes with another falsy `data-*` attribute that has the same name
+  * Some legacy Rails integration is removed.
+  * The default value of `escape_html` option became true.
+  * `-` script lines no longer support capturing. Only `=` lines are supported to yield a nested block.
+  * Overriding `data` attributes with another falsy `data-*` attribute that has the same name
     is no longer supported. [#1105](https://github.com/haml/haml/issues/1105)
-  - :erb filter is not executed in the template context (fixed in 6.0.10)
+  * :erb filter is not executed in the template context (fixed in 6.0.10)
 
 ## 5.2.2
 
 Released on July 27, 2021
 ([diff](https://github.com/haml/haml/compare/v5.2.1...v5.2.2)).
 
-- Support `config.action_view.annotate_rendered_view_with_filenames = true` of Rails 6.1
+* Support `config.action_view.annotate_rendered_view_with_filenames = true` of Rails 6.1
 
 ## 5.2.1
 
 Released on November 30, 2020
 ([diff](https://github.com/haml/haml/compare/v5.2.0...v5.2.1)).
 
-- Add in improved "multiline" support for attributes [#1043](https://github.com/haml/haml/issues/1043)
+* Add in improved "multiline" support for attributes [#1043](https://github.com/haml/haml/issues/1043)
 
 ## 5.2
 
 Released on September 28, 2020
 ([diff](https://github.com/haml/haml/compare/v5.1.2...v5.2.0)).
 
-- Fix crash in the attribute optimizer when `#inspect` is overridden in TrueClass / FalseClass [#972](https://github.com/haml/haml/issues/972)
-- Do not HTML-escape templates that are declared to be plaintext [#1014](https://github.com/haml/haml/issues/1014) (Thanks [@cesarizu](https://github.com/cesarizu))
-- Class names are no longer ordered alphabetically, and now follow a new specification as laid out in REFERENCE [#306](https://github.com/haml/haml/issues/306)
+* Fix crash in the attribute optimizer when `#inspect` is overridden in TrueClass / FalseClass [#972](https://github.com/haml/haml/issues/972)
+* Do not HTML-escape templates that are declared to be plaintext [#1014](https://github.com/haml/haml/issues/1014) (Thanks [@cesarizu](https://github.com/cesarizu))
+* Class names are no longer ordered alphabetically, and now follow a new specification as laid out in REFERENCE [#306](https://github.com/haml/haml/issues/306)
 
 ## 5.1.2
 
 Released on August 6, 2019
 ([diff](https://github.com/haml/haml/compare/v5.1.1...v5.1.2)).
 
-- Fix crash in some environments such as New Relic by unfreezing string literals for ParseNode#inspect. [#1016](https://github.com/haml/haml/pull/1016) (thanks [Jalyna](https://github.com/jalyna))
+* Fix crash in some environments such as New Relic by unfreezing string literals for ParseNode#inspect. [#1016](https://github.com/haml/haml/pull/1016) (thanks [Jalyna](https://github.com/jalyna))
 
 ## 5.1.1
 
 Released on May 25, 2019
 ([diff](https://github.com/haml/haml/compare/v5.1.0...v5.1.1)).
 
-- Fix NameError bug that happens on ruby 2.6.1-2.6.3 + haml 5.1.0 + rails < 5.1 + erubi. (Akira Matsuda)
+* Fix NameError bug that happens on ruby 2.6.1-2.6.3 + haml 5.1.0 + rails < 5.1 + erubi. (Akira Matsuda)
 
 ## 5.1.0
 
 Released on May 16, 2019
 ([diff](https://github.com/haml/haml/compare/v5.0.4...v5.1.0)).
 
-- Rails 6 support [#1008](https://github.com/haml/haml/pull/1008) (thanks [Seb Jacobs](https://github.com/sebjacobs))
-- Add `escape_filter_interpolations` option for backwards compatibility with haml 4 defaults [#984](https://github.com/haml/haml/pull/984) (thanks [Will Jordan](https://github.com/wjordan))
-- Fix error on empty :javascript and :css filter blocks [#986](https://github.com/haml/haml/pull/986) (thanks [Will Jordan](https://github.com/wjordan))
-- Respect changes in Haml::Options.defaults in `Haml::TempleEngine` options (Takashi Kokubun)
-- Un-freeze TempleEngine precompiled string literals [#983](https://github.com/haml/haml/pull/983) (thanks [Will Jordan](https://github.com/wjordan))
-- Various performance/memory improvements [#965](https://github.com/haml/haml/pull/965), [#966](https://github.com/haml/haml/pull/966), [#963](https://github.com/haml/haml/pull/963) (thanks [Dillon Welch](https://github.com/oniofchaos))
-- Enable `frozen_string_literal` magic comment for all .rb files [#967](https://github.com/haml/haml/pull/967) (thanks [Dillon Welch](https://github.com/oniofchaos))
+* Rails 6 support [#1008](https://github.com/haml/haml/pull/1008) (thanks [Seb Jacobs](https://github.com/sebjacobs))
+* Add `escape_filter_interpolations` option for backwards compatibility with haml 4 defaults [#984](https://github.com/haml/haml/pull/984) (thanks [Will Jordan](https://github.com/wjordan))
+* Fix error on empty :javascript and :css filter blocks [#986](https://github.com/haml/haml/pull/986) (thanks [Will Jordan](https://github.com/wjordan))
+* Respect changes in Haml::Options.defaults in `Haml::TempleEngine` options (Takashi Kokubun)
+* Un-freeze TempleEngine precompiled string literals [#983](https://github.com/haml/haml/pull/983) (thanks [Will Jordan](https://github.com/wjordan))
+* Various performance/memory improvements [#965](https://github.com/haml/haml/pull/965), [#966](https://github.com/haml/haml/pull/966), [#963](https://github.com/haml/haml/pull/963) (thanks [Dillon Welch](https://github.com/oniofchaos))
+* Enable `frozen_string_literal` magic comment for all .rb files [#967](https://github.com/haml/haml/pull/967) (thanks [Dillon Welch](https://github.com/oniofchaos))
 
 ## 5.0.4
 
 Released on October 13, 2017
 ([diff](https://github.com/haml/haml/compare/v5.0.3...v5.0.4)).
 
-- Fix `haml -c --stdin` regression in 5.0.2. [#958](https://github.com/haml/haml/pull/958) (thanks [Timo Göllner](https://github.com/TeaMoe))
-- Ruby 2.5 support (it wasn't working due to Ripper API change). (Akira Matsuda)
+* Fix `haml -c --stdin` regression in 5.0.2. [#958](https://github.com/haml/haml/pull/958) (thanks [Timo Göllner](https://github.com/TeaMoe))
+* Ruby 2.5 support (it wasn't working due to Ripper API change). (Akira Matsuda)
 
 ## 5.0.3
 
 Released on September 7, 2017
 ([diff](https://github.com/haml/haml/compare/v5.0.2...v5.0.3)).
 
-- Use `String#dump` instead of `String#inspect` to generate string literal. (Takashi Kokubun)
-- Fix Erubi superclass mismatch error. [#952](https://github.com/haml/haml/pull/952) (thanks [Robin Daugherty](https://github.com/RobinDaugherty))
+* Use `String#dump` instead of `String#inspect` to generate string literal. (Takashi Kokubun)
+* Fix Erubi superclass mismatch error. [#952](https://github.com/haml/haml/pull/952) (thanks [Robin Daugherty](https://github.com/RobinDaugherty))
 
 ## 5.0.2
 
 Released on August 1, 2017
 ([diff](https://github.com/haml/haml/compare/v5.0.1...v5.0.2)).
 
-- Let `haml -c` fail if generated Ruby code is syntax error. [#880](https://github.com/haml/haml/issues/880) (Takashi Kokubun)
-- Fix `NoMethodError` bug caused with Sprockets 3 and :sass filter. [#930](https://github.com/haml/haml/pull/930) (thanks [Gonzalez Maximiliano](https://github.com/emaxi))
-- Fix `list_of` helper with multi-line content. [#933](https://github.com/haml/haml/pull/933) (thanks [Benoit Larroque](https://github.com/zetaben))
-- Optimize rendering performance by changing timing to fix textareas. [#941](https://github.com/haml/haml/pull/941) (Takashi Kokubun)
-- Fix `TypeError` with empty :ruby filter. [#942](https://github.com/haml/haml/pull/942) (Takashi Kokubun)
-- Fix inconsistent attribute sort order. (Takashi Kokubun)
+* Let `haml -c` fail if generated Ruby code is syntax error. [#880](https://github.com/haml/haml/issues/880) (Takashi Kokubun)
+* Fix `NoMethodError` bug caused with Sprockets 3 and :sass filter. [#930](https://github.com/haml/haml/pull/930) (thanks [Gonzalez Maximiliano](https://github.com/emaxi))
+* Fix `list_of` helper with multi-line content. [#933](https://github.com/haml/haml/pull/933) (thanks [Benoit Larroque](https://github.com/zetaben))
+* Optimize rendering performance by changing timing to fix textareas. [#941](https://github.com/haml/haml/pull/941) (Takashi Kokubun)
+* Fix `TypeError` with empty :ruby filter. [#942](https://github.com/haml/haml/pull/942) (Takashi Kokubun)
+* Fix inconsistent attribute sort order. (Takashi Kokubun)
 
 ## 5.0.1
 
 Released on May 3, 2017
 ([diff](https://github.com/haml/haml/compare/v5.0.0...v5.0.1)).
 
-- Fix parsing attributes including string interpolation. [#917](https://github.com/haml/haml/pull/917) [#921](https://github.com/haml/haml/issues/921)
-- Stop distributing test files in gem package and allow installing on Windows.
-- Use ActionView's Erubi/Erubis handler for erb filter only on ActionView. [#914](https://github.com/haml/haml/pull/914)
+* Fix parsing attributes including string interpolation. [#917](https://github.com/haml/haml/pull/917) [#921](https://github.com/haml/haml/issues/921)
+* Stop distributing test files in gem package and allow installing on Windows.
+* Use ActionView's Erubi/Erubis handler for erb filter only on ActionView. [#914](https://github.com/haml/haml/pull/914)
 
 ## 5.0.0
 
@@ -259,20 +259,20 @@ Released on April 26, 2017
 
 Breaking Changes
 
-- Haml now requires Ruby 2.0.0 or above.
-- Rails 3 is no longer supported, matching the official
+* Haml now requires Ruby 2.0.0 or above.
+* Rails 3 is no longer supported, matching the official
   [Maintenance Policy for Ruby on Rails](http://weblog.rubyonrails.org/2013/2/24/maintenance-policy-for-ruby-on-rails/).
   Use Haml 4 if you want to use Rails 3.
   (Tee Parham)
-- Remove `:ugly` option ([#894](https://github.com/haml/haml/pull/894))
-- The `haml` command's debug option (`-d`) no longer executes the Haml code, but
+* Remove `:ugly` option ([#894](https://github.com/haml/haml/pull/894))
+* The `haml` command's debug option (`-d`) no longer executes the Haml code, but
   rather checks the generated Ruby syntax for errors.
-- Drop parser/compiler accessor from `Haml::Engine`. Modify `Haml::Engine#initialize` options
+* Drop parser/compiler accessor from `Haml::Engine`. Modify `Haml::Engine#initialize` options
   or `Haml::Template.options` instead. (Takashi Kokubun)
-- Drop dynamic quotes support and always escape `'` for `escape_html`/`escape_attrs` instead.
+* Drop dynamic quotes support and always escape `'` for `escape_html`/`escape_attrs` instead.
   Also, escaped results are slightly changed and always unified to the same characters. (Takashi Kokubun)
-- Don't preserve newlines in attributes. (Takashi Kokubun)
-- HTML escape interpolated code in filters.
+* Don't preserve newlines in attributes. (Takashi Kokubun)
+* HTML escape interpolated code in filters.
   [#770](https://github.com/haml/haml/pull/770)
   (Matt Wildig)
 
@@ -283,50 +283,50 @@ Breaking Changes
 
 Added
 
-- Add a tracing option. When enabled, Haml will output a data-trace attribute on each tag showing the path
+* Add a tracing option. When enabled, Haml will output a data-trace attribute on each tag showing the path
   to the source Haml file from which it was generated. Thanks [Alex Babkin](https://github.com/ababkin).
-- Add `haml_tag_if` to render a block, conditionally wrapped in another element (Matt Wildig)
-- Support Rails 5.1 Erubi template handler.
-- Support Sprockets 3. Thanks [Sam Davies](https://github.com/samphilipd) and [Jeremy Venezia](https://github.com/jvenezia).
-- General performance and memory usage improvements. (Akira Matsuda)
-- Analyze attribute values by Ripper and render static attributes beforehand. (Takashi Kokubun)
-- Optimize attribute rendering about 3x faster. (Takashi Kokubun)
-- Add temple gem as dependency and create `Haml::TempleEngine` class.
+* Add `haml_tag_if` to render a block, conditionally wrapped in another element (Matt Wildig)
+* Support Rails 5.1 Erubi template handler.
+* Support Sprockets 3. Thanks [Sam Davies](https://github.com/samphilipd) and [Jeremy Venezia](https://github.com/jvenezia).
+* General performance and memory usage improvements. (Akira Matsuda)
+* Analyze attribute values by Ripper and render static attributes beforehand. (Takashi Kokubun)
+* Optimize attribute rendering about 3x faster. (Takashi Kokubun)
+* Add temple gem as dependency and create `Haml::TempleEngine` class.
   Some methods in `Haml::Compiler` are migrated to `Haml::TempleEngine`. (Takashi Kokubun)
 
 Fixed
 
-- Fix for attribute merging. When an attribute method (or literal nested hash)
+* Fix for attribute merging. When an attribute method (or literal nested hash)
   was used in an old style attribute hash and there is also a (non-static) new
   style hash there is an error. The fix can result in different behavior in
   some circumstances. See the [commit message](https://github.com/haml/haml/tree/e475b015d3171fb4c4f140db304f7970c787d6e3)
   for detailed info. (Matt Wildig)
-- Make escape_once respect hexadecimal references. (Matt Wildig)
-- Don't treat the 'data' attribute specially when merging attribute hashes. (Matt Wildig and Norman Clarke)
-- Fix #@foo and #$foo style interpolation that was not working in html_safe mode. (Akira Matsuda)
-- Allow `@` as tag's class name. Thanks [Joe Bartlett](https://github.com/redoPop).
-- Raise `Haml::InvalidAttributeNameError` when attribute name includes invalid characters. (Takashi Kokubun)
-- Don't ignore unexpected exceptions on initializing `ActionView::OutputBuffer`. (Takashi Kokubun)
+* Make escape_once respect hexadecimal references. (Matt Wildig)
+* Don't treat the 'data' attribute specially when merging attribute hashes. (Matt Wildig and Norman Clarke)
+* Fix #@foo and #$foo style interpolation that was not working in html_safe mode. (Akira Matsuda)
+* Allow `@` as tag's class name. Thanks [Joe Bartlett](https://github.com/redoPop).
+* Raise `Haml::InvalidAttributeNameError` when attribute name includes invalid characters. (Takashi Kokubun)
+* Don't ignore unexpected exceptions on initializing `ActionView::OutputBuffer`. (Takashi Kokubun)
 
 ## 4.0.7
 
 Released on August 10, 2015
 ([diff](https://github.com/haml/haml/compare/4.0.6...4.0.7)).
 
-- Significantly improve performance of regexp used to fix whitespace handling in textareas (thanks [Stan Hu](https://github.com/stanhu)).
+* Significantly improve performance of regexp used to fix whitespace handling in textareas (thanks [Stan Hu](https://github.com/stanhu)).
 
 ## 4.0.6
 
 Released on Dec 1, 2014 ([diff](https://github.com/haml/haml/compare/4.0.5...4.0.6)).
 
-- Fix warning on Ruby 1.8.7 "regexp has invalid interval" (thanks [Elia Schito](https://github.com/elia)).
+* Fix warning on Ruby 1.8.7 "regexp has invalid interval" (thanks [Elia Schito](https://github.com/elia)).
 
 ## 4.0.5
 
 Released on Jan 7, 2014 ([diff](https://github.com/haml/haml/compare/4.0.4...4.0.5)).
 
-- Fix haml_concat appending unescaped HTML after a call to haml_tag.
-- Fix for bug whereby when HAML :ugly option is "true",
+* Fix haml_concat appending unescaped HTML after a call to haml_tag.
+* Fix for bug whereby when HAML :ugly option is "true",
   ActionView::Helpers::CaptureHelper::capture returns the whole view buffer
   when passed a block that returns nothing (thanks [Mircea
   Moise](https://github.com/mmircea16)).
@@ -335,99 +335,99 @@ Released on Jan 7, 2014 ([diff](https://github.com/haml/haml/compare/4.0.4...4.0
 
 Released on November 5, 2013 ([diff](https://github.com/haml/haml/compare/4.0.3...4.0.4)).
 
-- Check for Rails::Railtie rather than Rails (thanks [Konstantin Shabanov](https://github.com/etehtsea)).
-- Parser fix to allow literal '#' with suppress_eval (Matt Wildig).
-- Helpers#escape_once works on frozen strings (as does
+* Check for Rails::Railtie rather than Rails (thanks [Konstantin Shabanov](https://github.com/etehtsea)).
+* Parser fix to allow literal '#' with suppress_eval (Matt Wildig).
+* Helpers#escape_once works on frozen strings (as does
   ERB::Util.html_escape_once for which it acts as a replacement in
   Rails (thanks [Patrik Metzmacher](https://github.com/patrik)).
-- Minor test fix (thanks [Mircea Moise](https://github.com/mmircea16)).
+* Minor test fix (thanks [Mircea Moise](https://github.com/mmircea16)).
 
 ## 4.0.3
 
 Released May 21, 2013 ([diff](https://github.com/haml/haml/compare/4.0.2...4.0.3)).
 
-- Compatibility with newer versions of Rails's Erubis handler.
-- Fix Erubis handler for compatibility with Tilt 1.4.x, too.
-- Small performance optimization for html_escape.
-  (thanks [Lachlan Sylvester](https://github.com/lsylvester))
-- Documentation fixes.
-- Documented some helper methods that were left out of the reference.
-  (thanks [Shane Riley](https://github.com/shaneriley))
+* Compatibility with newer versions of Rails's Erubis handler.
+* Fix Erubis handler for compatibility with Tilt 1.4.x, too.
+* Small performance optimization for html_escape.
+(thanks [Lachlan Sylvester](https://github.com/lsylvester))
+* Documentation fixes.
+* Documented some helper methods that were left out of the reference.
+(thanks [Shane Riley](https://github.com/shaneriley))
 
 ## 4.0.2
 
 Released April 5, 2013 ([diff](https://github.com/haml/haml/compare/4.0.1...4.0.2)).
 
-- Explicitly require Erubis to work around bug in older versions of Tilt.
-- Fix :erb filter printing duplicate content in Rails views.
-  (thanks [Jori Hardman](https://github.com/jorihardman))
-- Replace range with slice to reduce objects created by `capture_haml`.
-  (thanks [Tieg Zaharia](https://github.com/tiegz))
-- Correct/improve some documentation.
+* Explicitly require Erubis to work around bug in older versions of Tilt.
+* Fix :erb filter printing duplicate content in Rails views.
+(thanks [Jori Hardman](https://github.com/jorihardman))
+* Replace range with slice to reduce objects created by `capture_haml`.
+(thanks [Tieg Zaharia](https://github.com/tiegz))
+* Correct/improve some documentation.
 
 ## 4.0.1
 
 Released March 21, 2013 ([diff](https://github.com/haml/haml/compare/4.0.0...4.0.1)).
 
-- Remove Rails 3.2.3+ textarea hack in favor of a more general solution.
-- Fix some performance regressions.
-- Fix support for Rails 4 `text_area` helper method.
-- Fix data attribute flattening with singleton objects.
-  (thanks [Alisdair McDiarmid](https://github.com/alisdair))
-- Fix support for sass-rails 4.0 beta.
-  (thanks [Ryunosuke SATO](https://github.com/tricknotes))
-- Load "haml/template" in Railtie in order to prevent user options set in a
+* Remove Rails 3.2.3+ textarea hack in favor of a more general solution.
+* Fix some performance regressions.
+* Fix support for Rails 4 `text_area` helper method.
+* Fix data attribute flattening with singleton objects.
+(thanks [Alisdair McDiarmid](https://github.com/alisdair))
+* Fix support for sass-rails 4.0 beta.
+(thanks [Ryunosuke SATO](https://github.com/tricknotes))
+* Load "haml/template" in Railtie in order to prevent user options set in a
   Rails initializer from being overwritten
-- Don't depend on Rails in haml/template to allow using Haml with ActionView
+* Don't depend on Rails in haml/template to allow using Haml with ActionView
   but without Rails itself. (thanks [Hunter Haydel](https://github.com/wedgex))
 
 ## 4.0.0
 
-- The Haml executable now accepts an `--autoclose` option. You can now
+* The Haml executable now accepts an `--autoclose` option. You can now
   specify a list of tags that should be autoclosed
 
-- The `:ruby` filter no longer redirects $stdout to the Haml document, as this
+* The `:ruby` filter no longer redirects $stdout to the Haml document, as this
   is not thread safe. Instead it provides a `haml_io` local variable, which is
   an IO object that writes to the document.
 
-- HTML5 is now the default output format rather than XHTML. This was already
+* HTML5 is now the default output format rather than XHTML. This was already
   the default on Rails 3+, so many users will notice no difference.
 
-- The :sass filter now wraps its output in a style tag, as do the new :less and
+* The :sass filter now wraps its output in a style tag, as do the new :less and
   :scss filters. The :coffee filter wraps its output in a script tag.
 
-- Haml now supports only Rails 3 and above, and Ruby 1.8.7 and above. If you
+* Haml now supports only Rails 3 and above, and Ruby 1.8.7 and above. If you
   still need support for Rails 2 and Ruby 1.8.6, please use Haml 3.1.x which
   will continue to be maintained for bug fixes.
 
-- The :javascript and :css filters no longer add CDATA tags when the format is
+* The :javascript and :css filters no longer add CDATA tags when the format is
   html4 or html5. This can be overridden by setting the `cdata` option to
   `true`. CDATA tags are always added when the format is xhtml.
 
-- HTML2Haml has been extracted to a separate gem, creatively named "html2haml".
+* HTML2Haml has been extracted to a separate gem, creatively named "html2haml".
 
-- The `:erb` filter now uses Rails's safe output buffer to provide XSS safety.
+* The `:erb` filter now uses Rails's safe output buffer to provide XSS safety.
 
-- Haml's internals have been refactored to move the parser, compiler and options
+* Haml's internals have been refactored to move the parser, compiler and options
   handling into independent classes, rather than including them all in the
   Engine module. You can also specify your own custom Haml parser or compiler
   class in Haml::Options in order to extend or modify Haml reasonably easily.
 
-- Add an {file:REFERENCE.md#hyphenate_data_attrs-option `:hyphenate_data_attrs`
+* Add an {file:REFERENCE.md#hyphenate_data_attrs-option `:hyphenate_data_attrs`
   option} that converts underscores to hyphens in your HTML5 data keys. This is
   a language change from 3.1 and is enabled by default.
   (thanks to [Andrew Smith](https://github.com/fullsailor))
 
-- All Hash attribute values are now treated as HTML5 data, regardless of key.
+* All Hash attribute values are now treated as HTML5 data, regardless of key.
   Previously only the "data" key was treated this way. Allowing arbitrary keys
   means you can now easily use this feature for Aria attributes, among other
   uses.
   (thanks to [Elvin Efendi](https://github.com/ElvinEfendi))
 
-- Added `remove_whitespace` option to always remove all whitespace around Haml
+* Added `remove_whitespace` option to always remove all whitespace around Haml
   tags. (thanks to [Tim van der Horst](https://github.com/vdh))
 
-- Haml now flattens deeply nested data attribute hashes. For example:
+* Haml now flattens deeply nested data attribute hashes. For example:
 
   `.foo{:data => {:a => "b", :c => {:d => "e", :f => "g"}}}`
 
@@ -437,7 +437,7 @@ Released March 21, 2013 ([diff](https://github.com/haml/haml/compare/4.0.0...4.0
 
   (thanks to [Péter Pál Koszta](https://github.com/koszta))
 
-- Filters that rely on third-party template engines are now implemented using
+* Filters that rely on third-party template engines are now implemented using
   [Tilt](http://github.com/rtomayko/tilt). Several new filters have been added, namely
   SCSS (:scss), LessCSS, (:less), and Coffeescript (:coffee/:coffeescript).
 
@@ -449,47 +449,47 @@ Released March 21, 2013 ([diff](https://github.com/haml/haml/compare/4.0.0...4.0
   but less-frequently used filters and helpers. This includes several additional
   filters such as Nokogiri, Yajl, Markaby, and others.
 
-- Generate object references based on `#to_key` if it exists in preference to
+* Generate object references based on `#to_key` if it exists in preference to
   `#id`.
 
-- Performance improvements.
+* Performance improvements.
   (thanks to [Chris Heald](https://github.com/cheald))
 
-- Helper `list_of` takes an extra argument that is rendered into list item
+* Helper `list_of` takes an extra argument that is rendered into list item
   attributes.
-  (thanks [Iain Barnett](http://iainbarnett.me.uk/))
+  (thanks  [Iain Barnett](http://iainbarnett.me.uk/))
 
-- Fix parser to allow lines ending with `some_method?` to be a Ruby multinline.
+* Fix parser to allow lines ending with `some_method?` to be a Ruby multinline.
   (thanks to [Brad Ediger](https://github.com/bradediger))
 
-- Always use :xhtml format when the mime_type of the rendered template is
+* Always use :xhtml format when the mime_type of the rendered template is
   'text/xml'.
   (thanks to [Stephen Bannasch](https://github.com/stepheneb))
 
-- html2haml now includes an `--html-attributes` option.
+* html2haml now includes an `--html-attributes` option.
   (thanks [Stefan Natchev](https://github.com/snatchev))
 
-- Fix for inner whitespace removal in loops.
+* Fix for inner whitespace removal in loops.
   (thanks [Richard Michael](https://github.com/richardkmichael))
 
-- Use numeric character references rather than HTML entities when escaping
+* Use numeric character references rather than HTML entities when escaping
   double quotes and apostrophes in attributes. This works around some bugs in
   Internet Explorer earlier than version 9.
   (thanks [Doug Mayer](https://github.com/doxavore))
 
-- Fix multiline silent comments: Haml previously did not allow free indentation
+* Fix multiline silent comments: Haml previously did not allow free indentation
   inside multline silent comments.
 
-- Fix ordering bug with partial layouts on Rails.
+* Fix ordering bug with partial layouts on Rails.
   (thanks [Sam Pohlenz](https://github.com/spohlenz))
 
-- Add command-line option to suppress script evaluation.
+* Add command-line option to suppress script evaluation.
 
-- It's now possible to use Rails's asset helpers inside the Sass and SCSS
+* It's now possible to use Rails's asset helpers inside the Sass and SCSS
   filters. Note that to do so, you must make sure sass-rails is loaded in
   production, usually by moving it out of the assets gem group.
 
-- The Haml project now uses [semantic versioning](http://semver.org/).
+* The Haml project now uses [semantic versioning](http://semver.org/).
 
 ## 3.2.0
 
@@ -498,164 +498,164 @@ renamed to Haml 4.0 when the project adopted semantic versioning.
 
 ## 3.1.8
 
-- Fix for line numbers reported from exceptions in nested blocks
+* Fix for line numbers reported from exceptions in nested blocks
   (thanks to Grant Hutchins & Sabrina Staedt).
 
 ## 3.1.7
 
-- Fix for compatibility with Sass 3.2.x.
+* Fix for compatibility with Sass 3.2.x.
   (thanks [Michael Westbom](https://github.com/totallymike)).
 
 ## 3.1.6
 
-- In indented mode, don't reindent buffers that contain preserved tags, and
+* In indented mode, don't reindent buffers that contain preserved tags, and
   provide a better workaround for Rails 3.2.3's textarea helpers.
 
 ## 3.1.5
 
-- Respect Rails' `html_safe` flag when escaping attribute values
+* Respect Rails' `html_safe` flag when escaping attribute values
   (thanks to [Gerad Suyderhoud](https://github.com/gerad)).
 
-- Fix for Rails 3.2.3 textarea helpers
+* Fix for Rails 3.2.3 textarea helpers
   (thanks to [James Coleman](https://github.com/jcoleman) and others).
 
 ## 3.1.4
 
-- Fix the use of `FormBuilder#block` with a label in Haml.
-- Fix indentation after a self-closing tag with dynamic attributes.
+* Fix the use of `FormBuilder#block` with a label in Haml.
+* Fix indentation after a self-closing tag with dynamic attributes.
 
 ## 3.1.3
 
-- Stop partial layouts from being displayed twice.
+* Stop partial layouts from being displayed twice.
 
 ## 3.1.2
 
-- If the ActionView `#capture` helper is used in a Haml template but without any Haml being run in the block,
+* If the ActionView `#capture` helper is used in a Haml template but without any Haml being run in the block,
   return the value of the block rather than the captured buffer.
 
-- Don't throw errors when text is nested within comments.
+* Don't throw errors when text is nested within comments.
 
-- Fix html2haml.
+* Fix html2haml.
 
-- Fix an issue where destructive modification was sometimes performed on Rails SafeBuffers.
+* Fix an issue where destructive modification was sometimes performed on Rails SafeBuffers.
 
-- Use character code entities for attribute value replacements instead of named/keyword entities.
+* Use character code entities for attribute value replacements instead of named/keyword entities.
 
 ## 3.1.1
 
-- Update the vendored Sass to version 3.1.0.
+* Update the vendored Sass to version 3.1.0.
 
 ## 3.1.0
 
-- Don't add a `type` attribute to `<script>` and `<style>` tags generated by filters
+* Don't add a `type` attribute to `<script>` and `<style>` tags generated by filters
   when `:format` is set to `:html5`.
 
-- Add an {file:HAML_REFERENCE.md#escape_attrs-option `:escape_attrs` option}
+* Add an {file:HAML_REFERENCE.md#escape_attrs-option `:escape_attrs` option}
   that allows attributes to either remain unescaped
   (for things like embedding PHP directives in Haml)
   or to be always escaped rather than `#escape_once`d.
   This can also be used from the command line via `--no-escape-attrs`.
 
-- Allow custom filters to be loaded from the command line.
+* Allow custom filters to be loaded from the command line.
 
 ### Backwards Incompatibilities -- Must Read!
 
-- Get rid of the `--rails` flag for the `haml` executable.
+* Get rid of the `--rails` flag for the `haml` executable.
   This flag hasn't been necessary since Rails 2.0.
   Existing Rails 2.0 installations will continue to work.
 
-- Drop support for Hpricot 0.7. 0.8 has been out for nearly two years.
+* Drop support for Hpricot 0.7. 0.8 has been out for nearly two years.
 
 ## 3.0.25
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.25).
 
-- HTML-to-Haml conversion now works within Ruby even if Hpricot is loaded before `haml/html`.
+* HTML-to-Haml conversion now works within Ruby even if Hpricot is loaded before `haml/html`.
 
 ## 3.0.24
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.24).
 
-- `html2haml` now properly generates Haml for silent script expressions
+* `html2haml` now properly generates Haml for silent script expressions
   nested within blocks.
 
-- IronRuby compatibility. This is sort of a hack: IronRuby reports its version as 1.9,
+* IronRuby compatibility. This is sort of a hack: IronRuby reports its version as 1.9,
   but it doesn't support the encoding APIs, so we treat it as 1.8 instead.
 
 ## 3.0.23
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.23).
 
-- Fix the error message for unloadable modules when running the executables under Ruby 1.9.2.
+* Fix the error message for unloadable modules when running the executables under Ruby 1.9.2.
 
-- Fix an error when combining old-style and new-style attributes.
+* Fix an error when combining old-style and new-style attributes.
 
 ## 3.0.22
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.22).
 
-- Allow an empty line after `case` but before `when`.
+* Allow an empty line after `case` but before `when`.
 
-- Remove `vendor/sass`, which snuck into the gem by mistake
+* Remove `vendor/sass`, which snuck into the gem by mistake
   and was causing trouble for Heroku users (thanks to [Jacques Crocker](http://railsjedi.com/)).
 
-- Support the Rails 3.1 template handler API.
+* Support the Rails 3.1 template handler API.
 
 ## 3.0.21
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.21).
 
-- Fix the permissions errors for good.
+* Fix the permissions errors for good.
 
 ## 3.0.20
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.20).
 
-- Fix some permissions errors.
+* Fix some permissions errors.
 
 ## 3.0.19
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.19).
 
-- Fix the `:encoding` option under Ruby 1.9.2.
+* Fix the `:encoding` option under Ruby 1.9.2.
 
-- Fix interpolated if statement when HTML escaping is enabled.
+* Fix interpolated if statement when HTML escaping is enabled.
 
-- Allow the `--unix-newlines` flag to work on Unix, where it's a no-op.
+* Allow the `--unix-newlines` flag to work on Unix, where it's a no-op.
 
 ## 3.0.18
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.18).
 
-- Don't require `rake` in the gemspec, for bundler compatibility under
+* Don't require `rake` in the gemspec, for bundler compatibility under
   JRuby. Thanks to [Gordon McCreight](http://www.gmccreight.com/blog).
 
-- Get rid of the annoying RDoc errors on install.
+* Get rid of the annoying RDoc errors on install.
 
-- Disambiguate references to the `Rails` module when `haml-rails` is installed.
+* Disambiguate references to the `Rails` module when `haml-rails` is installed.
 
-- Fix a bug in `haml_tag` that would allow duplicate attributes to be added
+* Fix a bug in `haml_tag` that would allow duplicate attributes to be added
   and make `data-` attributes not work.
 
-- Compatibility with Rails 3 final.
+* Compatibility with Rails 3 final.
 
 ## 3.0.17
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.17).
 
-- Understand that mingw counts as Windows.
+* Understand that mingw counts as Windows.
 
 ## 3.0.16
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.16).
 
-- Fix an html2haml ERB-parsing bug where ERB blocks were occasionally
+* Fix an html2haml ERB-parsing bug where ERB blocks were occasionally
   left without indentation in Haml.
 
-- Fix parsing of `if` and `case` statements whose values were assigned to variables.
+* Fix parsing of `if` and `case` statements whose values were assigned to variables.
   This is still bad style, though.
 
-- Fix `form_for` and `form_tag` when they're passed a block that
+* Fix `form_for` and `form_tag` when they're passed a block that
   returns a string in a helper.
 
 ## 3.0.15
@@ -668,13 +668,13 @@ There were no changes made to Haml between versions 3.0.14 and 3.0.15.
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.14).
 
-- Allow CSS-style classes and ids to contain colons.
+* Allow CSS-style classes and ids to contain colons.
 
-- Fix an obscure bug with if statements.
+* Fix an obscure bug with if statements.
 
 ### Rails 3 Support
 
-- Don't use the `#returning` method, which Rails 3 no longer provides.
+* Don't use the `#returning` method, which Rails 3 no longer provides.
 
 ## 3.0.13
 
@@ -687,7 +687,7 @@ Upgrade to Rails 3.0.0.beta4 if you haven't already.
 
 ### Minor Improvements
 
-- Properly process frozen strings with encoding declarations.
+* Properly process frozen strings with encoding declarations.
 
 ## 3.0.12
 
@@ -697,7 +697,7 @@ Upgrade to Rails 3.0.0.beta4 if you haven't already.
 
 Apparently the last version broke in new and exciting ways under Rails 3,
 due to the inconsistent load order caused by certain combinations of gems.
-3.0.12 hacks around that inconsistency, and _should_ be fully Rails 3-compatible.
+3.0.12 hacks around that inconsistency, and *should* be fully Rails 3-compatible.
 
 ### Deprecated: Rails 3 Beta 3
 
@@ -720,7 +720,7 @@ used by [`appengine-jruby`](http://code.google.com/p/appengine-jruby/).
 
 ### Bug Fixes
 
-- Single-line comments are now handled properly by `html2haml`.
+* Single-line comments are now handled properly by `html2haml`.
 
 ## 3.0.9
 
@@ -733,7 +733,7 @@ A bug in Gemcutter caused the gem to be uploaded improperly.
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/3.0.8).
 
-- Fix a bug with Rails versions prior to Rails 3.
+* Fix a bug with Rails versions prior to Rails 3.
 
 ## 3.0.7
 
@@ -756,13 +756,13 @@ which works the same way as Ruby's `-E` option.
 
 ### Other Changes
 
-- Default to the {file:HAML_REFERENCE.md#format-option `:html5` format}
+* Default to the {file:HAML_REFERENCE.md#format-option `:html5` format}
   when running under Rails 3,
   since it defaults to HTML5 as well.
 
 ### Bug Fixes
 
-- When generating Haml for something like `<span>foo</span>,`,
+* When generating Haml for something like `<span>foo</span>,`,
   use `= succeed` rather than `- succeed` (which doesn't work).
 
 ## 3.0.6
@@ -844,8 +844,8 @@ in the testing environment in Rails to help tests run faster.
 
 ### Backwards Incompatibilities: Must Read!
 
-- The `puts` helper has been removed.
-  Use {Haml::Helpers#haml_concat} instead.
+* The `puts` helper has been removed.
+  Use {Haml::Helpers#haml\_concat} instead.
 
 ### More Useful Multiline
 
@@ -861,7 +861,7 @@ For example:
 
 #### `haml_tag` with CSS Selectors
 
-The {Haml::Helpers#haml_tag haml_tag} helper can now take a string
+The {Haml::Helpers#haml_tag haml\_tag} helper can now take a string
 using the same class/id shorthand as in standard Haml code.
 Manually-specified class and id attributes are merged,
 again as in standard Haml code.
@@ -877,7 +877,7 @@ Cheers, [S. Burkhard](http://github.com/hasclass/).
 
 #### `haml_tag` with Multiple Lines of Content
 
-The {Haml::Helpers#haml_tag haml_tag} helper also does a better job
+The {Haml::Helpers#haml_tag haml\_tag} helper also does a better job
 of formatting tags with multiple lines of content.
 If a tag has multiple levels of content,
 that content is indented beneath the tag.
@@ -891,7 +891,7 @@ For example:
 
 #### `haml_tag` with Multiple Lines of Content
 
-Similarly, the {Haml::Helpers#haml_concat haml_concat} helper
+Similarly, the {Haml::Helpers#haml_concat haml\_concat} helper
 will properly indent multiple lines of content.
 For example:
 
@@ -904,18 +904,18 @@ For example:
 #### `haml_tag` and `haml_concat` with `:ugly`
 
 When the {file:HAML_REFERENCE.md#ugly-option `:ugly` option} is enabled,
-{Haml::Helpers#haml_tag haml_tag} and {Haml::Helpers#haml_concat haml_concat}
+{Haml::Helpers#haml_tag haml\_tag} and {Haml::Helpers#haml_concat haml\_concat}
 won't do any indentation of their arguments.
 
 ### Basic Tag Improvements
 
-- It's now possible to customize the name used for {file:HAML*REFERENCE.md#object_reference* object reference}
+* It's now possible to customize the name used for {file:HAML_REFERENCE.md#object_reference_ object reference}
   for a given object by implementing the `haml_object_ref` method on that object.
   This method should return a string that will be used in place of the class name of the object
   in the generated class and id.
   Thanks to [Tim Carey-Smith](http://twitter.com/halorgium).
 
-- All attribute values may be non-String types.
+* All attribute values may be non-String types.
   Their `#to_s` method will be called to convert them to strings.
   Previously, this only worked for attributes other than `class`.
 
@@ -993,18 +993,18 @@ of the many and varied [Haml implementations](http://en.wikipedia.org/wiki/Haml#
 
 ### Ruby 1.9 Support
 
-- Haml and `html2haml` now produce more descriptive errors
+* Haml and `html2haml` now produce more descriptive errors
   when given a template with invalid byte sequences for that template's encoding,
   including the line number and the offending character.
 
-- Haml and `html2haml` now accept Unicode documents with a
+* Haml and `html2haml` now accept Unicode documents with a
   [byte-order-mark](http://en.wikipedia.org/wiki/Byte_order_mark).
 
 ### Rails Support
 
-- When `form_for` is used with `=`, or `form_tag` is used with `=` and a block,
+* When `form_for` is used with `=`, or `form_tag` is used with `=` and a block,
   they will now raise errors explaining that they should be used with `-`.
-  This is similar to how {Haml::Helpers#haml_concat} behaves,
+  This is similar to how {Haml::Helpers#haml\_concat} behaves,
   and will hopefully clear up some difficult bugs for some users.
 
 ### Rip Support
@@ -1014,7 +1014,7 @@ Thanks to [Josh Peek](http://joshpeek.com/).
 
 ### `html2haml` Improvements
 
-- Ruby blocks within ERB are now supported.
+* Ruby blocks within ERB are now supported.
   The Haml code is properly indented and the `end`s are removed.
   This includes methods with blocks and all language constructs
   such as `if`, `begin`, and `case`.
@@ -1032,7 +1032,7 @@ Thanks to [Josh Peek](http://joshpeek.com/).
   Thanks to [Jack Chen](http://chendo.net) and [Dr. Nic Williams](http://drnicwilliams)
   for inspiring this and creating the first draft of the code.
 
-- Inline HTML text nodes are now transformed into inline Haml text.
+* Inline HTML text nodes are now transformed into inline Haml text.
   For example, `<p>foo</p>` now becomes `%p foo`, whereas before it became:
 
       %p
@@ -1042,7 +1042,7 @@ Thanks to [Josh Peek](http://joshpeek.com/).
   and inline ERB when running in ERB mode:
   `<p><%= foo %></p>` will now become `%p= foo`.
 
-- ERB included within text is now transformed into Ruby interpolation.
+* ERB included within text is now transformed into Ruby interpolation.
   For example:
 
       <p>
@@ -1056,7 +1056,7 @@ Thanks to [Josh Peek](http://joshpeek.com/).
         Foo #{bar} baz!
         Flip #{bang}.
 
-- `<script>` tags are now transformed into `:javascript` filters,
+* `<script>` tags are now transformed into `:javascript` filters,
   and `<style>` tags into `:css` filters.
   and indentation is preserved.
   For example:
@@ -1074,7 +1074,7 @@ Thanks to [Josh Peek](http://joshpeek.com/).
           return 12;
         }
 
-- `<pre>` and `<textarea>` tags are now transformed into the `:preserve` filter.
+* `<pre>` and `<textarea>` tags are now transformed into the `:preserve` filter.
   For example:
 
       <pre>Foo
@@ -1089,150 +1089,150 @@ Thanks to [Josh Peek](http://joshpeek.com/).
             bar
               baz
 
-- Self-closing tags (such as `<br />`) are now transformed into
+* Self-closing tags (such as `<br />`) are now transformed into
   self-closing Haml tags (like `%br/`).
 
-- IE conditional comments are now properly parsed.
+* IE conditional comments are now properly parsed.
 
-- Attributes are now output in a more-standard format,
+* Attributes are now output in a more-standard format,
   without spaces within the curly braces
   (e.g. `%p{:foo => "bar"}` as opposed to `%p{ :foo => "bar" }`).
 
-- IDs and classes containing `#` and `.` are now output as string attributes
+* IDs and classes containing `#` and `.` are now output as string attributes
   (e.g. `%p{:class => "foo.bar"}`).
 
-- Attributes are now sorted, to maintain a deterministic order.
+* Attributes are now sorted, to maintain a deterministic order.
 
-- `>` or {Haml::Helpers#succeed #succeed} are inserted where necessary
+* `>` or {Haml::Helpers#succeed #succeed} are inserted where necessary
   when inline formatting is used.
 
-- Multi-line ERB statements are now properly indented,
+* Multi-line ERB statements are now properly indented,
   and those without any content are removed.
 
 ### Minor Improvements
 
-- {Haml::Helpers#capture_haml capture_haml} is now faster when using `:ugly`.
+* {Haml::Helpers#capture_haml capture\_haml} is now faster when using `:ugly`.
   Thanks to [Alf Mikula](http://alfmikula.blogspot.com/).
 
-- Add an `RDFa` doctype shortcut.
+* Add an `RDFa` doctype shortcut.
 
 ## 2.2.24
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.24).
 
-- Don't prevent ActiveModel form elements from having error formatting applied.
+* Don't prevent ActiveModel form elements from having error formatting applied.
 
-- Make sure `form_for` blocks are properly indented under Rails 3.0.0.beta.3.
+* Make sure `form_for` blocks are properly indented under Rails 3.0.0.beta.3.
 
-- Don't activate a bug in the `dynamic_form` plugin under Rails 3.0.0.beta.3
+* Don't activate a bug in the `dynamic_form` plugin under Rails 3.0.0.beta.3
   that would cause its methods not to be loaded.
 
 ## 2.2.23
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.23).
 
-- Don't crash when `rake gems` is run in Rails with Haml installed.
+* Don't crash when `rake gems` is run in Rails with Haml installed.
   Thanks to [Florian Frank](http://github.com/flori).
 
-- Don't remove `\n` in filters with interpolation.
+* Don't remove `\n` in filters with interpolation.
 
-- Silence those annoying `"regexp match /.../n against to UTF-8 string"` warnings.
+* Silence those annoying `"regexp match /.../n against to UTF-8 string"` warnings.
 
 ## 2.2.22
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.22).
 
-- Add a railtie so Haml and Sass will be automatically loaded in Rails 3.
+* Add a railtie so Haml and Sass will be automatically loaded in Rails 3.
   Thanks to [Daniel Neighman](http://pancakestacks.wordpress.com/).
 
-- Add a deprecation message for using `-` with methods like `form_for`
+* Add a deprecation message for using `-` with methods like `form_for`
   that return strings in Rails 3.
   This is [the same deprecation that exists in Rails 3](http://github.com/rails/rails/commit/9de83050d3a4b260d4aeb5d09ec4eb64f913ba64).
 
-- Make sure line numbers are reported correctly when filters are being used.
+* Make sure line numbers are reported correctly when filters are being used.
 
-- Make loading the gemspec not crash on read-only filesystems like Heroku's.
+* Make loading the gemspec not crash on read-only filesystems like Heroku's.
 
-- Don't crash when methods like `form_for` return `nil` in, for example, Rails 3 beta.
+* Don't crash when methods like `form_for` return `nil` in, for example, Rails 3 beta.
 
-- Compatibility with Rails 3 beta's RJS facilities.
+* Compatibility with Rails 3 beta's RJS facilities.
 
 ## 2.2.21
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.21).
 
-- Fix a few bugs in the git-revision-reporting in Haml::Version.
+* Fix a few bugs in the git-revision-reporting in Haml::Version.
   In particular, it will still work if `git gc` has been called recently,
   or if various files are missing.
 
-- Always use `__FILE__` when reading files within the Haml repo in the `Rakefile`.
+* Always use `__FILE__` when reading files within the Haml repo in the `Rakefile`.
   According to [this bug report](http://github.com/carlhuda/bundler/issues/issue/44),
   this should make Haml work better with Bundler.
 
-- Make the error message for `- end` a little more intuitive based on user feedback.
+* Make the error message for `- end` a little more intuitive based on user feedback.
 
-- Compatibility with methods like `form_for`
+* Compatibility with methods like `form_for`
   that return strings rather than concatenate to the template in Rails 3.
 
-- Add a {Haml::Helpers#with_tabs with_tabs} helper,
+* Add a {Haml::Helpers#with_tabs with_tabs} helper,
   which sets the indentation level for the duration of a block.
 
 ## 2.2.20
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.20).
 
-- The `form_tag` Rails helper is now properly marked as HTML-safe
+* The `form_tag` Rails helper is now properly marked as HTML-safe
   when using Rails' XSS protection with Rails 2.3.5.
 
-- Calls to `defined?` shouldn't interfere with Rails' autoloading
+* Calls to `defined?` shouldn't interfere with Rails' autoloading
   in very old versions (1.2.x).
 
-- Fix a bug where calls to ActionView's `render` method
+* Fix a bug where calls to ActionView's `render` method
   with blocks and layouts wouldn't work under the Rails 3.0 beta.
 
-- Fix a bug where the closing tags of nested calls to \{Haml::Helpers#haml_concat}
+* Fix a bug where the closing tags of nested calls to \{Haml::Helpers#haml\_concat}
   were improperly escaped under the Rails 3.0 beta.
 
 ## 2.2.19
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.19).
 
-- Fix a bug with the integration with Rails' XSS support.
+* Fix a bug with the integration with Rails' XSS support.
   In particular, correctly override `safe_concat`.
 
 ## 2.2.18
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.18).
 
-- Support [the new XSS-protection API](http://yehudakatz.com/2010/02/01/safebuffers-and-rails-3-0/)
+* Support [the new XSS-protection API](http://yehudakatz.com/2010/02/01/safebuffers-and-rails-3-0/)
   used in Rails 3.
 
-- Use `Rails.env` rather than `RAILS_ENV` when running under Rails 3.0.
+* Use `Rails.env` rather than `RAILS_ENV` when running under Rails 3.0.
   Thanks to [Duncan Grazier](http://duncangrazier.com/).
 
-- Add a `--unix-newlines` flag to all executables
+* Add a `--unix-newlines` flag to all executables
   for outputting Unix-style newlines on Windows.
 
-- Fix a couple bugs with the `:erb` filter:
+* Fix a couple bugs with the `:erb` filter:
   make sure error reporting uses the correct line numbers,
   and allow multi-line expressions.
 
-- Fix a parsing bug for HTML-style attributes including `#`.
+* Fix a parsing bug for HTML-style attributes including `#`.
 
 ## 2.2.17
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.17).
 
-- Fix compilation of HTML5 doctypes when using `html2haml`.
+* Fix compilation of HTML5 doctypes when using `html2haml`.
 
-- `nil` values for Sass options are now ignored,
+* `nil` values for Sass options are now ignored,
   rather than raising errors.
 
 ## 2.2.16
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.16).
 
-- Abstract out references to `ActionView::TemplateError`,
+* Abstract out references to `ActionView::TemplateError`,
   `ActionView::TemplateHandler`, etc.
   These have all been renamed to `ActionView::Template::*`
   in Rails 3.0.
@@ -1241,35 +1241,35 @@ Thanks to [Josh Peek](http://joshpeek.com/).
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.15).
 
-- Allow `if` statements with no content followed by `else` clauses.
+* Allow `if` statements with no content followed by `else` clauses.
   For example:
 
-  - if foo
-  - else
-    bar
+    - if foo
+    - else
+      bar
 
 ## 2.2.14
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.14).
 
-- Don't print warnings when escaping attributes containing non-ASCII characters
+* Don't print warnings when escaping attributes containing non-ASCII characters
   in Ruby 1.9.
 
-- Don't crash when parsing an XHTML Strict doctype in `html2haml`.
+* Don't crash when parsing an XHTML Strict doctype in `html2haml`.
 
-- Support the HTML5 doctype in an XHTML document
+* Support the  HTML5 doctype in an XHTML document
   by using `!!! 5` as the doctype declaration.
 
 ## 2.2.13
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.13).
 
-- Allow users to specify {file:HAML_REFERENCE.md#encoding_option `:encoding => "ascii-8bit"`}
+* Allow users to specify {file:HAML_REFERENCE.md#encoding_option `:encoding => "ascii-8bit"`}
   even for templates that include non-ASCII byte sequences.
   This makes Haml templates not crash when given non-ASCII input
   that's marked as having an ASCII encoding.
 
-- Fixed an incompatibility with Hpricot 0.8.2, which is used for `html2haml`.
+* Fixed an incompatibility with Hpricot 0.8.2, which is used for `html2haml`.
 
 ## 2.2.12
 
@@ -1281,25 +1281,25 @@ There were no changes made to Haml between versions 2.2.11 and 2.2.12.
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.11).
 
-- Fixed a bug with XSS protection where HTML escaping would raise an error
+* Fixed a bug with XSS protection where HTML escaping would raise an error
   if passed a non-string value.
   Note that this doesn't affect any HTML escaping when XSS protection is disabled.
 
-- Fixed a bug in outer-whitespace nuking where whitespace-only Ruby strings
+* Fixed a bug in outer-whitespace nuking where whitespace-only Ruby strings
   blocked whitespace nuking beyond them.
 
-- Use `ensure` to protect the resetting of the Haml output buffer
+* Use `ensure` to protect the resetting of the Haml output buffer
   against exceptions that are raised within the compiled Haml code.
 
-- Fix an error line-numbering bug that appeared if an error was thrown
+* Fix an error line-numbering bug that appeared if an error was thrown
   within loud script (`=`).
   This is not the best solution, as it disables a few optimizations,
   but it shouldn't have too much effect and the optimizations
   will hopefully be re-enabled in version 2.4.
 
-- Don't crash if the plugin skeleton is installed and `rake gems:install` is run.
+* Don't crash if the plugin skeleton is installed and `rake gems:install` is run.
 
-- Don't use `RAILS_ROOT` directly.
+* Don't use `RAILS_ROOT` directly.
   This no longer exists in Rails 3.0.
   Instead abstract this out as `Haml::Util.rails_root`.
   This changes makes Haml fully compatible with edge Rails as of this writing.
@@ -1308,30 +1308,30 @@ There were no changes made to Haml between versions 2.2.11 and 2.2.12.
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.10).
 
-- Fixed a bug where elements with dynamic attributes and no content
+* Fixed a bug where elements with dynamic attributes and no content
   would have too much whitespace between the opening and closing tag.
 
-- Changed `rails/init.rb` away from loading `init.rb` and instead
+* Changed `rails/init.rb` away from loading `init.rb` and instead
   have it basically copy the content.
   This allows us to transfer the proper binding to `Haml.init_rails`.
 
-- Make sure Haml only tries to enable XSS protection integration
+* Make sure Haml only tries to enable XSS protection integration
   once all other plugins are loaded.
   This allows it to work properly when Haml is a gem
   and the `rails_xss` plugin is being used.
 
-- Mark the return value of Haml templates as HTML safe.
+* Mark the return value of Haml templates as HTML safe.
   This makes Haml partials work with Rails' XSS protection.
 
 ## 2.2.9
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.9).
 
-- Fixed a bug where Haml's text was concatenated to the wrong buffer
+* Fixed a bug where Haml's text was concatenated to the wrong buffer
   under certain circumstances.
   This was mostly an issue under Rails when using methods like `capture`.
 
-- Fixed a bug where template text was escaped when there was interpolation in a line
+* Fixed a bug where template text was escaped when there was interpolation in a line
   and the `:escape_html` option was enabled. For example:
 
       Foo &lt; Bar #{"<"} Baz
@@ -1349,40 +1349,40 @@ There were no changes made to Haml between versions 2.2.11 and 2.2.12.
 Haml 2.2.9 supports the XSS protection in Rails versions 2.3.5+.
 There are several components to this:
 
-- If XSS protection is enabled, Haml's {file:HAML_REFERENCE.md#escape_html-option `:escape_html`}
+* If XSS protection is enabled, Haml's {file:HAML_REFERENCE.md#escape_html-option `:escape_html`}
   option is set to `true` by default.
 
-- Strings declared as HTML safe won't be escaped by Haml,
+* Strings declared as HTML safe won't be escaped by Haml,
   including the {file:Haml/Helpers.html#html_escape-instance_method `#html_escape`} helper
   and `&=` if `:escape_html` has been disabled.
 
-- Haml helpers that generate HTML are marked as HTML safe,
+* Haml helpers that generate HTML are marked as HTML safe,
   and will escape their input if it's not HTML safe.
 
 ## 2.2.8
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.8).
 
-- Fixed a potential XSS issue with HTML escaping and wacky Unicode nonsense.
+* Fixed a potential XSS issue with HTML escaping and wacky Unicode nonsense.
   This is the same as [the issue fixed in Rails](http://groups.google.com/group/rubyonrails-security/browse_thread/thread/48ab3f4a2c16190f) a bit ago.
 
 ## 2.2.7
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.7).
 
-- Fixed an `html2haml` issue where ERB attribute values
+* Fixed an `html2haml` issue where ERB attribute values
   weren't HTML-unescaped before being transformed into Haml.
 
-- Fixed an `html2haml` issue where `#{}` wasn't escaped
+* Fixed an `html2haml` issue where `#{}` wasn't escaped
   before being transformed into Haml.
 
-- Add `<code>` to the list of tags that's
+* Add `<code>` to the list of tags that's
   {file:HAML_REFERENCE.md#preserve-option automatically whitespace-preserved}.
 
-- Fixed a bug with `end` being followed by code in silent scripts -
+* Fixed a bug with `end` being followed by code in silent scripts -
   it no longer throws an error when it's nested beneath tags.
 
-- Fixed a bug with inner whitespace-nuking and conditionals.
+* Fixed a bug with inner whitespace-nuking and conditionals.
   The `else` et al. clauses of conditionals are now properly
   whitespace-nuked.
 
@@ -1390,35 +1390,35 @@ There are several components to this:
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.6).
 
-- Made the error message when unable to load a dependency for html2haml
+* Made the error message when unable to load a dependency for html2haml
   respect the `--trace` option.
 
-- Don't crash when the `__FILE__` constant of a Ruby file is a relative path,
+* Don't crash when the `__FILE__` constant of a Ruby file is a relative path,
   as apparently happens sometimes in TextMate
   (thanks to [Karl Varga](http://github.com/kjvarga)).
 
-- Add "Sass" to the `--version` string for the executables.
+* Add "Sass" to the `--version` string for the executables.
 
-- Raise an exception when commas are omitted in static attributes
+* Raise an exception when commas are omitted in static attributes
   (e.g. `%p{:foo => "bar" :baz => "bang"}`).
 
 ## 2.2.5
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.5).
 
-- Got rid of trailing whitespace produced when opening a conditional comment
+* Got rid of trailing whitespace produced when opening a conditional comment
   (thanks to [Norman Clarke](http://blog.njclarke.com/)).
 
-- Fixed CSS id concatenation when a numeric id is given as an attribute.
+* Fixed CSS id concatenation when a numeric id is given as an attribute.
   (thanks to [Norman Clarke](http://blog.njclarke.com/)).
 
-- Fixed a couple bugs with using "-end" in strings.
+* Fixed a couple bugs with using "-end" in strings.
 
 ## 2.2.4
 
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.4).
 
-- Allow `end` to be used for silent script when it's followed by code.
+* Allow `end` to be used for silent script when it's followed by code.
   For example:
 
       - form_for do
@@ -1427,7 +1427,7 @@ There are several components to this:
 
   This isn't very good style, but we're supporting it for consistency's sake.
 
-- Don't add `require 'rubygems'` to the top of init.rb when installed
+* Don't add `require 'rubygems'` to the top of init.rb when installed
   via `haml --rails`. This isn't necessary, and actually gets
   clobbered as soon as haml/template is loaded.
 
@@ -1443,13 +1443,13 @@ for Google AppEngine, thanks to [Jan Ulbrich](http://github.com/ulbrich).
 [Tagged on GitHub](http://github.com/nex3/haml/commit/2.2.2).
 
 Haml 2.2.2 is a minor bugfix release, with several notable changes.
-First, {file:Haml/Helpers.html#haml*concat-instance_method `haml_concat`}
+First, {file:Haml/Helpers.html#haml_concat-instance_method `haml_concat`}
 will now raise an error when used with `=`.
 This has always been incorrect behavior,
 and in fact has never actually worked.
 The only difference is that now it will fail loudly.
 Second, Ruby 1.9 is now more fully supported,
-especially with the {file:HAML_REFERENCE.md#htmlstyle_attributes* new attribute syntax}.
+especially with the {file:HAML_REFERENCE.md#htmlstyle_attributes_ new attribute syntax}.
 Third, filters are no longer escaped when the {file:HAML_REFERENCE.md#escape_html-option `:escape_html` option}
 is enabled and `#{}` interpolation is used.
 
@@ -1555,8 +1555,8 @@ This is the universal Ruby style, and still highly recommended.
 However, Haml now allows any number of spaces or even tabs for indentation,
 provided:
 
-- Tabs and spaces are not mixed
-- The indentation is consistent within a given document
+* Tabs and spaces are not mixed
+* The indentation is consistent within a given document
 
 ### New Options
 

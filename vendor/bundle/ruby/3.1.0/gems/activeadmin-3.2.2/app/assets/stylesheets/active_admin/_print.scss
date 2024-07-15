@@ -17,7 +17,7 @@ body {
   background: #fff;
   width: 99%;
   margin: 0;
-  padding: 0.5%;
+  padding: .5%;
   color: $text-color;
 }
 
@@ -28,20 +28,18 @@ a {
 
 h3 {
   font-weight: bold;
-  margin-bottom: 0.5em;
+  margin-bottom: .5em;
 }
 
 // Header
 #header {
   float: left;
 
-  #tabs,
-  .tabs,
-  #utility_nav {
+  #tabs, .tabs, #utility_nav {
     display: none;
   }
 
-  h1 {
+  h1{
     font-weight: bold;
   }
 }
@@ -58,8 +56,7 @@ h3 {
     margin: 0;
   }
 
-  .breadcrumb,
-  #titlebar_right {
+  .breadcrumb, #titlebar_right {
     display: none;
   }
 }
@@ -89,8 +86,7 @@ h3 {
       padding: 0;
       margin-bottom: 1em;
 
-      &.scope.selected,
-      &.index.selected {
+      &.scope.selected, &.index.selected {
         display: block;
 
         &:before {
@@ -104,10 +100,11 @@ h3 {
         span {
           display: inline-block;
           font-weight: normal;
-          font-size: 0.9em;
+          font-size: .9em;
         }
       }
     }
+
   }
 }
 
@@ -124,15 +121,14 @@ table {
       border-bottom: medium solid black;
       font-weight: bold;
 
-      a {
+      a{
         text-decoration: none;
       }
     }
   }
 
-  th,
-  td {
-    padding: 0.5em 1em;
+  th, td {
+    padding: .5em 1em;
 
     .member_link {
       display: none;
@@ -143,14 +139,13 @@ table {
     border-bottom: thin solid black;
   }
 
-  tr {
+  tr{
     page-break-inside: avoid;
   }
 }
 
 // Index
-#index_footer,
-.pagination_information {
+#index_footer, .pagination_information {
   display: none;
 }
 
@@ -192,12 +187,12 @@ table {
         font-size: 1em;
         font-weight: bold;
         float: left;
-        margin-right: 0.5em;
+        margin-right: .5em;
         margin-bottom: 0;
       }
 
       span {
-        font-size: 0.9em;
+        font-size: .9em;
         font-style: italic;
         vertical-align: top;
       }
@@ -210,6 +205,7 @@ table {
   }
 }
 
+
 // Attribute Tables
 .attributes_table {
   border-top: medium solid black;
@@ -219,7 +215,7 @@ table {
     vertical-align: top;
 
     &:after {
-      content: ":";
+      content: ':';
     }
   }
 
@@ -248,8 +244,7 @@ form {
     }
   }
 
-  .buttons,
-  abbr {
+  .buttons, abbr {
     display: none;
   }
   ol {
@@ -257,14 +252,13 @@ form {
     padding: 0;
     margin: 0;
 
-    li {
+    li{
       border-top: thin solid black;
       margin: 0;
       padding: 1em 0;
       overflow: hidden;
 
-      &.password,
-      &.hidden {
+      &.password, &.hidden {
         display: none;
       }
 
@@ -274,17 +268,16 @@ form {
         width: 20%;
       }
 
-      input,
-      textarea,
-      select {
+      input, textarea, select {
         background: none;
         border: 0;
         font: Arial, Helvetica, sans-serif;
       }
 
-      input[type="file"] {
+      input[type=file] {
         display: none;
       }
+
     }
   }
 }

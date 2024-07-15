@@ -53,7 +53,7 @@ km:
       email_changed:
         greeting: សួស្តី! %{recipient}
         message: សូមជូនដំណឹងអំពីការផ្លាស់ប្តូរអ៊ីមែល %{email} របស់អ្នក។
-        message_unconfirmed:
+        message_unconfirmed: 
         subject: ការផ្លាស់ប្តូរអ៊ីមែលត្រូវបានបញ្ចប់រួចរាល់ហើយ។
       password_change:
         greeting: សួស្តី! %{recipient}
@@ -73,8 +73,8 @@ km:
         message: គណនីរបស់អ្នកត្រូវបានចាក់សោរដោយសារតែមានប៉ុនប៉ងចូលក្នុងប្រព័ន្ធមិនបានជោគជ័យជាច្រើនលើក។
         subject: អំពីការដោះសោគណនី
     omniauth_callbacks:
-      failure: "ការផ្ទៀងផ្ទាត់តាមរយ: %{kind} មិនបានជោគជ័យ។ ដោយសារតែ %{reason}"
-      success: "ការផ្ទៀងផ្ទាត់តាមរយ: %{kind} បានជោគជ័យ។"
+      failure: 'ការផ្ទៀងផ្ទាត់តាមរយ: %{kind} មិនបានជោគជ័យ។ ដោយសារតែ %{reason}'
+      success: 'ការផ្ទៀងផ្ទាត់តាមរយ: %{kind} បានជោគជ័យ។'
     passwords:
       edit:
         change_my_password: ផ្លាស់ប្តូរពាក្យសម្ងាត់
@@ -122,7 +122,7 @@ km:
         didn_t_receive_unlock_instructions: មិនបានទទួលអ៊ីមែលអំពីរបៀបដោះសោគណនី?
         forgot_your_password: ភ្លេចពាក្យសម្ងាត់?
         sign_in: ចូល
-        sign_in_with_provider: "ចូលតាមរយ: %{provider}"
+        sign_in_with_provider: 'ចូលតាមរយ: %{provider}'
         sign_up: ចុះឈ្មោះ
       minimum_password_length: "(ច្រើនជាង%{count}តួអក្សរ។)"
     unlocks:

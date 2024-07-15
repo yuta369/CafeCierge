@@ -1,5 +1,6 @@
 // -------------------------------------- Admin Notes
 .comments {
+
   .active_admin_comment {
     @include clearfix;
     margin-top: 10px;
@@ -34,12 +35,7 @@
       background: none;
       @include no-shadow;
     }
-    li {
-      padding: 0;
-    }
-    fieldset.buttons {
-      padding: 0;
-      margin-top: 5px;
-    }
+    li { padding: 0; }
+    fieldset.buttons { padding: 0; margin-top: 5px;}
   }
 }

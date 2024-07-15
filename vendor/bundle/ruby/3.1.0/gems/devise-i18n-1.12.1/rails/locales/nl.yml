@@ -50,7 +50,7 @@ nl:
       confirmation_instructions:
         action: Bevestig mijn account
         greeting: Welkom %{recipient}!
-        instruction: "Je kunt je e-mailadres bevestigen via onderstaande link:"
+        instruction: 'Je kunt je e-mailadres bevestigen via onderstaande link:'
         subject: Bevestiging
       email_changed:
         greeting: Beste %{recipient}!
@@ -71,7 +71,7 @@ nl:
       unlock_instructions:
         action: Ontgrendel mijn account
         greeting: Hallo %{recipient}!
-        instruction: "Je kunt je account ontgrendelen via onderstaande link:"
+        instruction: 'Je kunt je account ontgrendelen via onderstaande link:'
         message: Je account is vergrendeld door te veel mislukte pogingen om in te loggen.
         subject: Ontgrendelinstructies
     omniauth_callbacks:
@@ -96,7 +96,7 @@ nl:
       edit:
         are_you_sure: Weet je het zeker?
         cancel_my_account: Annuleer mijn account
-        currently_waiting_confirmation_for_email: "Aan het wachten op de bevestiging voor: %{email}"
+        currently_waiting_confirmation_for_email: 'Aan het wachten op de bevestiging voor: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: laat leeg als je het niet wilt wijzigen
         title: Bewerk %{resource}
         unhappy: Niet blij
@@ -143,5 +143,5 @@ nl:
       not_found: niet gevonden
       not_locked: is niet gesloten
       not_saved:
-        one: "Een fout verhinderde het opslaan van deze %{resource}:"
+        one: 'Een fout verhinderde het opslaan van deze %{resource}:'
         other: "%{count} fouten verhinderde het opslaan van deze %{resource}:"

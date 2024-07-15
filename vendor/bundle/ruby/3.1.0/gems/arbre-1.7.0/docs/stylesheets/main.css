@@ -1,84 +1,16 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -91,8 +23,7 @@ body {
   line-height: 1;
 }
 
-ol,
-ul {
+ol, ul {
   list-style: none;
 }
 
@@ -101,23 +32,17 @@ table {
   border-spacing: 0;
 }
 
-caption,
-th,
-td {
+caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-q,
-blockquote {
+q, blockquote {
   quotes: none;
 }
 
-q:before,
-q:after,
-blockquote:before,
-blockquote:after {
+q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
@@ -126,17 +51,8 @@ a img {
   border: none;
 }
 
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -420,7 +336,7 @@ section {
 }
 
 #dsl .highlight .ss {
-  color: #ae81ff;
+  color: #AE81FF;
 }
 
 #dsl .highlight .bp {
@@ -450,29 +366,19 @@ body {
   font-size: 75%;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   color: #222222;
 }
 
-h1 img,
-h2 img,
-h3 img,
-h4 img,
-h5 img,
-h6 img {
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
   margin: 0;
 }
 
 h1 {
   font-size: 3em;
   line-height: 1;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.50em;
 }
 
 h2 {
@@ -483,7 +389,7 @@ h2 {
 h3 {
   font-size: 1.5em;
   line-height: 1;
-  margin-bottom: 1em;
+  margin-bottom: 1.00em;
 }
 
 h4 {
@@ -495,7 +401,7 @@ h4 {
 h5 {
   font-size: 1em;
   font-weight: bold;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.50em;
 }
 
 h6 {
@@ -548,23 +454,19 @@ blockquote {
   font-style: italic;
 }
 
-strong,
-dfn {
+strong, dfn {
   font-weight: bold;
 }
 
-em,
-dfn {
+em, dfn {
   font-style: italic;
 }
 
-sup,
-sub {
+sup, sub {
   line-height: 0;
 }
 
-abbr,
-acronym {
+abbr, acronym {
   border-bottom: 1px dotted #666666;
 }
 
@@ -582,23 +484,16 @@ pre {
   white-space: pre;
 }
 
-pre,
-code,
-tt {
-  font:
-    1em "andale mono",
-    "lucida console",
-    monospace;
+pre, code, tt {
+  font: 1em "andale mono", "lucida console", monospace;
   line-height: 1.5;
 }
 
-li ul,
-li ol {
+li ul, li ol {
   margin: 0;
 }
 
-ul,
-ol {
+ul, ol {
   margin: 0 1.5em 1.5em 0;
   padding-left: 1.5em;
 }
@@ -636,9 +531,7 @@ thead th {
   background: #c3d9ff;
 }
 
-th,
-td,
-caption {
+th, td, caption {
   padding: 4px 10px 4px 5px;
 }
 
@@ -670,28 +563,20 @@ body {
   padding: 0 20px;
   font-size: 95%;
   margin: 25px auto;
-  font-family: "Georgia";
+  font-family: 'Georgia';
 }
 
 body #wrapper {
   position: relative;
 }
 
-body a,
-body a:hover,
-body a:link,
-body a:visited {
+body a, body a:hover, body a:link, body a:visited {
   color: #407985;
 }
 
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body h6 {
+body h1, body h2, body h3, body h4, body h5, body h6 {
   color: #595959;
-  font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 body h1 a {
@@ -715,7 +600,7 @@ body .clear {
 
 body .intro {
   color: #595959;
-  font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: 3.2em;
   font-weight: 300;
   line-height: 1em;
@@ -745,7 +630,7 @@ body h3 {
 }
 
 body #nav {
-  font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 1.2em;
   text-transform: uppercase;
@@ -768,10 +653,10 @@ body #features {
   margin: 0 -35px;
   overflow: visible;
   min-height: 569px;
-  font-size: 1em;
+  font-size: 1.0em;
   line-height: 1.2em;
   font-weight: 300;
-  font-family: "Yanone Kaffeesatz", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Yanone Kaffeesatz', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 body #features #features-left {
@@ -813,16 +698,13 @@ body .toc ol li {
   list-style: none;
 }
 
-body .toc a,
-body .toc a:link,
-body .toc a:hover,
-body .toc a:visited {
+body .toc a, body .toc a:link, body .toc a:hover, body .toc a:visited {
   text-decoration: none;
   color: #595959;
 }
 
 body .toc ol.level-1 > li {
-  font-size: 1em;
+  font-size: 1.0em;
   font-weight: bold;
   margin-top: 20px;
 }
@@ -891,9 +773,7 @@ body .highlight {
   margin-bottom: 1.5em;
 }
 
-body .highlight > pre,
-body .highlight code,
-body .highlight span {
+body .highlight > pre, body .highlight code, body .highlight span {
   line-height: 1.3em;
   margin: 0;
   padding: 0;
@@ -908,8 +788,7 @@ body #footer {
   font-size: 0.9em;
 }
 
-body .post .post-date,
-body .post .post-meta {
+body .post .post-date, body .post .post-meta {
   font-size: 0.7em;
 }
 
@@ -1010,8 +889,7 @@ h2.in-docs {
   margin-bottom: 0;
 }
 
-.docs-content p,
-.docs-content li {
+.docs-content p, .docs-content li {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 0.9em;
 }
@@ -1032,8 +910,8 @@ h2.in-docs {
 }
 
 .docs-content .highlight .err {
-  color: #f00000;
-  background-color: #f0a0a0;
+  color: #F00000;
+  background-color: #F0A0A0;
 }
 
 .docs-content .highlight .k {

@@ -10,18 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_11_095057) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2024_07_13_163658) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
-    t.bigint "resource_id"
+    t.integer "resource_id"
     t.string "author_type"
-    t.bigint "author_id"
+    t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
@@ -80,11 +77,19 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.json "images"
+    t.string "website"
+    t.string "monday_hours"
+    t.string "tuesday_hours"
+    t.string "wednesday_hours"
+    t.string "thursday_hours"
+    t.string "friday_hours"
+    t.string "saturday_hours"
+    t.string "sunday_hours"
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "review_id", null: false
+    t.integer "user_id", null: false
+    t.integer "review_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,8 +98,8 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "cafe_id", null: false
+    t.integer "user_id", null: false
+    t.integer "cafe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cafe_id"], name: "index_favorites_on_cafe_id"
@@ -109,8 +114,8 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "cafe_id", null: false
+    t.integer "user_id", null: false
+    t.integer "cafe_id", null: false
     t.datetime "reservation_date"
     t.string "status"
     t.datetime "created_at", precision: 6, null: false
@@ -120,8 +125,8 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "cafe_id", null: false
+    t.integer "user_id", null: false
+    t.integer "cafe_id", null: false
     t.string "title"
     t.text "content"
     t.integer "rating"
@@ -139,11 +144,11 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.bigint "tag_id"
+    t.integer "tag_id"
     t.string "taggable_type"
-    t.bigint "taggable_id"
+    t.integer "taggable_id"
     t.string "tagger_type"
-    t.bigint "tagger_id"
+    t.integer "tagger_id"
     t.string "context", limit: 128
     t.datetime "created_at"
     t.string "tenant", limit: 128
@@ -188,11 +193,11 @@ ActiveRecord::Schema.define(version: 2024_07_11_095057) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
-  add_foreign_key "favorites", "cafes"
+  add_foreign_key "favorites", "caves"
   add_foreign_key "favorites", "users"
-  add_foreign_key "reservations", "cafes"
+  add_foreign_key "reservations", "caves"
   add_foreign_key "reservations", "users"
-  add_foreign_key "reviews", "cafes"
+  add_foreign_key "reviews", "caves"
   add_foreign_key "reviews", "users"
   add_foreign_key "taggings", "tags"
 end

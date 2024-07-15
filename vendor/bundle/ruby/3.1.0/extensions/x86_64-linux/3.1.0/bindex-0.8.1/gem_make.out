@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240708-38838-ip3e6d.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-cua7mr.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
@@ -12,4 +12,4 @@ linking shared-object skiptrace/internal/cruby.so
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bindex-0.8.1/ext/skiptrace
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 cruby.so ./.gem.20240708-38838-f4p20f/skiptrace/internal
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20240714-9040-uwz0qs/skiptrace/internal

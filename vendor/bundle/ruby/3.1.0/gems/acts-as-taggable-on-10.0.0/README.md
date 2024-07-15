@@ -1,12 +1,11 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [ActsAsTaggableOn](#actsastaggableon)
   - [Installation](#installation)
-    - [Post Installation](#post-installation)
-    - [For MySql users](#for-mysql-users)
+      - [Post Installation](#post-installation)
+      - [For MySql users](#for-mysql-users)
   - [Usage](#usage)
     - [Finding most or least used tags](#finding-most-or-least-used-tags)
     - [Finding Tagged Objects](#finding-tagged-objects)
@@ -20,7 +19,7 @@
     - [Dirty objects](#dirty-objects)
     - [Tag cloud calculations](#tag-cloud-calculations)
   - [Configuration](#configuration)
-    - [Upgrading](#upgrading)
+      - [Upgrading](#upgrading)
   - [Contributors](#contributors)
   - [Compatibility](#compatibility)
   - [TODO](#todo)
@@ -51,6 +50,8 @@ Enter Acts as Taggable On. Rather than tying functionality to a specific keyword
 tag "contexts" that can be used locally or in combination in the same way steroids
 was used.
 
+
+
 ## Installation
 
 To use it, add it to your Gemfile:
@@ -75,7 +76,6 @@ rake acts_as_taggable_on_engine:install:migrations
 ```
 
 Review the generated migrations then migrate :
-
 ```shell
 rake db:migrate
 ```
@@ -83,7 +83,6 @@ rake db:migrate
 If you do not wish or need to support multi-tenancy, the migration for `add_tenant_to_taggings` is optional and can be discarded safely.
 
 #### For MySql users
-
 You can circumvent at any time the problem of special characters [issue 623](https://github.com/mbleigh/acts-as-taggable-on/issues/623) by setting in an initializer file:
 
 ```ruby
@@ -98,6 +97,7 @@ rake acts_as_taggable_on_engine:tag_names:collate_bin
 
 See the Configuration section for more details, and a general note valid for older
 version of the gem.
+
 
 ## Usage
 
@@ -256,13 +256,13 @@ User.tagged_with(['awesome', 'cool'], :on => :tags, :any => true).tagged_with(['
 ```
 
 #### Wildcard tag search
-
 You now have the following options for prefix, suffix and containment search, along with `:any` or `:exclude` option.
 Use `wild: :suffix` to place a wildcard at the end of the tag. It will be looking for `awesome%` and `cool%` in SQL.
 Use `wild: :prefix` to place a wildcard at the beginning of the tag. It will be looking for `%awesome` and `%cool` in SQL.
 Use `wild: true` to place a wildcard both at the beginning and the end of the tag. It will be looking for `%awesome%` and `%cool%` in SQL.
 
-**Tip:** `User.tagged_with([])` or `User.tagged_with('')` will return `[]`, an empty set of records.
+__Tip:__ `User.tagged_with([])` or `User.tagged_with('')` will return `[]`, an empty set of records.
+
 
 ### Relationships
 
@@ -302,7 +302,7 @@ User.tagged_with("same", :on => :customs) # => [@user]
 
 ### Finding tags based on context
 
-You can find tags for a specific context by using the `for_context` scope:
+You can find tags for a specific context by using the ```for_context``` scope:
 
 ```ruby
 ActsAsTaggableOn::Tag.for_context(:tags)
@@ -370,21 +370,16 @@ Photo.tagged_with("paris", :on => :locations, :owned_by => @some_user)
 ```
 
 #### Working with Owned Tags
-
 Note that `tag_list` only returns tags whose taggings do not have an owner. Continuing from the above example:
-
 ```ruby
 @some_photo.tag_list # => []
 ```
-
 To retrieve all tags of an object (regardless of ownership) or if only one owner can tag the object, use `all_tags_list`.
 
 ##### Adding owned tags
-
-Note that **owned tags** are added all at once, in the form of **_comma seperated tags_** in string.
+Note that **owned tags** are added all at once, in the form of ***comma seperated tags*** in string.
 Also, when you try to add **owned tags** again, it simply overwrites the previous set of **owned tags**.
 So to append tags in previously existing **owned tags** list, go as follows:
-
 ```ruby
 def add_owned_tag
     @some_item = Item.find(params[:id])
@@ -398,11 +393,8 @@ def stringify(tag_list)
     tag_list.inject('') { |memo, tag| memo += (tag + ',') }[0..-1]
 end
 ```
-
 ##### Removing owned tags
-
 Similarly as above, removing will be as follows:
-
 ```ruby
 def remove_owned_tag
     @some_item = Item.find(params[:id])
@@ -494,18 +486,10 @@ View:
 CSS:
 
 ```css
-.css1 {
-  font-size: 1em;
-}
-.css2 {
-  font-size: 1.2em;
-}
-.css3 {
-  font-size: 1.4em;
-}
-.css4 {
-  font-size: 1.6em;
-}
+.css1 { font-size: 1.0em; }
+.css2 { font-size: 1.2em; }
+.css3 { font-size: 1.4em; }
+.css4 { font-size: 1.6em; }
 ```
 
 ## Configuration
@@ -553,11 +537,11 @@ If you want to change the default delimiter (it defaults to ','). You can also p
 ActsAsTaggableOn.delimiter = ','
 ```
 
-_NOTE 1: SQLite by default can't upcase or downcase multibyte characters, resulting in unwanted behavior. Load the SQLite ICU extension for proper handle of such characters. [See docs](http://www.sqlite.org/src/artifact?ci=trunk&filename=ext/icu/README.txt)_
+*NOTE 1: SQLite by default can't upcase or downcase multibyte characters, resulting in unwanted behavior. Load the SQLite ICU extension for proper handle of such characters. [See docs](http://www.sqlite.org/src/artifact?ci=trunk&filename=ext/icu/README.txt)*
 
-_NOTE 2: the option `force_binary_collation` is strongest than `strict_case_match` and when
+*NOTE 2: the option `force_binary_collation` is strongest than `strict_case_match` and when
 set to true, the `strict_case_match` is ignored.
-To roughly apply the `force_binary_collation` behaviour with a version of the gem <= 3.4.4, execute the following commands in the MySql console:_
+To roughly apply the `force_binary_collation` behaviour with a version of the gem <= 3.4.4, execute the following commands in the MySql console:*
 
 ```shell
 USE my_wonderful_app_db;
@@ -602,6 +586,7 @@ rake spec
 
 You can run all the tests across all the Rails versions by running `rake appraise`.
 If you'd also like to [run the tests across all rubies and databases as configured for Github Actions, install and run `wwtd`](https://github.com/grosser/wwtd).
+
 
 ## License
 

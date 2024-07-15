@@ -50,7 +50,7 @@ es:
       confirmation_instructions:
         action: Confirmar mi cuenta
         greeting: "¡Bienvenido %{recipient}!"
-        instruction: "Usted puede confirmar el correo electrónico de su cuenta a través de este enlace:"
+        instruction: 'Usted puede confirmar el correo electrónico de su cuenta a través de este enlace:'
         subject: Instrucciones de confirmación
       email_changed:
         greeting: "¡Hola %{recipient}! "
@@ -71,7 +71,7 @@ es:
       unlock_instructions:
         action: Desbloquear mi cuenta
         greeting: "¡Hola %{recipient}!"
-        instruction: "Haga click en el siguiente enlace para desbloquear su cuenta:"
+        instruction: 'Haga click en el siguiente enlace para desbloquear su cuenta:'
         message: Su cuenta ha sido bloqueada debido a una cantidad excesiva de intentos infructuosos para ingresar.
         subject: Instrucciones para desbloquear
     omniauth_callbacks:
@@ -96,7 +96,7 @@ es:
       edit:
         are_you_sure: "¿Está usted seguro?"
         cancel_my_account: Anular mi cuenta
-        currently_waiting_confirmation_for_email: "Actualmente esperando la confirmacion de: %{email} "
+        currently_waiting_confirmation_for_email: 'Actualmente esperando la confirmacion de: %{email} '
         leave_blank_if_you_don_t_want_to_change_it: dejar en blanco si no desea cambiarla
         title: Editar %{resource}
         unhappy: "¿Disconforme?"
@@ -143,5 +143,5 @@ es:
       not_found: no se ha encontrado
       not_locked: no estaba bloqueada
       not_saved:
-        one: "Ocurrió un error al tratar de guardar %{resource}:"
-        other: "Ocurrieron %{count} errores al tratar de guardar %{resource}:"
+        one: 'Ocurrió un error al tratar de guardar %{resource}:'
+        other: 'Ocurrieron %{count} errores al tratar de guardar %{resource}:'

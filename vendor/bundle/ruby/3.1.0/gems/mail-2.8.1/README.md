@@ -6,7 +6,7 @@ Mail is an internet library for Ruby that is designed to handle email
 generation, parsing and sending in a simple, rubyesque manner.
 
 The purpose of this library is to provide a single point of access to handle
-all email functions, including sending and receiving email. All network
+all email functions, including sending and receiving email.  All network
 type actions are done through proxy methods to Net::SMTP, Net::POP3 etc.
 
 Built from my experience with TMail, it is designed to be a pure ruby
@@ -14,7 +14,7 @@ implementation that makes generating, sending and parsing email a no
 brainer.
 
 It is also designed from the ground up to work with the more modern versions
-of Ruby. Modern Rubies handle text encodings much more wonderfully than before
+of Ruby.  Modern Rubies handle text encodings much more wonderfully than before
 so these features have been taken full advantage of in this library allowing
 Mail to handle a lot more messages more cleanly than TMail.
 
@@ -30,40 +30,40 @@ If you would like to say thanks, please dig in and contribute alongside us!
 Triage and fix [GitHub issues](https://github.com/mikel/mail/issues), improve
 our documentation, add new features—up to you! Thank you for pitching in.
 
-# Contents
 
-- [Compatibility](#compatibility)
-- [Discussion](#discussion)
-- [Current Capabilities of Mail](#current-capabilities-of-mail)
-- [Roadmap](#roadmap)
-- [Testing Policy](#testing-policy)
-- [API Policy](#api-policy)
-- [Installation](#installation)
-- [Encodings](#encodings)
-- [Contributing](#contributing)
-- [Usage](#usage)
-- [Excerpts from TREC Span Corpus 2005](#excerpts-from-trec-span-corpus-2005)
-- [License](#license)
+# Contents
+* [Compatibility](#compatibility)
+* [Discussion](#discussion)
+* [Current Capabilities of Mail](#current-capabilities-of-mail)
+* [Roadmap](#roadmap)
+* [Testing Policy](#testing-policy)
+* [API Policy](#api-policy)
+* [Installation](#installation)
+* [Encodings](#encodings)
+* [Contributing](#contributing)
+* [Usage](#usage)
+* [Excerpts from TREC Span Corpus 2005](#excerpts-from-trec-span-corpus-2005)
+* [License](#license)
 
 ## Compatibility
 
 Mail is tested against:
 
-- Ruby: 2.5
-- Ruby: 2.6
-- Ruby: 2.7
-- Ruby: 3.0
-- Ruby: 3.1
-- Ruby: 3.2
-- JRuby: 9.2
-- JRuby: 9.3
-- JRuby: 9.4
-- JRuby: stable
-- JRuby: head
-- Truffleruby: stable
-- Truffleruby: head
+* Ruby: 2.5
+* Ruby: 2.6
+* Ruby: 2.7
+* Ruby: 3.0
+* Ruby: 3.1
+* Ruby: 3.2
+* JRuby: 9.2
+* JRuby: 9.3
+* JRuby: 9.4
+* JRuby: stable
+* JRuby: head
+* Truffleruby: stable
+* Truffleruby: head
 
-As new versions of Ruby are released, Mail will be compatible with support for the "preview" and all "normal maintenance", "security maintenance" and the two most recent "end of life" versions listed at the [Ruby Maintenance Branches](https://www.ruby-lang.org/en/downloads/branches/) page. Pull requests to assist in adding support for new preview releases are more than welcome.
+As new versions of Ruby are released, Mail will be compatible with support for the "preview" and all "normal maintenance", "security maintenance" and the two most recent "end of life" versions listed at the [Ruby Maintenance Branches](https://www.ruby-lang.org/en/downloads/branches/) page.  Pull requests to assist in adding support for new preview releases are more than welcome.
 
 Every Mail commit is tested by GitHub Actions on [all supported Ruby versions](https://github.com/mikel/mail/blob/master/.github/workflows/test.yml).
 
@@ -74,13 +74,13 @@ the [Google Group](http://groups.google.com/group/mail-ruby).
 
 ## Current Capabilities of Mail
 
-- RFC5322 Support, Reading and Writing
-- RFC6532 Support, reading UTF-8 headers
-- RFC2045-2049 Support for multipart email
-- Support for creating multipart alternate email
-- Support for reading multipart/report email &amp; getting details from such
-- Wrappers for File, Net/POP3, Net/SMTP
-- Auto-encoding of non-US-ASCII bodies and header fields
+* RFC5322 Support, Reading and Writing
+* RFC6532 Support, reading UTF-8 headers
+* RFC2045-2049 Support for multipart email
+* Support for creating multipart alternate email
+* Support for reading multipart/report email &amp; getting details from such
+* Wrappers for File, Net/POP3, Net/SMTP
+* Auto-encoding of non-US-ASCII bodies and header fields
 
 Mail is RFC5322 and RFC6532 compliant now, that is, it can parse US-ASCII and UTF-8
 email and generate US-ASCII email. There are a few obsoleted email syntax that
@@ -91,7 +91,7 @@ as an optional unstructured field and continue parsing.
 
 This means Mail won't (ever) crunch your data (I think).
 
-You can also create MIME emails. There are helper methods for making a
+You can also create MIME emails.  There are helper methods for making a
 multipart/alternate email for text/plain and text/html (the most common pair)
 and you can manually create any other type of MIME email.
 
@@ -99,15 +99,15 @@ and you can manually create any other type of MIME email.
 
 Next TODO:
 
-- Improve MIME support for character sets in headers, currently works, mostly, needs
+* Improve MIME support for character sets in headers, currently works, mostly, needs
   refinement.
 
 ## Testing Policy
 
-Basically... we do BDD on Mail. No method gets written in Mail without a
-corresponding or covering spec. We expect as a minimum 100% coverage
-measured by RCov. While this is not perfect by any measure, it is pretty
-good. Additionally, all functional tests from TMail are to be passing before
+Basically... we do BDD on Mail.  No method gets written in Mail without a
+corresponding or covering spec.  We expect as a minimum 100% coverage
+measured by RCov.  While this is not perfect by any measure, it is pretty
+good.  Additionally, all functional tests from TMail are to be passing before
 the gem gets released.
 
 It also means you can be sure Mail will behave correctly.
@@ -118,7 +118,7 @@ You can run tests on all supported Ruby versions by using [act](https://github.c
 
 ## API Policy
 
-No API removals within a single point release. All removals to be deprecated with
+No API removals within a single point release.  All removals to be deprecated with
 warnings for at least one MINOR point release before removal.
 
 Also, all private or protected methods to be declared as such - though this is still I/P.
@@ -136,13 +136,13 @@ would hope.
 
 I have tried to simplify it some:
 
-1. All objects that can render into an email, have an `#encoded` method. Encoded will
+1. All objects that can render into an email, have an `#encoded` method.  Encoded will
    return the object as a complete string ready to send in the mail system, that is,
    it will include the header field and value and CRLF at the end and wrapped as
    needed.
 
-2. All objects that can render into an email, have a `#decoded` method. Decoded will
-   return the object's "value" only as a string. This means it will not include
+2. All objects that can render into an email, have a `#decoded` method.  Decoded will
+   return the object's "value" only as a string.  This means it will not include
    the header fields (like 'To:' or 'Subject:').
 
 3. By default, calling <code>#to_s</code> on a container object will call its encoded
@@ -163,14 +163,14 @@ I have tried to simplify it some:
 
 ## Contributing
 
-Please do! Contributing is easy in Mail. Please read the [CONTRIBUTING.md](CONTRIBUTING.md) document for more info.
+Please do!  Contributing is easy in Mail.  Please read the [CONTRIBUTING.md](CONTRIBUTING.md) document for more info.
 
 ## Usage
 
 All major mail functions should be able to happen from the Mail module.
 So, you should be able to just <code>require 'mail'</code> to get started.
 
-`mail` is pretty well documented in its Ruby code. You can look it up e.g. at [rubydoc.info](https://www.rubydoc.info/gems/mail).
+`mail` is pretty well documented in its Ruby code.  You can look it up e.g. at [rubydoc.info](https://www.rubydoc.info/gems/mail).
 
 ### Making an email
 
@@ -234,7 +234,7 @@ what you are doing.
 
 ### Sending an email:
 
-Mail defaults to sending via SMTP to local host port 25. If you have a
+Mail defaults to sending via SMTP to local host port 25.  If you have a
 sendmail or postfix daemon running on this port, sending email is as
 easy as:
 
@@ -279,13 +279,13 @@ mail.deliver
 ```
 
 Sending via smtp (for example to [mailcatcher](https://github.com/sj26/mailcatcher))
-
 ```ruby
 
 Mail.defaults do
   delivery_method :smtp, address: "localhost", port: 1025
 end
 ```
+
 
 Exim requires its own delivery manager, and can be used like so:
 
@@ -354,6 +354,7 @@ emails = Mail.all
 emails.length #=> LOTS!
 ```
 
+
 ### Reading an Email
 
 ```ruby
@@ -387,14 +388,13 @@ mail.parts[0].content_type_parameters  #=> {'charset' => 'ISO-8859-1'}
 mail.parts[1].content_type_parameters  #=> {'name' => 'my.pdf'}
 ```
 
-Mail generates a tree of parts. Each message has many or no parts. Each part
+Mail generates a tree of parts.  Each message has many or no parts.  Each part
 is another message which can have many or no parts.
 
 A message will only have parts if it is a multipart/mixed or multipart/related
 content type and has a boundary defined.
 
 ### Testing and Extracting Attachments
-
 ```ruby
 mail.attachments.each do | attachment |
   # Attachments is an AttachmentsList object containing a
@@ -410,7 +410,6 @@ mail.attachments.each do | attachment |
   end
 end
 ```
-
 ### Writing and Sending a Multipart/Alternative (HTML and Text) Email
 
 Mail makes some basic assumptions and makes doing the common thing as
@@ -474,13 +473,13 @@ Mail inserts the content transfer encoding, the mime version,
 the content-IDs and handles the content-type and boundary.
 
 Mail assumes that if your text in the body is only us-ascii, that your
-transfer encoding is 7bit and it is text/plain. You can override this
+transfer encoding is 7bit and it is text/plain.  You can override this
 by explicitly declaring it.
 
 ### Making Multipart/Alternate, Without a Block
 
 You don't have to use a block with the text and html part included, you
-can just do it declaratively. However, you need to add Mail::Parts to
+can just do it declaratively.  However, you need to add Mail::Parts to
 an email, not Mail::Messages.
 
 ```ruby
@@ -579,7 +578,6 @@ end
 @round_tripped_mail.attachments.length #=> 1
 @round_tripped_mail.attachments.first.filename #=> 'myfile.pdf'
 ```
-
 See "Testing and extracting attachments" above for more details.
 
 ## Using Mail with Testing or Spec'ing Libraries

@@ -50,7 +50,7 @@ eo:
       confirmation_instructions:
         action: Konfirmi mian konton
         greeting: Bonvenon %{recipient}!
-        instruction: "Vi povas konfirmi vian retadreson per la suba ligilo:"
+        instruction: 'Vi povas konfirmi vian retadreson per la suba ligilo:'
         subject: Konfirminstrukcioj
       email_changed:
         greeting: Saluton %{recipient}!
@@ -71,11 +71,11 @@ eo:
       unlock_instructions:
         action: Malŝlosi mian konton
         greeting: Saluton %{recipient}!
-        instruction: "Alklaku la suban ligilon por malŝlosi vian konton:"
+        instruction: 'Alklaku la suban ligilon por malŝlosi vian konton:'
         message: Via konto estis ŝlosita pro troa nombro da malsukcesaj ensalutprovoj.
         subject: Instrukcioj por malŝlosi
     omniauth_callbacks:
-      failure: "Ni ne povis aŭtentigi vin per %{kind}: '%{reason}'."
+      failure: 'Ni ne povis aŭtentigi vin per %{kind}: ''%{reason}''.'
       success: Aŭtentigita sukcese per %{kind}.
     passwords:
       edit:
@@ -96,7 +96,7 @@ eo:
       edit:
         are_you_sure: Ĉu vi certas?
         cancel_my_account: Nuligi mian konton
-        currently_waiting_confirmation_for_email: "Nuntempe atendas konfirmon por: %{email}"
+        currently_waiting_confirmation_for_email: 'Nuntempe atendas konfirmon por: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: lasu malplena se vi ne volas ŝanĝi ĝin
         title: Modifi %{resource}
         unhappy: Malfeliĉa?
@@ -143,5 +143,5 @@ eo:
       not_found: ne estis trovita
       not_locked: ne estis ŝlosita
       not_saved:
-        one: "1 eraro malpermesis al ĉi tiu %{resource} esti konservita:"
+        one: '1 eraro malpermesis al ĉi tiu %{resource} esti konservita:'
         other: "%{count} eraroj malpermesis al ĉi tiu %{resource} esti konservita:"

@@ -48,7 +48,7 @@ tr:
       confirmation_instructions:
         action: Hesabımı onayla
         greeting: Hoşgeldiniz %{recipient}!
-        instruction: "E-postanızı aşağıdaki bağlantıyı takip ederek onaylayabilirsiniz:"
+        instruction: 'E-postanızı aşağıdaki bağlantıyı takip ederek onaylayabilirsiniz:'
         subject: Onaylama talimatları
       email_changed:
         greeting: Merhaba %{recipient}!
@@ -69,7 +69,7 @@ tr:
       unlock_instructions:
         action: Hesabımı geri aç
         greeting: Merhaba %{recipient}!
-        instruction: "Hesabınızı geri açmak için aşağıdaki bağlantıyı tıklayınız:"
+        instruction: 'Hesabınızı geri açmak için aşağıdaki bağlantıyı tıklayınız:'
         message: Hesabınız çok fazla başarısız giriş denemesinden dolayı kilitlenmiştir.
         subject: Kilit açma talimatları
     omniauth_callbacks:
@@ -94,7 +94,7 @@ tr:
       edit:
         are_you_sure: Emin misiniz?
         cancel_my_account: Hesabımı iptal et
-        currently_waiting_confirmation_for_email: "Doğrulama için bekleniyor : %{email}"
+        currently_waiting_confirmation_for_email: 'Doğrulama için bekleniyor : %{email}'
         leave_blank_if_you_don_t_want_to_change_it: değiştirmek istemiyorsanız boş bırakın
         title: "%{resource} düzenle"
         unhappy: Mutsuz

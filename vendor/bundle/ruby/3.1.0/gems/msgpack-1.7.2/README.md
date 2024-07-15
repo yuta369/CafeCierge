@@ -22,17 +22,18 @@ or build msgpack-ruby and install:
     rake
     gem install --local pkg/msgpack
 
+
 ## Use cases
 
-- Create REST API returing MessagePack using Rails + [RABL](https://github.com/nesquena/rabl)
-- Store objects efficiently serialized by msgpack on memcached or Redis
-  - In fact Redis supports msgpack in [EVAL-scripts](http://redis.io/commands/eval)
-- Upload data in efficient format from mobile devices such as smartphones
-  - MessagePack works on iPhone/iPad and Android. See also [Objective-C](https://github.com/msgpack/msgpack-objectivec) and [Java](https://github.com/msgpack/msgpack-java) implementations
-- Design a portable protocol to communicate with embedded devices
-  - Check also [Fluentd](http://fluentd.org/) which is a log collector which uses msgpack for the log format (they say it uses JSON but actually it's msgpack, which is compatible with JSON)
-- Exchange objects between software components written in different languages
-  - You'll need a flexible but efficient format so that components exchange objects while keeping compatibility
+* Create REST API returing MessagePack using Rails + [RABL](https://github.com/nesquena/rabl)
+* Store objects efficiently serialized by msgpack on memcached or Redis
+  * In fact Redis supports msgpack in [EVAL-scripts](http://redis.io/commands/eval)
+* Upload data in efficient format from mobile devices such as smartphones
+  * MessagePack works on iPhone/iPad and Android. See also [Objective-C](https://github.com/msgpack/msgpack-objectivec) and [Java](https://github.com/msgpack/msgpack-java) implementations
+* Design a portable protocol to communicate with embedded devices
+  * Check also [Fluentd](http://fluentd.org/) which is a log collector which uses msgpack for the log format (they say it uses JSON but actually it's msgpack, which is compatible with JSON)
+* Exchange objects between software components written in different languages
+  * You'll need a flexible but efficient format so that components exchange objects while keeping compatibility
 
 ## Portability
 
@@ -40,6 +41,7 @@ MessagePack for Ruby should run on x86, ARM, PowerPC, SPARC and other CPU archit
 
 And it works with MRI (CRuby) and Rubinius.
 Patches to improve portability are highly welcomed.
+
 
 ## Serializing objects
 
@@ -283,9 +285,9 @@ Following commands update documents in gh-pages branch:
 
 ## Copyright
 
-- Author
-  - Sadayuki Furuhashi <frsyuki@gmail.com>
-- Copyright
-  - Copyright (c) 2008-2015 Sadayuki Furuhashi
-- License
-  - Apache License, Version 2.0
+* Author
+  * Sadayuki Furuhashi <frsyuki@gmail.com>
+* Copyright
+  * Copyright (c) 2008-2015 Sadayuki Furuhashi
+* License
+  * Apache License, Version 2.0

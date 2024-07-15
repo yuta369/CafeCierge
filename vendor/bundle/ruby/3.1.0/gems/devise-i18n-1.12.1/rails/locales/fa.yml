@@ -48,12 +48,12 @@ fa:
       confirmation_instructions:
         action: حساب مرا تایید کن
         greeting: خوش آمدید %{recipient}!
-        instruction: "شما می توانید ایمیل حساب کاربری خود را از طریق لینک زیر تایید کنید:"
+        instruction: 'شما می توانید ایمیل حساب کاربری خود را از طریق لینک زیر تایید کنید:'
         subject: راهنمای تایید
       email_changed:
         greeting: سلام %{recipient}!
         message: با شما تماس گرفته ایم تا شما را مطلع کنیم که ایمیل شما به %{email} تغییر کرده است.
-        message_unconfirmed:
+        message_unconfirmed: 
         subject: تغییر ایمیل
       password_change:
         greeting: سلام %{recipient}!
@@ -69,7 +69,7 @@ fa:
       unlock_instructions:
         action: حساب مرا باز کن
         greeting: سلام %{recipient}!
-        instruction: "برای باز کردن حساب خود بر روی لینک زیر کلیک کنید:"
+        instruction: 'برای باز کردن حساب خود بر روی لینک زیر کلیک کنید:'
         message: حساب شما بخاطر تلاش های ناموفق مکرر برای ورود قفل شد.
         subject: راهنمای باز کردن
     omniauth_callbacks:
@@ -94,12 +94,12 @@ fa:
       edit:
         are_you_sure: آیا اطمینان دارید؟
         cancel_my_account: حساب مرا لغو کن
-        currently_waiting_confirmation_for_email: "در حال انتظار برای تایید :  %{email}"
+        currently_waiting_confirmation_for_email: 'در حال انتظار برای تایید :  %{email}'
         leave_blank_if_you_don_t_want_to_change_it: اگر نمی خواهید تغییر دهید خالی بگذارید
         title: تغییر %{resource}
         unhappy: ناراحت
         update: بروز رسانی
-        we_need_your_current_password_to_confirm_your_changes: "ما برای تایید تغییرات به کلمه عبور فعلی نیاز داریم:"
+        we_need_your_current_password_to_confirm_your_changes: 'ما برای تایید تغییرات به کلمه عبور فعلی نیاز داریم:'
       new:
         sign_up: ثبت نام
       signed_up: خوش آمدید! با موفقیت ثبت نام کردید.
@@ -139,5 +139,5 @@ fa:
       not_found: یافت نشد
       not_locked: قفل نشده است
       not_saved:
-        one: "۱ خطا جلوی ذخیره %{resource} را گرفت:"
+        one: '۱ خطا جلوی ذخیره %{resource} را گرفت:'
         other: "%{count} خطا جلوی ذخیره این %{resource} را گرفت:"

@@ -11,7 +11,7 @@ Builder::XmlEvents:: Generate XML events (i.e. SAX-like)
 
 **Notes:**
 
-- An <tt>Builder::XmlTree</tt> class to generate XML tree
+* An <tt>Builder::XmlTree</tt> class to generate XML tree
   (i.e. DOM-like) structures is also planned, but not yet implemented.
   Also, the events builder is currently lagging the markup builder in
   features.
@@ -48,21 +48,21 @@ or
 ### Version 2.0.0 Compatibility Changes
 
 Version 2.0.0 introduces automatically escaped attribute values for
-the first time. Versions prior to 2.0.0 did not insert escape
-characters into attribute values in the XML markup. This allowed
+the first time.  Versions prior to 2.0.0 did not insert escape
+characters into attribute values in the XML markup.  This allowed
 attribute values to explicitly reference entities, which was
-occasionally used by a small number of developers. Since strings
+occasionally used by a small number of developers.  Since strings
 could always be explicitly escaped by hand, this was not a major
 restriction in functionality.
 
-However, it did surprise most users of builder. Since the body text is
+However, it did surprise most users of builder.  Since the body text is
 normally escaped, everybody expected the attribute values to be
-escaped as well. Escaped attribute values were the number one support
+escaped as well.  Escaped attribute values were the number one support
 request on the 1.x Builder series.
 
 Starting with Builder version 2.0.0, all attribute values expressed as
 strings will be processed and the appropriate characters will be
-escaped (e.g. "&" will be translated to "&amp;amp;"). Attribute values
+escaped (e.g. "&" will be translated to "&amp;amp;").  Attribute values
 that are expressed as Symbol values will not be processed for escaped
 characters and will be unchanged in output. (Yes, this probably counts
 as Symbol abuse, but the convention is convenient and flexible).
@@ -79,15 +79,15 @@ Example:
 ### Version 1.0.0 Compatibility Changes
 
 Version 1.0.0 introduces some changes that are not backwards
-compatible with earlier releases of builder. The main areas of
+compatible with earlier releases of builder.  The main areas of
 incompatibility are:
 
-- Keyword based arguments to +new+ (rather than positional based). It
+* Keyword based arguments to +new+ (rather than positional based).  It
   was found that a developer would often like to specify indentation
   without providing an explicit target, or specify a target without
-  indentation. Keyword based arguments handle this situation nicely.
+  indentation.  Keyword based arguments handle this situation nicely.
 
-- Builder must now be an explicit target for markup tags. Instead of
+* Builder must now be an explicit target for markup tags.  Instead of
   writing
 
 ```ruby
@@ -95,16 +95,16 @@ incompatibility are:
     xml_markup.div { strong("text") }
 ```
 
-you need to write
+  you need to write
 
 ```ruby
     xml_markup = Builder::XmlMarkup.new
     xml_markup.div { xml_markup.strong("text") }
 ```
 
-- The builder object is passed as a parameter to all nested markup
-  blocks. This allows you to create a short alias for the builder
-  object that can be used within the block. For example, the previous
+* The builder object is passed as a parameter to all nested markup
+  blocks.  This allows you to create a short alias for the builder
+  object that can be used within the block.  For example, the previous
   example can be written as:
 
 ```ruby
@@ -112,7 +112,7 @@ you need to write
     xml_markup.div { |xml| xml.strong("text") }
 ```
 
-- If you have both a pre-1.0 and a post-1.0 gem of builder installed,
+* If you have both a pre-1.0 and a post-1.0 gem of builder installed,
   you can choose which version to use through the RubyGems
   +require_gem+ facility.
 
@@ -123,55 +123,55 @@ you need to write
 
 ## Features
 
-- XML Comments are supported ...
+* XML Comments are supported ...
 
 ```ruby
     xml_markup.comment! "This is a comment"
       #=>  <!-- This is a comment -->
 ```
 
-- XML processing instructions are supported ...
+* XML processing instructions are supported ...
 
 ```ruby
     xml_markup.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
       #=>  <?xml version="1.0" encoding="UTF-8"?>
 ```
 
-If the processing instruction is omitted, it defaults to "xml".
-When the processing instruction is "xml", the defaults attributes
-are:
+  If the processing instruction is omitted, it defaults to "xml".
+  When the processing instruction is "xml", the defaults attributes
+  are:
 
-<b>version</b>: 1.0
-<b>encoding</b>: "UTF-8"
+  <b>version</b>: 1.0
+  <b>encoding</b>: "UTF-8"
 
-(NOTE: if the encoding is set to "UTF-8" and $KCODE is set to
-"UTF8", then Builder will emit UTF-8 encoded strings rather than
-encoding non-ASCII characters as entities.)
+  (NOTE: if the encoding is set to "UTF-8" and $KCODE is set to
+  "UTF8", then Builder will emit UTF-8 encoded strings rather than
+  encoding non-ASCII characters as entities.)
 
-- XML entity declarations are now supported to a small degree.
+* XML entity declarations are now supported to a small degree.
 
 ```ruby
     xml_markup.declare! :DOCTYPE, :chapter, :SYSTEM, "../dtds/chapter.dtd"
       #=>  <!DOCTYPE chapter SYSTEM "../dtds/chapter.dtd">
 ```
 
-The parameters to a declare! method must be either symbols or
-strings. Symbols are inserted without quotes, and strings are
-inserted with double quotes. Attribute-like arguments in hashes are
-not allowed.
+  The parameters to a declare! method must be either symbols or
+  strings. Symbols are inserted without quotes, and strings are
+  inserted with double quotes.  Attribute-like arguments in hashes are
+  not allowed.
 
-If you need to have an argument to declare! be inserted without
-quotes, but the argument does not conform to the typical Ruby
-syntax for symbols, then use the :"string" form to specify a symbol.
+  If you need to have an argument to declare! be inserted without
+  quotes, but the argument does not conform to the typical Ruby
+  syntax for symbols, then use the :"string" form to specify a symbol.
 
-For example:
+  For example:
 
 ```ruby
     xml_markup.declare! :ELEMENT, :chapter, :"(title,para+)"
       #=>  <!ELEMENT chapter (title,para+)>
 ```
 
-Nested entity declarations are allowed. For example:
+  Nested entity declarations are allowed.  For example:
 
 ```ruby
     @xml_markup.declare! :DOCTYPE, :chapter do |x|
@@ -189,20 +189,20 @@ Nested entity declarations are allowed. For example:
     ]>
 ```
 
-- Some support for XML namespaces is now available. If the first
+* Some support for XML namespaces is now available.  If the first
   argument to a tag call is a symbol, it will be joined to the tag to
-  produce a namespace:tag combination. It is easier to show this than
+  produce a namespace:tag combination.  It is easier to show this than
   describe it.
 
 ```ruby
    xml.SOAP :Envelope do ... end
 ```
 
-Just put a space before the colon in a namespace to produce the
-right form for builder (e.g. "<tt>SOAP:Envelope</tt>" =>
-"<tt>xml.SOAP :Envelope</tt>")
+  Just put a space before the colon in a namespace to produce the
+  right form for builder (e.g. "<tt>SOAP:Envelope</tt>" =>
+  "<tt>xml.SOAP :Envelope</tt>")
 
-- String attribute values are <em>now</em> escaped by default by
+* String attribute values are <em>now</em> escaped by default by
   Builder (<b>NOTE:</b> this is _new_ behavior as of version 2.0).
 
   However, occasionally you need to use entities in attribute values.
@@ -222,10 +222,10 @@ right form for builder (e.g. "<tt>SOAP:Envelope</tt>" =>
       <sample escaped="This&amp;That" unescaped="Here&amp;There"/>
 ```
 
-- UTF-8 Support
+* UTF-8 Support
 
-  Builder correctly translates UTF-8 characters into valid XML. (New
-  in version 2.0.0). Thanks to Sam Ruby for the translation code.
+  Builder correctly translates UTF-8 characters into valid XML.  (New
+  in version 2.0.0).  Thanks to Sam Ruby for the translation code.
 
   You can get UTF-8 encoded output by making sure that the XML
   encoding is set to "UTF-8" and that the $KCODE variable is set to
@@ -242,17 +242,17 @@ right form for builder (e.g. "<tt>SOAP:Envelope</tt>" =>
 
 ## Links
 
-|     Description     |                        Link                        |
-| :-----------------: | :------------------------------------------------: |
-|      Documents      |           http://builder.rubyforge.org/            |
-|    Github Clone     |         git://github.com/rails/builder.git         |
+| Description | Link |
+| :----: | :----: |
+| Documents           | http://builder.rubyforge.org/ |
+| Github Clone        | git://github.com/rails/builder.git |
 | Issue / Bug Reports | https://github.com/rails/builder/issues?state=open |
 
 ## Contact
 
-| Description |                               Value                               |
-| :---------: | :---------------------------------------------------------------: |
-|   Author    |                            Jim Weirich                            |
-|    Email    |                       jim.weirich@gmail.com                       |
-|  Home Page  |                      http://onestepback.org                       |
-|   License   | MIT Licence (http://www.opensource.org/licenses/mit-license.html) |
+| Description | Value                  |
+| :----:      | :----:                 |
+| Author      | Jim Weirich            |
+| Email       | jim.weirich@gmail.com  |
+| Home Page   | http://onestepback.org |
+| License     | MIT Licence (http://www.opensource.org/licenses/mit-license.html) |

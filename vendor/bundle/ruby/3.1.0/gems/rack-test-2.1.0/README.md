@@ -1,5 +1,4 @@
 # Rack::Test
-
 [![Gem Version](https://badge.fury.io/rb/rack-test.svg)](https://badge.fury.io/rb/rack-test)
 
 Code: https://github.com/rack/rack-test
@@ -12,10 +11,10 @@ to build on.
 
 ## Features
 
-- Allows for submitting requests and testing responses
-- Maintains a cookie jar across requests
-- Supports request headers used for subsequent requests
-- Follow redirects when requested
+* Allows for submitting requests and testing responses
+* Maintains a cookie jar across requests
+* Supports request headers used for subsequent requests
+* Follow redirects when requested
 
 ## Examples
 
@@ -69,7 +68,7 @@ class HomepageTest < Test::Unit::TestCase
 end
 ```
 
-`rack-test` will test the app returned by the `app` method. If you are loading middleware
+`rack-test` will test the app returned by the `app` method.  If you are loading middleware
 in a `config.ru` file, and want to test that, you should load the Rack app created from
 the `config.ru` file:
 
@@ -108,10 +107,10 @@ gem 'rack-test'
 
 Contributions are welcome. Please make sure to:
 
-- Use a regular forking workflow
-- Write tests for the new or changed behaviour
-- Provide an explanation/motivation in your commit message / PR message
-- Ensure `History.md` is updated
+* Use a regular forking workflow
+* Write tests for the new or changed behaviour
+* Provide an explanation/motivation in your commit message / PR message
+* Ensure `History.md` is updated
 
 ## Authors
 
@@ -124,17 +123,17 @@ Contributions are welcome. Please make sure to:
 
 ## Supported platforms
 
-- Ruby 2.0+
-- JRuby 9.1+
+* Ruby 2.0+
+* JRuby 9.1+
 
 ## Releasing
 
-- Bump VERSION in lib/rack/test/version.rb
-- Ensure `History.md` is up-to-date, including correct version and date
-- `git commit . -m 'Release $VERSION'`
-- `git push`
-- `git tag -a -m 'Tag the $VERSION release' $VERSION`
-- `git push --tags`
-- `gem build rack-test.gemspec`
-- `gem push rack-test-$VERSION.gem`
-- Add a discussion post for the release
+* Bump VERSION in lib/rack/test/version.rb
+* Ensure `History.md` is up-to-date, including correct version and date
+* `git commit . -m 'Release $VERSION'`
+* `git push`
+* `git tag -a -m 'Tag the $VERSION release' $VERSION`
+* `git push --tags`
+* `gem build rack-test.gemspec`
+* `gem push rack-test-$VERSION.gem`
+* Add a discussion post for the release

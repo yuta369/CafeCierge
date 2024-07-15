@@ -48,7 +48,7 @@ el:
       confirmation_instructions:
         action: Επιβεβαίωση του λογαριασμού μου
         greeting: Καλώς ήρθατε %{recipient}!
-        instruction: "Μπορείτε να επιβεβαιώσετε τη διεύθυνση email του λογαριασμού σας μέσω του συνδέσμου παρακάτω:"
+        instruction: 'Μπορείτε να επιβεβαιώσετε τη διεύθυνση email του λογαριασμού σας μέσω του συνδέσμου παρακάτω:'
         subject: Οδηγίες επιβεβαίωσης
       email_changed:
         greeting: Γεια σας %{recipient}!
@@ -69,7 +69,7 @@ el:
       unlock_instructions:
         action: Ξεκλείδωμα του λογαριασμού μου
         greeting: Γεια σας %{recipient}!
-        instruction: "Πατήστε τον σύνδεσμο παρακάτω για να ξεκλειδώσετε τον λογαριασμό σας:"
+        instruction: 'Πατήστε τον σύνδεσμο παρακάτω για να ξεκλειδώσετε τον λογαριασμό σας:'
         message: Ο λογαριασμός σας έχει κλειδωθεί λόγω μεγάλου αριθμού ανεπιτυχών προσπαθειών σύνδεσης.
         subject: Οδηγίες ξεκλειδώματος
     omniauth_callbacks:
@@ -94,7 +94,7 @@ el:
       edit:
         are_you_sure: Είστε σίγουρος/η;
         cancel_my_account: Ακύρωση του λογαρισμού μου
-        currently_waiting_confirmation_for_email: "Αναμένεται επιβεβαίωση για: %{email}"
+        currently_waiting_confirmation_for_email: 'Αναμένεται επιβεβαίωση για: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: αφήστε το κενό αν δεν θέλετε να το αλλάξετε
         title: Επεξεργασία %{resource}
         unhappy: Μη ευχαριστημένος/η;
@@ -141,5 +141,5 @@ el:
       not_found: δεν βρέθηκε
       not_locked: δεν κλειδώθηκε
       not_saved:
-        one: "1 λάθος δεν επέτρεψε την αποθήκευση του %{resource}:"
+        one: '1 λάθος δεν επέτρεψε την αποθήκευση του %{resource}:'
         other: "%{count} λάθη δεν επέτρεψαν την αποθήκευση του %{resource}:"

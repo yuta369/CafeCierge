@@ -2,29 +2,29 @@ ha:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at:
-        confirmation_token:
-        confirmed_at:
-        created_at:
+        confirmation_sent_at: 
+        confirmation_token: 
+        confirmed_at: 
+        created_at: 
         current_password: Mabudi na yan zu
-        current_sign_in_at:
-        current_sign_in_ip:
+        current_sign_in_at: 
+        current_sign_in_ip: 
         email: I-mail
-        encrypted_password:
-        failed_attempts:
-        last_sign_in_at:
-        last_sign_in_ip:
-        locked_at:
+        encrypted_password: 
+        failed_attempts: 
+        last_sign_in_at: 
+        last_sign_in_ip: 
+        locked_at: 
         password: Mabudi
         password_confirmation: Mabudi ya tabbata
-        remember_created_at:
+        remember_created_at: 
         remember_me: tuna da ni
-        reset_password_sent_at:
+        reset_password_sent_at: 
         reset_password_token: Gyara mabudi
-        sign_in_count:
-        unconfirmed_email:
+        sign_in_count: 
+        unconfirmed_email: 
         unlock_token: Bode tokin ka
-        updated_at:
+        updated_at: 
     models:
       user: Mai amfani deshi
   devise:
@@ -37,24 +37,24 @@ ha:
     failure:
       already_authenticated: Ka shiga tuni
       inactive: Akaut din ka bai karbu ba
-      invalid:
+      invalid: 
       last_attempt: kana da dama guda daya kafin mu kulle akaut din ka
       locked: Akaut din ka an kulle
-      not_found_in_database:
+      not_found_in_database: 
       timeout: lokacin ka ya kare, sake shigo wa kafin ka si gaba
       unauthenticated: Shiga kafin ka ci gaba
       unconfirmed: Sai ka tabbatar da adireshin I-mail din ka kafin ka ci gaba
     mailer:
       confirmation_instructions:
         action: Tabbatar da akaut di na
-        greeting: "Sannu da zuwa %{recipient} "
+        greeting: 'Sannu da zuwa %{recipient} '
         instruction: Zaka iya tabbatar da I-mail din ka daga sakon dake karkashin ka
         subject: Bayanin tabbatar wa
       email_changed:
-        greeting:
-        message:
-        message_unconfirmed:
-        subject:
+        greeting: 
+        message: 
+        message_unconfirmed: 
+        subject: 
       password_change:
         greeting: Hallo %{recipient}
         message: Muna tura maka da sako cewa mabudin da ka canza ya tabbatar
@@ -94,21 +94,21 @@ ha:
       edit:
         are_you_sure: Ka tabbater da haka
         cancel_my_account: Kunle akaut di na
-        currently_waiting_confirmation_for_email: "Muna Sauraron bayanin daga wurin ka: %{email}"
+        currently_waiting_confirmation_for_email: 'Muna Sauraron bayanin daga wurin ka: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Karka danna komai idan baka canza ba
         title: Gyara %{resource}
         unhappy: Ba cin rai
         update: Ci gaba
         we_need_your_current_password_to_confirm_your_changes: Muna bukatar sabon mabudin ka domin mu sake tabbatar da canza war ka
       new:
-        sign_up: "Shigar da sabon bayanin akaut "
+        sign_up: 'Shigar da sabon bayanin akaut '
       signed_up: Sannu da zuwa; sabon akaut din ka ya tabbatar
       signed_up_but_inactive: Sabon akaut din ka ya tabbata, Ba zamu iya shigar da kai ba sabode akaut din ka bai kar bu ba
       signed_up_but_locked: Sabon akaut din ka ya tabbata, amma Ba zamu iya shiga da kai ba sabode mun kuile akaut din ka
       signed_up_but_unconfirmed: sako daga wurin mu zai shigo I-mail din ka, biyomu zaka bude akaut  din ka
       update_needs_confirmation: Budewar akaut din ka ya tabbata, amma sai mun tabbatar da adireshin i-mail din ka. Duba i-mail din ka zaka ga sako sai ka bude
       updated: Budewar akaut din ka ya tabbatar
-      updated_but_not_signed_in:
+      updated_but_not_signed_in: 
     sessions:
       already_signed_out: ka fita daga akaut
       new:
@@ -124,7 +124,7 @@ ha:
         sign_in: shiga
         sign_in_with_provider: shiga da %{provider}
         sign_up: Bayar de sabon bayanin akaut
-      minimum_password_length:
+      minimum_password_length: 
     unlocks:
       new:
         resend_unlock_instructions: Sake  turo da bayanin bude akaut
@@ -135,7 +135,7 @@ ha:
     messages:
       already_confirmed: Mun karba, kana iya shiga yanzu
       confirmation_period_expired: Ina so in tabbata da %{period}, tabbayi sabo
-      expired: "lokacin ka ya kare, sake tambaya sabo "
+      expired: 'lokacin ka ya kare, sake tambaya sabo '
       not_found: Ba bayani
       not_locked: Ba mu kunle ba
       not_saved:

@@ -9,12 +9,11 @@ detailed explanations of how the application is supposed to behave,
 expressed in plain English.
 
 According to [RSpec Rails new versioning strategy][] use:
-
-- **[`rspec-rails` 6.x][]** for Rails 6.1 or 7.x.
-- **[`rspec-rails` 5.x][]** for Rails 5.2 or 6.x.
-- **[`rspec-rails` 4.x][]** for Rails from 5.x or 6.x.
-- **[`rspec-rails` 3.x][]** for Rails earlier than 5.0.
-- **[`rspec-rails` 1.x][]** for Rails 2.x.
+* **[`rspec-rails` 6.x][]** for Rails 6.1 or 7.x.
+* **[`rspec-rails` 5.x][]** for Rails 5.2 or 6.x.
+* **[`rspec-rails` 4.x][]** for Rails from 5.x or 6.x.
+* **[`rspec-rails` 3.x][]** for Rails earlier than 5.0.
+* **[`rspec-rails` 1.x][]** for Rails 2.x.
 
 [Code Climate]: https://codeclimate.com/github/rspec/rspec-rails.svg
 [code-climate]: https://codeclimate.com/github/rspec/rspec-rails
@@ -134,9 +133,9 @@ $ bundle exec rspec --help
 **Optional:** If `bundle exec rspec` is too verbose for you,
 you can generate a binstub at `bin/rspec` and use that instead:
 
-```sh
-$ bundle binstubs rspec-core
-```
+ ```sh
+ $ bundle binstubs rspec-core
+ ```
 
 ## RSpec DSL Basics (or, how do I write a spec?)
 
@@ -195,17 +194,17 @@ In addition to [the matchers that come standard in RSpec][],
 here are some extras that make it easier
 to test the various parts of a Rails system:
 
-| RSpec matcher            | Delegates to        | Available in                   | Notes                                                    |
-| ------------------------ | ------------------- | ------------------------------ | -------------------------------------------------------- |
-| [`be_a_new`][]           |                     | all                            | primarily intended for controller specs                  |
-| [`render_template`][]    | `assert_template`   | request / controller / view    | use with `expect(response).to`                           |
-| [`redirect_to`][]        | `assert_redirect`   | request / controller           | use with `expect(response).to`                           |
-| [`route_to`]             | `assert_recognizes` | routing / controller           | use with `expect(...).to route_to`                       |
-| [`be_routable`]          |                     | routing / controller           | use with `expect(...).not_to be_routable`                |
-| [`have_http_status`][]   |                     | request / controller / feature |                                                          |
-| [`match_array`][]        |                     | all                            | for comparing arrays of ActiveRecord objects             |
-| [`have_been_enqueued`][] |                     | all                            | requires config: `ActiveJob::Base.queue_adapter = :test` |
-| [`have_enqueued_job`][]  |                     | all                            | requires config: `ActiveJob::Base.queue_adapter = :test` |
+| RSpec matcher            | Delegates to        | Available in                    | Notes                                                    |
+| ------------------------ | ------------------- | ------------------------------- | -------------------------------------------------------- |
+| [`be_a_new`][]           |                     | all                             | primarily intended for controller specs                  |
+| [`render_template`][]    | `assert_template`   | request / controller / view     | use with `expect(response).to`                           |
+| [`redirect_to`][]        | `assert_redirect`   | request / controller            | use with `expect(response).to`                           |
+| [`route_to`]             | `assert_recognizes` | routing / controller            | use with `expect(...).to route_to`                       |
+| [`be_routable`]          |                     | routing / controller            | use with `expect(...).not_to be_routable`                |
+| [`have_http_status`][]   |                     | request / controller / feature  |                                                          |
+| [`match_array`][]        |                     | all                             | for comparing arrays of ActiveRecord objects             |
+| [`have_been_enqueued`][] |                     | all                             | requires config: `ActiveJob::Base.queue_adapter = :test` |
+| [`have_enqueued_job`][]  |                     | all                             | requires config: `ActiveJob::Base.queue_adapter = :test` |
 
 Follow the links above for examples of how each matcher is used.
 
@@ -236,7 +235,7 @@ meaning the helper methods provided by default in Rails tests
 are available in RSpec, as well.
 
 | Spec type      | Corresponding Rails test class        |
-| -------------- | ------------------------------------- |
+| -------------- | --------------------------------      |
 | [model][]      |                                       |
 | [controller][] | [`ActionController::TestCase`][]      |
 | [mailer][]     | `ActionMailer::TestCase`              |
@@ -296,12 +295,12 @@ Also called **acceptance tests**, **browser tests**, or **end-to-end tests**,
 system specs test the application from the perspective of a _human client._
 The test code walks through a user’s browser interactions,
 
-- `visit '/login'`
-- `fill_in 'Name', with: 'jdoe'`
+* `visit '/login'`
+* `fill_in 'Name', with: 'jdoe'`
 
 and the expectations revolve around page content.
 
-- `expect(page).to have_text('Welcome')`
+* `expect(page).to have_text('Welcome')`
 
 Because system specs are a wrapper around Rails’ built-in `SystemTestCase`,
 they’re only available on Rails 5.1+.
@@ -366,15 +365,15 @@ you can run the specs and Cucumber features, or submit a pull request.
 
 ### RSpec base libraries
 
-- https://github.com/rspec/rspec
-- https://github.com/rspec/rspec-core
-- https://github.com/rspec/rspec-expectations
-- https://github.com/rspec/rspec-mocks
+* https://github.com/rspec/rspec
+* https://github.com/rspec/rspec-core
+* https://github.com/rspec/rspec-expectations
+* https://github.com/rspec/rspec-mocks
 
 ### Recommended third-party extensions
 
-- [FactoryBot](https://github.com/thoughtbot/factory_bot)
-- [Capybara](https://github.com/teamcapybara/capybara)
+* [FactoryBot](https://github.com/thoughtbot/factory_bot)
+* [Capybara](https://github.com/teamcapybara/capybara)
   (Included by default in Rails 5.1+.
   Note that [additional configuration is required][] to use the Capybara DSL
   anywhere other than system specs and feature specs.)

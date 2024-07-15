@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.2/ext/msgpack
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240708-38838-fftr46.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-1rm0ox.rb extconf.rb
 checking for rb_enc_interned_str() in ruby.h... yes
 checking for rb_hash_new_capa() in ruby.h... no
 checking for rb_proc_call_with_block() in ruby.h... yes
@@ -34,4 +34,4 @@ linking shared-object msgpack/msgpack.so
 
 current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/msgpack-1.7.2/ext/msgpack
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 msgpack.so ./.gem.20240708-38838-t4wfi4/msgpack
+/usr/bin/install -c -m 0755 msgpack.so ./.gem.20240714-9040-b13u0j/msgpack

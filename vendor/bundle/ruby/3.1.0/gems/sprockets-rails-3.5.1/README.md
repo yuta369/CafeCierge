@@ -2,15 +2,18 @@
 
 Provides [Sprockets](https://github.com/rails/sprockets) implementation for Rails 4.x (and beyond) Asset Pipeline.
 
+
 ## Installation
 
-```ruby
+``` ruby
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 ```
 
 Or alternatively `require 'sprockets/railtie'` in your `config/application.rb` if you have Bundler auto-require disabled.
 
+
 ## Usage
+
 
 ### Rake task
 
@@ -32,7 +35,7 @@ If the basic tasks don't do all that you need, it's straight forward to redefine
 
 You can also redefine the task with the built in task generator.
 
-```ruby
+``` ruby
 require 'sprockets/rails/task'
 Sprockets::Rails::Task.new(Rails.application) do |t|
   t.environment = lambda { Rails.application.assets }
@@ -67,7 +70,7 @@ Suppresses logger output for asset requests. Uses the `config.assets.prefix` pat
 
 Set a custom cache buster string. Changing it will cause all assets to recompile on the next build.
 
-```ruby
+``` ruby
 config.assets.version = 'v1'
 # after installing a new plugin, change loads paths
 config.assets.version = 'v2'
@@ -93,7 +96,7 @@ Enables Sprockets compile environment. If disabled, `Rails.application.assets` w
 
 Invokes block with environment when the environment is initialized. Allows direct access to the environment instance and lets you lazily load libraries only needed for asset compiling.
 
-```ruby
+``` ruby
 config.assets.configure do |env|
   env.js_compressor  = :uglifier # or :closure, :yui
   env.css_compressor = :sass   # or :yui
@@ -107,7 +110,7 @@ end
 
 **`config.assets.resolve_assets_in_css_urls`**
 
-When this option is enabled, sprockets-rails will register a CSS postprocessor to resolve assets referenced in [`url()`](<https://developer.mozilla.org/en-US/docs/Web/CSS/url()>) function calls and replace them with the digested paths. Defaults to `true`.
+When this option is enabled, sprockets-rails will register a CSS postprocessor to resolve assets referenced in [`url()`](https://developer.mozilla.org/en-US/docs/Web/CSS/url()) function calls and replace them with the digested paths. Defaults to `true`.
 
 **`config.assets.resolve_with`**
 
@@ -116,7 +119,6 @@ we try to find assets: manifest first, environment second? Manifest only?
 
 By default, we check the manifest first if asset digests are enabled and debug
 is not enabled, then we check the environment if compiling is enabled:
-
 ```
 # Dev where debug is true, or digests are disabled
 %i[ environment ]
@@ -127,7 +129,6 @@ is not enabled, then we check the environment if compiling is enabled:
 # Production default.
 %i[ manifest ]
 ```
-
 If the resolver list is empty (e.g. if debug is true and compile is false), the standard rails public path resolution will be used.
 
 **`config.assets.check_precompiled_asset`**
@@ -138,28 +139,29 @@ When enabled, an exception is raised for missing assets. This option is enabled 
 
 The following plugins provide some extras for the Sprockets Asset Pipeline.
 
-- [coffee-rails](https://github.com/rails/coffee-rails)
-- [sass-rails](https://github.com/rails/sass-rails)
+* [coffee-rails](https://github.com/rails/coffee-rails)
+* [sass-rails](https://github.com/rails/sass-rails)
 
 **NOTE** That these plugins are optional. The core coffee-script, sass, less, uglify, (and many more) features are built into Sprockets itself. Many of these plugins only provide generators and extra helpers. You can probably get by without them.
 
+
 ## Changes from Rails 3.x
 
-- Only compiles digest filenames. Static non-digest assets should simply live in public/.
-- Unmanaged asset paths and urls fallback to linking to public/. This should make it easier to work with both compiled assets and simple static assets. As a side effect, there will never be any "asset not precompiled errors" when linking to missing assets. They will just link to a public file which may or may not exist.
-- JS and CSS compressors must be explicitly set. Magic detection has been removed to avoid loading compressors in environments where you want to avoid loading any of the asset libraries. Assign `config.assets.js_compressor = :uglifier` or `config.assets.css_compressor = :sass` for the standard compressors.
-- The manifest file is now in a JSON format. Since it lives in public/ by default, the initial filename is also randomized to obfuscate public access to the resource.
-- `config.assets.manifest` (if used) must now include the manifest filename, e.g. `Rails.root.join('config/manifest.json')`. It cannot be a directory.
-- Two cleanup tasks: `rake assets:clean` is now a safe cleanup that only removes older assets that are no longer used, while `rake assets:clobber` nukes the entire `public/assets` directory. The clean task allows for rolling deploys that may still be linking to an old asset while the new assets are being built.
+* Only compiles digest filenames. Static non-digest assets should simply live in public/.
+* Unmanaged asset paths and urls fallback to linking to public/. This should make it easier to work with both compiled assets and simple static assets. As a side effect, there will never be any "asset not precompiled errors" when linking to missing assets. They will just link to a public file which may or may not exist.
+* JS and CSS compressors must be explicitly set. Magic detection has been removed to avoid loading compressors in environments where you want to avoid loading any of the asset libraries. Assign `config.assets.js_compressor = :uglifier` or `config.assets.css_compressor = :sass` for the standard compressors.
+* The manifest file is now in a JSON format. Since it lives in public/ by default, the initial filename is also randomized to obfuscate public access to the resource.
+* `config.assets.manifest` (if used) must now include the manifest filename, e.g. `Rails.root.join('config/manifest.json')`. It cannot be a directory.
+* Two cleanup tasks: `rake assets:clean` is now a safe cleanup that only removes older assets that are no longer used, while `rake assets:clobber` nukes the entire `public/assets` directory. The clean task allows for rolling deploys that may still be linking to an old asset while the new assets are being built.
 
 ### But what if I want sprockets to generate non-digest assets?
 
 You have several options:
 
-- Use the [non-digest-assets gem](https://github.com/mvz/non-digest-assets).
-- Use the [sprockets-redirect gem](https://github.com/sikachu/sprockets-redirect).
-- Use the [smart_assets gem](https://github.com/zarqman/smart_assets).
-- Create [a rake task](https://github.com/rails/sprockets-rails/issues/49#issuecomment-20535134) to pre-generate a non-digest version in `public/`.
+* Use the [non-digest-assets gem](https://github.com/mvz/non-digest-assets).
+* Use the [sprockets-redirect gem](https://github.com/sikachu/sprockets-redirect).
+* Use the [smart_assets gem](https://github.com/zarqman/smart_assets).
+* Create [a rake task](https://github.com/rails/sprockets-rails/issues/49#issuecomment-20535134) to pre-generate a non-digest version in `public/`.
 
 ## Experimental
 
@@ -167,12 +169,13 @@ You have several options:
 
 Sprockets 3.x adds experimental support for subresource integrity checks. The spec is still evolving and the API may change in backwards incompatible ways.
 
-```ruby
+``` ruby
 javascript_include_tag :application, integrity: true
 # => "<script src="/assets/application.js" integrity="sha256-TvVUHzSfftWg1rcfL6TIJ0XKEGrgLyEq6lEpcmrG9qs="></script>"
 ```
 
 Note that sprockets-rails only adds integrity hashes to assets when served in a secure context (over an HTTPS connection or localhost).
+
 
 ## Contributing to Sprockets Rails
 
@@ -187,9 +190,9 @@ sprockets-rails 3.x will primarily target sprockets 3.x. And future versions wil
 
 The minor and patch version will be updated according to [semver](http://semver.org/).
 
-- Any new APIs or config options that don't break compatibility will be in a minor release
-- Any time the sprockets dependency is bumped, there will be a new minor release
-- Simple bug fixes will be patch releases
+* Any new APIs or config options that don't break compatibility will be in a minor release
+* Any time the sprockets dependency is bumped, there will be a new minor release
+* Simple bug fixes will be patch releases
 
 ## License
 
@@ -197,4 +200,4 @@ Sprockets Rails is released under the [MIT License](MIT-LICENSE).
 
 ## Code Status
 
-- [![Gem Version](https://badge.fury.io/rb/sprockets-rails.svg)](http://badge.fury.io/rb/sprockets-rails)
+* [![Gem Version](https://badge.fury.io/rb/sprockets-rails.svg)](http://badge.fury.io/rb/sprockets-rails)

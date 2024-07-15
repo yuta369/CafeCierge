@@ -90,20 +90,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 #### Major changes
 
-- _BREAKING_ Updates to `WithEnvironment`:
+- *BREAKING* Updates to `WithEnvironment`:
   - The `WithEnvironment` module has been renamed to `WithScope`.
   - The `current_environment` method has been renamed to `current_scope`.
   - The `with_current_environment` method has been removed.
   - Previously scopes were always able to look up the tree, as in: `a = 1; def foo; a = 2; end` would see only a single `a` variable. That has been corrected.
   - Previously accessing variables from inside of blocks that were not shadowed would mark them as being local to the block only. This has been correct.
-- _BREAKING_ Lots of constants moved out of `SyntaxTree::Visitor` to just `SyntaxTree`:
-  - `SyntaxTree::Visitor::FieldVisitor` is now `SyntaxTree::FieldVisitor`
-  - `SyntaxTree::Visitor::JSONVisitor` is now `SyntaxTree::JSONVisitor`
-  - `SyntaxTree::Visitor::MatchVisitor` is now `SyntaxTree::MatchVisitor`
-  - `SyntaxTree::Visitor::MutationVisitor` is now `SyntaxTree::MutationVisitor`
-  - `SyntaxTree::Visitor::PrettyPrintVisitor` is now `SyntaxTree::PrettyPrintVisitor`
-- _BREAKING_ Lots of constants are now autoloaded instead of required by default. This is only particularly relevant if you are in a forking environment and want to preload constants before forking for better memory usage with copy-on-write.
-- _BREAKING_ The `SyntaxTree::Statements#initialize` method no longer accepts a parser as the first argument. It now mirrors the other nodes in that it accepts its children and location. As a result, Syntax Tree nodes are now marshalable (and therefore can be sent over DRb). Previously the `Statements` node was not able to be marshaled because it held a reference to the parser.
+- *BREAKING* Lots of constants moved out of `SyntaxTree::Visitor` to just `SyntaxTree`:
+  * `SyntaxTree::Visitor::FieldVisitor` is now `SyntaxTree::FieldVisitor`
+  * `SyntaxTree::Visitor::JSONVisitor` is now `SyntaxTree::JSONVisitor`
+  * `SyntaxTree::Visitor::MatchVisitor` is now `SyntaxTree::MatchVisitor`
+  * `SyntaxTree::Visitor::MutationVisitor` is now `SyntaxTree::MutationVisitor`
+  * `SyntaxTree::Visitor::PrettyPrintVisitor` is now `SyntaxTree::PrettyPrintVisitor`
+- *BREAKING* Lots of constants are now autoloaded instead of required by default. This is only particularly relevant if you are in a forking environment and want to preload constants before forking for better memory usage with copy-on-write.
+- *BREAKING* The `SyntaxTree::Statements#initialize` method no longer accepts a parser as the first argument. It now mirrors the other nodes in that it accepts its children and location. As a result, Syntax Tree nodes are now marshalable (and therefore can be sent over DRb). Previously the `Statements` node was not able to be marshaled because it held a reference to the parser.
 
 #### Minor changes
 
@@ -555,7 +555,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Better support for encoding by properly reading encoding magic comments.
 - Support singleton single-line method definitions.
 - Support `stree-ignore` comments to ignore formatting nodes.
-- Add special formatting for arrays of `VarRef` nodes whose sum width is greater than 2 \* the maximum width.
+- Add special formatting for arrays of `VarRef` nodes whose sum width is greater than 2 * the maximum width.
 - Better output formatting for the CLI.
 
 ### Changed

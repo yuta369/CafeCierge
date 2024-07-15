@@ -50,7 +50,7 @@ de:
       confirmation_instructions:
         action: Mein Konto bestätigen
         greeting: Willkommen %{recipient}!
-        instruction: "Klicken Sie auf den folgenden Link, um Ihr Konto zu bestätigen:"
+        instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu bestätigen:'
         subject: Anleitung zur Konto-Bestätigung
       email_changed:
         greeting: Hallo %{recipient}!
@@ -71,7 +71,7 @@ de:
       unlock_instructions:
         action: Mein Konto entsperren
         greeting: Hallo %{recipient}!
-        instruction: "Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:"
+        instruction: 'Klicken Sie auf den folgenden Link, um Ihr Konto zu entsperren:'
         message: Aufgrund zahlreicher fehlgeschlagener Anmeldeversuche wurde Ihr Konto gesperrt.
         subject: Anweisungen zur Entsperrung Ihres Kontos
     omniauth_callbacks:

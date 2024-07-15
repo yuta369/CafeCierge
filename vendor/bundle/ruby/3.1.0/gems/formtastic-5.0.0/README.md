@@ -9,18 +9,18 @@ Formtastic is a Rails FormBuilder DSL (with some other goodies) to make it far e
 
 ## Documentation & Support
 
-- [Documentation is available on rdoc.info](https://rdoc.info/projects/formtastic/formtastic)
-- [We track issues & bugs on GitHub](https://github.com/formtastic/formtastic/issues)
-- [We have a wiki on GitHub](https://github.com/formtastic/formtastic/wiki)
-- [StackOverflow can help](https://stackoverflow.com/questions/tagged/formtastic)
+* [Documentation is available on rdoc.info](https://rdoc.info/projects/formtastic/formtastic)
+* [We track issues & bugs on GitHub](https://github.com/formtastic/formtastic/issues)
+* [We have a wiki on GitHub](https://github.com/formtastic/formtastic/wiki)
+* [StackOverflow can help](https://stackoverflow.com/questions/tagged/formtastic)
 
 ## Compatibility
 
-- Formtastic 5 requires Rails 6.0 and Ruby 2.6 minimum
-- Formtastic 4 requires Rails 5.2 and Ruby 2.4 minimum
-- Formtastic 3 requires Rails 3.2.13 minimum
-- Formtastic 2 requires Rails 3
-- Formtastic, much like Rails, is very ActiveRecord-centric. Many are successfully using other ActiveModel-like ORMs and objects (DataMapper, MongoMapper, Mongoid, Authlogic, Devise...) but we're not guaranteeing full compatibility at this stage. Patches are welcome!
+* Formtastic 5 requires Rails 6.0 and Ruby 2.6 minimum
+* Formtastic 4 requires Rails 5.2 and Ruby 2.4 minimum
+* Formtastic 3 requires Rails 3.2.13 minimum
+* Formtastic 2 requires Rails 3
+* Formtastic, much like Rails, is very ActiveRecord-centric. Many are successfully using other ActiveModel-like ORMs and objects (DataMapper, MongoMapper, Mongoid, Authlogic, Devise...) but we're not guaranteeing full compatibility at this stage. Patches are welcome!
 
 ## The Story
 
@@ -60,26 +60,29 @@ One day, I finally had enough, so I opened up my text editor, and wrote a DSL fo
 
 I also wrote the accompanying HTML output I expected, favoring something very similar to the fieldsets, lists and other semantic elements Aaron Gustafson presented in [Learning to Love Forms](https://www.slideshare.net/AaronGustafson/learning-to-love-forms-webvisions-07), hacking together enough Ruby to prove it could be done.
 
+
 ## It's awesome because...
 
-- It can handle `belongs_to` associations (like Post belongs_to :author), rendering a select or set of radio inputs with choices from the parent model.
-- It can handle `has_many` and `has_and_belongs_to_many` associations (like: Post has_many :tags), rendering a multi-select with choices from the child models.
-- It's Rails 3/4 compatible (including nested forms).
-- It has internationalization (I18n)!
-- It's _really_ quick to get started with a basic form in place (4 lines), then go back to add in more detail if you need it.
-- There's heaps of elements, id and class attributes for you to hook in your CSS and JS.
-- It handles real world stuff like inline hints, inline error messages & help text.
-- It doesn't hijack or change any of the standard Rails form inputs, so you can still use them as expected (even mix and match).
-- It's got absolutely awesome spec coverage.
-- There's a bunch of people using and working on it (it's not just one developer building half a solution).
-- It has growing HTML5 support (new inputs like email/phone/search, new attributes like required/min/max/step/placeholder)
+* It can handle `belongs_to` associations (like Post belongs_to :author), rendering a select or set of radio inputs with choices from the parent model.
+* It can handle `has_many` and `has_and_belongs_to_many` associations (like: Post has_many :tags), rendering a multi-select with choices from the child models.
+* It's Rails 3/4 compatible (including nested forms).
+* It has internationalization (I18n)!
+* It's _really_ quick to get started with a basic form in place (4 lines), then go back to add in more detail if you need it.
+* There's heaps of elements, id and class attributes for you to hook in your CSS and JS.
+* It handles real world stuff like inline hints, inline error messages & help text.
+* It doesn't hijack or change any of the standard Rails form inputs, so you can still use them as expected (even mix and match).
+* It's got absolutely awesome spec coverage.
+* There's a bunch of people using and working on it (it's not just one developer building half a solution).
+* It has growing HTML5 support (new inputs like email/phone/search, new attributes like required/min/max/step/placeholder)
+
 
 ## Opinions
 
-- It should be easier to do things the right way than the wrong way.
-- Sometimes _more mark-up_ is better.
-- Elements and attribute hooks are _gold_ for stylesheet authors.
-- Make the common things we do easy, yet ensure uncommon things are still possible.
+* It should be easier to do things the right way than the wrong way.
+* Sometimes _more mark-up_ is better.
+* Elements and attribute hooks are _gold_ for stylesheet authors.
+* Make the common things we do easy, yet ensure uncommon things are still possible.
+
 
 ## Installation
 
@@ -95,6 +98,7 @@ Run the installation generator:
 $ rails generate formtastic:install
 ```
 
+
 ## Stylesheets
 
 A proof-of-concept set of stylesheets are provided which you can include in your layout. Customization is best achieved by overriding these styles in an additional stylesheet.
@@ -107,7 +111,7 @@ Rails 3.1 introduces an asset pipeline that allows plugins like Formtastic to se
   *= require my_formtastic_changes
 ```
 
-Conditional stylesheets need to be compiled separately to prevent them being bundled and included with other application styles. Remove `require_tree .` from application.css and specify required stylesheets individually.
+Conditional stylesheets need to be compiled separately to prevent them being bundled and included with other application styles.  Remove `require_tree .` from application.css and specify required stylesheets individually.
 
 ```css
   # app/assets/stylesheets/ie6.css
@@ -142,7 +146,7 @@ This renders a set of inputs (one for _most_ columns in the database table, and 
   <% end %>
 ```
 
-This is a great way to get something up fast, but like scaffolding, it's _not recommended for production_. Don't be so lazy!
+This is a great way to get something up fast, but like scaffolding, it's *not recommended for production*. Don't be so lazy!
 
 To specify the order of the fields, skip some of the fields or even add in fields that Formtastic couldn't infer. You can pass in a list of field names to `inputs` and list of action names to `actions`:
 
@@ -291,7 +295,7 @@ Customize the HTML attributes for the `<li>` wrapper around every input with the
   <% end %>
 ```
 
-Many inputs provide a collection of options to choose from (like `:select`, `:radio`, `:check_boxes`, `:boolean`). In many cases, Formtastic can find choices through the model associations, but if you want to use your own set of choices, the `:collection` option is what you want. You can pass in an Array of objects, an array of Strings, a Hash... Throw almost anything at it! Examples:
+Many inputs provide a collection of options to choose from (like `:select`, `:radio`, `:check_boxes`, `:boolean`). In many cases, Formtastic can find choices through the model associations, but if you want to use your own set of choices, the `:collection` option is what you want.  You can pass in an Array of objects, an array of Strings, a Hash... Throw almost anything at it! Examples:
 
 ```ruby
   f.input :authors, :as => :check_boxes, :collection => User.order("last_name ASC").all
@@ -313,33 +317,35 @@ Many inputs provide a collection of options to choose from (like `:select`, `:ra
   f.input :fav_book,:as => :datalist   , :collection => Book.pluck(:name)
 ```
 
+
 ## The Available Inputs
 
 The Formtastic input types:
 
-- `:select` - a select menu. Default for ActiveRecord associations: `belongs_to`, `has_many`, and `has_and_belongs_to_many`.
-- `:check_boxes` - a set of check_box inputs. Alternative to `:select` for ActiveRecord-associations: `has_many`, and has_and_belongs_to_many`.
-- `:radio` - a set of radio inputs. Alternative to `:select` for ActiveRecord-associations: `belongs_to`.
-- `:time_zone` - a select input. Default for column types: `:string` with name matching `"time_zone"`.
-- `:password` - a password input. Default for column types: `:string` with name matching `"password"`.
-- `:text` - a textarea. Default for column types: `:text`.
-- `:date_select` - a date select. Default for column types: `:date`.
-- `:datetime_select` - a date and time select. Default for column types: `:datetime` and `:timestamp`.
-- `:time_select` - a time select. Default for column types: `:time`.
-- `:boolean` - a checkbox. Default for column types: `:boolean`.
-- `:string` - a text field. Default for column types: `:string`.
-- `:number` - a text field (just like string). Default for column types: `:integer`, `:float`, and `:decimal`.
-- `:file` - a file field. Default for file-attachment attributes matching: [paperclip](https://github.com/thoughtbot/paperclip) or [attachment_fu](https://github.com/technoweenie/attachment_fu).
-- `:country` - a select menu of country names. Default for column types: `:string` with name `"country"` - requires a _country_select_ plugin to be installed.
-- `:email` - a text field (just like string). Default for columns with name matching `"email"`. New in HTML5. Works on some mobile browsers already.
-- `:url` - a text field (just like string). Default for columns with name matching `"url"`. New in HTML5. Works on some mobile browsers already.
-- `:phone` - a text field (just like string). Default for columns with name matching `"phone"` or `"fax"`. New in HTML5.
-- `:search` - a text field (just like string). Default for columns with name matching `"search"`. New in HTML5. Works on Safari.
-- `:hidden` - a hidden field. Creates a hidden field (added for compatibility).
-- `:range` - a slider field.
-- `:datalist` - a text field with a accompanying [datalist tag](https://developer.mozilla.org/en/docs/Web/HTML/Element/datalist) which provides options for autocompletion
+* `:select` - a select menu. Default for ActiveRecord associations: `belongs_to`, `has_many`, and `has_and_belongs_to_many`.
+* `:check_boxes` - a set of check_box inputs. Alternative to `:select` for ActiveRecord-associations: `has_many`, and has_and_belongs_to_many`.
+* `:radio` - a set of radio inputs. Alternative to `:select` for ActiveRecord-associations: `belongs_to`.
+* `:time_zone` - a select input. Default for column types: `:string` with name matching `"time_zone"`.
+* `:password` - a password input. Default for column types: `:string` with name matching `"password"`.
+* `:text` - a textarea. Default for column types: `:text`.
+* `:date_select` - a date select. Default for column types: `:date`.
+* `:datetime_select` - a date and time select. Default for column types: `:datetime` and `:timestamp`.
+* `:time_select` - a time select. Default for column types: `:time`.
+* `:boolean` - a checkbox. Default for column types: `:boolean`.
+* `:string` - a text field. Default for column types: `:string`.
+* `:number` - a text field (just like string). Default for  column types: `:integer`, `:float`, and `:decimal`.
+* `:file` - a file field. Default for file-attachment attributes matching: [paperclip](https://github.com/thoughtbot/paperclip) or [attachment_fu](https://github.com/technoweenie/attachment_fu).
+* `:country` - a select menu of country names. Default for column types: `:string` with name `"country"` - requires a *country_select* plugin to be installed.
+* `:email` - a text field (just like string). Default for columns with name matching `"email"`. New in HTML5. Works on some mobile browsers already.
+* `:url` - a text field (just like string). Default for columns with name matching `"url"`. New in HTML5. Works on some mobile browsers already.
+* `:phone` - a text field (just like string). Default for columns with name matching `"phone"` or `"fax"`. New in HTML5.
+* `:search` - a text field (just like string). Default for columns with name matching `"search"`. New in HTML5. Works on Safari.
+* `:hidden` - a hidden field. Creates a hidden field (added for compatibility).
+* `:range` - a slider field.
+* `:datalist` - a text field with a accompanying [datalist tag](https://developer.mozilla.org/en/docs/Web/HTML/Element/datalist) which provides options for autocompletion
 
 The comments in the code are pretty good for each of these (what it does, what the output is, what the options are, etc.) so go check it out.
+
 
 ## Delegation for label lookups
 
@@ -370,50 +376,50 @@ Basic localization (labels only, with ActiveRecord):
   <% end %>
 ```
 
-_Note:_ This is perfectly fine if you just want your labels/attributes and/or models to be translated using _ActiveRecord I18n attribute translations_, and you don't use input hints and legends. But what if you do? And what if you don't want same labels in all forms?
+*Note:* This is perfectly fine if you just want your labels/attributes and/or models to be translated using *ActiveRecord I18n attribute translations*, and you don't use input hints and legends. But what if you do? And what if you don't want same labels in all forms?
 
 ### Enhanced Localization (Formtastic I18n API)
 
-Formtastic supports localized _labels_, _hints_, _legends_, _actions_ using the I18n API for more advanced usage. Your forms can now be DRYer and more flexible than ever, and still fully localized. This is how:
+Formtastic supports localized *labels*, *hints*, *legends*, *actions* using the I18n API for more advanced usage. Your forms can now be DRYer and more flexible than ever, and still fully localized. This is how:
 
-_1. Enable I18n lookups by default (`config/initializers/formtastic.rb`):_
+*1. Enable I18n lookups by default (`config/initializers/formtastic.rb`):*
 
 ```ruby
   Formtastic::FormBuilder.i18n_lookups_by_default = true
 ```
 
-_2. Add some label-translations/variants (`config/locales/en.yml`):_
+*2. Add some label-translations/variants (`config/locales/en.yml`):*
 
 ```yml
-en:
-  formtastic:
-    titles:
-      post_details: "Post details"
-    labels:
-      post:
-        title: "Your Title"
-        body: "Write something..."
-        edit:
-          title: "Edit title"
-    hints:
-      post:
-        title: "Choose a good title for your post."
-        body: "Write something inspiring here."
-    placeholders:
-      post:
-        title: "Title your post"
-        slug: "Leave blank for an automatically generated slug"
-      user:
-        email: "you@yours.com"
-    actions:
-      create: "Create my %{model}"
-      update: "Save changes"
-      reset: "Reset form"
-      cancel: "Cancel and go back"
-      dummie: "Launch!"
+  en:
+    formtastic:
+      titles:
+        post_details: "Post details"
+      labels:
+        post:
+          title: "Your Title"
+          body: "Write something..."
+          edit:
+            title: "Edit title"
+      hints:
+        post:
+          title: "Choose a good title for your post."
+          body: "Write something inspiring here."
+      placeholders:
+        post:
+          title: "Title your post"
+          slug: "Leave blank for an automatically generated slug"
+        user:
+          email: "you@yours.com"
+      actions:
+        create: "Create my %{model}"
+        update: "Save changes"
+        reset: "Reset form"
+        cancel: "Cancel and go back"
+        dummie: "Launch!"
 ```
 
-_3. ...and now you'll get:_
+*3. ...and now you'll get:*
 
 ```erb
   <%= semantic_form_for Post.new do |f| %>
@@ -428,7 +434,7 @@ _3. ...and now you'll get:_
   <% end %>
 ```
 
-_4. Localized titles (a.k.a. legends):_
+*4. Localized titles (a.k.a. legends):*
 
 _Note: Slightly different because Formtastic can't guess how you group fields in a form. Legend text can be set with first (as in the sample below) specified value, or :name/:title options - depending on what flavor is preferred._
 
@@ -441,7 +447,7 @@ _Note: Slightly different because Formtastic can't guess how you group fields in
 <% end %>
 ```
 
-_5. Override I18n settings:_
+*5. Override I18n settings:*
 
 ```erb
   <%= semantic_form_for @post do |f| %>
@@ -477,13 +483,13 @@ If I18n-lookups is disabled, i.e.:
   <% end %>
 ```
 
-_6. Advanced I18n lookups_
+*6. Advanced I18n lookups*
 
 For more flexible forms; Formtastic finds translations using a bottom-up approach taking the following variables in account:
 
-- `MODEL`, e.g. "post"
-- `ACTION`, e.g. "edit"
-- `KEY/ATTRIBUTE`, e.g. "title", :my_custom_key, ...
+* `MODEL`, e.g. "post"
+* `ACTION`, e.g. "edit"
+* `KEY/ATTRIBUTE`, e.g. "title", :my_custom_key, ...
 
 ...in the following order:
 
@@ -494,24 +500,24 @@ For more flexible forms; Formtastic finds translations using a bottom-up approac
 ...which means that you can define translations like this:
 
 ```yml
-en:
-  formtastic:
-    labels:
-      title: "Title" # Default global value
-      article:
-        body: "Article content"
-      post:
-        new:
-          title: "Choose a title..."
-          body: "Write something..."
-        edit:
-          title: "Edit title"
-          body: "Edit body"
+  en:
+    formtastic:
+      labels:
+        title: "Title"  # Default global value
+        article:
+          body: "Article content"
+        post:
+          new:
+            title: "Choose a title..."
+            body: "Write something..."
+          edit:
+            title: "Edit title"
+            body: "Edit body"
 ```
 
 Values for `labels`/`hints`/`actions` are can take values: `String` (explicit value), `Symbol` (i18n-lookup-key relative to the current "type", e.g. actions:), `true` (force I18n lookup), `false` (force no I18n lookup). Titles (legends) can only take: `String` and `Symbol` - true/false have no meaning.
 
-_7. Basic Translations_
+*7. Basic Translations*
 If you want some basic translations, take a look on the [formtastic_i18n gem](https://github.com/timoschilling/formtastic_i18n).
 
 ## Semantic errors
@@ -524,12 +530,13 @@ You can show errors on base (by default) and any other attribute just by passing
   <% end %>
 ```
 
+
 ## Modified & Custom Inputs
 
 You can modify existing inputs, subclass them, or create your own from scratch. Here's the basic process:
 
-- Run the input generator and provide your custom input name. For example, `rails generate formtastic:input hat_size`. This creates the file `app/inputs/hat_size_input.rb`. You can also provide namespace to input name like `rails generate formtastic:input foo/custom` or `rails generate formtastic:input Foo::Custom`, this will create the file `app/inputs/foo/custom_input.rb` in both cases.
-- To use that input, leave off the word "input" in your `as` statement. For example, `f.input(:size, :as => :hat_size)`
+* Run the input generator and provide your custom input name. For example, `rails generate formtastic:input hat_size`. This creates the file `app/inputs/hat_size_input.rb`. You can also provide namespace to input name like `rails generate formtastic:input foo/custom` or `rails generate formtastic:input Foo::Custom`, this will create the file `app/inputs/foo/custom_input.rb` in both cases.
+* To use that input, leave off the word "input" in your `as` statement. For example, `f.input(:size, :as => :hat_size)`
 
 Specific examples follow.
 
@@ -547,7 +554,6 @@ To modify the behavior of `StringInput`, subclass it in a new file, `app/inputs/
 ```
 
 Another way to modify behavior is by using the input generator:
-
 ```shell
 $ rails generate formtastic:input string --extend
 ```
@@ -597,21 +603,24 @@ To create a custom `DatePickerInput` from scratch, put the following in `app/inp
 
 You can use your new input with `:as => :date_picker`.
 
+
 ## Dependencies
 
 There are none other than Rails itself, but...
 
-- If you want to use the `:country` input, you'll need to install the [country-select plugin](https://github.com/stefanpenner/country_select) (or any other country_select plugin with the same API). Both 1.x and 2.x are supported, but they behave differently when storing data, so please see their [upgrade notes](https://github.com/stefanpenner/country_select/blob/master/UPGRADING.md) if switching from 1.x.
-- There are a bunch of development dependencies if you plan to contribute to Formtastic
+* If you want to use the `:country` input, you'll need to install the [country-select plugin](https://github.com/stefanpenner/country_select) (or any other country_select plugin with the same API). Both 1.x and 2.x are supported, but they behave differently when storing data, so please see their [upgrade notes](https://github.com/stefanpenner/country_select/blob/master/UPGRADING.md) if switching from 1.x.
+* There are a bunch of development dependencies if you plan to contribute to Formtastic
+
 
 ## How to contribute
 
-- Fork the project on Github
-- Install development dependencies (`bundle install` and `bin/appraisal install`)
-- Create a topic branch for your changes
-- Ensure that you provide _documentation_ and _test coverage_ for your changes (patches won't be accepted without)
-- Ensure that all tests pass (`bundle exec rake`)
-- Create a pull request on Github (these are also a great place to start a conversation around a patch as early as possible)
+* Fork the project on Github
+* Install development dependencies (`bundle install` and `bin/appraisal install`)
+* Create a topic branch for your changes
+* Ensure that you provide *documentation* and *test coverage* for your changes (patches won't be accepted without)
+* Ensure that all tests pass (`bundle exec rake`)
+* Create a pull request on Github (these are also a great place to start a conversation around a patch as early as possible)
+
 
 ## Project Info
 
@@ -620,3 +629,4 @@ Formtastic was created by [Justin French](https://www.justinfrench.com) with con
 The project is hosted on Github: [https://github.com/formtastic/formtastic](https://github.com/formtastic/formtastic), where your contributions, forkings, comments, issues and feedback are greatly welcomed.
 
 Copyright (c) 2007-2021, released under the MIT license.
+

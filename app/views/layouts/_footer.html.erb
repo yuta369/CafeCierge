@@ -1,0 +1,39 @@
+<footer class="footer mt-auto py-3 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>CaféCierge</h5>
+        <ul class="list-unstyled">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <% if user_signed_in? %>
+            <li><a href="/cafes/new">New Cafe</a></li>
+            <li><a href="/users/edit">Edit Profile</a></li>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="/privacy_policy">Privacy Policy</a></li>
+          <li><a href="/terms_of_service">Terms of Service</a></li>
+          <li><a href="/help">Help</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <span class="text-muted">&copy; 2024 CafeCierge. All rights reserved.</span>
+  </div>
+</footer>

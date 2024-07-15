@@ -1,0 +1,49 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: "ユーザー名："
+        email: "メールアドレス："
+        password: "パスワード："
+        password_confirmation: "パスワードの確認："
+        current_password: "現在のパスワード："
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "ユーザ名を入力してください　"
+            email:
+              blank: "メールアドレスを入力してください　"
+              invalid: "有効なメールアドレスを入力してください　"
+            password:
+              blank: "パスワードを入力してください　"
+              too_short: "パスワードは%{count}文字以上で入力してください　"
+            password_confirmation:
+              confirmation: "確認用のパスワードが一致していません　"
+  simple_form:
+    error_notification:
+      default_message: "入力内容に誤りがあります。　"
+    required:
+      html: '<abbr class="nec">必須</abbr>'
+    boolean:
+      required: "必須"
+    hints:
+      user:
+        name: "使用するユーザ名を入力してください（※他のユーザーに公開されます）"
+  errors:
+    messages:
+      blank: "を入力してください　"
+      too_short: "は%{count}文字以上で入力してください　"
+      invalid: "が無効です"
+  devise:
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'
+    registrations:
+      signed_up: 'アカウント登録が完了しました。'
+      updated: 'アカウント情報が更新されました。'
+    shared:
+      links:
+        sign_in: 'ログイン'
+        sign_up: '新規登録'

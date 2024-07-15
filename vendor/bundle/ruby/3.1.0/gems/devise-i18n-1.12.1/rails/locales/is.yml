@@ -48,12 +48,12 @@ is:
       confirmation_instructions:
         action: Staðfesta minn aðgang
         greeting: Velkominn %{recipient}!
-        instruction: "Þú getur staðfest aðgang þinn með hlekknum hér fyrir neðan:"
+        instruction: 'Þú getur staðfest aðgang þinn með hlekknum hér fyrir neðan:'
         subject: Staðfestingarleiðbeiningar
       email_changed:
         greeting: Halló %{recipient}!
         message: Við erum að láta þig vita að  tölvupóstfangi þínu verði breytt í %{email}.
-        message_unconfirmed:
+        message_unconfirmed: 
         subject: Tölvupósti breytt
       password_change:
         greeting: Halló %{recipient}!
@@ -69,11 +69,11 @@ is:
       unlock_instructions:
         action: Aflæsa aðgangi mínum.
         greeting: Halló %{recipient}!
-        instruction: "Smelltu á hlekkinn hér fyrir neðan til að aflæsa aðgangi þínum:"
+        instruction: 'Smelltu á hlekkinn hér fyrir neðan til að aflæsa aðgangi þínum:'
         message: Aðgangi þínum hefur verið læst vegna óvenjulegs fjölda af misheppnum innskráningartilraunum.
         subject: Aflæsingarleiðbeiningar
     omniauth_callbacks:
-      failure: "Innskráning með %{kind} aðgangi mistókst: %{reason}."
+      failure: 'Innskráning með %{kind} aðgangi mistókst: %{reason}.'
       success: Innskráning með %{kind} aðgangi tókst.
     passwords:
       edit:
@@ -94,7 +94,7 @@ is:
       edit:
         are_you_sure: Ertu viss?
         cancel_my_account: Loka mínum aðgangi
-        currently_waiting_confirmation_for_email: "Bíð eftir staðfestingu á: %{email}"
+        currently_waiting_confirmation_for_email: 'Bíð eftir staðfestingu á: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: Skilja eftir autt ef þú vilt ekki breyta.
         title: Breyta %{resource}
         unhappy: Óánægður?
@@ -108,7 +108,7 @@ is:
       signed_up_but_unconfirmed: Staðfestingartengill hefur verið sendur á netfangið þitt. Vinsamlegast smelltu á tengilinn til að virkja aðganginn.
       update_needs_confirmation: Aðgangurinn þinn hefur verið uppfærður, en þú þarft að staðfesta netfangið þitt. Vinsamlegast skoðaðu tölvupóstinn þinn og smelltu á staðfestingartengilinn til þess að staðfesta netfangið.
       updated: Aðgangurinn þinn hefur verið uppfærður.
-      updated_but_not_signed_in:
+      updated_but_not_signed_in: 
     sessions:
       already_signed_out: Útskráning tókst.
       new:
@@ -141,5 +141,5 @@ is:
       not_found: fannst ekki
       not_locked: var ekki læstur
       not_saved:
-        one: "1 villa kom í veg fyrir að hægt væri að vista þennan %{resource}:"
+        one: '1 villa kom í veg fyrir að hægt væri að vista þennan %{resource}:'
         other: "%{count} villur komu í veg fyrir að hægt væri að vista þennan %{resource}:"

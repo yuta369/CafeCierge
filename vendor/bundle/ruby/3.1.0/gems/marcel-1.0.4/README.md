@@ -41,7 +41,7 @@ Marcel::MimeType.for Pathname.new("example.png"), name: "example.ai"
 # As "application/illustrator" is not a more specific type of "image/png", the filename is ignored
 ```
 
-Custom file types not supported by Marcel can be added using `Marcel::MimeType.extend`.
+Custom file types not supported by Marcel can be added using `Marcel::MimeType.extend`. 
 
 ```ruby
 Marcel::MimeType.extend "text/custom", extensions: %w( customtxt )

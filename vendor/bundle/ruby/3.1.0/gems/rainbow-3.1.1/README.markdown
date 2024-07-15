@@ -37,31 +37,31 @@ Or, [watch this video example](https://asciinema.org/a/J928KpHoUQ0sl54ulOSOLE71E
 
 Rainbow presenter adds the following methods to presented string:
 
-- `color(c)` (with `foreground`, and `fg` aliases)
-- `background(c)` (with `bg` alias)
-- `bright`
-- `underline`
-- `blink`
-- `inverse`
-- `hide`
-- `faint` (not well supported by terminal emulators)
-- `italic` (not well supported by terminal emulators)
-- `cross_out`, `strike`
+* `color(c)` (with `foreground`, and `fg` aliases)
+* `background(c)` (with `bg` alias)
+* `bright`
+* `underline`
+* `blink`
+* `inverse`
+* `hide`
+* `faint` (not well supported by terminal emulators)
+* `italic` (not well supported by terminal emulators)
+* `cross_out`, `strike`
 
 Text color can also be changed by calling a method named by a color:
 
-- `black`
-- `red`
-- `green`
-- `yellow`
-- `blue`
-- `magenta`
-- `cyan`
-- `white`
-- `aqua`
-- `silver`
-- `aliceblue`
-- `indianred`
+* `black`
+* `red`
+* `green`
+* `yellow`
+* `blue`
+* `magenta`
+* `cyan`
+* `white`
+* `aqua`
+* `silver`
+* `aliceblue`
+* `indianred`
 
 All of the methods return `self` (the presenter object) so you can chain method
 calls:
@@ -97,21 +97,21 @@ NoMethodError: undefined method `blue' for "Hello, World!":String
 Both `color` and `background` accept color specified in any
 of the following ways:
 
-- ANSI color number (where 0 is black, 1 is red, 2 is green and so on):
+* ANSI color number (where 0 is black, 1 is red, 2 is green and so on):
   `Rainbow("hello").color(1)`
 
-- [ANSI color](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors) name or [X11 color](https://en.wikipedia.org/wiki/X11_color_names) name as a symbol:
+* [ANSI color](https://en.wikipedia.org/wiki/ANSI_escape_code#Colors) name or [X11 color](https://en.wikipedia.org/wiki/X11_color_names) name as a symbol:
   `Rainbow("hello").color(:yellow)`.
-  This can be simplified to `Rainbow("hello").yellow`
-
+  This can be simplified to `Rainbow("hello").yellow`  
+  
   See [Color list](#user-content-color-list) for all available color names.  
   Note that ANSI colors can be changed in accordance with terminal setting.  
   But X11 color is just a syntax sugar for RGB triplet. So you always see what you specified.
 
-- RGB triplet as separate values in the range 0-255:
+* RGB triplet as separate values in the range 0-255:
   `Rainbow("hello").color(115, 23, 98)`
 
-- RGB triplet as a hex string:
+* RGB triplet as a hex string:
   `Rainbow("hello").color("FFC482")` or `Rainbow("hello").color("#FFC482")`
 
 When you specify a color with a RGB triplet rainbow finds the nearest match

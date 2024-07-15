@@ -2,33 +2,33 @@ ka:
   activerecord:
     attributes:
       user:
-        confirmation_sent_at:
-        confirmation_token:
-        confirmed_at:
-        created_at:
+        confirmation_sent_at: 
+        confirmation_token: 
+        confirmed_at: 
+        created_at: 
         current_password: მიმდინარე პაროლი
-        current_sign_in_at:
-        current_sign_in_ip:
+        current_sign_in_at: 
+        current_sign_in_ip: 
         email: ელ-ფოსტა
-        encrypted_password:
-        failed_attempts:
-        last_sign_in_at:
-        last_sign_in_ip:
-        locked_at:
+        encrypted_password: 
+        failed_attempts: 
+        last_sign_in_at: 
+        last_sign_in_ip: 
+        locked_at: 
         password: პაროლი
         password_confirmation: პაროლის დადასტურება
-        remember_created_at:
+        remember_created_at: 
         remember_me: დამიმახსოვრე
-        reset_password_sent_at:
+        reset_password_sent_at: 
         reset_password_token: პაროლის მარკერის გადატვირთვა
-        sign_in_count:
-        unconfirmed_email:
+        sign_in_count: 
+        unconfirmed_email: 
         unlock_token: მარკერის გახსნა
-        updated_at:
+        updated_at: 
     models:
-      user: "მომხმარებელი
+      user: 'მომხმარებელი
 
-        "
+        '
   devise:
     confirmations:
       confirmed: თქვენი ელ-ფოსტა წარმატებულად დადასტურდა.
@@ -39,10 +39,10 @@ ka:
     failure:
       already_authenticated: თქვენ უკვე ავტორიზირებული ხართ.
       inactive: თქვენი ანგარი ჯერ არ არის აქტივირებული.
-      invalid:
+      invalid: 
       last_attempt: თქვენ გაქვთ კიდევ ერთი ცდა სანამ თქვენი ანგარიში ჩაიკეტება.
       locked: თქვენი ანგარიში ჩაკეტილია.
-      not_found_in_database:
+      not_found_in_database: 
       timeout: თქვენი სეანსი დასრულებულია.
       unauthenticated: გასაგრძელებლად თქვენ უნდა გაიაროთ ავტორიზაცია ან დარეგისტრირდეთ.
       unconfirmed: გაგრძელებისთვის თქვენ უნდა დაადასტუროთ თქვენი ელ-ფოსტის მისამართი.
@@ -50,13 +50,13 @@ ka:
       confirmation_instructions:
         action: დაადასტურე ჩემი ანგარიში
         greeting: მოგესალმებით %{recipient}!
-        instruction: "თქვენ შეგიძლიათ დაადასტუროთ თქვენი ანგარიშის ელ-ფოსტა ქვემო ბმულით:"
+        instruction: 'თქვენ შეგიძლიათ დაადასტუროთ თქვენი ანგარიშის ელ-ფოსტა ქვემო ბმულით:'
         subject: ინსტრუქცია დასადასტურებლად
       email_changed:
-        greeting:
-        message:
-        message_unconfirmed:
-        subject:
+        greeting: 
+        message: 
+        message_unconfirmed: 
+        subject: 
       password_change:
         greeting: გამარჯობა %{recipient}!
         message: ჩვენ გატყობინებთ რომ თქვენი პაროლი შეიცვალა.
@@ -71,7 +71,7 @@ ka:
       unlock_instructions:
         action: ჩემი ანგარიშის გახსნა
         greeting: Hello %{recipient}!
-        instruction: "დააწკაპუნეთ ქვემო ბმულზე თქვენი ანგარიშის გასახსნელად:"
+        instruction: 'დააწკაპუნეთ ქვემო ბმულზე თქვენი ანგარიშის გასახსნელად:'
         message: თქვენი ანგარიში დაიხურა ბევრი წარუმატებელი ავტორიზაციის მცდელობის გამო.
         subject: გახსნის ინსტრუქცია
     omniauth_callbacks:
@@ -88,15 +88,15 @@ ka:
         send_me_reset_password_instructions: გამომიგზავნეთ პაროლის განახლების ინსტრუქცია
       no_token: თქვენ არ შეგიძლიათ ამ გვერდზე შესვლა პაროლის აღმდგენი შეტყობინებიდან გადამისამართების გარეშე. თუ თქვენ პაროლის აღმდგენი შეტყობინებიდან გადმომისამართდით, მაშინ ხელახლა გამოიყენეთ სრული ბმული.
       send_instructions: თქვენ რამოდენიმე წუთში მოგივათ პაროლის განახლების ელ-ფოსტა ინსტრუქციით.
-      send_paranoid_instructions: "თუ თქვენი ელ-ფოსტა მონაცემთა ბაზაში არსებობს, რამოდენიმე წუთში მოგივათ პაროლის აღმდგენი ბმული თქვენს ელ-ფოსტის მისამართზე. "
+      send_paranoid_instructions: 'თუ თქვენი ელ-ფოსტა მონაცემთა ბაზაში არსებობს, რამოდენიმე წუთში მოგივათ პაროლის აღმდგენი ბმული თქვენს ელ-ფოსტის მისამართზე. '
       updated: თქვენი პაროლი წარმატებით შეიცვალა. ეხლა თქვენ ავთენტირებული ხართ.
       updated_not_active: თქვენი პაროლი წარმატებით შეიცვალა.
     registrations:
-      destroyed: "ნახვამდის! თქვენი ანგარიში წარმატებით გაუქმდა. ვიმედოვნებთ თქვენთან ხელახლა შეხვედრას. "
+      destroyed: 'ნახვამდის! თქვენი ანგარიში წარმატებით გაუქმდა. ვიმედოვნებთ თქვენთან ხელახლა შეხვედრას. '
       edit:
         are_you_sure: დარწმუნებული ხართ?
         cancel_my_account: ჩემი ანგარიშის გაუქმება
-        currently_waiting_confirmation_for_email: "ამჟამად ველოდებით დასტურს: %{email}-სთვის"
+        currently_waiting_confirmation_for_email: 'ამჟამად ველოდებით დასტურს: %{email}-სთვის'
         leave_blank_if_you_don_t_want_to_change_it: თუ შეცვლა არ გნებავთ დატოვეთ ცარიელი
         title: Edit  %{resource}
         unhappy: უკმაყოფილო ხართ?
@@ -110,7 +110,7 @@ ka:
       signed_up_but_unconfirmed: დამადასტურებელი ბმული გამოიგზავნა თქვენს ელ-ფოსტის მისამართზე. გთხოვთ მიჰყვეთ ბმულს თქვენი ანგარიშის გასააქტიურებლად.
       update_needs_confirmation: თქვენ წარმატებით განაახლეთ თქვენი ანგარიში, მაგრამ ჩვენ უნდა დავადასტუროთ თქვენი ახალი ელ-ფოსტის მისამართი. გთხოვთ შეამოწმოთ თქვენი ელ-ფოსტა და მიჰყვეთ დამადასტურებელ ბმულს რათა დაადასტუროთ თქვენი ახალი ელ-ფოსტის მისამართი.
       updated: თქვენი ანგარიში განახლებულია წარმატებით.
-      updated_but_not_signed_in:
+      updated_but_not_signed_in: 
     sessions:
       already_signed_out: თქვენ წარმატებით გამოხვედით სისტემიდან.
       new:
@@ -126,10 +126,10 @@ ka:
         sign_in: ავთენტიკაცია
         sign_in_with_provider: "%{provider}-ით ავთენტიკაცია"
         sign_up: რეგისტრაცია
-      minimum_password_length:
+      minimum_password_length: 
     unlocks:
       new:
-        resend_unlock_instructions: "ხელახლა ანგარიშის გახსნის ინსტრუქციის გაგზავნა "
+        resend_unlock_instructions: 'ხელახლა ანგარიშის გახსნის ინსტრუქციის გაგზავნა '
       send_instructions: თქვენ რამოდენიმე წუთში მიიღებთ შეტყობინებას ანგარიშის გასახსნელად ინსტრუქციით.
       send_paranoid_instructions: თუ თქვენი ანგარიში არსებობს, თქვენ რამოდენიმე წუთში მიიღებთ ანგარიშის გასახსნელ ინსტრუქციის ელ-ფოსტას.
       unlocked: თქვენი ანგარიში წარმატებით განიბლოკა. გასაგრძელებლად გთხოვთ გაიაროთ ავთენტიკაცია.
@@ -141,5 +141,5 @@ ka:
       not_found: არ მოიძებნა
       not_locked: არ იყო დაბლოკილი
       not_saved:
-        one: "ერთი შეცდომის გამო ვერ მოხდა %{resource}-ის დამახსოვრება:"
+        one: 'ერთი შეცდომის გამო ვერ მოხდა %{resource}-ის დამახსოვრება:'
         other: "%{count} შეცდომის გამო ვერ მოხდა %{resource}-ის დამახსოვრება"

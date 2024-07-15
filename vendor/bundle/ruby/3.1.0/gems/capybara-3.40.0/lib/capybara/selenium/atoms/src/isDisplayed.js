@@ -1,8 +1,8 @@
-(function () {
+(function(){
   var OverflowState = {
     NONE: "none",
     HIDDEN: "hidden",
-    SCROLL: "scroll",
+    SCROLL: "scroll"
   };
 
   function isShown_(elem, ignoreOpacity, parentsDisplayedFn) {
@@ -16,8 +16,9 @@
 
     // Option or optgroup is shown if enclosing select is shown (ignoring the
     // select's opacity).
-    if (elemTagName == "OPTION" || elemTagName == "OPTGROUP") {
-      var select = getAncestor(elem, function (e) {
+    if ((elemTagName == "OPTION") ||
+        (elemTagName == "OPTGROUP")) {
+      var select = getAncestor(elem, function(e) {
         return e.tagName.toUpperCase() == "SELECT";
       });
       return !!select && isShown_(select, true, parentsDisplayedFn);
@@ -27,16 +28,13 @@
     // the area of the element is positive.
     var imageMap = maybeFindImageMap_(elem);
     if (imageMap) {
-      return (
-        !!imageMap.image &&
-        imageMap.rect.width > 0 &&
-        imageMap.rect.height > 0 &&
-        isShown_(imageMap.image, ignoreOpacity, parentsDisplayedFn)
-      );
+      return !!imageMap.image &&
+             imageMap.rect.width > 0 && imageMap.rect.height > 0 &&
+             isShown_(imageMap.image, ignoreOpacity, parentsDisplayedFn);
     }
 
     // Any hidden input is not shown.
-    if (elemTagName == "INPUT" && elem.type.toLowerCase() == "hidden") {
+    if ((elemTagName == "INPUT") && (elem.type.toLowerCase() == "hidden")) {
       return false;
     }
 
@@ -69,20 +67,19 @@
 
       // A vertical or horizontal SVG Path element will report zero width or
       // height but is "shown" if it has a positive stroke-width.
-      if (e.tagName.toUpperCase() == "PATH" && (rect.height > 0 || rect.width > 0)) {
+      if ((e.tagName.toUpperCase() == "PATH") && (rect.height > 0 || rect.width > 0)) {
         var strokeWidth = window.getComputedStyle(e)["stroke-width"];
-        return !!strokeWidth && parseInt(strokeWidth, 10) > 0;
+        return !!strokeWidth && (parseInt(strokeWidth, 10) > 0);
       }
 
       // Zero-sized elements should still be considered to have positive size
       // if they have a child element or text node with positive size, unless
       // the element has an 'overflow' style of "hidden".
-      return (
-        window.getComputedStyle(e)["overflow"] != "hidden" &&
-        Array.prototype.slice.call(e.childNodes).some(function (n) {
-          return n.nodeType == Node.TEXT_NODE || (n.nodeType == Node.ELEMENT_NODE && positiveSize(n));
-        })
-      );
+      return window.getComputedStyle(e)["overflow"] != "hidden" &&
+        Array.prototype.slice.call(e.childNodes).some(function(n) {
+          return (n.nodeType == Node.TEXT_NODE) ||
+                 ((n.nodeType == Node.ELEMENT_NODE) && positiveSize(n));
+          });
     }
 
     if (!positiveSize(elem)) {
@@ -91,28 +88,25 @@
 
     // Elements that are hidden by overflow are not shown.
     function hiddenByOverflow(e) {
-      return (
-        getOverflowState(e) == OverflowState.HIDDEN &&
-        Array.prototype.slice.call(e.childNodes).every(function (n) {
-          return n.nodeType != Node.ELEMENT_NODE || hiddenByOverflow(n) || !positiveSize(n);
-        })
-      );
+      return getOverflowState(e) == OverflowState.HIDDEN &&
+          Array.prototype.slice.call(e.childNodes).every(function(n) {
+            return (n.nodeType != Node.ELEMENT_NODE) || hiddenByOverflow(n) ||
+                   !positiveSize(n);
+          });
     }
     return !hiddenByOverflow(elem);
   }
 
   function getClientRegion(elem) {
     var region = getClientRect(elem);
-    return {
-      left: region.left,
-      right: region.left + region.width,
-      top: region.top,
-      bottom: region.top + region.height,
-    };
+    return { left: region.left,
+             right: region.left + region.width,
+             top: region.top,
+             bottom: region.top + region.height };
   }
 
   function getParentElement(node) {
-    return node.parentElement;
+    return node.parentElement
   }
 
   function getOverflowState(elem) {
@@ -133,11 +127,12 @@
         var containerStyle = window.getComputedStyle(container);
         // An element cannot overflow an element with an inline or contents display style.
         var containerDisplay = containerStyle["display"];
-        if (containerDisplay.indexOf("inline") == 0 || containerDisplay == "contents") {
+        if ((containerDisplay.indexOf("inline") == 0) ||
+            (containerDisplay == "contents")) {
           return false;
         }
         // An absolute-positioned element cannot overflow a static-positioned one.
-        if (position == "absolute" && containerStyle["position"] == "static") {
+        if ((position == "absolute") && (containerStyle["position"] == "static")) {
           return false;
         }
         return true;
@@ -155,7 +150,7 @@
         }
         return parent;
       }
-    }
+    };
 
     // Return the x and y overflow styles for the given element.
     function getOverflowStyles(e) {
@@ -167,13 +162,13 @@
         if (e == htmlElem && bodyElem) {
           overflowElem = bodyElem;
         } else if (e == bodyElem) {
-          return { x: "visible", y: "visible" };
+          return {x: "visible", y: "visible"};
         }
       }
       var overflowElemStyle = window.getComputedStyle(overflowElem);
       var overflow = {
         x: overflowElemStyle["overflow-x"],
-        y: overflowElemStyle["overflow-y"],
+        y: overflowElemStyle["overflow-y"]
       };
       // The <html> element cannot have a genuine 'visible' overflow style,
       // because the viewport can't expand; 'visible' is really 'auto'.
@@ -182,18 +177,20 @@
         overflow.y = overflow.y == "visible" ? "auto" : overflow.y;
       }
       return overflow;
-    }
+    };
 
     // Returns the scroll offset of the given element.
     function getScroll(e) {
       if (e == htmlElem) {
-        return { x: window.scrollX, y: window.scrollY };
+        return { x: window.scrollX, y: window.scrollY }
       }
-      return { x: e.scrollLeft, y: e.scrollTop };
+      return { x: e.scrollLeft, y: e.scrollTop }
     }
 
     // Check if the element overflows any ancestor element.
-    for (var container = getOverflowParent(elem); !!container; container = getOverflowParent(container)) {
+    for (var container = getOverflowParent(elem);
+         !!container;
+         container = getOverflowParent(container)) {
       var containerOverflow = getOverflowStyles(container);
 
       // If the container has overflow:visible, the element cannot overflow it.
@@ -211,42 +208,40 @@
       // Check "underflow": if an element is to the left or above the container
       var underflowsX = region.right < containerRect.left;
       var underflowsY = region.bottom < containerRect.top;
-      if ((underflowsX && containerOverflow.x == "hidden") || (underflowsY && containerOverflow.y == "hidden")) {
+      if ((underflowsX && containerOverflow.x == "hidden") ||
+          (underflowsY && containerOverflow.y == "hidden")) {
         return OverflowState.HIDDEN;
-      } else if (
-        (underflowsX && containerOverflow.x != "visible") ||
-        (underflowsY && containerOverflow.y != "visible")
-      ) {
+      } else if ((underflowsX && containerOverflow.x != "visible") ||
+                 (underflowsY && containerOverflow.y != "visible")) {
         // When the element is positioned to the left or above a container, we
         // have to distinguish between the element being completely outside the
         // container and merely scrolled out of view within the container.
         var containerScroll = getScroll(container);
         var unscrollableX = region.right < containerRect.left - containerScroll.x;
         var unscrollableY = region.bottom < containerRect.top - containerScroll.y;
-        if (
-          (unscrollableX && containerOverflow.x != "visible") ||
-          (unscrollableY && containerOverflow.x != "visible")
-        ) {
+        if ((unscrollableX && containerOverflow.x != "visible") ||
+            (unscrollableY && containerOverflow.x != "visible")) {
           return OverflowState.HIDDEN;
         }
         var containerState = getOverflowState(container);
-        return containerState == OverflowState.HIDDEN ? OverflowState.HIDDEN : OverflowState.SCROLL;
+        return containerState == OverflowState.HIDDEN ?
+            OverflowState.HIDDEN : OverflowState.SCROLL;
       }
 
       // Check "overflow": if an element is to the right or below a container
       var overflowsX = region.left >= containerRect.left + containerRect.width;
       var overflowsY = region.top >= containerRect.top + containerRect.height;
-      if ((overflowsX && containerOverflow.x == "hidden") || (overflowsY && containerOverflow.y == "hidden")) {
+      if ((overflowsX && containerOverflow.x == "hidden") ||
+          (overflowsY && containerOverflow.y == "hidden")) {
         return OverflowState.HIDDEN;
-      } else if ((overflowsX && containerOverflow.x != "visible") || (overflowsY && containerOverflow.y != "visible")) {
+      } else if ((overflowsX && containerOverflow.x != "visible") ||
+                 (overflowsY && containerOverflow.y != "visible")) {
         // If the element has fixed position and falls outside the scrollable area
         // of the document, then it is hidden.
         if (treatAsFixedPosition) {
           var docScroll = getScroll(container);
-          if (
-            region.left >= htmlElem.scrollWidth - docScroll.x ||
-            region.right >= htmlElem.scrollHeight - docScroll.y
-          ) {
+          if ((region.left >= htmlElem.scrollWidth - docScroll.x) ||
+              (region.right >= htmlElem.scrollHeight - docScroll.y)) {
             return OverflowState.HIDDEN;
           }
         }
@@ -254,7 +249,8 @@
         // state; unless the parent itself is entirely hidden by overflow, in
         // which it is also hidden by overflow.
         var containerState = getOverflowState(container);
-        return containerState == OverflowState.HIDDEN ? OverflowState.HIDDEN : OverflowState.SCROLL;
+        return containerState == OverflowState.HIDDEN ?
+            OverflowState.HIDDEN : OverflowState.SCROLL;
       }
     }
 
@@ -267,7 +263,7 @@
     return { width: el.clientWidth, height: el.clientHeight };
   }
 
-  function rect_(x, y, w, h) {
+  function rect_(x, y, w, h){
     return { left: x, top: y, width: w, height: h };
   }
 
@@ -289,12 +285,8 @@
         return rect_(0, 0, 0, 0);
       }
 
-      return rect_(
-        nativeRect.left,
-        nativeRect.top,
-        nativeRect.right - nativeRect.left,
-        nativeRect.bottom - nativeRect.top
-      );
+      return rect_(nativeRect.left, nativeRect.top,
+                   nativeRect.right - nativeRect.left, nativeRect.bottom - nativeRect.top);
     }
   }
 
@@ -319,19 +311,13 @@
     var shape = area.shape.toLowerCase();
     var coords = area.coords.split(",");
     if (shape == "rect" && coords.length == 4) {
-      var x = coords[0],
-        y = coords[1];
+      var x = coords[0], y = coords[1];
       return rect_(x, y, coords[2] - x, coords[3] - y);
     } else if (shape == "circle" && coords.length == 3) {
-      var centerX = coords[0],
-        centerY = coords[1],
-        radius = coords[2];
+      var centerX = coords[0], centerY = coords[1], radius = coords[2];
       return rect_(centerX - radius, centerY - radius, 2 * radius, 2 * radius);
     } else if (shape == "poly" && coords.length > 2) {
-      var minX = coords[0],
-        minY = coords[1],
-        maxX = minX,
-        maxY = minY;
+      var minX = coords[0], minY = coords[1], maxX = minX, maxY = minY;
       for (var i = 2; i + 1 < coords.length; i += 2) {
         minX = Math.min(minX, coords[i]);
         maxX = Math.max(maxX, coords[i]);
@@ -347,15 +333,16 @@
     // If not a <map> or <area>, return null indicating so.
     var elemTagName = elem.tagName.toUpperCase();
     var isMap = elemTagName == "MAP";
-    if (!isMap && elemTagName != "AREA") {
+    if (!isMap && (elemTagName != "AREA")) {
       return null;
     }
 
     // Get the <map> associated with this element, or null if none.
-    var map = isMap ? elem : getParentElement(elem).tagName.toUpperCase() == "MAP" ? getParentElement(elem) : null;
+    var map = isMap ? elem :
+        ((getParentElement(elem).tagName.toUpperCase() == "MAP") ?
+            getParentElement(elem) : null);
 
-    var image = null,
-      rect = null;
+    var image = null, rect = null;
     if (map && map.name) {
       var mapDoc = map.ownerDocument;
 
@@ -375,7 +362,7 @@
       }
     }
 
-    return { image: image, rect: rect || rect_(0, 0, 0, 0) };
+    return {image: image, rect: rect || rect_(0, 0, 0, 0)};
   }
 
   function getAncestor(element, matcher) {
@@ -392,12 +379,14 @@
     return null;
   }
 
+
   function isElement(node, opt_tagName) {
     // because we call this with deprecated tags such as SHADOW
-    if (opt_tagName && typeof opt_tagName !== "string") {
+    if (opt_tagName && (typeof opt_tagName !== "string")) {
       opt_tagName = opt_tagName.toString();
     }
-    return !!node && node.nodeType == Node.ELEMENT_NODE && (!opt_tagName || node.tagName.toUpperCase() == opt_tagName);
+    return !!node && node.nodeType == Node.ELEMENT_NODE &&
+        (!opt_tagName || node.tagName.toUpperCase() == opt_tagName);
   }
 
   function getParentNodeInComposedDom(node) {
@@ -428,13 +417,13 @@
      * @return {boolean}
      */
     function displayed(e) {
-      if (window.getComputedStyle(e)["display"] == "none") {
+      if (window.getComputedStyle(e)["display"] == "none"){
         return false;
       }
 
       var parent = getParentNodeInComposedDom(e);
 
-      if (typeof ShadowRoot === "function" && parent instanceof ShadowRoot) {
+      if ((typeof ShadowRoot === "function") && (parent instanceof ShadowRoot)) {
         if (parent.host.shadowRoot !== parent) {
           // There is a younger shadow root, which will take precedence over
           // the shadow this element is in, thus this element won't be
@@ -445,19 +434,15 @@
         }
       }
 
-      if (parent && (parent.nodeType == Node.DOCUMENT_NODE || parent.nodeType == Node.DOCUMENT_FRAGMENT_NODE)) {
+      if (parent && (parent.nodeType == Node.DOCUMENT_NODE ||
+          parent.nodeType == Node.DOCUMENT_FRAGMENT_NODE)) {
         return true;
       }
 
       // Child of DETAILS element is not shown unless the DETAILS element is open
       // or the child is a SUMMARY element.
-      if (
-        parent &&
-        parent.tagName &&
-        parent.tagName.toUpperCase() == "DETAILS" &&
-        !parent.open &&
-        !(e.tagName == "SUMMARY")
-      ) {
+      if (parent && parent.tagName && (parent.tagName.toUpperCase() == "DETAILS") &&
+          !parent.open && !(e.tagName == "SUMMARY")) {
         return false;
       }
 
@@ -466,4 +451,4 @@
 
     return isShown_(elem, !!opt_ignoreOpacity, displayed);
   };
-})();
+})()
