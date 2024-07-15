@@ -57,9 +57,11 @@ gem 'omniauth-github'
 # Performance
 gem 'bootsnap', '>= 1.4.4', require: false # Reduces boot times through caching
 
+# Environment variables management
+gem 'dotenv-rails' # Loads environment variables from .env
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Debugging
-  gem 'dotenv-rails' # Loads environment variables from .env
   gem 'factory_bot_rails' # Test fixtures replacement
   gem 'rspec-rails' # Testing framework
 
@@ -77,8 +79,8 @@ group :development do
   gem 'web-console', '>= 4.1.0' # Access an interactive console on exception pages
   gem 'listen', '~> 3.3' # Listen to file modifications
 #  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
-  gem 'spring' # Speeds up development by keeping your application running in the background
-  gem 'spring-watcher-listen'
+  # gem 'spring' # Speeds up development by keeping your application running in the background
+  # gem 'spring-watcher-listen'
 end
 
 group :test do
@@ -97,7 +99,6 @@ gem 'font-awesome-sass', '~> 6.5.2'
 
 gem 'active_storage_validations'
 
-gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
