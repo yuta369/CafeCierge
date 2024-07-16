@@ -79,8 +79,8 @@ group :development do
   gem 'web-console', '>= 4.1.0' # Access an interactive console on exception pages
   gem 'listen', '~> 3.3' # Listen to file modifications
 #  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
-  # gem 'spring' # Speeds up development by keeping your application running in the background
-  # gem 'spring-watcher-listen'
+  gem 'spring' # Speeds up development by keeping your application running in the background
+  gem 'spring-watcher-listen'
 end
 
 group :test do
