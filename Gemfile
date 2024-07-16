@@ -14,7 +14,7 @@ gem 'puma', '~> 3.11' # Use Puma as the app server
 gem 'ffi', '~> 1.14.2'
 
 # Stylesheets
-gem 'sassc-rails', '>= 2.1' # Use SCSSC for stylesheets
+gem 'sassc-rails', '< 2.2.0' # Use SCSSC for stylesheets
 gem 'bootstrap', '~> 5.0.0' # Bootstrap framework
 gem 'jquery-rails'
 

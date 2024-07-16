@@ -1,11 +1,11 @@
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-c9npc5.rb extconf.rb
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
+/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20240716-12196-3hq2wn.rb extconf.rb
 creating Makefile
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
 make DESTDIR\= clean
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
 make DESTDIR\=
 compiling bcrypt_ext.c
 compiling crypt_blowfish.c
@@ -21,6 +21,6 @@ cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand�
 cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
 linking shared-object bcrypt_ext.so
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/bcrypt-3.1.20/ext/mri
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20240714-9040-j20f6q
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20240716-12196-znyniv

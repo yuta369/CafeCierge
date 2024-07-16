@@ -1,5 +1,5 @@
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-72jf8a.rb extconf.rb
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
+/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20240716-12196-47m3eq.rb extconf.rb
 checking for unistd.h... yes
 checking for rb_io_descriptor()... yes
 checking for linux/aio_abi.h... yes
@@ -12,10 +12,10 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
 make DESTDIR\= clean
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
 make DESTDIR\=
 compiling bytebuffer.c
 compiling monitor.c
@@ -248,6 +248,6 @@ cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
 compiling selector.c
 linking shared-object nio4r_ext.so
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/nio4r-2.7.3/ext/nio4r
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20240714-9040-6sx93o
+/usr/bin/install -c -m 0755 nio4r_ext.so ./.gem.20240716-12196-fbt5h8

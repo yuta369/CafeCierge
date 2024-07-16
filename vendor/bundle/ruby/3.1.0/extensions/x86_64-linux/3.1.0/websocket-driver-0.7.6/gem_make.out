@@ -1,15 +1,15 @@
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
-/home/ec2-user/.rvm/rubies/ruby-3.1.2/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-3.1.2/lib/ruby/3.1.0 -r ./siteconf20240714-9040-83974y.rb extconf.rb
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20240716-12196-g3kiwi.rb extconf.rb
 creating Makefile
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
 make DESTDIR\= clean
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
 make DESTDIR\=
 compiling websocket_mask.c
 linking shared-object websocket_mask.so
 
-current directory: /home/ec2-user/environment/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/websocket-driver-0.7.6/ext/websocket-driver
 make DESTDIR\= install
-/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20240714-9040-w92esu
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20240716-12196-w9t6x

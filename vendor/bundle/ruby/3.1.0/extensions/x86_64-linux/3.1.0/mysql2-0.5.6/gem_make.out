@@ -1,0 +1,64 @@
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/mysql2-0.5.6/ext/mysql2
+/home/ec2-user/.rbenv/versions/3.1.2/bin/ruby -I /home/ec2-user/.rbenv/versions/3.1.2/lib/ruby/3.1.0 -r ./siteconf20240716-12196-91jc2w.rb extconf.rb
+checking for rb_absint_size()... yes
+checking for rb_absint_singlebit_p()... yes
+checking for rb_gc_mark_movable()... yes
+checking for rb_wait_for_single_fd()... yes
+checking for rb_enc_interned_str() in ruby.h... yes
+-----
+Using mysql_config at /usr/bin/mysql_config
+-----
+checking for mysql.h... yes
+checking for errmsg.h... yes
+checking for SSL_MODE_DISABLED in mysql.h... no
+checking for MYSQL_OPT_SSL_VERIFY_SERVER_CERT in mysql.h... yes
+checking for MYSQL_OPT_SSL_ENFORCE in mysql.h... no
+checking for MYSQL.net.vio in mysql.h... yes
+checking for MYSQL.net.pvio in mysql.h... no
+checking for MYSQL_DEFAULT_AUTH in mysql.h... yes
+checking for MYSQL_ENABLE_CLEARTEXT_PLUGIN in mysql.h... yes
+checking for SERVER_QUERY_NO_GOOD_INDEX_USED in mysql.h... yes
+checking for SERVER_QUERY_NO_INDEX_USED in mysql.h... yes
+checking for SERVER_QUERY_WAS_SLOW in mysql.h... yes
+checking for MYSQL_OPTION_MULTI_STATEMENTS_ON in mysql.h... yes
+checking for MYSQL_OPTION_MULTI_STATEMENTS_OFF in mysql.h... yes
+checking for my_bool in mysql.h... yes
+checking for mysql_ssl_set() in mysql.h... yes
+-----
+Setting libpath to /usr/lib64/mysql
+-----
+creating Makefile
+
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/mysql2-0.5.6/ext/mysql2
+make DESTDIR\= clean
+
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/mysql2-0.5.6/ext/mysql2
+make DESTDIR\=
+compiling client.c
+compiling infile.c
+compiling mysql2_ext.c
+compiling result.c
+result.c: In function ‘rb_mysql_result_fetch_field_type’:
+result.c:382:7: warning: case value ‘245’ not in enumerated type ‘enum enum_field_types’ [-Wswitch]
+       case MYSQL_TYPE_JSON:         // json
+       ^~~~
+result.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-used-but-marked-unused’
+cc1: warning: unrecognized command line option ‘-Wno-static-in-inline’
+cc1: warning: unrecognized command line option ‘-Wno-reserved-id-macro’
+cc1: warning: unrecognized command line option ‘-Wno-missing-variable-declarations’
+cc1: warning: unrecognized command line option ‘-Wno-documentation-unknown-command’
+cc1: warning: unrecognized command line option ‘-Wno-disabled-macro-expansion’
+cc1: warning: unrecognized command line option ‘-Wno-covered-switch-default’
+cc1: warning: unrecognized command line option ‘-Wno-conditional-uninitialized’
+cc1: warning: unrecognized command line option ‘-Wno-compound-token-split-by-macro’
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-cast-function-type’
+compiling statement.c
+linking shared-object mysql2/mysql2.so
+
+current directory: /home/ec2-user/CafeCierge/vendor/bundle/ruby/3.1.0/gems/mysql2-0.5.6/ext/mysql2
+make DESTDIR\= install
+/usr/bin/install -c -m 0755 mysql2.so ./.gem.20240716-12196-any9lm/mysql2
