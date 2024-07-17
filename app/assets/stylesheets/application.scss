@@ -1,5 +1,3 @@
-@import 'bootstrap';
-
 body {
   font-family: "Roboto", "Noto Sans JP", "M PLUS Rounded 1c", "kanit", "Helvetica Neue", "Helvetica", "Hiragino Sans",
     "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
@@ -59,10 +57,10 @@ h6,
   font-weight: 700;
   font-style: normal;
 }
-
+/*
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
-
+*/
 .noto-sans-jp-400 {
   font-family: "Noto Sans JP", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
     "Yu Gothic", "Meiryo", sans-serif;
@@ -70,10 +68,10 @@ h6,
   font-weight: 400;
   font-style: normal;
 }
-
+/*
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
-
+*/
 .roboto-condensed-700 {
   font-family: "Roboto Condensed", "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial",
     "Yu Gothic", "Meiryo", sans-serif;

@@ -57,4 +57,4 @@ yarn-debug.log*
 yarn-debug.log*
 .yarn-integrity
 /.env
-vendor/budle
+/vendor/*

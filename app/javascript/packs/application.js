@@ -8,17 +8,18 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-// Import CSS
-import "../stylesheets/application.scss"
+//import "bootstrap/dist/js/bootstrap"
 
 // Bootstrap
-import "bootstrap"
-//import "bootstrap/dist/js/bootstrap"
 import 'jquery';
+// Import CSS
+import "popper.js";
+import "bootstrap";
+import "../stylesheets/application.scss";
 
 // jQuery
-import $ from 'jquery'
-global.$ = jQuery;
+// import $ from 'jquery'
+// global.$ = jQuery;
 
 //import { library, dom } from '@fortawesome/fontawesome-svg-core';
 //import { fas } from '@fortawesome/free-solid-svg-icons';
