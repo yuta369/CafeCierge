@@ -17,6 +17,29 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application.scss";
 
+import Raty from "./raty.js"
+import $ from 'jquery';
+
+//= require review_rating
+window.$ = window.jQuery = require('jquery');
+
+$(document).ready(function() {
+  const raty = new Raty(document.querySelector('#rating-form'),
+  {
+    starHalf: starHalf.src, 
+    starOff: starOff.src, 
+    starOn: starOn.src,
+    score: 3,
+    half: true,
+    number: 5,
+    hints: ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'],
+    scoreName: "reviews[rating]"
+  });
+  
+  raty.init();
+  
+});
+
 // jQuery
 // import $ from 'jquery'
 // global.$ = jQuery;
@@ -55,3 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+document.addEventListener('turbolinks:load', () => {
+  document.querySelectorAll('button[data-remote]').forEach((button) => {
+    button.addEventListener('ajax:success', (event) => {
+      const detail = event.detail[0];
+      button.textContent = detail.status === 'favorited' ? 'お気に入り解除' : 'お気に入り';
+    });
+  });
+});
+

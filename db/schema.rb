@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_13_163658) do
+ActiveRecord::Schema.define(version: 2024_07_12_142159) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -70,21 +70,17 @@ ActiveRecord::Schema.define(version: 2024_07_13_163658) do
     t.string "name"
     t.string "address"
     t.string "contact_info"
+    t.string "website"
     t.string "hours"
     t.string "category"
     t.string "price_range"
     t.text "features"
+    t.string "review_title"
+    t.text "review_content"
+    t.float "cafe_rating"
+    t.json "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.json "images"
-    t.string "website"
-    t.string "monday_hours"
-    t.string "tuesday_hours"
-    t.string "wednesday_hours"
-    t.string "thursday_hours"
-    t.string "friday_hours"
-    t.string "saturday_hours"
-    t.string "sunday_hours"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -129,7 +125,7 @@ ActiveRecord::Schema.define(version: 2024_07_13_163658) do
     t.integer "cafe_id", null: false
     t.string "title"
     t.text "content"
-    t.integer "rating"
+    t.float "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cafe_id"], name: "index_reviews_on_cafe_id"
@@ -197,7 +193,7 @@ ActiveRecord::Schema.define(version: 2024_07_13_163658) do
   add_foreign_key "favorites", "users"
   add_foreign_key "reservations", "caves"
   add_foreign_key "reservations", "users"
-  add_foreign_key "reviews", "caves"
+  add_foreign_key "reviews", "cafes"
   add_foreign_key "reviews", "users"
   add_foreign_key "taggings", "tags"
 end

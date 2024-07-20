@@ -1,0 +1,16 @@
+.star-rating {
+  direction: rtl;
+  display: inline-flex;
+  font-size: 2rem;
+  justify-content: center;
+}
+
+.star-rating .star {
+  cursor: pointer;
+  color: #ddd;
+}
+
+.star-rating .star.hover,
+.star-rating .star.selected {
+  color: #f39c12;
+}

@@ -1,3 +1,25 @@
-// Place all the styles related to the Cafes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.cafe-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cafe-card h2 {
+  margin-top: 0;
+}
+
+.cafe-card p {
+  margin: 5px 0;
+}
+
+#cafes-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cafe-card {
+  flex: 1 1 300px;
+  margin: 10px;
+}

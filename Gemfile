@@ -37,6 +37,8 @@ gem 'pundit' # Object-oriented authorization for Rails applications
 # Tagging
 gem 'acts-as-taggable-on' # Tagging functionality
 
+gem 'acts_as_favoritor'  # For favorites functionality
+
 # Search functionality
 gem 'ransack' # Object-based searching
 

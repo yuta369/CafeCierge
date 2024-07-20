@@ -1,2 +1,24 @@
-<h1>Cafes#index</h1>
-<p>Find me in app/views/cafes/index.html.erb</p>
+<div class="cafes">
+  <% @cafes.each do |cafe| %>
+    <div class="cafe-card">
+      <% if cafe.images.attached? %>
+        <%= image_tag cafe.images.first.variant(resize: "300x300").processed, alt: "#{cafe.name}の画像" %>
+      <% end %>
+      <div class="cafe-details">
+        <h3><%= link_to cafe.name, cafe_path(cafe) %></h3>
+        <p><%= cafe.address %></p>
+        <p><%= cafe.category %></p>
+        <p><%= cafe.price_range %></p>
+        <p class="features"><%= cafe.features.reject(&:blank?).join(', ') %></p>
+        
+        <% if current_user.favorite_cafes.include?(cafe) %>
+          <%= button_to 'お気に入り解除', unfavorite_cafe_path(cafe), method: :delete, remote: true, class: 'btn btn-warning' %>
+        <% else %>
+          <%= button_to 'お気に入り', favorite_cafe_path(cafe), method: :post, remote: true, class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= paginate @cafes %>

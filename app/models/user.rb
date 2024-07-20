@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   has_one_attached :profile_image
+  acts_as_favoritor
 
   has_many :reviews
   has_many :comments
   has_many :favorites
+  has_many :favorite_cafes, through: :favorites, source: :cafe
   has_many :followed_users, through: :follows, source: :followee
   has_many :following_users, through: :follows, source: :follower
   has_many :reservations
@@ -41,5 +43,13 @@ class User < ApplicationRecord
   
   def admin?
     role == 'admin'
+  end
+  
+  def favorite(cafe)
+    favorites.find_or_create_by(cafe: cafe)
+  end
+
+  def unfavorite(cafe)
+    favorites.where(cafe: cafe).destroy_all
   end
 end

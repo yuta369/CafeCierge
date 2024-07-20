@@ -14,6 +14,7 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
-ActiveSupport::Inflector.inflections(:en) do |inflect|
-  inflect.irregular 'cafe', 'cafes'
+
+ActiveSupport::Inflector.inflections do |inflect|
+    inflect.plural "cafe", "cafes"
 end
