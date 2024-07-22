@@ -1,12 +1,14 @@
+<h1 class="my-5">New Post About Café</h1>
+
 <%= simple_form_for @cafe, html: { multipart: true } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-group">
-    <%= f.input :name, placeholder: "カフェの店舗名を入力", required: true %>
+    <%= f.input :name, placeholder: "カフェの店舗名を入力", required: true, hint: "英語表記の店舗名で、読み方が分かる場合は（）内に読み仮名も記入してください。" %>
   </div>
 
   <div class="form-group">
-    <%= f.input :images, as: :file, input_html: { multiple: true } %>
+    <%= f.input :images, as: :file, input_html: { multiple: true }, required: true, hint: "このカフェに関係する写真を、最低でも一枚以上は投稿してください。　複数枚の写真を投稿する場合は、一枚目にメインの写真を選択してください。" %>
 
     <% if @cafe.images.attached? %>
       <% @cafe.images.each do |image| %>
@@ -20,13 +22,19 @@
   <div class="form-group">
     <label for="cafe_rating">Rating</label>
     <%= f.simple_fields_for :reviews do |review_form| %>
-      <%= review_form.input :rating, as: :hidden, input_html: { value: 0 } %>
-      <div id="rating-form"></div>
-      <%= image_tag "star-on.png", id: "starOn" ,class: "d-none"%>
-      <%= image_tag "star-off.png", id: "starOff" ,class: "d-none"%>
-      <%= image_tag "star-half.png", id: "starHalf" ,class: "d-none"%>
-      <%= review_form.input :title, placeholder: "レビューのタイトルを入力", required: true %>
-      <%= review_form.input :content, as: :text, placeholder: "レビューの内容を入力", required: true %>
+   
+      <div class="form-group" id="star">
+      <%= review_form.hidden_field :rating, id: :review_rating_input, class: 'form-control' %>
+      <div id="post_raty"></div>
+      <p>Hint : <span id="hint"></span></p>
+    
+      <div class="form-group">
+        <%= review_form.input :title, placeholder: "レビューのタイトルを入力", required: true %>
+      </div>
+    
+      <div class="form-group">
+        <%= review_form.input :content, as: :text, placeholder: "レビューの内容を入力", required: true %>
+      </div>
     <% end %>
   </div>
 
@@ -56,7 +64,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :features, as: :check_boxes, collection: ["無料Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"], input_html: { multiple: true, class: 'form-check-input' }, label: "特徴" %>
+    <%= f.input :features, as: :check_boxes, collection: ["無料Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"], input_html: { multiple: true, class: 'form-check-input' }, label: "Features" %>
   </div>
 
 
@@ -67,3 +75,25 @@
 <% end %>
 
 <%= link_to '戻る', cafes_path, class: 'btn btn-secondary' %>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#post_raty');
+    if (elem == null) return;
+
+    elem.innerHTML = ""
+    let opt = {  
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: 3,
+      half: true,
+      number: 5,
+      hints: ['普通', '良い', 'おすすめ', 'かなりおすすめ', '非常におすすめ'],
+      target: '#hint',
+      targetType: 'hint',
+      scoreName: 'cafe[reviews_attributes][0][rating]',
+    };
+    raty(elem, opt);
+  });
+</script>

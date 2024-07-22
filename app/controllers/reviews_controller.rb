@@ -1,15 +1,14 @@
 class ReviewsController < ApplicationController
+  before_action :set_cafe
   def edit; end
 
   def create
-    @cafe = Cafe.find(params[:cafe_id])
     @review = @cafe.reviews.build(review_params)
     @review.user = current_user
 
     if @review.save
-      redirect_to @cafe, notice: 'レビューが投稿されました。'
+      redirect_to @cafe, notice: 'レビューが正常に投稿されました。'
     else
-      @reviews = @cafe.reviews
       render 'cafes/show'
     end
   end
@@ -20,7 +19,11 @@ class ReviewsController < ApplicationController
     
   private
 
+  def set_cafe
+    @cafe = Cafe.find(params[:cafe_id])
+  end
+
   def review_params
-    params.require(:review).permit(:title, :content, :rating)
+    params.require(:review).permit(:rating, :title, :content)
   end
 end

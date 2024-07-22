@@ -1,11 +1,8 @@
 class Review < ApplicationRecord
-  acts_as_taggable_on :tags
-
+  belongs_to :cafe
   belongs_to :user
-  # belongs_to :cafe
-  has_many :comments
 
-  validates :rating, presence: true
-  validates :title, presence: true
-  validates :content, presence: true
+  # validates :title, presence: true
+  # validates :content, presence: true
+  # validates :rating, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 end

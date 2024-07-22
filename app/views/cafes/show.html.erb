@@ -1,95 +1,96 @@
-<h1 class="mt-4"><%= @cafe.name %></h1>
+<h1><%= @cafe.name %></h1>
 
-<div class="cafe-images mt-3">
-  <% if @cafe.images.attached? %>
-    <div id="cafe-image-slider" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <% @cafe.images.each_with_index do |image, index| %>
-          <div class="carousel-item <%= 'active' if index == 0 %>">
-            <%= image_tag image.variant(resize: "800x800").processed, class: "d-block w-10", alt: "#{@cafe.name}の画像" %>
-          </div>
-        <% end %>
-      </div>
-      <a class="carousel-control-prev" href="#cafe-image-slider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#cafe-image-slider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-      <ol class="carousel-indicators">
-        <% @cafe.images.each_with_index do |image, index| %>
-          <li data-target="#cafe-image-slider" data-slide-to="<%= index %>" class="<%= 'active' if index == 0 %>">
-            <%= image_tag image.variant(resize: "100x100").processed, class: "d-block w-100" %>
-          </li>
-        <% end %>
-      </ol>
-    </div>
+<!-- レビューの平均 -->
+<div class="average-rating mt-4">
+  <% if @reviews.any? %>
+    <% average_rating = @reviews.average(:rating).round(1) %>
+    <h2>総合評価: <%= average_rating %> <%= image_tag "star-on.png", alt: "星", width: 20 %></h2>
+  <% else %>
+    <h2>まだ評価はありません</h2>
   <% end %>
 </div>
 
-<div class="cafe-details mt-4">
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-        <th>住所</th>
-        <td><%= @cafe.address %></td>
-      </tr>
-      <tr>
-        <th>カテゴリー</th>
-        <td><%= @cafe.category %></td>
-      </tr>
-      <tr>
-        <th>価格帯</th>
-        <td><%= @cafe.price_range %></td>
-      </tr>
-      <tr>
-        <th>特徴</th>
-        <td><%= (@cafe.features.presence || []).join(', ') %></td>
-      </tr>
-      <tr>
-        <th>ウェブサイト</th>
-        <td><%= link_to @cafe.website, @cafe.website, target: "_blank" %></td>
-      </tr>
-      <tr>
-        <th>営業時間</th>
-        <td><%= @cafe.hours %></td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= @cafe.contact_info %></td>
-      </tr>
-      <tr>
-        <th>タグ</th>
-        <td><%= @cafe.features.reject(&:blank?).join(', ') %></td>
-      </tr>
-      <tr>
-        <th>評価</th>
-        <td>
-          <%= @cafe.reviews.average(:rating).round(1) if @cafe.reviews.any? %>
-          <%= image_tag "star-on.png", alt: "星", width: 20 %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<!-- 画像のスライダー -->
+<div id="cafe-images-carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @cafe.images.each_with_index do |image, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
+        <%= image_tag image.variant(resize: "800x800").processed, class: "d-block w-100", alt: "#{@cafe.name}の画像" %>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#cafe-images-carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#cafe-images-carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
+<!-- 画像選択 -->
+<div class="carousel-thumbnails mt-3">
+  <div class="row">
+    <% @cafe.images.each_with_index do |image, index| %>
+      <div class="col-3">
+        <%= link_to image_tag(image.variant(resize: "100x100").processed, class: "img-thumbnail"), "#", data: { target: "#cafe-images-carousel", slide_to: index } %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- カフェ情報 -->
+<table class="table mt-3">
+  <tr>
+    <th>住所</th>
+    <td><%= @cafe.address %></td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= @cafe.category %></td>
+  </tr>
+  <tr>
+    <th>価格帯</th>
+    <td><%= @cafe.price_range %></td>
+  </tr>
+  <tr>
+    <th>営業時間</th>
+    <td><%= @cafe.hours %></td>
+  </tr>
+  <tr>
+    <th>電話番号</th>
+    <td><%= @cafe.contact_info %></td>
+  </tr>
+  <tr>
+    <th>ウェブサイト</th>
+    <td><%= link_to @cafe.website, @cafe.website, target: "_blank" %></td>
+  </tr>
+  <tr>
+    <th>タグ</th>
+    <td><%= @cafe.tag_list.reject(&:blank?).join(', ') %></td>
+  </tr>
+  <tr>
+    <th>特徴</th>
+    <td><%= @cafe.features.reject(&:blank?).join(', ') %></td>
+  </tr>
+</table>
+
+<!-- お気に入りボタン -->
 <% if current_user.favorite_cafes.include?(@cafe) %>
-  <%= button_to 'お気に入り解除', unfavorite_cafe_path(@cafe), method: :delete, remote: true, class: 'btn btn-warning' %>
+  <%= button_to 'お気に入り解除', unfavorite_cafe_path(@cafe), method: :delete, remote: true, class: "btn btn-warning" %>
 <% else %>
-  <%= button_to 'お気に入り', favorite_cafe_path(@cafe), method: :post, remote: true, class: 'btn btn-success' %>
+  <%= button_to 'お気に入り', favorite_cafe_path(@cafe), method: :post, remote: true, class: "btn btn-primary" %>
 <% end %>
 
 <!-- レビュー投稿フォーム -->
-<h2 class="mt-3">レビューを投稿する</h2>
-<%= simple_form_for [@cafe, @review] do |f| %>
-  <div class="form-group">
-    <label for="review_rating">Rating</label>
-    <div id="rating-form"></div>
-    <%= image_tag "star-on.png", id: "starOn" ,class: "d-none"%>
-    <%= image_tag "star-off.png", id: "starOff" ,class: "d-none"%>
-    <%= image_tag "star-half.png", id: "starHalf" ,class: "d-none"%>
+<h2>レビューを投稿する</h2>
+<%= simple_form_for [@cafe, @review], url: cafe_reviews_path(@cafe), html: { local: true } do |f| %>
+
+  <div class="form-group" id="star">
+    <%= f.label :rating %>
+    <%= f.hidden_field :rating, id: :review_rating_input, class: 'form-control' %>
+    <div id="post_raty"></div>
   </div>
 
   <div class="form-group">
@@ -101,7 +102,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit "投稿する", class: "btn btn-primary" %>
+    <%= f.button :submit, "投稿する", class: "btn btn-primary" %>
   </div>
 <% end %>
 
@@ -112,7 +113,24 @@
     <div class="review">
       <h3><%= review.title %></h3>
       <p><%= review.content %></p>
-      <p>評価: <%= review.rating %> <%= image_tag "star-on.png", alt: "星", width: 20 %> </p>
+      <div id="star_<%= review.id %>"></div>
+      <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#star_<%= review.id %>');
+        if (elem == null) return;
+        
+        elem.innerHTML = "";
+        let opt = {  
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: "<%= review.rating %>",
+          readOnly: true,
+        };
+        raty(elem, opt);
+      });
+      </script>
+  
       <% if review.user == current_user %>
         <%= link_to '編集', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
         <%= link_to '削除', cafe_review_path(@cafe, review), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
@@ -120,7 +138,29 @@
     </div>
   <% end %>
 <% else %>
-  <p>まだレビューはありません。</p>
+  <p>レビューがまだありません。</p>
 <% end %>
 
-<%= link_to '戻る', cafes_path, class: 'btn btn-secondary my-3' %>
+<%= link_to '戻る', cafes_path, class: 'btn btn-secondary' %>
+
+
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#post_raty');
+    if (elem == null) return;
+
+    elem.innerHTML = ""
+    let opt = {  
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: 3,
+      half: true,
+      number: 5,
+      hints: ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'],
+      scoreName: 'review[rating]',
+    };
+    raty(elem, opt);
+  });
+</script>

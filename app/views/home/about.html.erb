@@ -1,2 +1,135 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About - CaféCierge</title>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+
+    h1, h2, h3 {
+      color: #343a40;
+    }
+
+    h1 {
+      border-bottom: 2px solid #343a40;
+      padding-bottom: 10px;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .image-container {
+      text-align: center;
+    }
+
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .personal-photo {
+      text-align: center;
+    }
+
+    .slick-carousel img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .personal-photo {
+      text-align: center;
+    }
+
+    .personal-photo img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content">
+    <h1>About CaféCierge</h1>
+
+    <div class="section">
+      <h2>My Mission</h2>
+      <p>Welcome to CaféCierge! My name is Yûta Masuda, and my mission is to connect coffee lovers with the best cafes around. Whether you're looking for a cozy place to work, a stylish spot for a date, or simply the best coffee in town, I've got you covered.</p>
+    </div>
+
+    <div class="section image-container slick-carousel">
+      <% (1..20).each do |i| %>
+        <div>
+          <img src="<%= asset_path("cafe_mission_#{i}.jpg") %>" alt="Our Mission Image <%= i %>">
+        </div>
+      <% end %>
+    </div>
+
+    <div class="section">
+      <h2>What I Offer</h2>
+      <ul>
+        <li>Comprehensive cafe listings with detailed information</li>
+        <li>User reviews and ratings to help you choose the best spot</li>
+        <li>Reservation system to secure your favorite table</li>
+        <li>Personalized recommendations based on your preferences</li>
+        <li>Community features to connect with other coffee enthusiasts</li>
+      </ul>
+    </div>
+
+    <div class="section image-container">
+      <img src="<%= asset_path('cafe_offers.jpg') %>" alt="What I Offer">
+    </div>
+
+    <div class="section personal-photo">
+      <h2>About Me</h2>
+      <img src="<%= asset_path('your_photo.jpg') %>" alt="Your Photo">
+      <h3>Yûta Masuda</h3>
+      <p>I am the creator and developer of CaféCierge. My passion for coffee and web development inspired me to create this platform to help others find their perfect cafe experience.</p>
+    </div>
+
+    <div class="section contact-info">
+      <h2>Contact Me</h2>
+      <p>If you have any questions, suggestions, or just want to say hi, feel free to reach out to me at <a href="mailto:support@cafecierge.com">support@cafecierge.com</a>.</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slick-carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear'
+      });
+    });
+  </script>
+</body>
+</html>

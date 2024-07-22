@@ -17,28 +17,32 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application.scss";
 
-import Raty from "./raty.js"
+// import Raty from "./raty.js"
 import $ from 'jquery';
 
 //= require review_rating
 window.$ = window.jQuery = require('jquery');
-
-$(document).ready(function() {
-  const raty = new Raty(document.querySelector('#rating-form'),
-  {
-    starHalf: starHalf.src, 
-    starOff: starOff.src, 
-    starOn: starOn.src,
-    score: 3,
-    half: true,
-    number: 5,
-    hints: ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'],
-    scoreName: "reviews[rating]"
-  });
-  
+import Raty from "raty.js"
+window.raty = function(elem,opt) {
+  let raty =  new Raty(elem,opt)
   raty.init();
-  
+  return raty;
+}
+
+//= require slick-carousel/slick/slick.min
+
+$(document).ready(function(){
+  $('.slick-carousel').slick({
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+  });
 });
+
 
 // jQuery
 // import $ from 'jquery'

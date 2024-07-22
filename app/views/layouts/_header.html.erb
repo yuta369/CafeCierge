@@ -32,7 +32,7 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <a class="nav-link" href="/cafes/new">New Cafe</a>
+                <%= link_to "New Cafe", new_cafe_path, class: "nav-link",data: {"turbolinks"=>false} %>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/users/edit">Edit Profile</a>
