@@ -4,12 +4,13 @@
       <div class="col-md-4">
         <h5>CaféCierge</h5>
         <ul class="list-unstyled">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Contact', new_contact_path %></li>
+          <li><%= link_to 'Cafés', cafes_path %></li>
           <% if user_signed_in? %>
-            <li><a href="/cafes/new">New Cafe</a></li>
-            <li><a href="/users/edit">Edit Profile</a></li>
+            <li><%= link_to 'New Café', new_cafe_path %></li>
+            <li><%= link_to 'My Page', user_path(current_user) %></li>
             <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
           <% else %>
             <li><%= link_to 'Login', new_user_session_path %></li>
@@ -20,20 +21,31 @@
       <div class="col-md-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
-          <li><a href="/privacy_policy">Privacy Policy</a></li>
-          <li><a href="/terms_of_service">Terms of Service</a></li>
-          <li><a href="/help">Help</a></li>
+          <li><%= link_to 'Privacy Policy', privacy_policy_path %></li>
+          <li><%= link_to 'Terms of Service', terms_of_service_path %></li>
+          <li><%= link_to 'Help', help_path %></li>
         </ul>
       </div>
       <div class="col-md-4">
         <h5>Follow Us</h5>
         <ul class="list-unstyled">
-          <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
-          <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-          <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+          <li><%= link_to 'https://instagram.com', target: "_blank" do %>
+            <i class="fa-brands fa-instagram"></i> Instagram
+          <% end %></li>
+          <li><%= link_to 'https://twitter.com', target: "_blank" do %>
+            <i class="fa-brands fa-x-twitter"></i> X
+          <% end %></li>
+          <li><%= link_to 'https://tiktok.com', target: "_blank" do %>
+            <i class="fa-brands fa-tiktok"></i> TikTok
+          <% end %></li>
+          <li><%= link_to 'https://facebook.com', target: "_blank" do %>
+            <i class="fa-brands fa-facebook"></i> Facebook
+          <% end %></li>
         </ul>
       </div>
     </div>
-    <span class="text-muted">&copy; 2024 CafeCierge. All rights reserved.</span>
+    <div class="text-center mt-3">
+      <span class="text-muted">&copy; 2024 CaféCierge. All rights reserved.</span>
+    </div>
   </div>
 </footer>

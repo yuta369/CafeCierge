@@ -7,6 +7,11 @@ ja:
         password: "パスワード："
         password_confirmation: "パスワードの確認："
         current_password: "現在のパスワード："
+      contact:
+        name: "お名前："
+        email: "メールアドレス："
+        subject: "件名："
+        message: "メッセージ："
     errors:
       models:
         user:
@@ -21,6 +26,21 @@ ja:
               too_short: "パスワードは%{count}文字以上で入力してください　"
             password_confirmation:
               confirmation: "確認用のパスワードが一致していません　"
+        contact:
+          attributes:
+            name:
+              blank: "お名前を入力してください　"
+            email:
+              blank: "メールアドレスを入力してください　"
+              invalid: "有効なメールアドレスを入力してください　"
+            subject:
+              blank: "件名を入力してください　"
+            message:
+              blank: "メッセージを入力してください　"
+        cafe:
+          attributes:
+            user:
+              blank: "ユーザーが設定されていません"
   simple_form:
     error_notification:
       default_message: "入力内容に誤りがあります。　"

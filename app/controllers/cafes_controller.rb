@@ -1,5 +1,6 @@
 class CafesController < ApplicationController
   before_action :set_cafe, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @q = Cafe.ransack(params[:q])
@@ -20,8 +21,9 @@ class CafesController < ApplicationController
 
   def create
     @cafe = Cafe.new(cafe_params)
+    @cafe.user = current_user # カフェの作成者を設定
     @cafe.reviews.first.user = current_user # レビューのユーザーを設定
-
+    
     if @cafe.save
       redirect_to @cafe, notice: 'カフェが正常に作成されました。'
     else
@@ -54,17 +56,17 @@ class CafesController < ApplicationController
 
   def cafe_params
     params.require(:cafe).permit(
-      :name,
-      :address,
-      :contact_info,
-      :website,
-      :hours,
-      :category,
-      :price_range,
-      { images: [] },
-      { features: [] },
-      :tag_list,
-      reviews_attributes: [:rating, :title, :content]
+    :name,
+    :address,
+    :contact_info,
+    :website,
+    :hours,
+    :category,
+    :price_range,
+    { images: [] },
+    { features: [] },
+    :tag_list,
+    reviews_attributes: [:rating, :title, :content]
     )
   end
 end

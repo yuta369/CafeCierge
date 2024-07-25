@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_one_attached :profile_image
-  acts_as_favoritor
 
-  has_many :reviews
+  has_many :cafes, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :comments
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :favorite_cafes, through: :favorites, source: :cafe
   has_many :followed_users, through: :follows, source: :followee
   has_many :following_users, through: :follows, source: :follower

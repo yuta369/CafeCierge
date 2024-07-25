@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_12_142159) do
+ActiveRecord::Schema.define(version: 2024_07_24_161420) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2024_07_12_142159) do
     t.json "images"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_cafes_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -91,6 +93,15 @@ ActiveRecord::Schema.define(version: 2024_07_12_142159) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_id"], name: "index_comments_on_review_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "subject"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -149,7 +160,6 @@ ActiveRecord::Schema.define(version: 2024_07_12_142159) do
     t.datetime "created_at"
     t.string "tenant", limit: 128
     t.index ["context"], name: "index_taggings_on_context"
-    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type", "context"], name: "taggings_taggable_context_idx"
     t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
@@ -167,7 +177,6 @@ ActiveRecord::Schema.define(version: 2024_07_12_142159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "taggings_count", default: 0
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -181,17 +190,21 @@ ActiveRecord::Schema.define(version: 2024_07_12_142159) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "profile_image"
+    t.text "introduction"
+    t.string "phone_number"
+    t.text "notification_preferences"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cafes", "users"
   add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
-  add_foreign_key "favorites", "caves"
+  add_foreign_key "favorites", "cafes"
   add_foreign_key "favorites", "users"
-  add_foreign_key "reservations", "caves"
+  add_foreign_key "reservations", "cafes"
   add_foreign_key "reservations", "users"
   add_foreign_key "reviews", "cafes"
   add_foreign_key "reviews", "users"

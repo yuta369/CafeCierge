@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+  get 'contacts/confirm'
+  get 'contacts/complete'
   # Deviseルーティング（Adminユーザー）
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -69,4 +72,12 @@ Rails.application.routes.draw do
   # 削除確認ページ
   get 'confirmations/:resource/:id', to: 'confirmations#show', as: 'confirm_delete'
   delete 'confirmations/:resource/:id', to: 'confirmations#destroy'
+
+  resources :contacts, only: [:new, :create] do
+    collection do
+      post 'confirm'
+      post 'complete', to: 'contacts#complete'
+      get 'complete', to: 'contacts#complete_page'
+    end
+  end
 end

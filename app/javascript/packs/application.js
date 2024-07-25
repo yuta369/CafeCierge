@@ -83,12 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener('turbolinks:load', () => {
-  document.querySelectorAll('button[data-remote]').forEach((button) => {
-    button.addEventListener('ajax:success', (event) => {
-      const detail = event.detail[0];
-      button.textContent = detail.status === 'favorited' ? 'お気に入り解除' : 'お気に入り';
-    });
-  });
-});
-
+function loadPreview(input) {
+    var preview = document.getElementById('profile-preview');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}

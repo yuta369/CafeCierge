@@ -1,0 +1,15 @@
+<% if cafe.favorites.exists?(user: current_user) %>
+  <%= link_to unfavorite_cafe_path(cafe), method: :delete, remote: true, id: dom_id(cafe, :favorite_btn), data: {"turbolinks" => false} do %>
+    <div class="favorite-link favorite-link-danger">
+      <i class="fas fa-heart" aria-hidden="true"></i>
+      <%= cafe.favorites.count %>
+    </div>
+  <% end %>
+<% else %>
+  <%= link_to favorite_cafe_path(cafe), method: :post, remote: true, id: dom_id(cafe, :favorite_btn), data: {"turbolinks" => false} do %>
+    <div class="favorite-link favorite-link-primary">
+      <i class="fas fa-heart" aria-hidden="true"></i>
+      <%= cafe.favorites.count %>
+    </div>
+  <% end %>
+<% end %>

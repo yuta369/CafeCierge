@@ -22,6 +22,7 @@ main {
   bottom: 0;
   width: 100%;
   background-color: #f8f9fa;
+  padding: 20px 0;
 }
 
 .footer ul {
@@ -31,17 +32,65 @@ main {
   line-height: 1.5; /* リスト項目の行間を確保 */
 }
 
-.footer ul li {
-  margin-bottom: 10px;
-}
-
-.footer a {
-  color: #000;
+.footer ul li a {
+  color: #333;
   text-decoration: none;
+  list-style: none;
+  margin-bottom: 10px;
 }
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.footer h5 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer .text-muted {
+  font-size: 14px;
+}
+
+.footer i {
+  margin-right: 8px;
+}
+
+#profile-preview {
+  max-width: 100px;
+  max-height: 100px;
+  margin-top: 10px;
+}
+
+.favorite-link {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.favorite-link-danger {
+  color: fuchsia;
+}
+
+.favorite-link-danger:hover,
+.favorite-link-danger:focus {
+  color: aqua;
+  text-decoration: underline;
+  text-decoration-color: aqua;
+}
+
+.favorite-link-primary {
+  color: aqua;
+}
+
+.favorite-link-primary:hover,
+.favorite-link-primary:focus {
+  color: fuchsia;
+  text-decoration: underline;
+  text-decoration-color: fuchsia;
 }
 
 h1,
@@ -58,6 +107,27 @@ h6,
   font-weight: 700;
   font-style: normal;
 }
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+input, textarea {
+  margin-top: 0.5rem;
+}
+
+.alert {
+  margin-top: 1rem;
+}
+
+.actions {
+  margin-top: 1rem;
+}
+
 /*
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900

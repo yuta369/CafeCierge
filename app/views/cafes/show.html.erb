@@ -1,46 +1,50 @@
-<h1><%= @cafe.name %></h1>
-
-<!-- レビューの平均 -->
-<div class="average-rating mt-4">
-  <% if @reviews.any? %>
-    <% average_rating = @reviews.average(:rating).round(1) %>
-    <h2>総合評価: <%= average_rating %> <%= image_tag "star-on.png", alt: "星", width: 20 %></h2>
-  <% else %>
-    <h2>まだ評価はありません</h2>
-  <% end %>
-</div>
-
-<!-- 画像のスライダー -->
-<div id="cafe-images-carousel" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <% @cafe.images.each_with_index do |image, index| %>
-      <div class="carousel-item <%= 'active' if index == 0 %>">
-        <%= image_tag image.variant(resize: "800x800").processed, class: "d-block w-100", alt: "#{@cafe.name}の画像" %>
-      </div>
-    <% end %>
-  </div>
-  <a class="carousel-control-prev" href="#cafe-images-carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#cafe-images-carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-<!-- 画像選択 -->
-<div class="carousel-thumbnails mt-3">
-  <div class="row">
-    <% @cafe.images.each_with_index do |image, index| %>
-      <div class="col-3">
-        <%= link_to image_tag(image.variant(resize: "100x100").processed, class: "img-thumbnail"), "#", data: { target: "#cafe-images-carousel", slide_to: index } %>
-      </div>
-    <% end %>
+<div class="cafe-header d-flex align-items-center justify-content-between mb-4">
+  <h1><%= @cafe.name %></h1>
+  <div class="cafe-info d-flex align-items-center">
+    <!-- レビューの総合評価 -->
+    <div class="average-rating d-flex align-items-center">
+      <% if @reviews.any? %>
+        <div id="average_raty"></div>
+        <span class="ml-2"><%= @reviews.average(:rating).to_f.round(1) %> / 5.0</span>
+      <% else %>
+        <span>評価なし</span>
+      <% end %>
+    </div>
+    <div id="favorite_btn_<%= @cafe.id %>">
+      <%= render 'favorites/btn', cafe: @cafe %>
+    </div>
   </div>
 </div>
 
-<!-- カフェ情報 -->
+<div class="cafe-images">
+  <div id="cafe-images-carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @cafe.images.each_with_index do |image, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <%= image_tag image.variant(resize: "800x800").processed, class: "d-block w-100", alt: "#{@cafe.name}の画像" %>
+        </div>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#cafe-images-carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#cafe-images-carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="carousel-thumbnails mt-3">
+    <div class="row">
+      <% @cafe.images.each_with_index do |image, index| %>
+        <div class="col-3">
+          <%= link_to image_tag(image.variant(resize: "100x100").processed, class: "img-thumbnail"), "#", data: { target: "#cafe-images-carousel", slide_to: index } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <table class="table mt-3">
   <tr>
     <th>住所</th>
@@ -76,37 +80,25 @@
   </tr>
 </table>
 
-<!-- お気に入りボタン -->
-<% if current_user.favorite_cafes.include?(@cafe) %>
-  <%= button_to 'お気に入り解除', unfavorite_cafe_path(@cafe), method: :delete, remote: true, class: "btn btn-warning" %>
-<% else %>
-  <%= button_to 'お気に入り', favorite_cafe_path(@cafe), method: :post, remote: true, class: "btn btn-primary" %>
-<% end %>
-
-<!-- レビュー投稿フォーム -->
 <h2>レビューを投稿する</h2>
 <%= simple_form_for [@cafe, @review], url: cafe_reviews_path(@cafe), html: { local: true } do |f| %>
-
   <div class="form-group" id="star">
     <%= f.label :rating %>
     <%= f.hidden_field :rating, id: :review_rating_input, class: 'form-control' %>
     <div id="post_raty"></div>
+    <p>Hint : <span id="hint"></span></p>
   </div>
-
   <div class="form-group">
     <%= f.input :title, placeholder: "レビューのタイトルを入力", required: true %>
   </div>
-
   <div class="form-group">
     <%= f.input :content, as: :text, placeholder: "レビューの内容を入力", required: true %>
   </div>
-
   <div class="form-group">
     <%= f.button :submit, "投稿する", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<!-- レビュー一覧 -->
 <h2 class="mt-3">レビュー一覧</h2>
 <% if @reviews.any? %>
   <% @reviews.each do |review| %>
@@ -114,23 +106,8 @@
       <h3><%= review.title %></h3>
       <p><%= review.content %></p>
       <div id="star_<%= review.id %>"></div>
-      <script>
-      $(document).on('turbolinks:load', function() {
-        let elem = document.querySelector('#star_<%= review.id %>');
-        if (elem == null) return;
-        
-        elem.innerHTML = "";
-        let opt = {  
-          starOn: "<%= asset_path('star-on.png') %>",
-          starOff: "<%= asset_path('star-off.png') %>",
-          starHalf: "<%= asset_path('star-half.png') %>",
-          score: "<%= review.rating %>",
-          readOnly: true,
-        };
-        raty(elem, opt);
-      });
-      </script>
-  
+      <p>評価: <%= review.rating.to_f.round(1) %> / 5.0</p>
+      <p>投稿者: <%= link_to review.user.name, user_path(review.user) %></p>
       <% if review.user == current_user %>
         <%= link_to '編集', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
         <%= link_to '削除', cafe_review_path(@cafe, review), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-danger' %>
@@ -151,16 +128,59 @@
     if (elem == null) return;
 
     elem.innerHTML = ""
-    let opt = {  
+    let opt = {
       starOn: "<%= asset_path('star-on.png') %>",
       starOff: "<%= asset_path('star-off.png') %>",
       starHalf: "<%= asset_path('star-half.png') %>",
       score: 3,
       half: true,
       number: 5,
-      hints: ['0.5', '1', '1.5', '2', '2.5', '3', '3.5', '4', '4.5', '5'],
+      hints: ['普通', '良い', 'おすすめ', 'かなりおすすめ', '非常におすすめ'],
+      target: '#hint',
+      targetType: 'hint',
       scoreName: 'review[rating]',
     };
     raty(elem, opt);
   });
 </script>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#average_raty');
+    if (elem == null) return;
+    let averageRating = <%= @reviews.any? ? @reviews.average(:rating).to_f.round(1) : 0 %>;
+    elem.innerHTML = ""
+    let opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: averageRating,
+      readOnly: true,
+      half: true,
+      number: 5
+    };
+    raty(elem, opt);
+  });
+</script>
+
+<% if @reviews.any? %>
+  <% @reviews.each do |review| %>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#star_<%= review.id %>');
+        if (elem == null) return;
+
+        elem.innerHTML = "";
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: "<%= review.rating %>",
+          readOnly: true,
+        };
+        raty(elem, opt);
+      });
+    </script>
+  
+  <% end %>
+<% end %>

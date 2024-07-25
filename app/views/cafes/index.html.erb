@@ -6,18 +6,34 @@
       <% end %>
       <div class="cafe-details">
         <h3><%= link_to cafe.name, cafe_path(cafe) %></h3>
+        <p><div id="average_raty_<%= cafe.id %>"></div></p>
+        <span class="ml-2"><%= cafe.reviews.average(:rating).to_f.round(1) %> / 5.0</span>
         <p><%= cafe.address %></p>
         <p><%= cafe.category %></p>
         <p><%= cafe.price_range %></p>
         <p class="features"><%= cafe.features.reject(&:blank?).join(', ') %></p>
-        
-        <% if current_user.favorite_cafes.include?(cafe) %>
-          <%= button_to 'お気に入り解除', unfavorite_cafe_path(cafe), method: :delete, remote: true, class: 'btn btn-warning' %>
-        <% else %>
-          <%= button_to 'お気に入り', favorite_cafe_path(cafe), method: :post, remote: true, class: 'btn btn-primary' %>
-        <% end %>
+        <p>投稿者: <%= link_to cafe.user.name, user_path(cafe.user) %></p>
+        <p><div id="favorite_btn_<%= cafe.id %>"><%= render 'favorites/btn', cafe: cafe %></div></p>
       </div>
     </div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+        let elem = document.querySelector('#average_raty_<%= cafe.id %>');
+        if (elem == null) return;
+        let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+        elem.innerHTML = ""
+        let opt = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          score: averageRating,
+          readOnly: true,
+          half: true,
+          number: 5
+        };
+        raty(elem, opt);
+      });
+    </script>
   <% end %>
 </div>
 

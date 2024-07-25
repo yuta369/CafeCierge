@@ -1,39 +1,41 @@
 <h2 class="my-5">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <%= f.input :name, label: "名前", required: true %>
+    <%= f.input :email, label: "メールアドレス", required: true %>
+    <%= f.input :profile_image, label: "プロフィール写真", as: :file, input_html: { accept: 'image/*', onchange: 'loadPreview(this);' } %>
+    <% if resource.profile_image.attached? %>
+      <%= image_tag resource.profile_image.variant(resize: "100x100").processed, id: 'profile-preview' %>
+    <% else %>
+      <img id="profile-preview" src="<%= asset_path('no_image.jpg') %>" alt="プロフィール画像のプレビュー" />
     <% end %>
-
-    <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                hint: ("変更したくない場合は、空欄のままにしてください"),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                hint: ("登録情報を変更するには、現在のパスワードが必須です"),
-                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :introduction, label: "自己紹介", as: :text %>
+    <%= f.input :current_password, label: "現在のパスワード", hint: "新しいパスワードを設定する場合は必須です", required: false %>
+    <%= f.input :password, label: "新しいパスワード", hint: "空欄の場合、パスワードは変更されません", required: false %>
+    <%= f.input :password_confirmation, label: "パスワード確認", required: false %>
   </div>
 
   <div class="form-actions">
-    <div class="col-sm-offset-2 col-sm-10">
-      <%= f.button :submit, "Update", class: 'btn btn-primary' %>
-    </div>
+    <%= f.button :submit, "更新する", class: "btn btn-primary" %>
   </div>
 <% end %>
 
-<h3 class="my-5">退会</h3>
+<%= link_to "キャンセル", root_path, class: "btn btn-secondary" %>
 
-<div>退会しますか？ <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+<%= button_to '退会', cancel_user_registration_path, method: :get, class: "btn btn-danger mt-3" %>
 
-<%= link_to "Back", :back %>
+<script>
+  function loadPreview(input) {
+    var preview = document.getElementById('profile-preview');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

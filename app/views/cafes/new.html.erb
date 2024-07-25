@@ -9,13 +9,6 @@
 
   <div class="form-group">
     <%= f.input :images, as: :file, input_html: { multiple: true }, required: true, hint: "このカフェに関係する写真を、最低でも一枚以上は投稿してください。　複数枚の写真を投稿する場合は、一枚目にメインの写真を選択してください。" %>
-
-    <% if @cafe.images.attached? %>
-      <% @cafe.images.each do |image| %>
-        <%= image_tag image.variant(resize: '100x100').processed %>
-        <%= link_to 'Destroy', cafe_attachment_path(@cafe.id, image.id), method: :delete %>
-      <% end %>
-    <% end %>
     <div id="image-preview"></div>
   </div>
 

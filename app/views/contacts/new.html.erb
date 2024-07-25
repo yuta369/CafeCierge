@@ -1,0 +1,26 @@
+<h1>お問い合わせフォーム</h1>
+
+<div class="alert alert-info" role="alert">
+  <strong>お問い合わせの前にご確認ください:</strong></br>
+  CaféCiergeに多く寄せられるお問い合わせ内容をまとめた<a href="<%= help_path %>">ヘルプページ</a>がございます。</br>
+  こちらをご確認いただくことで、すぐに解決する場合もございます。</br>
+  まずはご参照くださいますようお願い申し上げます。
+</div>
+
+<%= simple_form_for @contact, url: confirm_contacts_path, method: :post do |f| %>
+  <div class="form-group">
+    <%= f.input :name, label: "お名前", placeholder: "お名前を入力してください", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :email, label: "メールアドレス", placeholder: "連絡がつくメールアドレスを入力してください", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :subject, label: "件名", placeholder: "件名を入力してください", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :message, label: "メッセージ", as: :text, placeholder: "メッセージを入力してください", required: true %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit, "確認", class: "btn btn-primary" %>
+  </div>
+<% end %>

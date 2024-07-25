@@ -1,2 +1,109 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>プロフィール</h1>
+<div class="user-profile">
+  <div class="profile-header d-flex align-items-center">
+    <div class="profile-image">
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image.variant(resize: "150x150").processed, class: "rounded-circle" %>
+      <% else %>
+        <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="profile-info ml-4">
+      <h2><%= @user.name %></h2>
+      <p><%= @user.introduction.presence || "自己紹介がまだありません。" %></p>
+      <p>フォロワー: <%= @user.followers.count %> / フォロー中: <%= @user.following.count %></p>
+      <% if user_signed_in? && current_user == @user %>
+        <%= link_to 'プロフィール編集', edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to '退会', cancel_user_registration_path, class: "btn btn-danger" %>
+      <% elsif user_signed_in? %>
+        <% if current_user.following?(@user) %>
+          <%= link_to 'フォロー解除', unfollow_user_path(@user), method: :delete, class: "btn btn-secondary" %>
+        <% else %>
+          <%= link_to 'フォロー', follow_user_path(@user), method: :post, class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-cafes mt-4">
+    <h3>投稿したカフェ</h3>
+    <div class="row">
+      <% @user.cafes.each do |cafe| %>
+        <div class="col-md-4">
+          <div class="cafe-card">
+            <%= link_to cafe_path(cafe) do %>
+              <% if cafe.images.attached? %>
+                <%= image_tag cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", class: "img-fluid" %>
+              <% end %>
+              <h4><%= cafe.name %></h4>
+              <p>評価: <%= cafe.reviews.average(:rating)&.round(1) || "未評価" %> / 5</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-favorites mt-4">
+    <h3>お気に入りカフェ</h3>
+    <div class="row">
+      <% @user.favorites.each do |favorite| %>
+        <div class="col-md-4">
+          <div class="cafe-card">
+            <%= link_to cafe_path(favorite.cafe) do %>
+              <% if favorite.cafe.images.attached? %>
+                <%= image_tag favorite.cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", class: "img-fluid" %>
+              <% end %>
+              <h4><%= favorite.cafe.name %></h4>
+              <p>評価: <%= favorite.cafe.reviews.average(:rating)&.round(1) || "未評価" %> / 5</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-following mt-4">
+    <h3>フォロー中</h3>
+    <div class="row">
+      <% @user.following.each do |following_user| %>
+        <div class="col-md-3">
+          <div class="follow-card">
+            <%= link_to user_path(following_user) do %>
+              <% if following_user.profile_image.attached? %>
+                <%= image_tag following_user.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+              <% end %>
+              <h4><%= following_user.name %></h4>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-followers mt-4">
+    <h3>フォロワー</h3>
+    <div class="row">
+      <% @user.followers.each do |follower| %>
+        <div class="col-md-3">
+          <div class="follow-card">
+            <%= link_to user_path(follower) do %>
+              <% if follower.profile_image.attached? %>
+                <%= image_tag follower.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+              <% else %>
+                <%= image_tag "no_image.jpg", class: "rounded-circle" %>
+              <% end %>
+              <h4><%= follower.name %></h4>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
