@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_24_161420) do
+ActiveRecord::Schema.define(version: 2024_07_26_140137) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 2024_07_24_161420) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "follows", force: :cascade do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
     t.datetime "created_at", precision: 6, null: false

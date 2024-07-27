@@ -1,6 +1,7 @@
 class Cafe < ApplicationRecord
   acts_as_taggable_on :tags
   serialize :features, Array
+  
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :favorited_by_users, through: :favorites, source: :user
@@ -14,7 +15,6 @@ class Cafe < ApplicationRecord
   validates :contact_info, presence: true
   validates :category, presence: true
   validates :price_range, presence: true
-  validates :features, presence: true
   validates :images, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                     size: { less_than: 5.megabytes, message: 'is not given between size' }
 

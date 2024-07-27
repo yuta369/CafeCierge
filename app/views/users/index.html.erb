@@ -1,2 +1,28 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% if @users.present? %>
+  <div class="container mt-4">
+    <h1>Search Results</h1>
+    <div class="row">
+      <% @users.each do |user| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <% if user.profile_image.attached? %>
+              <%= image_tag user.profile_image.variant(resize_to_fill: [300, 300]), class: 'card-img-top' %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', class: 'card-img-top' %>
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= user.name %></h5>
+              <p class="card-text"><%= user.email %></p>
+              <%= link_to 'View Profile', user_path(user), class: 'btn btn-primary' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <div class="container mt-4">
+    <h1>No Results Found</h1>
+    <p>Your search did not return any results. Try searching with different keywords.</p>
+  </div>
+<% end %>

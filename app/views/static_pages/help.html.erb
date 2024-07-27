@@ -1,2 +1,134 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+<div class="container my-5">
+  <h1 class="text-center mb-4">CaféCierge ヘルプ & サポート</h1>
+  
+  <div class="accordion" id="helpAccordion">
+
+    <!-- Getting Started Section -->
+    <div class="card">
+      <div class="card-header" id="headingGettingStarted">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseGettingStarted" aria-expanded="true" aria-controls="collapseGettingStarted">
+            はじめに
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseGettingStarted" class="collapse show" aria-labelledby="headingGettingStarted" data-parent="#helpAccordion">
+        <div class="card-body">
+          <p>ようこそCaféCiergeへ！このセクションでは、当サイトの基本的な使い方をご紹介します。</p>
+          <ul>
+            <li><strong>アカウント作成:</strong> カフェレビューやおすすめ機能を楽しむためには、まずアカウントを作成してください。アカウントを作成することで、レビューを投稿したり、お気に入りのカフェを保存したりできます。</li>
+            <li><strong>ログイン:</strong> 既にアカウントをお持ちの場合は、ログインして自分のダッシュボードにアクセスし、投稿やレビューの管理を行えます。</li>
+            <li><strong>プロフィール設定:</strong> アカウント作成後、プロフィールを設定することで、他のユーザーに自分を紹介したり、カスタマイズされた情報を表示することができます。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account Management Section -->
+    <div class="card">
+      <div class="card-header" id="headingAccountManagement">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseAccountManagement" aria-expanded="false" aria-controls="collapseAccountManagement">
+            アカウント管理
+          </button>
+        </h2>
+      </div>
+      <div id="collapseAccountManagement" class="collapse" aria-labelledby="headingAccountManagement" data-parent="#helpAccordion">
+        <div class="card-body">
+          <ul>
+            <li><strong>プロフィールの編集:</strong> プロフィール情報は、アカウントページからいつでも編集できます。プロフィール画像や自己紹介を更新することで、より多くのユーザーと交流できます。</li>
+            <li><strong>パスワードの変更:</strong> 安全性を保つために、定期的にパスワードを変更することをお勧めします。パスワード変更はアカウント設定から簡単に行えます。</li>
+            <li><strong>アカウントの削除:</strong> アカウントを完全に削除する場合は、設定ページから削除リクエストを送信する必要があります。削除後はすべてのデータが失われるため、慎重に判断してください。</li>
+          </ul>
+          <p><strong>アカウント削除の確認:</strong> アカウント削除前には、データが完全に削除されることを確認するために、プライバシーポリシーやデータ処理の方針をご確認ください。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Café and Review Management Section -->
+    <div class="card">
+      <div class="card-header" id="headingCafeReviewManagement">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseCafeReviewManagement" aria-expanded="false" aria-controls="collapseCafeReviewManagement">
+            カフェとレビューの管理
+          </button>
+        </h2>
+      </div>
+      <div id="collapseCafeReviewManagement" class="collapse" aria-labelledby="headingCafeReviewManagement" data-parent="#helpAccordion">
+        <div class="card-body">
+          <ul>
+            <li><strong>カフェの投稿:</strong> お気に入りのカフェを投稿することで、他のユーザーと情報を共有できます。投稿にはカフェの詳細情報や写真を含めることができ、より多くの人にお勧めのカフェを紹介できます。</li>
+            <li><strong>レビューの作成:</strong> カフェに対するレビューを作成し、評価や感想を共有することで、他のユーザーの参考になります。具体的で詳細なレビューを記入することをお勧めします。</li>
+            <li><strong>投稿の管理:</strong> 自分が投稿したカフェやレビューを編集または削除することができます。管理画面から簡単に行えるので、必要に応じて投稿を更新してください。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy and Security Section -->
+    <div class="card">
+      <div class="card-header" id="headingPrivacySecurity">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapsePrivacySecurity" aria-expanded="false" aria-controls="collapsePrivacySecurity">
+            プライバシーとセキュリティ
+          </button>
+        </h2>
+      </div>
+      <div id="collapsePrivacySecurity" class="collapse" aria-labelledby="headingPrivacySecurity" data-parent="#helpAccordion">
+        <div class="card-body">
+          <ul>
+            <li><strong>プライバシーポリシー:</strong> あなたの個人情報がどのように取り扱われるかについて説明しています。プライバシー保護のための措置や、データの利用方法について詳細に説明しています。</li>
+            <li><strong>データセキュリティ:</strong> あなたのデータを守るために取っているセキュリティ対策についての説明です。安全にデータを取り扱うための方針を確認してください。</li>
+            <li><strong>アカウント安全のヒント:</strong> アカウントの安全性を保つために知っておくべきヒントやベストプラクティスを紹介しています。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- Contact Section -->
+  <div class="mt-5">
+    <h2>お問い合わせ</h2>
+    <p>ご不明点や問題がある場合は、お気軽にお問い合わせください。</p>
+    <ul>
+      <li><strong>お問い合わせフォーム:</strong> <a href="/contact" target="_blank">お問い合わせフォームへ</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<style>
+  .accordion .card-header {
+    cursor: pointer;
+  }
+
+  .accordion .card-header h2 button {
+    text-decoration: none;
+    color: #007bff;
+    width: 100%;
+    text-align: left;
+  }
+
+  .accordion .card-header h2 button:hover {
+    text-decoration: none;
+  }
+
+  .accordion .card-header h2 button.collapsed {
+    color: #000;
+  }
+
+  .accordion .card-body ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .accordion .card-body ul li {
+    margin-bottom: 10px;
+  }
+
+  .mt-5 {
+    margin-top: 3rem;
+  }
+</style>

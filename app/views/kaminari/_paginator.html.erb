@@ -1,29 +1,17 @@
 <%= paginator.render do %>
   <nav>
     <ul class="pagination">
-      <li class="page-item">
-        <%= link_to raw('<i class="fas fa-angle-double-left"></i>'), url_for(params.merge(page: 1)), class: 'page-link' %>
-      </li>
-      <li class="page-item">
-        <%= link_to raw('<i class="fas fa-angle-left"></i>'), @paginator.prev, class: 'page-link' %>
-      </li>
-      <% @paginator.each_page do |page| %>
+      <%= first_page_tag unless current_page.first? %>
+      <%= prev_page_tag unless current_page.first? %>
+      <% each_page do |page| %>
         <% if page.left_outer? || page.right_outer? || page.inside_window? %>
-          <li class="page-item <%= 'active' if page.current? %>">
-            <%= link_to page, page.url, class: 'page-link' %>
-          </li>
-        <% elsif page.gap? %>
-          <li class="page-item disabled">
-            <span class="page-link">&hellip;</span>
-          </li>
+          <%= page_tag page %>
+        <% elsif !page.was_truncated? -%>
+          <%= gap_tag %>
         <% end %>
       <% end %>
-      <li class="page-item">
-        <%= link_to raw('<i class="fas fa-angle-right"></i>'), @paginator.next, class: 'page-link' %>
-      </li>
-      <li class="page-item">
-        <%= link_to raw('<i class="fas fa-angle-double-right"></i>'), url_for(params.merge(page: @paginator.total_pages)), class: 'page-link' %>
-      </li>
+      <%= next_page_tag unless current_page.last? %>
+      <%= last_page_tag unless current_page.last? %>
     </ul>
   </nav>
 <% end %>

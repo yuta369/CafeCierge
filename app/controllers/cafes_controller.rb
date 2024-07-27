@@ -3,8 +3,17 @@ class CafesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @q = Cafe.ransack(params[:q])
-    @cafes = @q.result.includes(:reviews).order('reviews.rating DESC').page(params[:page]).per(10)
+    if params[:name].present? && params[:tag].present?
+      tag = Tag.find(params[:tag])
+      @cafes = Cafe.tagged_with(tag.name).where("name LIKE ?","%#{params[:name]}%").page(params[:page]).per(10)
+    elsif params[:name].present?
+      @cafes = Cafe.where("name LIKE ?","%#{params[:name]}%").page(params[:page]).per(10)
+    elsif params[:tag].present?
+      tag = Tag.find(params[:tag])
+      @cafes = Cafe.tagged_with(tag.name).page(params[:page]).per(10)
+    else
+      @cafes = Cafe.all.page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -23,7 +32,7 @@ class CafesController < ApplicationController
     @cafe = Cafe.new(cafe_params)
     @cafe.user = current_user # カフェの作成者を設定
     @cafe.reviews.first.user = current_user # レビューのユーザーを設定
-    
+
     if @cafe.save
       redirect_to @cafe, notice: 'カフェが正常に作成されました。'
     else
@@ -40,12 +49,8 @@ class CafesController < ApplicationController
   end
 
   def destroy
-    image = ActiveStorage::Attachment.find(params[:id])
-    image.purge
-    @cafe = Cafe.find(params[:cafe_id])
-    redirect_to cafe_path(@cafe)
     @cafe.destroy
-    redirect_to cafes_url, notice: 'カフェが正常に削除されました。'
+    redirect_to cafes_url, notice: 'カフェが削除されました。'
   end
 
   private
@@ -56,17 +61,17 @@ class CafesController < ApplicationController
 
   def cafe_params
     params.require(:cafe).permit(
-    :name,
-    :address,
-    :contact_info,
-    :website,
-    :hours,
-    :category,
-    :price_range,
-    { images: [] },
-    { features: [] },
-    :tag_list,
-    reviews_attributes: [:rating, :title, :content]
+      :name,
+      :address,
+      :contact_info,
+      :website,
+      :hours,
+      :category,
+      :price_range,
+      { images: [] },
+      { features: [] },
+      { tag_list: [] },
+      reviews_attributes: [:rating, :title, :content]
     )
   end
 end

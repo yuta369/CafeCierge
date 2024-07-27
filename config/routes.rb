@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'contacts/new'
   get 'contacts/confirm'
   get 'contacts/complete'
+  
+  get '/search', to: 'search#perform', as: 'search'
+  
   # Deviseルーティング（Adminユーザー）
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -35,10 +38,7 @@ Rails.application.routes.draw do
 
   # ユーザー関連
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
-    member do
-      post 'follow', to: 'follows#create'
-      delete 'unfollow', to: 'follows#destroy'
-    end
+    resources :relationships, only: [:create, :destroy]
   end
 
   # カフェ関連
@@ -48,6 +48,7 @@ Rails.application.routes.draw do
     member do
       post 'favorite', to: 'favorites#create'
       delete 'unfavorite', to: 'favorites#destroy'
+      get :confirm_delete
     end
   end
 
@@ -55,10 +56,6 @@ Rails.application.routes.draw do
   resources :reviews, only: [] do
     resources :comments, only: [:create, :edit, :update, :destroy]
   end
-
-  # 検索関連
-  get 'search', to: 'searches#index'
-  post 'search', to: 'searches#create'
 
   # 管理者関連
   namespace :admin do

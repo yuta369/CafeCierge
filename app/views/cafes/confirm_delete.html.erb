@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="my-4">削除確認</h1>
+
+  <div class="alert alert-warning">
+    <p>本当にこのカフェ「<%= @cafe.name %>」を削除しますか？</p>
+    <p>この操作は元に戻せません。</p>
+  </div>
+
+  <%= form_with url: cafe_path(@cafe), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+    <%= submit_tag '削除する', class: 'btn btn-danger' %>
+    <%= link_to 'キャンセル', cafe_path(@cafe), class: 'btn btn-secondary' %>
+  <% end %>
+</div>

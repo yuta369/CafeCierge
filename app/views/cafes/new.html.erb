@@ -1,4 +1,4 @@
-<h1 class="my-5">New Post About Café</h1>
+<h1 class="my-5">Create a New Café Post</h1>
 
 <%= simple_form_for @cafe, html: { multipart: true } do |f| %>
   <%= f.error_notification %>
@@ -8,8 +8,8 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :images, as: :file, input_html: { multiple: true }, required: true, hint: "このカフェに関係する写真を、最低でも一枚以上は投稿してください。　複数枚の写真を投稿する場合は、一枚目にメインの写真を選択してください。" %>
-    <div id="image-preview"></div>
+     <%= f.input :images, as: :file, input_html: { multiple: true }, required: true, hint: "このカフェに関係する写真を、最低でも一枚以上は投稿してください。　複数枚の写真を投稿する場合は、一枚目にメインの写真を選択してください。" %>
+    <div id="image-preview" class="image-preview-container"></div>
   </div>
 
   <div class="form-group">
@@ -53,21 +53,23 @@
   </div>
 
   <div class="form-group">
-    <%= f.input :tag_list, input_html: { data: { role: 'tagsinput' } }, placeholder: "カフェに関連するタグを追加　（例：静かな雰囲気、景色が良い、デート向き、仕事向きなど）" %>
+    <%= f.label :tag_list, "Tags" %>
+    <%= f.select :tag_list, options_for_select(Tag.all.pluck(:name, :name), @cafe.tag_list), {}, { multiple: true, class: 'form-control' } %>
+    <small class="form-text text-muted">そのカフェを最もよく表現しているタグを選んでください。</small>
   </div>
 
   <div class="form-group">
-    <%= f.input :features, as: :check_boxes, collection: ["無料Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"], input_html: { multiple: true, class: 'form-check-input' }, label: "Features" %>
+    <%= f.input :features, as: :check_boxes, collection: ["Free Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"], input_html: { multiple: true, class: 'form-check-input' } %>
   </div>
 
 
   <div class="form-group">
-    <%= f.submit "投稿する", class: "btn btn-primary" %>
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
   </div>
 
 <% end %>
 
-<%= link_to '戻る', cafes_path, class: 'btn btn-secondary' %>
+<%= link_to 'Back', cafes_path, class: 'btn btn-secondary' %>
 
 <script>
   $(document).on('turbolinks:load', function() {

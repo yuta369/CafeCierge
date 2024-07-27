@@ -8,6 +8,8 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import './cafe_image_preview';
+
 //import "bootstrap/dist/js/bootstrap"
 
 // Bootstrap
@@ -29,20 +31,6 @@ window.raty = function(elem,opt) {
   return raty;
 }
 
-//= require slick-carousel/slick/slick.min
-
-$(document).ready(function(){
-  $('.slick-carousel').slick({
-    autoplay: true,
-    autoplaySpeed: 2000,
-    dots: true,
-    infinite: true,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear'
-  });
-});
-
 
 // jQuery
 // import $ from 'jquery'
@@ -62,27 +50,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-document.addEventListener("DOMContentLoaded", () => {
-  const imageInput = document.querySelector('input[type="file"][multiple]');
-  const previewContainer = document.getElementById("image-preview");
-
-  if (imageInput && previewContainer) {
-    imageInput.addEventListener("change", () => {
-      previewContainer.innerHTML = "";
-      Array.from(imageInput.files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = document.createElement("img");
-          img.src = event.target.result;
-          img.classList.add("img-preview");
-          previewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-      });
-    });
-  }
-});
-
 function loadPreview(input) {
     var preview = document.getElementById('profile-preview');
     if (input.files && input.files[0]) {
@@ -93,3 +60,10 @@ function loadPreview(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+$(document).on('turbolinks:load', function() {
+  $('body').on('ajax:success', '.relationship_form', function(event) {
+    var response = event.detail[0];
+    $('#follow_form').html(response);
+  });
+});

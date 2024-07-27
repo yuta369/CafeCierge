@@ -1,0 +1,130 @@
+<div class="user-profile">
+  <div class="profile-header d-flex align-items-center">
+    <div class="profile-image">
+      <% if user.profile_image.attached? %>
+        <%= image_tag user.profile_image.variant(resize: "150x150").processed, class: "rounded-circle" %>
+      <% else %>
+        <%= image_tag "no_image.jpg", size: "150x150", class: "rounded-circle" %>
+      <% end %>
+    </div>
+    <div class="profile-info ml-4">
+      <h2><%= user.name %></h2>
+      <p><%= user.introduction.presence || "No introduction available." %></p>
+      <p>Followers: <%= user.followers.count %> / Following: <%= user.following.count %></p>
+      <% if user_signed_in? && current_user == user %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to 'Delete Account', cancel_user_registration_path, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' }, class: "btn btn-danger" %>
+      <% elsif user_signed_in? %>
+        <%= render 'relationships/follow_button', user: user %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-cafes mt-4">
+    <h3>Posted Cafes</h3>
+    <% if user.cafes.any? %>
+      <div class="row">
+        <% user.cafes.each do |cafe| %>
+          <div class="col-md-4">
+            <div class="cafe-card">
+              <%= link_to cafe_path(cafe) do %>
+                <% if cafe.images.attached? %>
+                  <%= image_tag cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+                <% else %>
+                  <%= image_tag "no_image.jpg", class: "img-fluid" %>
+                <% end %>
+                <h4><%= cafe.name %></h4>
+                <p>Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+              <% end %>
+              <% if user_signed_in? && current_user == user %>
+                <%= link_to 'Edit', edit_cafe_path(cafe), class: "btn btn-warning btn-sm" %>
+                <%= link_to 'Delete', cafe_path(cafe), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+              <% end %>
+              <div id="favorite_btn_<%= cafe.id %>">
+                <%= render 'favorites/btn', cafe: cafe %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>This user hasn't posted any cafes yet.</p>
+    <% end %>
+  </div>
+
+  <div class="user-favorites mt-4">
+    <h3>Favorite Cafes</h3>
+    <% if user.favorite_cafes.any? %>
+      <div class="row">
+        <% user.favorite_cafes.each do |favorite_cafe| %>
+          <div class="col-md-4">
+            <div class="cafe-card">
+              <%= link_to cafe_path(favorite_cafe) do %>
+                <% if favorite_cafe.images.attached? %>
+                  <%= image_tag favorite_cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+                <% else %>
+                  <%= image_tag "no_image.jpg", size: "300x200", class: "img-fluid" %>
+                <% end %>
+                <h4><%= favorite_cafe.name %></h4>
+                <p>Rating: <%= favorite_cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+              <% end %>
+              <div id="favorite_btn_<%= favorite_cafe.id %>">
+                <%= render 'favorites/btn', cafe: favorite_cafe %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>This user hasn't favorited any cafes yet.</p>
+    <% end %>
+  </div>
+
+  <div class="user-following mt-4">
+    <h3>Following</h3>
+    <% if user.following.any? %>
+      <div class="row">
+        <% user.following.each do |following_user| %>
+          <div class="col-md-3">
+            <div class="follow-card">
+              <%= link_to user_path(following_user) do %>
+                <% if following_user.profile_image.attached? %>
+                  <%= image_tag following_user.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+                <% else %>
+                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle" %>
+                <% end %>
+                <h4><%= following_user.name %></h4>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>This user is not following anyone yet.</p>
+    <% end %>
+  </div>
+
+  <div class="user-followers mt-4">
+    <h3>Followers</h3>
+    <% if user.followers.any? %>
+      <div class="row">
+        <% user.followers.each do |follower| %>
+          <div class="col-md-3">
+            <div class="follow-card">
+              <%= link_to user_path(follower) do %>
+                <% if follower.profile_image.attached? %>
+                  <%= image_tag follower.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+                <% else %>
+                  <%#= image_tag "no_image.jpg", class: "rounded-circle" %>
+                <% end %>
+                <h4><%= follower.name %></h4>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>This user has no followers yet.</p>
+    <% end %>
+  </div>
+</div>

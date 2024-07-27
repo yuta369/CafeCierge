@@ -58,6 +58,24 @@ main {
 
 .footer i {
   margin-right: 8px;
+  font-size: 20px
+}
+
+.fa-instagram {
+  color: transparent;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.fa-tiktok {
+  color: #111111;
+  filter: drop-shadow(2px 0px 0px #FD3E3E) drop-shadow(-2px -2px 0px #4DE8F4);
+}
+
+.fa-facebook {
+  color: #3b5998;
 }
 
 #profile-preview {
@@ -91,6 +109,176 @@ main {
   color: fuchsia;
   text-decoration: underline;
   text-decoration-color: fuchsia;
+}
+
+.user-profile {
+  padding: 20px;
+}
+
+.profile-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+}
+
+.cafe-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.follow-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sidebar {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.sidebar-title {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+}
+
+.sidebar-form .form-group {
+  margin-bottom: 15px;
+}
+
+.sidebar-form .form-control {
+  border-radius: 4px;
+}
+
+.sidebar-form .btn {
+  width: 100%;
+}
+
+.search-sidebar {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-sidebar h4 {
+  margin-bottom: 15px;
+}
+
+.search-form .form-group {
+  margin-bottom: 15px;
+}
+
+.search-form .form-check {
+  margin-bottom: 10px;
+}
+
+.search-form .form-check-label {
+  margin-left: 5px;
+}
+
+.search-sidebar .form-check {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-sidebar .form-check-item {
+  margin-bottom: 0.5rem; /* チェックボックス間のスペース調整 */
+}
+
+.search-sidebar .form-check-label {
+  margin-left: 0.5rem; /* チェックボックスとラベルの間のスペース調整 */
+  white-space: nowrap; /* テキストが折り返さないようにする */
+}
+
+.cafe-detail {
+  .cafe-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
+
+  .review {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .review-header {
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+
+  .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+
+  .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+}
+
+.image-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-preview-item {
+  position: relative;
+  max-width: 200px; /* プレビューの幅を調整 */
+  max-height: 200px; /* プレビューの高さを調整 */
+}
+
+.preview-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.remove-image-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 h1,

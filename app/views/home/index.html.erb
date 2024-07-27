@@ -1,2 +1,151 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%# Hero Section %>
+<section class="hero-section">
+  <div class="container">
+    <h1>おしゃれなカフェで、素敵な時間を。</h1>
+    <div class="search-bar">
+      <%= form_with(url: search_path, method: :get, local: true, class: "form-inline") do %>
+        <%= text_field_tag :query, params[:query], class: "form-control form-control-lg", placeholder: "カフェを検索..." %>
+        <%= submit_tag "検索", class: "btn btn-primary ml-2" %>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%# Recommended Cafes %>
+<section class="container my-5">
+  <h2 class="text-center mb-4">おすすめカフェ</h2>
+  <div class="row">
+    <% @recommended_cafes.each do |cafe| %>
+      <div class="col-md-4 cafe-thumbnail">
+        <div class="card">
+          <%= image_tag cafe.images.attached? ? cafe.images.first : 'no_image.jpg', class: "card-img-top", alt: cafe.name %>
+          <div class="card-body">
+            <h5 class="card-title"><%= cafe.name %></h5>
+            <p class="card-text">評価: <%= pluralize(cafe.reviews.average(:rating).to_i, '★') %></p>
+            <%= link_to '詳細を見る', cafe_path(cafe), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<%# Latest Reviews %>
+<section class="container my-5">
+  <h2 class="text-center mb-4">新着レビュー</h2>
+  <div class="row">
+    <% @latest_reviews.each do |review| %>
+      <div class="col-md-4 review-summary">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= review.cafe.name %></h5>
+            <p class="card-text">「<%= review.content.truncate(100) %>」</p>
+            <p class="card-text">評価: <%= pluralize(review.rating, '★') %></p>
+            <%= link_to '詳細を見る', cafe_path(review.cafe), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>
+
+<%# Popular Tags %>
+<section class="container my-5">
+  <h2 class="text-center mb-4">人気のタグ</h2>
+  <div class="d-flex flex-wrap justify-content-center">
+    <% @popular_tags.each do |tag| %>
+      <%= link_to tag.name, search_path(tag: tag.name), class: 'badge badge-primary m-2' %>
+    <% end %>
+  </div>
+</section>
+
+<%# User Feedback %>
+<section class="container my-5">
+  <h2 class="text-center mb-4">ユーザーの声</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-1.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">佐藤 絵里</h5>
+          <p class="card-text">「CaféCiergeのおかげで、デートのプランニングがとても楽になりました。おしゃれなカフェがたくさん見つかって大満足です！」</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-2.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">田中 亮</h5>
+          <p class="card-text">「最近、友達とカフェ巡りをしているのですが、CaféCiergeで見つけたカフェはどれも素敵で大満足です。特にレビューが参考になります。」</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-3.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">鈴木 健太</h5>
+          <p class="card-text">「CaféCiergeの使いやすさと、豊富なカフェ情報に驚いています。写真がたくさん載っているので、行ってみたいカフェがすぐに見つかります。」</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-4.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">中村 美咲</h5>
+          <p class="card-text">「デートプランを立てる際に、CaféCiergeが大いに役立ちました。カフェの詳細情報が充実していて、選ぶのが楽しかったです。」</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-5.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">高橋 健</h5>
+          <p class="card-text">「CaféCiergeは、カフェの情報が豊富で、探しているカフェがすぐに見つかります。特にレビュー機能が役立ちました。」</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag 'feedback-6.jpg', class: "card-img-top", alt: "ユーザーの画像" %>
+        <div class="card-body">
+          <h5 class="card-title">森田 彩</h5>
+          <p class="card-text">「CaféCiergeを使って、素敵なカフェを見つけることができました。レビューも参考になり、おしゃれなカフェで素敵な時間を過ごせました。」</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+  
+  <style>
+    .hero-section {
+      background: url('path_to_main_visual_image.jpg') no-repeat center center;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero-section h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .search-bar {
+      margin-top: 20px;
+    }
+    .cafe-thumbnail, .review-summary {
+      margin-bottom: 20px;
+    }
+    .footer {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+  </style>

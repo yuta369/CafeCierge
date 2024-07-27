@@ -47,6 +47,7 @@ gem 'simple_form' # Forms made easy
 
 # Pagination
 gem 'kaminari' # Pagination library for Rails
+gem 'bootstrap5-kaminari-views'
 
 # Admin interface
 gem 'activeadmin' # Ruby on Rails framework for creating elegant backends
