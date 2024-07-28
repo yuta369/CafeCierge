@@ -1,4 +1,4 @@
-class AdminController < ApplicationController
+class Admin::AdminsController < ApplicationController
   def dashboard; end
 
   def manage_users; end

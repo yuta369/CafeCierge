@@ -1,4 +1,11 @@
 class User < ApplicationRecord
+  
+   # ステータスの選択肢
+  STATUSES = %w[active inactive suspended]
+
+  # ステータスのバリデーション
+  validates :status, inclusion: { in: STATUSES }
+  
   # プロフィール画像
   has_one_attached :profile_image
 

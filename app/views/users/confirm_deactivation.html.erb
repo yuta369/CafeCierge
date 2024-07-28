@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="my-4">退会確認</h1>
+
+  <div class="alert alert-warning">
+    <p>本当にアカウントを退会しますか？</p>
+    <p>この操作は元に戻せません。</p>
+  </div>
+
+  <%= form_with url: deactivate_user_path(@user), method: :patch do %>
+    <%= submit_tag '退会する', class: 'btn btn-danger' %>
+    <%= link_to 'キャンセル', root_path, class: 'btn btn-secondary' %>
+  <% end %>
+</div>

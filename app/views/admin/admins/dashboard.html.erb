@@ -1,0 +1,38 @@
+<h1>管理者ダッシュボード</h1>
+
+<div class="dashboard">
+  <div class="dashboard-section">
+    <h2>ユーザー管理</h2>
+    <ul>
+      <li><%= link_to 'ユーザー一覧', admin_users_path %></li>
+    </ul>
+  </div>
+
+  <div class="dashboard-section">
+    <h2>カフェ管理</h2>
+    <ul>
+      <li><%= link_to 'カフェ一覧', admin_cafes_path %></li>
+    </ul>
+  </div>
+
+  <div class="dashboard-section">
+    <h2>レビュー管理</h2>
+    <ul>
+      <li><%= link_to 'レビュー一覧', admin_reviews_path %></li>
+    </ul>
+  </div>
+
+  <!--<div class="dashboard-section">-->
+  <!--  <h2>コメント管理</h2>-->
+  <!--  <ul>-->
+  <!--    <li><%#= link_to 'コメント一覧', admin_comments_path %></li>-->
+  <!--  </ul>-->
+  <!--</div>-->
+
+  <div class="dashboard-section">
+    <h2>その他</h2>
+    <ul>
+      <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+    </ul>
+  </div>
+</div>

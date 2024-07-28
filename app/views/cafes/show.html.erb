@@ -67,8 +67,8 @@
     
     <% if @cafe.user == current_user %>
       <div class="cafe-actions mt-3">
-        <%= link_to '編集', edit_cafe_path(@cafe), class: 'btn btn-secondary' %>
-        <%= link_to '削除', confirm_delete_cafe_path(@cafe), method: :get, class: "btn btn-danger" %>
+        <%= link_to 'Edit', edit_cafe_path(@cafe), class: 'btn btn-secondary' %>
+        <%= link_to 'Delete', confirm_delete_cafe_path(@cafe), method: :get, class: "btn btn-danger" %>
       </div>
     <% end %>
     
@@ -110,7 +110,7 @@
     <!-- Other content remains unchanged -->
 
       <h2>Post a Review</h2>
-      <%= simple_form_for [@cafe, @review], url: cafe_reviews_path(@cafe), html: { local: true } do |f| %>
+      <%= simple_form_for [ @cafe, @review ], url: cafe_reviews_path(@cafe), html: { local: true } do |f| %>
         <div class="form-group" id="star">
           <%= f.label :rating %>
           <%= f.hidden_field :rating, id: :review_rating_input, class: 'form-control' %>
@@ -146,7 +146,7 @@
             <p>Rating: <%= review.rating.to_f.round(1) %> / 5.0</p>
             <% if review.user == current_user %>
               <%= link_to 'Edit', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
-              <%= link_to 'Delete', cafe_review_path(@cafe, review), method: :delete, data: { confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-danger' %>
+              <%= link_to 'Delete', confirm_delete_review_path(review), class: 'btn btn-danger' %>
             <% end %>
           </div>
         <% end %>

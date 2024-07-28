@@ -1,2 +1,54 @@
-<h1>Cafes#edit</h1>
-<p>Find me in app/views/cafes/edit.html.erb</p>
+<h1 class="my-5">Edit Café Post</h1>
+
+<%= simple_form_for @cafe, html: { multipart: true } do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-group">
+    <%= f.input :name, placeholder: "カフェの店舗名を入力", required: true, hint: "英語表記の店舗名で、読み方が分かる場合は（）内に読み仮名も記入してください。" %>
+  </div>
+
+  <div class="form-group">
+     <%= f.input :images, as: :file, input_html: { multiple: true }, hint: "このカフェに関係する写真を、最低でも一枚以上は投稿してください。　複数枚の写真を投稿する場合は、一枚目にメインの写真を選択してください。" %>
+    <div id="image-preview" class="image-preview-container">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :address, placeholder: "カフェの正確な住所を入力", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :contact_info, placeholder: "カフェの電話番号を入力", required: true %>
+    <%= f.input :website, placeholder: "カフェの公式ウェブサイトのリンク" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :hours, as: :text, placeholder: "例：月～金 8:00-18:00, 土日 10:00-20:00", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :category, as: :select, collection: ["コーヒー", "ベーカリー", "デザートバー", "その他"], prompt: "カテゴリーを選択してください", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :price_range, as: :select, collection: ["〜500円", "500〜1,000円", "1,000〜2,000円", "2,000円〜"], prompt: "価格帯を選択してください", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tag_list, "Tags" %>
+    <%= f.select :tag_list, options_for_select(Tag.all.pluck(:name, :name), @cafe.tag_list), {}, { multiple: true, class: 'form-control' } %>
+    <small class="form-text text-muted">そのカフェを最もよく表現しているタグを選んでください。</small>
+  </div>
+
+  <div class="form-group">
+    <%= f.input :features, as: :check_boxes, collection: ["Free Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"], input_html: { multiple: true, class: 'form-check-input' } %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit "Update Post", class: "btn btn-primary" %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Back', cafes_path, class: 'btn btn-secondary' %>

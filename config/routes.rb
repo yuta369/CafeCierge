@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    get 'comments/index'
+  end
+  namespace :admin do
+    get 'cafes/index'
+  end
+  namespace :admin do
+    get 'reviews/index'
+  end
+  namespace :admin do
+    get 'users/index'
+  end
   get 'contacts/new'
   get 'contacts/confirm'
   get 'contacts/complete'
@@ -6,8 +18,9 @@ Rails.application.routes.draw do
   get '/search', to: 'search#perform', as: 'search'
   
   # Deviseルーティング（Adminユーザー）
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+    sessions: "admin/sessions"
+  }
 
   # Deviseルーティング（一般ユーザー）
   devise_for :users, controllers: {
@@ -55,12 +68,15 @@ Rails.application.routes.draw do
   # レビュー関連
   resources :reviews, only: [] do
     resources :comments, only: [:create, :edit, :update, :destroy]
+    member do
+      get 'confirm_delete'
+    end
   end
 
   # 管理者関連
   namespace :admin do
-    get 'dashboard', to: 'admin#dashboard'
-    resources :users, only: [:index, :destroy]
+    get 'dashboard', to: 'admins#dashboard'
+    resources :users, only: [:index, :edit, :update, :destroy]
     resources :cafes, only: [:index, :destroy]
     resources :reviews, only: [:index, :destroy]
     resources :comments, only: [:index, :destroy]
@@ -69,6 +85,9 @@ Rails.application.routes.draw do
   # 削除確認ページ
   get 'confirmations/:resource/:id', to: 'confirmations#show', as: 'confirm_delete'
   delete 'confirmations/:resource/:id', to: 'confirmations#destroy'
+  
+  get 'users/:id/confirm_deactivation', to: 'users#confirm_deactivation', as: :confirm_deactivation
+  patch 'users/:id/deactivate', to: 'users#deactivate', as: :deactivate_user
 
   resources :contacts, only: [:new, :create] do
     collection do

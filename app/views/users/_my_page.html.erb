@@ -13,7 +13,7 @@
       <p>Followers: <%= user.followers.count %> / Following: <%= user.following.count %></p>
       <% if user_signed_in? && current_user == user %>
         <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary" %>
-        <%= link_to 'Delete Account', cancel_user_registration_path, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' }, class: "btn btn-danger" %>
+        <%= link_to 'Delete Account', confirm_deactivation_path(current_user), method: :get, class: 'btn btn-danger' %>
       <% elsif user_signed_in? %>
         <%= render 'relationships/follow_button', user: user %>
       <% end %>
@@ -38,7 +38,7 @@
               <% end %>
               <% if user_signed_in? && current_user == user %>
                 <%= link_to 'Edit', edit_cafe_path(cafe), class: "btn btn-warning btn-sm" %>
-                <%= link_to 'Delete', cafe_path(cafe), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
+                <%= link_to 'Delete', confirm_delete_cafe_path(cafe), method: :get, class: "btn btn-danger" %>
               <% end %>
               <div id="favorite_btn_<%= cafe.id %>">
                 <%= render 'favorites/btn', cafe: cafe %>
@@ -115,7 +115,7 @@
                 <% if follower.profile_image.attached? %>
                   <%= image_tag follower.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
                 <% else %>
-                  <%#= image_tag "no_image.jpg", class: "rounded-circle" %>
+                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle" %>
                 <% end %>
                 <h4><%= follower.name %></h4>
               <% end %>

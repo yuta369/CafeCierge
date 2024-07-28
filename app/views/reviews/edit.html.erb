@@ -1,2 +1,40 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h2>Edit a Review</h2>
+<%= simple_form_for [@cafe, @review], url: cafe_review_path(@cafe, @review), html: { local: true } do |f| %>
+  <div class="form-group" id="star">
+    <%= f.label :rating %>
+    <%= f.hidden_field :rating, id: :review_rating_input, class: 'form-control' %>
+    <div id="post_raty"></div>
+    <p>Hint : <span id="hint"></span></p>
+  </div>
+  <div class="form-group">
+    <%= f.input :title, placeholder: "Enter review title", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :content, as: :text, placeholder: "Enter review content", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, "Edit Review", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    let elem = document.querySelector('#post_raty');
+    if (elem == null) return;
+
+    elem.innerHTML = ""
+    let opt = {
+      starOn: "<%= asset_path('star-on.png') %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      starHalf: "<%= asset_path('star-half.png') %>",
+      score: <%= @review.rating %>,
+      half: true,
+      number: 5,
+      hints: ['普通', '良い', 'おすすめ', 'かなりおすすめ', '非常におすすめ'],
+      target: '#hint',
+      targetType: 'hint',
+      scoreName: 'review[rating]',
+    };
+    raty(elem, opt);
+  });
+</script>

@@ -281,6 +281,62 @@ main {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+.dashboard {
+  padding: 20px;
+}
+
+.dashboard-section {
+  margin-bottom: 20px;
+}
+
+.dashboard-section h2 {
+  font-size: 1.5em;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.dashboard-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dashboard-section ul li {
+  margin-bottom: 10px;
+}
+
+.dashboard-section ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.dashboard-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.status-select-wrapper {
+  position: relative;
+}
+
+.status-select {
+  font-weight: bold;
+}
+
+.status-select[data-status='active'] {
+  background-color: lightgreen;
+}
+
+.status-select[data-status='inactive'] {
+  background-color: lightyellow;
+}
+
+.status-select[data-status='suspended'] {
+  background-color: lightcoral;
+}
+
+.status-select[data-status='unknown'] {
+  background-color: lightgray;
+}
+
 h1,
 h2,
 h3,
