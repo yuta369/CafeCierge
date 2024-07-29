@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy, :confirm_deactivation, :deactivate]
   
   def index; end
 
@@ -17,29 +17,27 @@ class UsersController < ApplicationController
 
   def destroy; end
 
+  # 退会確認ページ
   def confirm_deactivation
-    @user = User.find(params[:id])
-    # ユーザーがログイン中のユーザーと一致していることを確認
     if @user == current_user
       render :confirm_deactivation
     else
-      redirect_to root_path, alert: 'Unauthorized access'
+      redirect_to root_path, alert: '不正なアクセスです。'
     end
   end
 
   # 退会処理
   def deactivate
-    @user = User.find(params[:id])
     if @user == current_user
-      @user.update(status: 'deactivated') # ステータスを 'deactivated' に変更
-      sign_out_and_redirect(current_user)  # サインアウトしてDeviseのサインアップページにリダイレクト
-      flash[:notice] = 'Your account has been deactivated.'
+      @user.update(status: 'inactive') # ステータスを 'inactive' に変更
+      sign_out_and_redirect(current_user) # サインアウトしてDeviseのサインインページにリダイレクト
+      flash[:notice] = 'アカウントが退会されました。'
     else
-      redirect_to root_path, alert: 'Unauthorized access'
+      redirect_to root_path, alert: '不正なアクセスです。'
     end
   end
     
-    private
+  private
 
   def set_user
     @user = User.find(params[:id])

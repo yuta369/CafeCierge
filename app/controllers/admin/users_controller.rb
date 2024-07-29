@@ -1,6 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :destroy]
   
   def index
     @users = User.all
@@ -16,16 +16,19 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: 'ユーザーのステータスが更新されました。'
+      flash[:notice] = 'ユーザーのステータスが更新されました。'
     else
-      render :index
+      flash[:alert] = 'ステータスの更新に失敗しました。'
     end
+    redirect_to admin_users_path
   end
   
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    flash[:notice] = "success"
+    if @user.update(status: 'deleted')
+      flash[:notice] = 'ユーザーが削除されました。'
+    else
+      flash[:alert] = 'ユーザーの削除に失敗しました。'
+    end
     redirect_to admin_users_path
   end
   

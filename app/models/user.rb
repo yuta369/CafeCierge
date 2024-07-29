@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   
    # ステータスの選択肢
-  STATUSES = %w[active inactive suspended]
+  STATUSES = ['active', 'inactive', 'suspended', 'deactivated'].freeze
+  validates :status, inclusion: { in: STATUSES }
 
   # ステータスのバリデーション
   validates :status, inclusion: { in: STATUSES }

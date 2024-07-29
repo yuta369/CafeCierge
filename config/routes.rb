@@ -78,7 +78,7 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'admins#dashboard'
     resources :users, only: [:index, :edit, :update, :destroy]
     resources :cafes, only: [:index, :destroy]
-    resources :reviews, only: [:index, :destroy]
+    resources :reviews, only: [:index, :show, :edit, :update, :destroy]
     resources :comments, only: [:index, :destroy]
   end
 

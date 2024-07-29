@@ -1,0 +1,15 @@
+<div class="container">
+  <h1 class="my-4">レビュー詳細</h1>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @review.title %></h5>
+      <p class="card-text"><%= @review.content %></p>
+      <p class="card-text"><strong>評価:</strong> <%= @review.rating %></p>
+      <p class="card-text"><strong>カフェ:</strong> <%= @review.cafe.name %></p>
+      <p class="card-text"><strong>ユーザー:</strong> <%= @review.user.name %></p>
+      <%= link_to '編集', edit_admin_review_path(@review), class: 'btn btn-warning' %>
+      <%= link_to '戻る', admin_reviews_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
