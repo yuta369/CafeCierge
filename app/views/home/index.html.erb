@@ -13,7 +13,7 @@
 
 <%# Recommended Cafes %>
 <section class="container my-5">
-  <h2 class="text-center mb-4">おすすめカフェ</h2>
+  <h2 class="text-center mb-4">Recommended Cafes</h2>
   <div class="row">
     <% @recommended_cafes.each do |cafe| %>
       <div class="col-md-4 cafe-thumbnail">
@@ -21,7 +21,8 @@
           <%= image_tag cafe.images.attached? ? cafe.images.first : 'no_image.jpg', class: "card-img-top", alt: cafe.name %>
           <div class="card-body">
             <h5 class="card-title"><%= cafe.name %></h5>
-            <p class="card-text">評価: <%= pluralize(cafe.reviews.average(:rating).to_i, '★') %></p>
+            <div id="average_raty"></div>
+            <p class="ml-2">Rating:<%= cafe.reviews.average(:rating).to_f.round(1) %> / 5.0</p>
             <%= link_to '詳細を見る', cafe_path(cafe), class: 'btn btn-primary' %>
           </div>
         </div>
@@ -32,7 +33,7 @@
 
 <%# Latest Reviews %>
 <section class="container my-5">
-  <h2 class="text-center mb-4">新着レビュー</h2>
+  <h2 class="text-center mb-4">Latest Reviews</h2>
   <div class="row">
     <% @latest_reviews.each do |review| %>
       <div class="col-md-4 review-summary">
@@ -40,7 +41,10 @@
           <div class="card-body">
             <h5 class="card-title"><%= review.cafe.name %></h5>
             <p class="card-text">「<%= review.content.truncate(100) %>」</p>
-            <p class="card-text">評価: <%= pluralize(review.rating, '★') %></p>
+            <p class="card-text">
+              <div id="star_<%= review.id %>"></div>
+              <p>Rating: <%= review.rating.to_f.round(1) %> / 5.0</p>
+            </p>
             <%= link_to '詳細を見る', cafe_path(review.cafe), class: 'btn btn-primary' %>
           </div>
         </div>
@@ -51,7 +55,7 @@
 
 <%# Popular Tags %>
 <section class="container my-5">
-  <h2 class="text-center mb-4">人気のタグ</h2>
+  <h2 class="text-center mb-4">Popular Tags</h2>
   <div class="d-flex flex-wrap justify-content-center">
     <% @popular_tags.each do |tag| %>
       <%= link_to tag.name, search_path(tag: tag.name), class: 'badge badge-primary m-2' %>
@@ -61,7 +65,7 @@
 
 <%# User Feedback %>
 <section class="container my-5">
-  <h2 class="text-center mb-4">ユーザーの声</h2>
+  <h2 class="text-center mb-4">User Feedback</h2>
   <div class="row">
     <div class="col-md-4">
       <div class="card">
@@ -125,27 +129,68 @@
 
   </div>
 </section>
+
+<style>
+  .hero-section {
+    background: url('path_to_main_visual_image.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  .search-bar {
+    margin-top: 20px;
+  }
+  .cafe-thumbnail, .review-summary {
+    margin-bottom: 20px;
+  }
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+</style>
+
+<% @recommended_cafes.each do |cafe| %>
+  <script>
+    $(document).on('turbolinks:load', function() {
+      let elem = document.querySelector('#average_raty');
+      if (elem == null) return;
+      let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+      elem.innerHTML = ""
+      let opt = {
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: averageRating,
+        readOnly: true,
+        half: true,
+        number: 5
+      };
+      raty(elem, opt);
+    });
+  </script>
+<% end %>
+
+
+<% @latest_reviews.each do |review| %>
+  <script>
+    $(document).on('turbolinks:load', function() {
+      let elem = document.querySelector('#star_<%= review.id %>');
+      if (elem == null) return;
   
-  <style>
-    .hero-section {
-      background: url('path_to_main_visual_image.jpg') no-repeat center center;
-      background-size: cover;
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero-section h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-    .search-bar {
-      margin-top: 20px;
-    }
-    .cafe-thumbnail, .review-summary {
-      margin-bottom: 20px;
-    }
-    .footer {
-      background-color: #f8f9fa;
-      padding: 20px;
-    }
-  </style>
+      elem.innerHTML = "";
+      let opt = {
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: "<%= review.rating %>",
+        readOnly: true,
+      };
+      raty(elem, opt);
+    });
+  </script>
+<% end %>

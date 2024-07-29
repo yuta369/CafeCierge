@@ -1,16 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'comments/index'
-  end
-  namespace :admin do
-    get 'cafes/index'
-  end
-  namespace :admin do
-    get 'reviews/index'
-  end
-  namespace :admin do
-    get 'users/index'
-  end
   get 'contacts/new'
   get 'contacts/confirm'
   get 'contacts/complete'
@@ -75,9 +63,10 @@ Rails.application.routes.draw do
 
   # 管理者関連
   namespace :admin do
+    root to: "admins#dashboard"
     get 'dashboard', to: 'admins#dashboard'
     resources :users, only: [:index, :edit, :update, :destroy]
-    resources :cafes, only: [:index, :destroy]
+    resources :cafes, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :reviews, only: [:index, :show, :edit, :update, :destroy]
     resources :comments, only: [:index, :destroy]
   end

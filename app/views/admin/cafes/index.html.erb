@@ -1,2 +1,35 @@
-<h1>Admin::Cafes#index</h1>
-<p>Find me in app/views/admin/cafes/index.html.erb</p>
+<div class="container">
+  <h1 class="my-4">カフェ一覧</h1>
+  <%= link_to '新規カフェ作成', new_admin_cafe_path, class: 'btn btn-primary mb-3' %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>名前</th>
+        <th>住所</th>
+        <th>連絡先</th>
+        <th>営業時間</th>
+        <th>カテゴリー</th>
+        <th>価格帯</th>
+        <th>アクション</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cafes.each do |cafe| %>
+        <tr>
+          <td><%= cafe.name %></td>
+          <td><%= cafe.address %></td>
+          <td><%= cafe.contact_info %></td>
+          <td><%= cafe.hours %></td>
+          <td><%= cafe.category %></td>
+          <td><%= cafe.price_range %></td>
+          <td>
+            <%= link_to '詳細', admin_cafe_path(cafe), class: 'btn btn-info btn-sm' %>
+            <%= link_to '編集', edit_admin_cafe_path(cafe), class: 'btn btn-warning btn-sm' %>
+            <%= link_to '削除', admin_cafe_path(cafe), method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

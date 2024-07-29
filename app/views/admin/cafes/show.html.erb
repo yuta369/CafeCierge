@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="my-4"><%= @cafe.name %> の詳細</h1>
+
+  <dl class="row">
+    <dt class="col-sm-3">住所</dt>
+    <dd class="col-sm-9"><%= @cafe.address %></dd>
+    <dt class="col-sm-3">連絡先</dt>
+    <dd class="col-sm-9"><%= @cafe.contact_info %></dd>
+    <dt class="col-sm-3">営業時間</dt>
+    <dd class="col-sm-9"><%= @cafe.hours %></dd>
+    <dt class="col-sm-3">カテゴリー</dt>
+    <dd class="col-sm-9"><%= @cafe.category %></dd>
+    <dt class="col-sm-3">価格帯</dt>
+    <dd class="col-sm-9"><%= @cafe.price_range %></dd>
+    <dt class="col-sm-3">特徴</dt>
+    <dd class="col-sm-9"><%= @cafe.features %></dd>
+  </dl>
+
+  <%= link_to '編集', edit_admin_cafe_path(@cafe), class: 'btn btn-warning' %>
+  <%= link_to '一覧に戻る', admin_cafes_path, class: 'btn btn-secondary' %>
+</div>

@@ -7,73 +7,76 @@
       </button>
       <div class="navbar-text d-flex align-items-center justify-content-center" style="background-color: #f8f9fa; padding: 0 20px;">
         <% if user_signed_in? %>
-          <% if current_user.admin? && !current_user?(user) %>
-            <span class="mx-5">Welcome! <%= current_user.name %>. (Admin)</span>
-          <% else %>
-            <span class="mx-5">Welcome! <%= current_user.name %>.</span>
-          <% end %>
+          <span class="mx-3">Welcome, <%= current_user.name %>!</span>
+        <% elsif admin_signed_in? %>
+          <span>Logged in as an</br>Administrator.</span>
         <% else %>
-          <span class="mx-5">Logged in as Guest</span>
+          <span class="mx-5"></span>
         <% end %>
       </div>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="d-flex flex-column w-100">
           <div class="d-flex justify-content-between align-items-center">
             <ul class="navbar-nav ml-auto">
-                <% if request.fullpath.include? "/admin" %>
-                  <li class="nav-item">
-                    <%= link_to admin_dashboard_path, class: 'nav-link' do %>
-                      <i class="fas fa-cogs mr-1"></i> Admin Dashboard
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to admin_users_index_path, class: 'nav-link' do %>
-                      <i class="fas fa-users mr-1"></i> Manage Users
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to admin_cafes_index_path, class: 'nav-link' do %>
-                      <i class="fas fa-store mr-1"></i> Manage Cafés
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
-                      <i class="fas fa-sign-out-alt mr-1"></i> Logout
-                    <% end %>
-                  </li>
-                <% else %>
-                  <% if user_signed_in? %>
-                    <li class="nav-item">
-                       <%= link_to root_path, class: 'nav-link' do %>
-                    <i class="fas fa-home mr-1"></i> Home
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to about_path, class: 'nav-link' do %>
-                        <i class="fas fa-info-circle mr-1"></i> About
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to cafes_path, class: 'nav-link' do %>
-                        <i class="fas fa-coffee mr-1"></i> Cafés
-                      <% end %>
-                    <li class="nav-item">
-                      <%= link_to new_cafe_path, class: 'nav-link' do %>
-                        <i class="fas fa-plus-circle mr-1"></i> New Café
-                      <% end %>
-                    </li>
-                    <li class="nav-item">
-                      <%= link_to user_path(current_user), class: 'nav-link' do %>
-                        <i class="fas fa-user-circle mr-1"></i> My Page
-                      <% end %>
-                    </li>
-                  <li class="nav-item">
-                    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
-                      <i class="fas fa-sign-out-alt mr-1"></i> Logout
-                    <% end %>
-                  </li>
-                <% else %>
-                 <%= link_to root_path, class: 'nav-link' do %>
+              <% if user_signed_in? %>
+                <li class="nav-item">
+                   <%= link_to root_path, class: 'nav-link' do %>
+                <i class="fas fa-home mr-1"></i> Home
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to about_path, class: 'nav-link' do %>
+                    <i class="fas fa-info-circle mr-1"></i> About
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to cafes_path, class: 'nav-link' do %>
+                    <i class="fas fa-coffee mr-1"></i> Cafés
+                  <% end %>
+                <li class="nav-item">
+                  <%= link_to new_cafe_path, class: 'nav-link' do %>
+                    <i class="fas fa-plus-circle mr-1"></i> New Café
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to user_path(current_user), class: 'nav-link' do %>
+                    <i class="fas fa-user-circle mr-1"></i> My Page
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                  <% end %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to admin_dashboard_path, class: 'nav-link' do %>
+                    <i class="fas fa-cogs mr-1"></i> Dashboard
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to admin_users_path, class: 'nav-link' do %>
+                    <i class="fas fa-users mr-1"></i> Manage Users
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to admin_cafes_path, class: 'nav-link' do %>
+                    <i class="fas fa-store mr-1"></i> Manage Cafés
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to admin_reviews_path, class: 'nav-link' do %>
+                    <i class="fa-solid fa-star-half-stroke mr-1"></i> Manage Review
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link" do %>
+                    <i class="fas fa-sign-out-alt mr-1"></i> Logout
+                  <% end %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to root_path, class: 'nav-link' do %>
                     <i class="fas fa-home mr-1"></i> Home
                   <% end %>
                 </li>
@@ -86,17 +89,16 @@
                   <%= link_to cafes_path, class: 'nav-link' do %>
                     <i class="fas fa-coffee mr-1"></i> Cafés
                   <% end %>
-                  <li class="nav-item">
-                    <%= link_to new_user_session_path, class: 'nav-link' do %>
-                      <i class="fas fa-sign-in-alt mr-1"></i> Login
-                    <% end %>
-                  </li>
-                  <li class="nav-item">
-                    <%= link_to new_user_registration_path, class: 'nav-link' do %>
-                      <i class="fas fa-user-plus mr-1"></i> Sign Up
-                    <% end %>
-                  </li>
-                <% end %>
+                <li class="nav-item">
+                  <%= link_to new_user_session_path, class: 'nav-link' do %>
+                    <i class="fas fa-sign-in-alt mr-1"></i> Login
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to new_user_registration_path, class: 'nav-link' do %>
+                    <i class="fas fa-user-plus mr-1"></i> Sign Up
+                  <% end %>
+                </li>
               <% end %>
             </ul>
           </div>
