@@ -80,7 +80,7 @@ end
 
 group :development do
   gem 'web-console', '>= 4.1.0' # Access an interactive console on exception pages
-  gem 'listen', '~> 3.3' # Listen to file modifications
+  gem 'listen', '~> 3.7' # Listen to file modifications
 #  gem 'rack-mini-profiler', '~> 2.0' # Display performance information
   gem 'spring' # Speeds up development by keeping your application running in the background
   gem 'spring-watcher-listen'
@@ -103,9 +103,10 @@ gem 'font-awesome-sass', '~> 6.5.2'
 gem 'active_storage_validations'
 
 group :production do
-  gem 'mysql2'
+  gem 'mysql2', '0.5.6'
 end
 
 gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
+

@@ -480,9 +480,9 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   kaminari
-  listen (~> 3.3)
+  listen (~> 3.7)
   mini_magick (~> 4.11)
-  mysql2
+  mysql2 (= 0.5.6)
   net-imap
   net-pop
   net-smtp
