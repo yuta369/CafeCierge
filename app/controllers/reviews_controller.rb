@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
   def create
     @review = @cafe.reviews.build(review_params)
     @review.user = current_user # レビューのユーザーを現在ログインしているユーザーに設定
-    
+
     if @review.save
       redirect_to @cafe, notice: 'レビューが投稿されました。'
     else
@@ -28,12 +28,11 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to cafe_path(cafe), notice: 'レビューが削除されました。'
   end
-  
-  def confirm_delete
-  end
-    
+
+  def confirm_delete; end
+
   private
-  
+
   def set_review
     @review = Review.find(params[:id])
   end

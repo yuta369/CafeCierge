@@ -1,12 +1,11 @@
 class User < ApplicationRecord
-  
-   # ステータスの選択肢
+  # ステータスの選択肢
   STATUSES = ['active', 'inactive', 'suspended', 'deactivated'].freeze
   validates :status, inclusion: { in: STATUSES }
 
   # ステータスのバリデーション
   validates :status, inclusion: { in: STATUSES }
-  
+
   # プロフィール画像
   has_one_attached :profile_image
 
@@ -65,11 +64,11 @@ class User < ApplicationRecord
 
   # お気に入りの管理
   def favorite(cafe)
-    favorites.find_or_create_by(cafe: cafe)
+    favorites.find_or_create_by(cafe:)
   end
 
   def unfavorite(cafe)
-    favorites.where(cafe: cafe).destroy_all
+    favorites.where(cafe:).destroy_all
   end
 
   # フォロー機能

@@ -58,12 +58,12 @@ ja:
       invalid: "が無効です"
   devise:
     sessions:
-      signed_in: 'ログインしました。'
-      signed_out: 'ログアウトしました。'
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
     registrations:
-      signed_up: 'アカウント登録が完了しました。'
-      updated: 'アカウント情報が更新されました。'
+      signed_up: "アカウント登録が完了しました。"
+      updated: "アカウント情報が更新されました。"
     shared:
       links:
-        sign_in: 'ログイン'
-        sign_up: '新規登録'
+        sign_in: "ログイン"
+        sign_up: "新規登録"

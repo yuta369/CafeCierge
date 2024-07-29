@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
   before_action :authenticate_user!, only: [:edit, :update, :destroy, :confirm_deactivation, :deactivate]
-  
+
   def index; end
 
   def show
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect_to root_path, alert: '不正なアクセスです。'
     end
   end
-    
+
   private
 
   def set_user

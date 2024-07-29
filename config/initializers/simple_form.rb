@@ -8,8 +8,7 @@
 SimpleForm.setup do |config|
   # 入力全体を生成するためにフォームビルダーによって使用されるラッパー
   config.wrappers :default, class: :input,
-    hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
-
+                            hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
     ## デフォルトで有効な拡張機能
     b.use :html5
     b.use :placeholder
@@ -49,7 +48,7 @@ SimpleForm.setup do |config|
   config.error_notification_class = 'error_notification'
 
   # ラベルテキストを生成する方法を定義
-  config.label_text = lambda { |label, required, explicit_label| "#{I18n.t(label, default: label)}#{required}" }
+  config.label_text = ->(label, required, _explicit_label) { "#{I18n.t(label, default: label)}#{required}" }
 
   # ネイティブHTML5バリデーションを使用するかどうかを指定
   config.browser_validations = false

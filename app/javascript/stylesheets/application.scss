@@ -58,20 +58,27 @@ main {
 
 .footer i {
   margin-right: 8px;
-  font-size: 20px
+  font-size: 20px;
 }
 
 .fa-instagram {
   color: transparent;
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  background: -webkit-radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 .fa-tiktok {
   color: #111111;
-  filter: drop-shadow(2px 0px 0px #FD3E3E) drop-shadow(-2px -2px 0px #4DE8F4);
+  filter: drop-shadow(2px 0px 0px #fd3e3e) drop-shadow(-2px -2px 0px #4de8f4);
 }
 
 .fa-facebook {
@@ -144,7 +151,7 @@ main {
   padding: 15px;
   background-color: #f8f9fa;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-title {
@@ -168,7 +175,7 @@ main {
   background-color: #f8f9fa;
   padding: 15px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-sidebar h4 {
@@ -278,7 +285,7 @@ main {
 
 .card {
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard {
@@ -321,19 +328,19 @@ main {
   font-weight: bold;
 }
 
-.status-select[data-status='active'] {
+.status-select[data-status="active"] {
   background-color: lightgreen;
 }
 
-.status-select[data-status='inactive'] {
+.status-select[data-status="inactive"] {
   background-color: lightyellow;
 }
 
-.status-select[data-status='suspended'] {
+.status-select[data-status="suspended"] {
   background-color: lightcoral;
 }
 
-.status-select[data-status='unknown'] {
+.status-select[data-status="unknown"] {
   background-color: lightgray;
 }
 
@@ -360,7 +367,8 @@ label {
   font-weight: bold;
 }
 
-input, textarea {
+input,
+textarea {
   margin-top: 0.5rem;
 }
 
@@ -438,11 +446,11 @@ input, textarea {
 }
 
 .nec {
-    background-color: red;
-    color: white;
-    font-weight: 500;
-    margin-left: 20px;
-    padding: 0px 4px 2px 4px;
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  margin-left: 20px;
+  padding: 0px 4px 2px 4px;
 }
 
 .img-preview {

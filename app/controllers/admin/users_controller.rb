@@ -1,18 +1,15 @@
 class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_user, only: [:edit, :update, :destroy]
-  
+
   def index
     @users = User.all
-    if params[:query].present?
-      @users = @users.where('name LIKE ? OR email LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%")
-    end
+    @users = @users.where('name LIKE ? OR email LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") if params[:query].present?
     @users = @users.page(params[:page]).per(10)
   end
-  
-  def edit
-  end
-  
+
+  def edit; end
+
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
@@ -22,7 +19,7 @@ class Admin::UsersController < ApplicationController
     end
     redirect_to admin_users_path
   end
-  
+
   def destroy
     if @user.update(status: 'deleted')
       flash[:notice] = 'ユーザーが削除されました。'
@@ -31,7 +28,7 @@ class Admin::UsersController < ApplicationController
     end
     redirect_to admin_users_path
   end
-  
+
   private
 
   def set_user

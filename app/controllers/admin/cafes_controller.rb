@@ -6,15 +6,13 @@ class Admin::CafesController < ApplicationController
     @cafes = Cafe.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @cafe = Cafe.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @cafe = Cafe.new(cafe_params)
@@ -24,7 +22,7 @@ class Admin::CafesController < ApplicationController
       render :new
     end
   end
-  
+
   def update
     if @cafe.update(cafe_params)
       redirect_to admin_cafe_path(@cafe), notice: 'Cafe was successfully updated.'
@@ -32,7 +30,7 @@ class Admin::CafesController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @cafe.destroy
     redirect_to admin_cafes_path, notice: 'Cafe was successfully destroyed.'

@@ -5,9 +5,9 @@ class CafesController < ApplicationController
   def index
     if params[:name].present? && params[:tag].present?
       tag = Tag.find(params[:tag])
-      @cafes = Cafe.tagged_with(tag.name).where("name LIKE ?","%#{params[:name]}%").page(params[:page]).per(10)
+      @cafes = Cafe.tagged_with(tag.name).where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
     elsif params[:name].present?
-      @cafes = Cafe.where("name LIKE ?","%#{params[:name]}%").page(params[:page]).per(10)
+      @cafes = Cafe.where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
     elsif params[:tag].present?
       tag = Tag.find(params[:tag])
       @cafes = Cafe.tagged_with(tag.name).page(params[:page]).per(10)

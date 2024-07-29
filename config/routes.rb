@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   get 'contacts/new'
   get 'contacts/confirm'
   get 'contacts/complete'
-  
+
   get '/search', to: 'search#perform', as: 'search'
-  
+
   # Deviseルーティング（Adminユーザー）
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     unlocks: 'users/unlocks',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
@@ -74,7 +74,7 @@ Rails.application.routes.draw do
   # 削除確認ページ
   get 'confirmations/:resource/:id', to: 'confirmations#show', as: 'confirm_delete'
   delete 'confirmations/:resource/:id', to: 'confirmations#destroy'
-  
+
   get 'users/:id/confirm_deactivation', to: 'users#confirm_deactivation', as: :confirm_deactivation
   patch 'users/:id/deactivate', to: 'users#deactivate', as: :deactivate_user
 

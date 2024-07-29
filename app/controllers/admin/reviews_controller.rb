@@ -5,18 +5,16 @@ class Admin::ReviewsController < ApplicationController
   def index
     @reviews = if params[:search].present?
                  Review.joins(:cafe, :user)
-                       .where('reviews.title LIKE ? OR reviews.content LIKE ? OR cafes.name LIKE ? OR users.name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-                       .page(params[:page]).per(10)
+                   .where('reviews.title LIKE ? OR reviews.content LIKE ? OR cafes.name LIKE ? OR users.name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
+                   .page(params[:page]).per(10)
                else
                  Review.all.page(params[:page]).per(10)
                end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @review.update(review_params)

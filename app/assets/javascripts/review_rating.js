@@ -1,7 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const stars = document.querySelectorAll(".star-rating .star");
-  stars.forEach(star => {
-    star.addEventListener("mouseover", function() {
+  stars.forEach((star) => {
+    star.addEventListener("mouseover", function () {
       const onStar = parseInt(this.dataset.value, 10);
       stars.forEach((s, index) => {
         if (index < onStar) {
@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
 
-    star.addEventListener("mouseout", function() {
-      stars.forEach(star => star.classList.remove("hover"));
+    star.addEventListener("mouseout", function () {
+      stars.forEach((star) => star.classList.remove("hover"));
     });
 
-    star.addEventListener("click", function() {
+    star.addEventListener("click", function () {
       const onStar = parseInt(this.dataset.value, 10);
       const ratingInput = document.querySelector("#review_rating");
       ratingInput.value = onStar;
