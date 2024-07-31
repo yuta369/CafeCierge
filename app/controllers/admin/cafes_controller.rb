@@ -43,6 +43,17 @@ class Admin::CafesController < ApplicationController
   end
 
   def cafe_params
-    params.require(:cafe).permit(:name, :address, :contact_info, :hours, :category, :price_range, :features, :image)
+      params.require(:cafe).permit(
+    :name,
+    :address,
+    :contact_info,
+    :website,
+    :hours,
+    :category,
+    :price_range,
+    { images: [] },
+    { features: [] },
+    { tag_list: [] },
+    )
   end
 end

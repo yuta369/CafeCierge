@@ -13,7 +13,7 @@
       <img id="profile-preview" src="<%= asset_path('no_image.jpg') %>" alt="プロフィール画像のプレビュー" />
     <% end %>
     <%= f.input :introduction, label: "自己紹介", as: :text %>
-    <%= f.input :current_password, label: "現在のパスワード", hint: "新しいパスワードを設定する場合は必須です", required: false %>
+    <%= f.input :current_password, label: "現在のパスワード", hint: "設定を変更する場合は必須です", required: false %>
     <%= f.input :password, label: "新しいパスワード", hint: "空欄の場合、パスワードは変更されません", required: false %>
     <%= f.input :password_confirmation, label: "パスワード確認", required: false %>
   </div>
