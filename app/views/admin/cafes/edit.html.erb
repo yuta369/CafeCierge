@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="my-4"><%= @cafe.new_record? ? '新規カフェ作成' : 'カフェ編集' %></h1>
 
-  <%= simple_form_for @cafe, html: { multipart: true } do |f| %>
+  <%= simple_form_for(@cafe, as: @cafe, url: admin_cafe_path(@cafe), html: { method: :patch, multipart: true }) do |f| %>
     <%= f.error_notification %>
   
     <div class="form-group">

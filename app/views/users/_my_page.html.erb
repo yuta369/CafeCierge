@@ -1,10 +1,11 @@
-<div class="user-profile">
-  <div class="profile-header d-flex align-items-center">
+<div class="user-profile container mt-4">
+  <!-- ユーザープロフィール -->
+  <div class="profile-header d-flex align-items-center mb-4">
     <div class="profile-image">
       <% if user.profile_image.attached? %>
-        <%= image_tag user.profile_image.variant(resize: "150x150").processed, class: "rounded-circle" %>
+        <%= image_tag user.profile_image.variant(resize: "150x150").processed, class: "rounded-circle", alt: "Profile Image" %>
       <% else %>
-        <%= image_tag "no_image.jpg", size: "150x150", class: "rounded-circle" %>
+        <%= image_tag "no_image.jpg", size: "150x150", class: "rounded-circle", alt: "Default Profile Image" %>
       <% end %>
     </div>
     <div class="profile-info ml-4">
@@ -12,7 +13,7 @@
       <p><%= user.introduction.presence || "No introduction available." %></p>
       <p>Followers: <%= user.followers.count %> / Following: <%= user.following.count %></p>
       <% if user_signed_in? && current_user == user %>
-        <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary" %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary mr-2" %>
         <%= link_to 'Delete Account', confirm_deactivation_path(current_user), method: :get, class: 'btn btn-danger' %>
       <% elsif user_signed_in? %>
         <%= render 'relationships/follow_button', user: user %>
@@ -20,27 +21,32 @@
     </div>
   </div>
 
+  <!-- 投稿したカフェ -->
   <div class="user-cafes mt-4">
     <h3>Posted Cafes</h3>
     <% if user.cafes.any? %>
       <div class="row">
         <% user.cafes.each do |cafe| %>
-          <div class="col-md-4">
-            <div class="cafe-card">
+          <div class="col-md-4 mb-4">
+            <div class="cafe-card border rounded shadow-sm">
               <%= link_to cafe_path(cafe) do %>
                 <% if cafe.images.attached? %>
-                  <%= image_tag cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+                  <%= image_tag cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid", alt: "Cafe Image" %>
                 <% else %>
-                  <%= image_tag "no_image.jpg", class: "img-fluid" %>
+                  <%= image_tag "no_image2.png", size: "300x200", class: "img-fluid", alt: "Default Cafe Image" %>
                 <% end %>
-                <h4><%= cafe.name %></h4>
-                <p>Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                <div class="cafe-card-body p-3">
+                  <h4 class="cafe-card-title"><%= cafe.name %></h4>
+                  <p class="cafe-card-rating">Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                </div>
               <% end %>
               <% if user_signed_in? && current_user == user %>
-                <%= link_to 'Edit', edit_cafe_path(cafe), class: "btn btn-warning btn-sm" %>
-                <%= link_to 'Delete', confirm_delete_cafe_path(cafe), method: :get, class: "btn btn-danger" %>
+                <div class="cafe-card-actions p-3">
+                  <%= link_to 'Edit', edit_cafe_path(cafe), class: "btn btn-warning btn-sm mr-2" %>
+                  <%= link_to 'Delete', confirm_delete_cafe_path(cafe), method: :get, class: "btn btn-danger btn-sm" %>
+                </div>
               <% end %>
-              <div id="favorite_btn_<%= cafe.id %>">
+              <div id="favorite_btn_<%= cafe.id %>" class="cafe-card-favorite p-3">
                 <%= render 'favorites/btn', cafe: cafe %>
               </div>
             </div>
@@ -52,23 +58,26 @@
     <% end %>
   </div>
 
+  <!-- お気に入りのカフェ -->
   <div class="user-favorites mt-4">
     <h3>Favorite Cafes</h3>
     <% if user.favorite_cafes.any? %>
       <div class="row">
         <% user.favorite_cafes.each do |favorite_cafe| %>
-          <div class="col-md-4">
-            <div class="cafe-card">
+          <div class="col-md-4 mb-4">
+            <div class="cafe-card border rounded shadow-sm">
               <%= link_to cafe_path(favorite_cafe) do %>
                 <% if favorite_cafe.images.attached? %>
-                  <%= image_tag favorite_cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid" %>
+                  <%= image_tag favorite_cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid", alt: "Favorite Cafe Image" %>
                 <% else %>
-                  <%= image_tag "no_image.jpg", size: "300x200", class: "img-fluid" %>
+                  <%= image_tag "no_image2.png", size: "300x200", class: "img-fluid", alt: "Default Favorite Cafe Image" %>
                 <% end %>
-                <h4><%= favorite_cafe.name %></h4>
-                <p>Rating: <%= favorite_cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                <div class="cafe-card-body p-3">
+                  <h4 class="cafe-card-title"><%= favorite_cafe.name %></h4>
+                  <p class="cafe-card-rating">Rating: <%= favorite_cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                </div>
               <% end %>
-              <div id="favorite_btn_<%= favorite_cafe.id %>">
+              <div id="favorite_btn_<%= favorite_cafe.id %>" class="cafe-card-favorite p-3">
                 <%= render 'favorites/btn', cafe: favorite_cafe %>
               </div>
             </div>
@@ -80,20 +89,21 @@
     <% end %>
   </div>
 
+  <!-- フォロー中 -->
   <div class="user-following mt-4">
     <h3>Following</h3>
     <% if user.following.any? %>
       <div class="row">
         <% user.following.each do |following_user| %>
-          <div class="col-md-3">
-            <div class="follow-card">
+          <div class="col-md-3 mb-4">
+            <div class="follow-card text-center border rounded shadow-sm p-3">
               <%= link_to user_path(following_user) do %>
                 <% if following_user.profile_image.attached? %>
-                  <%= image_tag following_user.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+                  <%= image_tag following_user.profile_image.variant(resize: "100x100").processed, class: "rounded-circle", alt: "Following User Image" %>
                 <% else %>
-                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle" %>
+                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle", alt: "Default Following User Image" %>
                 <% end %>
-                <h4><%= following_user.name %></h4>
+                <h4 class="mt-2"><%= following_user.name %></h4>
               <% end %>
             </div>
           </div>
@@ -104,20 +114,21 @@
     <% end %>
   </div>
 
+  <!-- フォロワー -->
   <div class="user-followers mt-4">
     <h3>Followers</h3>
     <% if user.followers.any? %>
       <div class="row">
         <% user.followers.each do |follower| %>
-          <div class="col-md-3">
-            <div class="follow-card">
+          <div class="col-md-3 mb-4">
+            <div class="follow-card text-center border rounded shadow-sm p-3">
               <%= link_to user_path(follower) do %>
                 <% if follower.profile_image.attached? %>
-                  <%= image_tag follower.profile_image.variant(resize: "100x100").processed, class: "rounded-circle" %>
+                  <%= image_tag follower.profile_image.variant(resize: "100x100").processed, class: "rounded-circle", alt: "Follower Image" %>
                 <% else %>
-                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle" %>
+                  <%= image_tag "no_image.jpg", size: "100x100", class: "rounded-circle", alt: "Default Follower Image" %>
                 <% end %>
-                <h4><%= follower.name %></h4>
+                <h4 class="mt-2"><%= follower.name %></h4>
               <% end %>
             </div>
           </div>

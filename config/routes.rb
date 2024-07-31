@@ -55,10 +55,10 @@ Rails.application.routes.draw do
 
   # レビュー関連
   resources :reviews, only: [] do
-    resources :comments, only: [:create, :edit, :update, :destroy]
     member do
       get 'confirm_delete'
     end
+    resources :comments, only: [:create, :edit, :update, :destroy]
   end
 
   # 管理者関連

@@ -3,6 +3,16 @@
 <% else %>
   <h1>User Profile</h1>
 <% end %>
-<div id="follow_id_<%= current_user.id %>">
-  <%= render "my_page", user: @user %>
-</div>
+<% if @user %>
+  <% if current_user %>
+    <div id="follow_id_<%= current_user.id %>">
+      <%= render "my_page", user: @user %>
+    </div>
+  <% else %>
+    <div id="follow_id_<%= @user.id %>">
+      <%= render "my_page", user: @user %>
+    </div>
+  <% end %>
+<% else %>
+  <p>ユーザーが見つかりません。</p>
+<% end %>

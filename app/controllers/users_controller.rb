@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy, :confirm_deactivation, :deactivate]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
 
   def index; end
 
@@ -40,6 +40,9 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      redirect_to root_path, alert: 'ユーザーが見つかりません。'
+    end
   end
 end

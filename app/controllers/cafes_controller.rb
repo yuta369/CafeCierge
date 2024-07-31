@@ -14,6 +14,7 @@ class CafesController < ApplicationController
     else
       @cafes = Cafe.all.page(params[:page]).per(10)
     end
+    @search_query = params[:search] || ""
   end
 
   def show

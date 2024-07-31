@@ -61,22 +61,24 @@
 
 
 
-<%= form_with(model: @user, url: admin_user_path(@user), method: :patch, local: true) do |form| %>
   <div class="container mt-4">
     <h1 class="mb-4">ユーザー情報の編集</h1>
+<%= simple_form_for(@user, as: @user, url: admin_user_path(@user), html: { method: :patch, multipart: true }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: "名前", required: true %>
+    <%= f.input :email, label: "メールアドレス", required: true %>
+    <%= f.input :profile_image, label: "プロフィール写真", as: :file, input_html: { accept: 'image/*', onchange: 'loadPreview(this);' } %>
+    <% if @user.profile_image.attached? %>
+      <%= image_tag @user.profile_image.variant(resize: "100x100").processed, id: 'profile-preview' %>
+    <% else %>
+      <img id="profile-preview" src="<%= asset_path('no_image.jpg') %>" alt="プロフィール画像のプレビュー" />
+    <% end %>
+    <%= f.input :introduction, label: "自己紹介", as: :text %>
 
     <div class="form-group">
-      <%= form.label :name, '名前', class: 'form-label' %>
-      <%= form.text_field :name, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :email, 'メールアドレス', class: 'form-label' %>
-      <%= form.email_field :email, class: 'form-control' %>
-    </div>
-
-    <div class="form-group">
-      <%= form.label :status, 'ステータス', class: 'form-label' %>
+      <%= f.label :status, 'ステータス', class: 'form-label' %>
       <div class="custom-select-wrapper">
         <div class="custom-select">
           <div class="selected-option" data-status="<%= @user.status %>">
@@ -90,12 +92,12 @@
             <% end %>
           </div>
         </div>
-        <%= form.hidden_field :status, id: 'status-input' %>
+        <%= f.hidden_field :status, id: 'status-input' %>
       </div>
     </div>
 
     <div class="form-group mt-4">
-      <%= form.submit '保存', class: 'btn btn-primary' %>
+      <%= f.submit '保存', class: 'btn btn-primary' %>
       <%= link_to 'キャンセル', admin_users_path, class: 'btn btn-secondary ml-2' %>
     </div>
   </div>
@@ -136,4 +138,17 @@
       }
     });
   });
+</script>
+
+<script>
+  function loadPreview(input) {
+    var preview = document.getElementById('profile-preview');
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
 </script>

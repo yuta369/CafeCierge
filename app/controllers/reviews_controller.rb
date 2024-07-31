@@ -1,12 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: [:show, :edit, :update, :destroy, :confirm_delete]
-  before_action :set_cafe
+  before_action :set_cafe, except: [:confirm_delete] # `confirm_delete` アクションには適用しない
+
   def edit; end
 
   def create
     @review = @cafe.reviews.build(review_params)
-    @review.user = current_user # レビューのユーザーを現在ログインしているユーザーに設定
+    @review.user = current_user
 
     if @review.save
       redirect_to @cafe, notice: 'レビューが投稿されました。'

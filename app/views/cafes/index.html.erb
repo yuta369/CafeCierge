@@ -10,13 +10,13 @@
       <div class="cafes">
         <div class="row">
           <% @cafes.each do |cafe| %>
-            <div class="cafe-card col-md-4 mb-4">
+            <div class="cafe-card col-md-5 mb-5">
               <div class="card shadow-sm">
                 <%= link_to cafe_path(cafe), class: "card shadow-sm text-dark text-decoration-none" do %>
                   <% if cafe.images.attached? %>
                     <%= image_tag cafe.images.first.variant(resize: "300x300").processed, class: "card-img-top", alt: "#{cafe.name}の画像" %>
                   <% else %>
-                    <%= image_tag 'no_image.jpg', class: "card-img-top", alt: "No image available" %>
+                    <%= image_tag 'no_image2.png', class: "card-img-top", alt: "No image available" %>
                   <% end %>
                 <% end %>
                 <div class="card-body">
@@ -28,7 +28,7 @@
                   </div>
                   <div class="d-flex align-items-center mb-2">
                     <% if cafe.reviews.any? %>
-                      <p><div id="average_raty_<%= cafe.id %>"></div></p>
+                      <div id="average_raty_<%= cafe.id %>"></div>
                       <span class="text-muted"><%= cafe.reviews.average(:rating).to_f.round(1) %> / 5.0</span>
                     <% else %>
                       <span class="text-muted">評価なし</span>
@@ -55,6 +55,7 @@
                 let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
                 elem.innerHTML = ""
                 let opt = {
+                  space: false,
                   starOn: "<%= asset_path('star-on.png') %>",
                   starOff: "<%= asset_path('star-off.png') %>",
                   starHalf: "<%= asset_path('star-half.png') %>",
