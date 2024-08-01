@@ -10,7 +10,7 @@
       <div class="cafes">
         <div class="row">
           <% @cafes.each do |cafe| %>
-            <div class="cafe-card col-md-5 mb-5">
+            <div class="cafe-card col-md-5 mb-5 offset-md-1">
               <div class="card shadow-sm">
                 <%= link_to cafe_path(cafe), class: "card shadow-sm text-dark text-decoration-none" do %>
                   <% if cafe.images.attached? %>

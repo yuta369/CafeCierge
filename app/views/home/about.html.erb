@@ -33,6 +33,7 @@
 
     .section {
       margin-bottom: 40px;
+      margin-top: 50px;
     }
 
     .image-container {
@@ -60,10 +61,6 @@
     }
     .slider.slick-initialized{
       display: block; /*slick-initializedが付与されたら表示*/
-    }
-
-    .personal-photo {
-      text-align: center;
     }
 
     .personal-photo img {
@@ -127,7 +124,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
     $(document).ready(function(){
-      $('.slick-carousel').slick({
+      $('.slick-carousel').not('.slick-initialized').slick({
         autoplay: true,
         autoplaySpeed: 2000,
         dots: true,
