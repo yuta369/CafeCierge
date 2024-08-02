@@ -37,6 +37,7 @@
                 <% end %>
                 <div class="cafe-card-body p-3">
                   <h4 class="cafe-card-title"><%= cafe.name %></h4>
+                  <div id="average_raty_<%= cafe.id %>"></div>
                   <p class="cafe-card-rating">Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
                 </div>
               <% end %>
@@ -74,6 +75,7 @@
                 <% end %>
                 <div class="cafe-card-body p-3">
                   <h4 class="cafe-card-title"><%= favorite_cafe.name %></h4>
+                  <div id="average_raty_2<%= favorite_cafe.id %>"></div>
                   <p class="cafe-card-rating">Rating: <%= favorite_cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
                 </div>
               <% end %>
@@ -139,3 +141,47 @@
     <% end %>
   </div>
 </div>
+
+<% user.cafes.each do |cafe| %>
+  <script>
+    $(document).on('turbolinks:load', function() {
+      let elem = document.querySelector('#average_raty_<%= cafe.id %>');
+      if (elem == null) return;
+      let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+      elem.innerHTML = ""
+      let opt = {
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: averageRating,
+        space: false,
+        readOnly: true,
+        half: true,
+        number: 5
+      };
+      raty(elem, opt);
+    });
+  </script>
+<% end %>
+
+<% user.favorite_cafes.each do |favorite_cafe| %>
+  <script>
+    $(document).on('turbolinks:load', function() {
+      let elem = document.querySelector('#average_raty_2<%= favorite_cafe.id %>');
+      if (elem == null) return;
+      let averageRating = <%= favorite_cafe.reviews.any? ? favorite_cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+      elem.innerHTML = ""
+      let opt = {
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        score: averageRating,
+        space: false,
+        readOnly: true,
+        half: true,
+        number: 5
+      };
+      raty(elem, opt);
+    });
+  </script>
+<% end %>
