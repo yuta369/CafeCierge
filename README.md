@@ -49,7 +49,19 @@
 
 ## 設計書
 
-　設計書は修正中です。  後ほど添付する予定です。
+- **ER図**
+![CaféCierge-ER図 drawio](https://github.com/user-attachments/assets/83967e35-5c29-45a3-b8f9-3e0c27807cd6)
+
+- **UIFlows**
+![CaféCierge-画面遷移図 (UI Flows) drawio](https://github.com/user-attachments/assets/bd6770b9-65d8-4b5d-ad3c-49564ca0fe4d)
+
+- **テーブル定義書** : 
+[CaféCierge-テーブル定義書](https://docs.google.com/spreadsheets/d/1ynMGy2rI1ryb7Q6F0g69Un9DROBkSgzD/edit?usp=sharing&ouid=103542130713378992441&rtpof=true&sd=true)
+
+- **アプリケーション詳細設計書** : 
+[CaféCierge-アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1NcVHX4IVRChopYptHGUYnVcK7jLINyXEccnKRFFazJA/edit?usp=sharing)
+
+　**※** 設計書は、開発しながら随時**修正中**です。  そのため、**最新の情報ではない**可能性がありますす。
 
 
 
@@ -125,5 +137,5 @@
 ## 使用素材について
 
 　使用している画像は、全て OpenAI の画像生成AI「 DALL・E 3 」で作成したものです。  
-　※「架空の店舗・団体・素材であることを前提」としたサイトです。  
-　※ ただし、本番環境でユーザー様が投稿した画像に関しては、この限りではありません。  
+　**※** 「架空の店舗・団体・素材であることを前提」としたサイトです。  
+　**※**  ただし、本番環境でユーザー様が投稿した画像に関しては、この限りではありません。  
