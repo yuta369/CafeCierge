@@ -113,7 +113,7 @@
 1. リポジトリをクローンします。
 
    ```bash
-   git clone https://github.com/yourusername/CafeCierge.git
+   git clone https://github.com/yuta369/CafeCierge.git
    ```
 
 2. ディレクトリに移動します。
@@ -135,6 +135,7 @@
    ```
 
 5. サーバーを起動します。
+
    ```bash
    rails server
    ```
