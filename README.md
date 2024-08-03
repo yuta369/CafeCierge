@@ -61,7 +61,7 @@
 - **アプリケーション詳細設計書** : 
 [CaféCierge-アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1NcVHX4IVRChopYptHGUYnVcK7jLINyXEccnKRFFazJA/edit?usp=sharing)
 
-　**※** 設計書は、開発しながら随時**修正中**です。  そのため、**最新の情報ではない**可能性がありますす。
+　**※** 設計書は、開発しながら随時**修正中**です。  そのため、**最新の情報ではない**可能性があります。
 
 
 
