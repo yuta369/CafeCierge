@@ -70,7 +70,7 @@
 
 ![CaféCierge-ER図 drawio](https://github.com/user-attachments/assets/83967e35-5c29-45a3-b8f9-3e0c27807cd6)
 
-- **UIFlows**
+- **画面遷移図 (UI Flows)**
 
 ![CaféCierge-画面遷移図 (UI Flows) drawio](https://github.com/user-attachments/assets/bd6770b9-65d8-4b5d-ad3c-49564ca0fe4d)
 
@@ -98,7 +98,7 @@
 
 - **バックエンド** : Ruby on Rails
 
-- **データベース** : PostgreSQL
+- **データベース** : MSQL
 
 - **認証** : Devise
 
