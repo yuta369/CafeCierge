@@ -1,4 +1,5 @@
 # *CaféCierge* (カフェシェルジュ)
+![CafeCierge_logo](https://github.com/user-attachments/assets/a502fd55-1c16-4283-a1ef-15f8d2215066)
 
 　**CaféCierge** は、**おしゃれなカフェに特化した情報共有**ができるレビューサイトです。  
 　ユーザーがカフェの情報を投稿し、レビューや評価を行うことで、素敵なカフェを探す手助けをします。  
