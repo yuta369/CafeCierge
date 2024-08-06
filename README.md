@@ -1,4 +1,4 @@
-# *CaféCierge* (カフェシェルジュ)
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Telegram-Animated-Emojis/main/Food%20and%20Drink/Hot%20Beverage.webp" alt="Hot Beverage" width="25" height="25" />*CaféCierge* (カフェシェルジュ)
 
 ![CafeCierge_logo](https://github.com/user-attachments/assets/a502fd55-1c16-4283-a1ef-15f8d2215066)
 
