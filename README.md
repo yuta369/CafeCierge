@@ -86,7 +86,7 @@
 
 ## 開発環境
 
-- **OS** ：Linux (CentOS)
+- **OS** ：Linux (Amazon Linux 2)
 
 - **IDE** ：Cloud9
 
