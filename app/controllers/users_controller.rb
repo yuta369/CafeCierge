@@ -11,12 +11,6 @@ class UsersController < ApplicationController
     @following = [] # フォローしている人のリストがない場合は空のリスト
   end
 
-  def edit; end
-
-  def update; end
-
-  def destroy; end
-
   # 退会確認ページ
   def confirm_deactivation
     if @user == current_user

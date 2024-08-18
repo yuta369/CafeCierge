@@ -83,4 +83,6 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     active_relationships.find_by(followee_id: other_user.id).destroy
   end
+  
+  
 end
