@@ -6,7 +6,7 @@
     <p>この操作は元に戻せません。</p>
   </div>
 
-  <%= form_with url: cafe_review_path(@review), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
+  <%= form_with url: cafe_review_path(@review.cafe, @review), method: :delete, data: { confirm: '本当に削除してもよろしいですか？' } do %>
     <%= submit_tag '削除する', class: 'btn btn-danger' %>
     <%= link_to 'キャンセル', cafe_path(@review.cafe), class: 'btn btn-secondary' %>
   <% end %>
