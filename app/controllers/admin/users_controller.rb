@@ -8,7 +8,8 @@ class Admin::UsersController < ApplicationController
     @users = @users.page(params[:page]).per(10)
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     @user = User.find(params[:id])
@@ -21,7 +22,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    if @user.update(status: 'deleted')
+    if @user.destroy
       flash[:notice] = 'ユーザーが削除されました。'
     else
       flash[:alert] = 'ユーザーの削除に失敗しました。'

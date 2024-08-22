@@ -6,13 +6,15 @@ class Admin::CafesController < ApplicationController
     @cafes = Cafe.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @cafe = Cafe.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @cafe = Cafe.new(cafe_params)

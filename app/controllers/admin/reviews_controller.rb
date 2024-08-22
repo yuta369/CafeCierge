@@ -12,9 +12,11 @@ class Admin::ReviewsController < ApplicationController
                end
   end
 
-  def show; end
+  def show
+  end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @review.update(review_params)
