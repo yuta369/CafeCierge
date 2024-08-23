@@ -29,7 +29,7 @@
                   <div class="d-flex align-items-center mb-2">
                     <% if cafe.reviews.any? %>
                       <div id="average_raty_<%= cafe.id %>"></div>
-                      <span class="text-muted"><%= cafe.reviews.average(:rating).to_f.round(1) %> / 5.0</span>
+                      <span class="text-muted"><%= cafe.review_avarage %> / 5.0</span>
                     <% else %>
                       <span class="text-muted">評価なし</span>
                     <% end %>
@@ -52,7 +52,7 @@
               $(document).on('turbolinks:load', function() {
                 let elem = document.querySelector('#average_raty_<%= cafe.id %>');
                 if (elem == null) return;
-                let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+                let averageRating = <%= cafe.reviews.any? ? cafe.review_avarage : 0 %>;
                 elem.innerHTML = ""
                 let opt = {
                   space: false,

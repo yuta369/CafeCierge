@@ -3,7 +3,8 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy, :confirm_delete]
   before_action :set_cafe, except: [:confirm_delete] # `confirm_delete` アクションには適用しない
 
-  def edit; end
+  def edit
+  end
 
   def create
     @review = @cafe.reviews.build(review_params)
@@ -30,7 +31,8 @@ class ReviewsController < ApplicationController
     redirect_to cafe_path(cafe), notice: 'レビューが削除されました。'
   end
 
-  def confirm_delete; end
+  def confirm_delete
+  end
 
   private
 

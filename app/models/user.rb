@@ -84,5 +84,7 @@ class User < ApplicationRecord
     active_relationships.find_by(followee_id: other_user.id).destroy
   end
   
-  
+  def same(current_user)
+    current_user == self
+  end
 end

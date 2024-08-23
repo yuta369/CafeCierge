@@ -66,7 +66,7 @@
       </span>
     </div>
     
-    <% if @cafe.user == current_user %>
+    <% if @cafe.written_by?(current_user)  %>
       <div class="cafe-actions mt-3">
         <%= link_to 'Edit', edit_cafe_path(@cafe), class: 'btn btn-secondary' %>
         <%= link_to 'Delete', confirm_delete_cafe_path(@cafe), method: :get, class: "btn btn-danger" %>
@@ -145,7 +145,7 @@
             <p><%= review.content %></p>
             <div id="star_<%= review.id %>"></div>
             <p>Rating: <%= review.rating.to_f.round(1) %> / 5.0</p>
-            <% if review.user == current_user %>
+            <% if review.written_by?(current_user) %>
               <%= link_to 'Edit', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
               <%= link_to 'Delete', confirm_delete_review_path(review), class: 'btn btn-danger' %>
             <% end %>

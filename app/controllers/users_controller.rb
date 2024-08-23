@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :confirm_deactivation, :deactivate]
 
-  def index; end
+  def index
+  end
 
   def show
     @cafes = @user.cafes # ユーザーが投稿したカフェ一覧

@@ -27,4 +27,16 @@ class Cafe < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  
+  def written_by?(current_user)
+    user == current_user 
+  end
+  
+  def review_avarage
+    reviews.average(:rating).to_f.round(1)
+  end
+  
 end
+
+
+

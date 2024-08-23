@@ -27,7 +27,8 @@ class CafesController < ApplicationController
     @cafe.reviews.build # レビューのビルド
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @cafe = Cafe.new(cafe_params)

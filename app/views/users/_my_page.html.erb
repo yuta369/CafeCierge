@@ -12,7 +12,7 @@
       <h2><%= user.name %></h2>
       <p><%= user.introduction.presence || "No introduction available." %></p>
       <p>Followers: <%= user.followers.count %> / Following: <%= user.following.count %></p>
-      <% if user_signed_in? && current_user == user %>
+      <% if user.same(current_user) %>
         <%= link_to 'Edit Profile', edit_user_registration_path, class: "btn btn-primary mr-2" %>
         <%= link_to 'Delete Account', confirm_deactivation_path(current_user), method: :get, class: 'btn btn-danger' %>
       <% elsif user_signed_in? %>
@@ -41,7 +41,7 @@
                   <p class="cafe-card-rating">Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
                 </div>
               <% end %>
-              <% if user_signed_in? && current_user == user %>
+              <% if user.same(current_user) %>
                 <div class="cafe-card-actions p-3">
                   <%= link_to 'Edit', edit_cafe_path(cafe), class: "btn btn-warning btn-sm mr-2" %>
                   <%= link_to 'Delete', confirm_delete_cafe_path(cafe), method: :get, class: "btn btn-danger btn-sm" %>
@@ -147,7 +147,7 @@
     $(document).on('turbolinks:load', function() {
       let elem = document.querySelector('#average_raty_<%= cafe.id %>');
       if (elem == null) return;
-      let averageRating = <%= cafe.reviews.any? ? cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+      let averageRating = <%= cafe.reviews.any? ? cafe.review_avarage : 0 %>;
       elem.innerHTML = ""
       let opt = {
         starOn: "<%= asset_path('star-on.png') %>",
@@ -169,7 +169,7 @@
     $(document).on('turbolinks:load', function() {
       let elem = document.querySelector('#average_raty_2<%= favorite_cafe.id %>');
       if (elem == null) return;
-      let averageRating = <%= favorite_cafe.reviews.any? ? favorite_cafe.reviews.average(:rating).to_f.round(1) : 0 %>;
+      let averageRating = <%= favorite_cafe.reviews.any? ? favorite_cafe.review_avarage : 0 %>;
       elem.innerHTML = ""
       let opt = {
         starOn: "<%= asset_path('star-on.png') %>",

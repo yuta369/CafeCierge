@@ -5,5 +5,6 @@ class HomeController < ApplicationController
     @popular_tags = ActsAsTaggableOn::Tag.most_used.limit(10) # Most used tags
   end
 
-  def about; end
+  def about
+  end
 end
