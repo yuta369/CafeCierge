@@ -94,9 +94,9 @@
 
 ## 使用技術
 
-- **フロントエンド** : HTML 5, CSS 3, JavaScript (ES6), Bootstrap 5
+- **フロントエンド** : HTML 5 / CSS 3 / JavaScript (ES6) / Bootstrap 5
 
-- **バックエンド** : Ruby (ver. 3.1.2p20), Ruby on Rails (ver. 6.1.7.8)
+- **バックエンド** : Ruby (ver. 3.1.2p20) / Ruby on Rails (ver. 6.1.7.8)
 
 - **データベース** : SQL (SQLight 3)
 
@@ -104,7 +104,7 @@
 
 - **画像アップロード** : Active Storage
 
-- **その他ライブラリ** : Raty.js (レビューの星評価), Acts As Taggable On (タグ付け機能)
+- **その他ライブラリ** : Raty.js (レビューの星評価) / Acts As Taggable On (タグ付け機能)
 
 ---
 
