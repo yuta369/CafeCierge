@@ -88,17 +88,17 @@
 
 - **OS** ：Linux (Amazon Linux 2)
 
-- **IDE** ：Cloud9
+- **IDE** ：Cloud9 (AWS)
 
 ---
 
 ## 使用技術
 
-- **フロントエンド** : HTML, CSS, JavaScript, Bootstrap
+- **フロントエンド** : HTML 5, CSS 3, JavaScript (ES6), Bootstrap 5
 
-- **バックエンド** : Ruby on Rails
+- **バックエンド** : Ruby (ver. 3.1.2p20), Ruby on Rails (ver. 6.1.7.8)
 
-- **データベース** : MySQL
+- **データベース** : SQL (SQLight 3)
 
 - **認証** : Devise
 
@@ -173,5 +173,5 @@
 
 　使用している画像は、全て OpenAI の画像生成AI「 DALL・E 3 」で作成したものです。
 
-　**※** 「架空の店舗・団体・素材であることを前提」としたサイトです。
+　**※** 「架空の店舗・団体・素材であることを前提」としたサイトです。  
 　**※**  ただし、本番環境でユーザー様が投稿した画像に関しては、この限りではありません。
