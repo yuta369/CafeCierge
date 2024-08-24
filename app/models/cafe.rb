@@ -36,7 +36,22 @@ class Cafe < ApplicationRecord
     reviews.average(:rating).to_f.round(1)
   end
   
-end
+  def self.search_by_tag_name(params)
+    
+    if params[:name].present? && params[:tag].present?
+      tag = Tag.find(params[:tag])
+       tagged_with(tag.name).where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
+    elsif params[:name].present?
+      where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
+    elsif params[:tag].present?
+      tag = Tag.find(params[:tag])
+       tagged_with(tag.name).page(params[:page]).per(10)
+    else
+      all.page(params[:page]).per(10)
+    end
+    
+  end
 
+end
 
 

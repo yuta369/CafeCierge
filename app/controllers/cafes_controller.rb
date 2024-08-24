@@ -3,17 +3,7 @@ class CafesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    if params[:name].present? && params[:tag].present?
-      tag = Tag.find(params[:tag])
-      @cafes = Cafe.tagged_with(tag.name).where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
-    elsif params[:name].present?
-      @cafes = Cafe.where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
-    elsif params[:tag].present?
-      tag = Tag.find(params[:tag])
-      @cafes = Cafe.tagged_with(tag.name).page(params[:page]).per(10)
-    else
-      @cafes = Cafe.all.page(params[:page]).per(10)
-    end
+    @cafes = Cafe.search_by_tag_name(params)
     @search_query = params[:search] || ""
   end
 
