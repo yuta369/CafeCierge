@@ -11,7 +11,7 @@
             <% if @reviews.any? %>
               <div class="mr-3">comprehensive rating : </div>
               <div id="average_raty" class="mr-3"></div>
-              <span class="mr-5"><%= @reviews.average(:rating).to_f.round(1) %> / 5.0</span>
+              <span class="mr-5"><%= @cafe.review_avarage %> / 5.0</span>
             <% else %>
               <span>No Rating</span>
             <% end %>
@@ -145,7 +145,7 @@
             <p><%= review.content %></p>
             <div id="star_<%= review.id %>"></div>
             <p>Rating: <%= review.rating.to_f.round(1) %> / 5.0</p>
-            <% if review.written_by?(current_user) %>
+            <% if review.user == current_user %>
               <%= link_to 'Edit', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
               <%= link_to 'Delete', confirm_delete_review_path(review), class: 'btn btn-danger' %>
             <% end %>
@@ -187,7 +187,7 @@
   $(document).on('turbolinks:load', function() {
     let elem = document.querySelector('#average_raty');
     if (elem == null) return;
-    let averageRating = <%= @cafe.reviews.any? ? @cafe.review_avarage %>;
+    let averageRating = <%= @cafe.reviews.any? ? @cafe.review_avarage : 0 %>;
     elem.innerHTML = ""
     let opt = {
       starOn: "<%= asset_path('star-on.png') %>",
