@@ -6,11 +6,11 @@
 <% if @user %>
   <% if current_user %>
     <div id="follow_id_<%= current_user.id %>">
-      <%= render "my_page", user: @user %>
+      <%= render "profile", user: @user %>
     </div>
   <% else %>
     <div id="follow_id_<%= @user.id %>">
-      <%= render "my_page", user: @user %>
+      <%= render "profile", user: @user %>
     </div>
   <% end %>
 <% else %>
