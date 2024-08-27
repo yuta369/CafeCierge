@@ -36,6 +36,7 @@ class Cafe < ApplicationRecord
     reviews.average(:rating).to_f.round(1)
   end
   
+  # Café検索機能
   def self.search_by_tag_name(params)
     
     if params[:name].present? && params[:tag].present?
