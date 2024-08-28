@@ -4,8 +4,8 @@
     <h1>Discover Stylish Café To Have A Great Time</h1>
     <h5>～　おしゃれなカフェで、素敵な時間を。　～</h5>
     <div class="search-bar">
-      <%= form_with(url: search_path, method: :get, local: true, class: "form-inline") do %>
-        <%= text_field_tag :query, params[:query], class: "form-control form-control-lg", placeholder: "Search for cafés..." %>
+      <%= form_with(url: cafes_path, method: :get, local: true, class: "form-inline") do %>
+        <%= text_field_tag :name, params[:name], class: "form-control form-control-lg", placeholder: "Search for cafés..." %>
         <%= submit_tag "Search", class: "btn btn-primary ml-2" %>
       <% end %>
     </div>
@@ -59,7 +59,7 @@
   <h2 class="text-center mb-4">Popular Tags</h2>
   <div class="d-flex flex-wrap justify-content-center">
     <% @popular_tags.each do |tag| %>
-      <%= link_to tag.name, search_path(tag: tag.name), class: 'badge badge-primary m-2 tag-badge' %>
+      <%= link_to tag.name, search_tag_path(tag: tag.name), class: 'badge badge-primary m-2 tag-badge' %>
     <% end %>
   </div>
 </section>

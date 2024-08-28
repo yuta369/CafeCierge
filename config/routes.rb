@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'contacts/complete'
 
   get '/search', to: 'search#perform', as: 'search'
+  get '/search/name'
+  get '/search/tag'
 
   # Deviseルーティング（Adminユーザー）
   devise_for :admin, skip: [:registrations, :passwords], controllers: {

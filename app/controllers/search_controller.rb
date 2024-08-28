@@ -14,4 +14,14 @@ class SearchController < ApplicationController
       redirect_to root_path, alert: 'Invalid search type'
     end
   end
+  
+  def name
+    @cafes = Cafe.where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
+    render 'cafes/index'
+  end
+  
+  def tag
+    @cafes = Cafe.tagged_with(tag.name).page(params[:page]).per(10)
+    render 'cafes/index'
+  end
 end
