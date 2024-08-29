@@ -6,10 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @cafes = @user.cafes # ユーザーが投稿したカフェ一覧
-    @favorite_cafes = [] # お気に入り機能がない場合は空のリスト
-    @followers = [] # フォロワー機能がない場合は空のリスト
-    @following = [] # フォローしている人のリストがない場合は空のリスト
+    @cafes = @user.cafes
+    @favorite_cafes = []
+    @followers = []
+    @following = []
   end
 
   # 退会確認ページ
@@ -24,8 +24,8 @@ class UsersController < ApplicationController
   # 退会処理
   def deactivate
     if @user == current_user
-      @user.update(status: 'inactive') # ステータスを 'inactive' に変更
-      sign_out_and_redirect(current_user) # サインアウトしてDeviseのサインインページにリダイレクト
+      @user.update(status: 'inactive')
+      sign_out_and_redirect(current_user)
       flash[:notice] = 'アカウントが退会されました。'
     else
       redirect_to root_path, alert: '不正なアクセスです。'

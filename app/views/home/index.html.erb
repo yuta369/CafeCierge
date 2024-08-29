@@ -59,7 +59,7 @@
   <h2 class="text-center mb-4">Popular Tags</h2>
   <div class="d-flex flex-wrap justify-content-center">
     <% @popular_tags.each do |tag| %>
-      <%= link_to tag.name, search_tag_path(tag: tag.name), class: 'badge badge-primary m-2 tag-badge' %>
+      <%= link_to tag.name, cafes_path(tag: tag), class: 'badge badge-primary m-2 tag-badge' %>
     <% end %>
   </div>
 </section>

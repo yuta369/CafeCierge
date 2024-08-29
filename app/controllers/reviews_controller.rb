@@ -41,9 +41,9 @@ class ReviewsController < ApplicationController
   end
 
   def set_cafe
-    @cafe = Cafe.find(params[:cafe_id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, alert: '指定されたカフェが見つかりません。'
+    @cafe = Cafe.find_by_id(params[:cafe_id])
+    flash[:alert] = '指定されたカフェが見つかりません。'
+    redirect_to root_path unless @cafe
   end
 
   def review_params
