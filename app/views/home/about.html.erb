@@ -124,18 +124,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
     function action_slick(){
-      $('.slick-carousel').not('.slick-initialized').slick({
-        autoplay: true,
-        autoplaySpeed: 2000,
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-      });
+      if ($.fn.slick) {
+        $('.slick-carousel').not('.slick-initialized').slick({
+          autoplay: true,
+          autoplaySpeed: 2000,
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: true,
+          cssEase: 'linear'
+        });
+      } else {
+        setTimeout(function() {
+            action_slick();
+        }, 500);
+      }
     }
-    $(document).ready(action_slick
-      );document.addEventListener('DOMContentLoaded', action_slick);
+    $(document).ready(action_slick);
   </script>
 </body>
 </html>
