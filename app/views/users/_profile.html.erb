@@ -31,14 +31,14 @@
             <div class="cafe-card border rounded shadow-sm">
               <%= link_to cafe_path(cafe) do %>
                 <% if cafe.images.attached? %>
-                  <%= image_tag cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid", alt: "Cafe Image" %>
+                  <%= image_tag cafe.images.first.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0").processed, class: "img-fluid", alt: "Cafe Image" %>
                 <% else %>
                   <%= image_tag "no_image2.png", size: "300x200", class: "img-fluid", alt: "Default Cafe Image" %>
                 <% end %>
                 <div class="cafe-card-body p-3">
                   <h4 class="cafe-card-title"><%= cafe.name %></h4>
                   <div id="average_raty_<%= cafe.id %>"></div>
-                  <p class="cafe-card-rating">Rating: <%= cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                  <p class="cafe-card-rating"> <%= cafe.reviews.average(:rating) ? "Rating: #{cafe.reviews.average(:rating)&.round(1)} / 5" : "No ratings yet" %> </p>
                 </div>
               <% end %>
               <% if user.same(current_user) %>
@@ -69,14 +69,15 @@
             <div class="cafe-card border rounded shadow-sm">
               <%= link_to cafe_path(favorite_cafe) do %>
                 <% if favorite_cafe.images.attached? %>
-                  <%= image_tag favorite_cafe.images.first.variant(resize: "300x200").processed, class: "img-fluid", alt: "Favorite Cafe Image" %>
+                  <%= image_tag favorite_cafe.images.first.variant(gravity: :center, resize:"300x200^", crop:"300x200+0+0").processed, class: "img-fluid", alt: "Favorite Cafe Image" %>
                 <% else %>
                   <%= image_tag "no_image2.png", size: "300x200", class: "img-fluid", alt: "Default Favorite Cafe Image" %>
                 <% end %>
                 <div class="cafe-card-body p-3">
                   <h4 class="cafe-card-title"><%= favorite_cafe.name %></h4>
                   <div id="average_raty_2<%= favorite_cafe.id %>"></div>
-                  <p class="cafe-card-rating">Rating: <%= favorite_cafe.reviews.average(:rating)&.round(1) || "No ratings yet" %> / 5</p>
+                  
+                  <p class="cafe-card-rating"> <%= favorite_cafe.reviews.average(:rating) ? "Rating: #{favorite_cafe.reviews.average(:rating)&.round(1)} / 5" : "No ratings yet" %> </p>
                 </div>
               <% end %>
               <div id="favorite_btn_<%= favorite_cafe.id %>" class="cafe-card-favorite p-3">

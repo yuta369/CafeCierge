@@ -346,12 +346,13 @@ main {
 
 .hero-section {
   background: url("../images/CafeCierge_logo2.png") no-repeat center center;
-  background-size: cover;
+  background-size: contain;
   color: #fff;
   text-align: center;
   padding: 100px 20px;
   position: relative;
 }
+
 .hero-section::before {
   content: "";
   position: absolute;

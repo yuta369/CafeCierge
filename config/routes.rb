@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   # ユーザー関連
   resources :users, only: [:index, :show, :edit, :update, :destroy] do
     resources :relationships, only: [:create, :destroy]
+    
   end
 
   # カフェ関連

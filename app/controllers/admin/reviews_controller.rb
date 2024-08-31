@@ -5,11 +5,11 @@ class Admin::ReviewsController < ApplicationController
   def index
     @reviews = if params[:search].present?
                  Review.joins(:cafe, :user)
-                   .where('reviews.title LIKE ? OR reviews.content LIKE ? OR cafes.name LIKE ? OR users.name LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
-                   .page(params[:page]).per(10)
+                   .where('reviews.title LIKE ? OR reviews.content LIKE ? OR cafes.name LIKE ? OR users.name LIKE ?',
+                          "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
                else
-                 Review.all.page(params[:page]).per(10)
-               end
+                 Review.all
+               end.page(params[:page]).per(10)
   end
 
   def show

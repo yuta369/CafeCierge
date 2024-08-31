@@ -106,6 +106,9 @@
 
 - **その他ライブラリ** : Raty.js (レビューの星評価) / Acts As Taggable On (タグ付け機能)
 
+- **インフラ** :  Amazon Web Services
+
+
 ---
 
 ## プロジェクトのセットアップ

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+#TODO 今後、使用予定
 class Admin::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   before_action :authenticate_admin!
   # You should configure your model like this:

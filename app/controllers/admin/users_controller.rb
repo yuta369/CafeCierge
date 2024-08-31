@@ -3,9 +3,12 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.all
-    @users = @users.where('name LIKE ? OR email LIKE ?', "%#{params[:query]}%", "%#{params[:query]}%") if params[:query].present?
-    @users = @users.page(params[:page]).per(10)
+    @users = if params[:query].present?
+               User.where('name LIKE ? OR email LIKE ?',
+                          "%#{params[:query]}%", "%#{params[:query]}%")
+             else
+               User.all
+             end.page(params[:page]).per(10)
   end
 
   def edit

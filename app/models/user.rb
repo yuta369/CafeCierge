@@ -1,14 +1,4 @@
 class User < ApplicationRecord
-  # ステータスの選択肢
-  STATUSES = ['active', 'inactive', 'suspended', 'deactivated'].freeze
-  validates :status, inclusion: { in: STATUSES }
-
-  # ステータスのバリデーション
-  validates :status, inclusion: { in: STATUSES }
-
-  # プロフィール画像
-  has_one_attached :profile_image
-
   # フォロー関係の設定
   # 自分がフォローしているユーザー
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -25,6 +15,21 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_cafes, through: :favorites, source: :cafe
   has_many :reservations
+  
+  # プロフィール画像
+  has_one_attached :profile_image
+  
+  # Deviseモジュール
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :omniauthable#, omniauth_providers: %i[github]
+         
+  # ステータスの選択肢
+  STATUSES = ['active', 'inactive', 'suspended'].freeze
+  validates :status, inclusion: { in: STATUSES }
+
+  # ステータスのバリデーション
+  validates :status, inclusion: { in: STATUSES }
 
   # バリデーション
   validates :name, presence: true, length: { maximum: 50 }
@@ -33,20 +38,21 @@ class User < ApplicationRecord
   validates :profile_image, content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                             size: { less_than: 5.megabytes, message: 'is not given between size' }
 
-  # Deviseモジュール
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[github]
-
   # Omniauthでのユーザー作成/検索
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20]
-      user.name = auth.info.name
-      user.image = auth.info.image
-      # user.skip_confirmation! # メール確認をスキップする場合
-    end
+  #TODO: 今後、実装予定 
+  # def self.from_omniauth(auth)
+  #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+  #     user.email = auth.info.email
+  #     user.password = Devise.friendly_token[0, 20]
+  #     user.name = auth.info.name
+  #     user.image = auth.info.image
+  #     # user.skip_confirmation! # メール確認をスキップする場合
+  #   end
+  # end
+  
+  # ログインユーザー判定
+  def same(current_user)
+    current_user == self
   end
 
   # ゲストユーザーの作成
@@ -58,18 +64,18 @@ class User < ApplicationRecord
   end
 
   # 管理者判定
-  def admin?
-    role == 'admin'
-  end
+  # def admin?
+  #   role == 'admin'
+  # end
 
   # お気に入りの管理
-  def favorite(cafe)
-    favorites.find_or_create_by(cafe:)
-  end
+  # def favorite(cafe)
+  #   favorites.find_or_create_by(cafe)
+  # end
 
-  def unfavorite(cafe)
-    favorites.where(cafe:).destroy_all
-  end
+  # def unfavorite(cafe)
+  #   favorites.where(cafe).destroy_all
+  # end
 
   # フォロー機能
   def following?(other_user)
@@ -82,10 +88,5 @@ class User < ApplicationRecord
 
   def unfollow!(other_user)
     active_relationships.find_by(followee_id: other_user.id).destroy
-  end
-  
-  # ログインユーザー判定
-  def same(current_user)
-    current_user == self
   end
 end
