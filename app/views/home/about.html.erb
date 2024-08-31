@@ -123,7 +123,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <script>
-    $(document).ready(function(){
+    function action_slick(){
       $('.slick-carousel').not('.slick-initialized').slick({
         autoplay: true,
         autoplaySpeed: 2000,
@@ -133,7 +133,9 @@
         fade: true,
         cssEase: 'linear'
       });
-    });
+    }
+    $(document).ready(action_slick
+      );document.addEventListener('DOMContentLoaded', action_slick);
   </script>
 </body>
 </html>

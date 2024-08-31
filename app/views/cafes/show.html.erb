@@ -132,6 +132,7 @@
     <h2 class="mt-3">Reviews</h2>
       <% if @reviews.any? %>
         <% @reviews.each do |review| %>
+        <% next unless review.id %>
           <div class="review mb-4 p-3 border rounded">
             <div class="review-header d-flex align-items-center mb-2">
               <% if review.user.profile_image.attached? %>
@@ -146,6 +147,8 @@
             <div id="star_<%= review.id %>"></div>
             <p>Rating: <%= review.rating.to_f.round(1) %> / 5.0</p>
             <% if review.user == current_user %>
+            @cafe. <%= @cafe.id %><br>
+            review. <%= review.id %>
               <%= link_to 'Edit', edit_cafe_review_path(@cafe, review), class: 'btn btn-secondary' %>
               <%= link_to 'Delete', confirm_delete_review_path(review), class: 'btn btn-danger' %>
             <% end %>

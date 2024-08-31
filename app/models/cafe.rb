@@ -20,9 +20,10 @@ class Cafe < ApplicationRecord
 
   accepts_nested_attributes_for :reviews
 
-  def self.ransackable_attributes(_auth_object = nil)
-    ["address", "category", "contact_info", "created_at", "features", "hours", "id", "images", "name", "price_range", "updated_at", "website", "review_title", "review_content", "rating"]
-  end
+  # 一時コメントアウト
+  # def self.ransackable_attributes(_auth_object = nil)
+  #   ["address", "category", "contact_info", "created_at", "features", "hours", "id", "images", "name", "price_range", "updated_at", "website", "review_title", "review_content", "rating"]
+  # end
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?

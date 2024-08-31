@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @reviews = @cafe.reviews
     @review = @cafe.reviews.build(review_params)
     @review.user = current_user
 
@@ -42,8 +43,10 @@ class ReviewsController < ApplicationController
 
   def set_cafe
     @cafe = Cafe.find_by_id(params[:cafe_id])
-    flash[:alert] = '指定されたカフェが見つかりません。'
-    redirect_to root_path unless @cafe
+    unless @cafe
+      flash[:alert] = '指定されたカフェが見つかりません。'
+      redirect_to root_path
+    end
   end
 
   def review_params
