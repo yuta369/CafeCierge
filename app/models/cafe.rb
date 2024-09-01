@@ -42,16 +42,16 @@ class Cafe < ApplicationRecord
     
     if params[:name].present? && params[:tag].present?
       tag = Tag.find(params[:tag])
-       tagged_with(tag.name).where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
+       tagged_with(tag.name).where("name LIKE ?", "%#{params[:name]}%")
     elsif params[:name].present?
-      where("name LIKE ?", "%#{params[:name]}%").page(params[:page]).per(10)
+      where("name LIKE ?", "%#{params[:name]}%")
     elsif params[:tag].present?
       tag = Tag.find(params[:tag])
-       tagged_with(tag.name).page(params[:page]).per(10)
+       tagged_with(tag.name)
     else
-      all.page(params[:page]).per(10)
-    end
-    
+      all
+    end.page(params[:page]).per(10)
+
   end
 
 end
