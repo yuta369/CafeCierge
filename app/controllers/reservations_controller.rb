@@ -15,4 +15,4 @@ class ReservationsController < ApplicationController
   end
 end
 
-# To-Do カフェ予約機能の実装の準備
+# TODO: カフェ予約機能の実装の準備

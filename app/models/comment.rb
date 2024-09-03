@@ -5,4 +5,4 @@ class Comment < ApplicationRecord
   validates :content, presence: true
 end
 
-# To-Do コメント機能の実装の準備
+# TODO: コメント機能の実装の準備
