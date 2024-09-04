@@ -39,7 +39,7 @@ class User < ApplicationRecord
                             size: { less_than: 5.megabytes, message: 'is not given between size' }
 
   # Omniauthでのユーザー作成/検索
-  #TODO: 今後、実装予定 
+  # TODO: 今後、実装予定 
   # def self.from_omniauth(auth)
   #   where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
   #     user.email = auth.info.email
