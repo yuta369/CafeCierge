@@ -41,7 +41,7 @@ class CafesController < ApplicationController
   end
 
   def destroy
-    cafe.destroy
+    @cafe.destroy
     redirect_to cafes_url, notice: 'カフェが削除されました。'
   end
 
