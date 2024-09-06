@@ -14,7 +14,7 @@ class CafesController < ApplicationController
 
   def new
     @cafe = Cafe.new
-    @cafe.reviews.build # レビューのビルド
+    @cafe.reviews.build
   end
 
   def edit
@@ -22,8 +22,8 @@ class CafesController < ApplicationController
 
   def create
     @cafe = Cafe.new(cafe_params)
-    @cafe.user = current_user # カフェの作成者を設定
-    @cafe.reviews.first.user = current_user # レビューのユーザーを設定
+    @cafe.user = current_user
+    @cafe.reviews.first.user = current_user
 
     if @cafe.save
       redirect_to @cafe, notice: 'カフェが正常に作成されました。'
