@@ -10,8 +10,6 @@ import "channels";
 
 import "./cafe_image_preview";
 
-//import "bootstrap/dist/js/bootstrap"
-
 // Bootstrap
 import "jquery";
 // Import CSS
@@ -30,20 +28,6 @@ window.raty = function (elem, opt) {
   raty.init();
   return raty;
 };
-
-// jQuery
-// import $ from 'jquery'
-// global.$ = jQuery;
-
-//import { library, dom } from '@fortawesome/fontawesome-svg-core';
-//import { fas } from '@fortawesome/free-solid-svg-icons';
-//import { far } from '@fortawesome/free-regular-svg-icons';
-//import { fab } from '@fortawesome/free-brands-svg-icons';
-
-//library.add(fas, far, fab);
-
-// この行はDOMを監視してFontAwesomeアイコンを自動的に置き換える
-//dom.watch();
 
 Rails.start();
 Turbolinks.start();
