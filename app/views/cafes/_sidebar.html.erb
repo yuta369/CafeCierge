@@ -11,28 +11,6 @@
       <%= select_tag :tag, options_for_select(Tag.pluck(:name, :id), params[:tag]), include_blank: true, class: "form-control" %>
     </div>
 
-    <!--<div class="form-group">-->
-    <!--  <%#= label_tag :q_price_range_in, "価格帯" %>-->
-    <!--  <%#= select_tag :q_price_range_in, options_for_select([-->
-    <!--    ["〜500円", "〜500円"],-->
-    <!--    ["500〜1,000円", "500〜1,000円"],-->
-    <!--    ["1,000〜2,000円", "1,000〜2,000円"],-->
-    <!--    ["2,000円〜", "2,000円〜"]-->
-    <!--  ], params.dig(:q, :price_range_in)), include_blank: "全て", class: "form-control" %>-->
-    <!--</div>-->
-
-    <!--<div class="form-group">-->
-    <!--  <%#= label_tag :q_features_in, "特長" %>-->
-    <!--  <div class="form-check">-->
-    <!--    <%# ["無料Wi-Fi", "電源コンセント", "喫煙エリア", "ペット同伴"].each do |feature| %>-->
-    <!--      <div class="form-check-item">-->
-    <!--        <%#= check_box_tag "q[features_in][]", feature, params.dig(:q, :features_in)&.include?(feature), class: "form-check-input", id: "q_features_in_#{feature}" %>-->
-    <!--        <%#= label_tag "q_features_in_#{feature}", feature, class: "form-check-label" %>-->
-    <!--      </div>-->
-    <!--    <%# end %>-->
-    <!--  </div>-->
-    <!--</div>-->
-
     <%= submit_tag "検索", class: "btn btn-primary" %>
   <% end %>
 </div>
