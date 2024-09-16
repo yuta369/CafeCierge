@@ -2,7 +2,7 @@
   <h1 class="mb-4">ユーザー情報の編集</h1>
   <%= simple_form_for(@user, as: @user, url: admin_user_path(@user), html: { method: :patch, multipart: true }) do |f| %>
     <%= f.error_notification %>
-  
+
     <div class="form-inputs">
       <%= f.input :name, label: "名前", required: true %>
       <%= f.input :email, label: "メールアドレス", required: true %>
@@ -13,14 +13,14 @@
         <img id="profile-preview" src="<%= asset_path('no_image.jpg') %>" alt="プロフィール画像のプレビュー" />
       <% end %>
       <%= f.input :introduction, label: "自己紹介", as: :text %>
-  
+
       <div class="form-group">
         <%= f.label :status, 'ステータス', class: 'form-label' %>
         <div class="custom-select-wrapper">
               <%= f.select :status, User::STATUSES.map { |status| [status.capitalize, status] }, {}, class: 'form-control status-select', data: { status: @user.status } %>
         </div>
       </div>
-  
+
       <div class="form-group mt-4">
         <%= f.submit '保存', class: 'btn btn-primary' %>
         <%= link_to 'キャンセル', admin_users_path, class: 'btn btn-secondary ml-2' %>
