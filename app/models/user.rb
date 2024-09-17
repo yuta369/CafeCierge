@@ -63,20 +63,6 @@ class User < ApplicationRecord
     end
   end
 
-  # 管理者判定
-  # def admin?
-  #   role == 'admin'
-  # end
-
-  # お気に入りの管理
-  # def favorite(cafe)
-  #   favorites.find_or_create_by(cafe)
-  # end
-
-  # def unfavorite(cafe)
-  #   favorites.where(cafe).destroy_all
-  # end
-
   # フォロー機能
   def following?(other_user)
     following.include?(other_user)
