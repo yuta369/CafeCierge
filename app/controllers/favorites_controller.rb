@@ -38,4 +38,3 @@ class FavoritesController < ApplicationController
     @cafe = Cafe.find(params[:id])
   end
 end
-
